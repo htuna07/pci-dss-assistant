@@ -1,0 +1,30 @@
+{
+  "document_version": "4.0.1",
+  "record_type": "requirement_introduction",
+  "requirement_id": "5",
+  "pdf_pages": [
+    123
+  ],
+  "title": "Protect All Systems and Networks from Malicious Software",
+  "sections": [
+    {
+      "id": "5.1",
+      "title": "Processes and mechanisms for protecting all systems and networks from malicious software are defined and understood."
+    },
+    {
+      "id": "5.2",
+      "title": "Malicious software (malware) is prevented, or detected and addressed."
+    },
+    {
+      "id": "5.3",
+      "title": "Anti-malware mechanisms and processes are active, maintained, and monitored."
+    },
+    {
+      "id": "5.4",
+      "title": "Anti-phishing mechanisms protect users against phishing attacks."
+    }
+  ],
+  "overview": "Malicious software (malware) is software or firmware designed to infiltrate or damage a computer system without the owner's knowledge or\nconsent, with the intent of compromising the confidentiality, integrity, or availability of the owner’s data, applications, or operating system.\nExamples include viruses, worms, Trojans, spyware, ransomware, keyloggers, rootkits, malicious code, scripts, and links.\nMalware can enter the network during many business-approved activities, including employee e-mail (for example, via phishing) and use of the\nInternet, mobile computers, and storage devices, resulting in the exploitation of system vulnerabilities.\nUsing anti-malware solutions that address all types of malware helps to protect systems from current and evolving malware threats.\nRefer to Appendix G for definitions of PCI DSS terms.",
+  "category_title": "Maintain a Vulnerability Management Program",
+  "notes": []
+}

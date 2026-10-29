@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "5",
+  "document_version": "4.0.1",
+  "requirement_id": "5.2.3",
+  "pdf_pages": [
+    128
+  ],
+  "defined_requirement": "Any system components that are not at risk for\nmalware are evaluated periodically to include the\nfollowing:\n•  A documented list of all system components not\nat risk for malware.\n•    Identification and evaluation of evolving\nmalware threats for those system components.\n•   Confirmation whether such system components\ncontinue to not require anti-malware protection.",
+  "testing_procedures": "5.2.3.a Examine documented policies and\nprocedures to verify that a process is defined for\nperiodic evaluations of any system components\nthat are not at risk for malware that includes all\nelements specified in this requirement.\n5.2.3.b Interview personnel to verify that the\nevaluations include all elements specified in this\nrequirement.\n5.2.3.c Examine the list of system components\nidentified as not at risk of malware and compare to\nthe system components without an anti-malware\nsolution deployed per Requirement 5.2.1 to verify\nthat the system components match for both\nrequirements.",
+  "customized_approach_objective": "The entity maintains awareness of evolving malware\nthreats to ensure that any systems not protected\nfrom malware are not at risk of infection.",
+  "applicability_notes": "System components covered by this requirement\nare those for which there is no anti-malware solution\ndeployed per Requirement 5.2.1.",
+  "guidance": {
+    "purpose": "Certain systems, at a given point in time, may not\ncurrently be commonly targeted or affected by\nmalware. However, industry trends for malware can\nchange quickly, so it is important for organizations\nto be aware of new malware that might affect their\nsystems—for example, by monitoring vendor\nsecurity notices and anti-malware forums to\ndetermine whether its systems might be coming\nunder threat from new and evolving malware.",
+    "good_practice": "If an entity determines that a particular system is not\nsusceptible to any malware, the determination\nshould be supported by industry evidence, vendor\nresources, and best practices.\nThe following steps can help entities during their\nperiodic evaluations:\n•   Identification of all system types previously\ndetermined to not require malware protection.\n•  Review of industry vulnerability alerts and\nnotices to determine if new threats exist for any\nidentified system.\n•  A documented conclusion about whether the\nsystem types remain not susceptible to malware.\n•  A strategy to add malware protection for any\nsystem types for which malware protection has\nbecome necessary.\nTrends in malware should be included in the\nidentification of new security vulnerabilities at\nRequirement 6.3.1, and methods to address new\ntrends should be incorporated into the entity’s\nconfiguration standards and protection mechanisms\nas needed."
+  },
+  "extraction_notes": []
+}

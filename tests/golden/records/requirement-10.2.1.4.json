@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "10",
+  "document_version": "4.0.1",
+  "requirement_id": "10.2.1.4",
+  "pdf_pages": [
+    244,
+    245
+  ],
+  "defined_requirement": "Audit logs capture all invalid logical access\nattempts.",
+  "testing_procedures": "10.2.1.4 Examine audit log configurations and log\ndata to verify that invalid logical access attempts\nare captured.",
+  "customized_approach_objective": "Records of all invalid access attempts are captured.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Malicious individuals will often perform multiple\naccess attempts on targeted systems. Multiple\ninvalid login attempts may be an indication of an\nunauthorized user’s attempts to “brute force” or\nguess a password."
+  },
+  "extraction_notes": []
+}

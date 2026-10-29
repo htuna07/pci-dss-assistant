@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "6",
+  "document_version": "4.0.1",
+  "requirement_id": "6.2.3.1",
+  "pdf_pages": [
+    144
+  ],
+  "defined_requirement": "If manual code reviews are performed for\nbespoke and custom software prior to release to\nproduction, code changes are:\n•  Reviewed by individuals other than the\noriginating code author, and who are\nknowledgeable about code-review techniques\nand secure coding practices.\n•  Reviewed and approved by management prior\nto release.",
+  "testing_procedures": "6.2.3.1.a If manual code reviews are performed for\nbespoke and custom software prior to release to\nproduction, examine documented software\ndevelopment procedures and interview responsible\npersonnel to verify that processes are defined for\nmanual code reviews to be conducted in\naccordance with all elements specified in this\nrequirement.\n6.2.3.1.b Examine evidence of changes to\nbespoke and custom software and interview\npersonnel to verify that manual code reviews were\nconducted in accordance with all elements\nspecified in this requirement.",
+  "customized_approach_objective": "The manual code review process cannot be\nbypassed and is effective at discovering security\nvulnerabilities.",
+  "applicability_notes": "Manual code reviews can be conducted by\nknowledgeable internal personnel or knowledgeable\nthird-party personnel.\nAn individual that has been formally granted\naccountability for release control and who is neither\nthe original code author nor the code reviewer fulfills\nthe criteria of being management.",
+  "guidance": {
+    "purpose": "Having code reviewed by someone other than the\noriginal author, who is both experienced in code\nreviews and knowledgeable about secure coding\npractices, minimizes the possibility that code\ncontaining security or logic errors that could affect the\nsecurity of cardholder data is released into a\nproduction environment. Requiring management\napproval that the code was reviewed limits the ability\nfor the process to be bypassed.",
+    "good_practice": "Having a formal review methodology and review\nchecklists has been found to improve the quality of\nthe code review process.\nCode review is a tiring process, and for this reason, it\nis most effective when reviewers only review small\namounts of code at a time.\nTo maintain the effectiveness of code reviews, it is\nbeneficial to monitor the general workload of\nreviewers and to have them review applications they\nare familiar with.\nCode reviews may be performed using either manual\nor automated processes, or a combination of both.\nEntitles that rely solely on manual code review\nshould ensure that reviewers maintain their skills\nthrough regular training as new vulnerabilities are\nfound, and new secure coding methods are\nrecommended.",
+    "further_information": "See the OWASP Code Review Guide."
+  },
+  "extraction_notes": []
+}

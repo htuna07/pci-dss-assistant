@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "2",
+  "document_version": "4.0.1",
+  "requirement_id": "2.2.1",
+  "pdf_pages": [
+    68
+  ],
+  "defined_requirement": "Configuration standards are developed,\nimplemented, and maintained to:\n•  Cover all system components.\n•  Address all known security vulnerabilities.\n•  Be consistent with industry-accepted system\nhardening standards or vendor hardening\nrecommendations.\n•  Be updated as new vulnerability issues are\nidentified, as defined in Requirement 6.3.1.\n•  Be applied when new systems are configured\nand verified as in place before or immediately\nafter a system component is connected to a\nproduction environment.",
+  "testing_procedures": "2.2.1.a Examine system configuration standards\nto verify they define processes that include all\nelements specified in this requirement.\n2.2.1.b Examine policies and procedures and\ninterview personnel to verify that system\nconfiguration standards are updated as new\nvulnerability issues are identified, as defined in\nRequirement 6.3.1.\n2.2.1.c Examine configuration settings and\ninterview personnel to verify that system\nconfiguration standards are applied when new\nsystems are configured and verified as being in\nplace before or immediately after a system\ncomponent is connected to a production\nenvironment.",
+  "customized_approach_objective": "All system components are configured securely and\nconsistently and in accordance with industry-\naccepted hardening standards or vendor\nrecommendations.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "There are known weaknesses with many\noperating systems, databases, network devices,\nsoftware, applications, container images, and\nother devices used by an entity or within an\nentity’s environment. There are also known ways\nto configure these system components to fix\nsecurity vulnerabilities. Fixing security\nvulnerabilities reduces the opportunities available\nto an attacker.\nBy developing standards, entities ensure their\nsystem components will be configured\nconsistently and securely and will address the\nprotection of devices for which full hardening may\nbe more difficult.",
+    "good_practice": "Keeping up to date with current industry guidance\nwill help the entity maintain secure configurations.\nThe specific controls to be applied to a system will\nvary and should be appropriate for the type and\nfunction of the system.\nNumerous security organizations have\nestablished system-hardening guidelines and\nrecommendations, which advise how to correct\ncommon, known weaknesses.",
+    "further_information": "Sources for guidance on configuration standards\ninclude but are not limited to: Center for Internet\nSecurity (CIS), International Organization for\nStandardization (ISO), National Institute of\nStandards and Technology (NIST), Cloud\nSecurity Alliance, and product vendors."
+  },
+  "extraction_notes": []
+}

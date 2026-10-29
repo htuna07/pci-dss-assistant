@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "9",
+  "document_version": "4.0.1",
+  "requirement_id": "9.3.3",
+  "pdf_pages": [
+    224
+  ],
+  "defined_requirement": "Visitor badges or identification are\nsurrendered or deactivated before visitors leave the\nfacility or at the date of expiration.",
+  "testing_procedures": "9.3.3 Observe visitors leaving the facility and\ninterview personnel to verify visitor badges or other\nidentification are surrendered or deactivated before\nvisitors leave the facility or at the date of expiration.\nupon departure or expiration.",
+  "customized_approach_objective": "Visitor identification or badges cannot be reused\nafter expiration.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Ensuring that visitor badges are returned or\ndeactivated upon expiry or completion of the visit\nprevents malicious persons from using a\npreviously authorized pass to gain physical\naccess into the building after the visit has ended."
+  },
+  "extraction_notes": []
+}

@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "11",
+  "document_version": "4.0.1",
+  "requirement_id": "11.3.2.1",
+  "pdf_pages": [
+    277
+  ],
+  "defined_requirement": "External vulnerability scans are performed\nafter any significant change as follows:\n•   Vulnerabilities that are scored 4.0 or higher by\nthe CVSS are resolved.\n•  Rescans are conducted as needed.\n•  Scans are performed by qualified personnel and\norganizational independence of the tester exists\n(not required to be a QSA or ASV).",
+  "testing_procedures": "11.3.2.1.a Examine change control documentation\nand external scan reports to verify that system\ncomponents were scanned after any significant\nchanges.\n11.3.2.1.b Interview personnel and examine\nexternal scan and rescan reports to verify that\nexternal scans were performed after significant\nchanges and that vulnerabilities scored 4.0 or\nhigher by the CVSS were resolved.\n11.3.2.1.c Interview personnel to verify that\nexternal scans are performed by a qualified\ninternal resource(s) or qualified external third party\nand that organizational independence of the tester\nexists.",
+  "customized_approach_objective": "The security posture of all system components is\nverified following significant changes to the network\nor systems, by using tools designed to detect\nvulnerabilities operating from outside the network.\nDetected vulnerabilities are assessed and rectified\nbased on a formal risk assessment framework.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Scanning an environment after any significant\nchanges ensures that changes were completed\nappropriately such that the security of the\nenvironment was not compromised because of\nthe change.",
+    "good_practice": "Entities should include the need to perform scans\nafter significant changes as part of the change\nprocess and before the change is considered\ncomplete. All system components affected by the\nchange will need to be scanned."
+  },
+  "extraction_notes": []
+}

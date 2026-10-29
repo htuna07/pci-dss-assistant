@@ -1,0 +1,20 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.8.2",
+  "pdf_pages": [
+    320,
+    321
+  ],
+  "defined_requirement": "Written agreements with TPSPs are\nmaintained as follows:\n•   Written agreements are maintained with all\nTPSPs with which account data is shared or that\ncould affect the security of the CDE.\n•   Written agreements include acknowledgments\nfrom TPSPs that TPSPs are responsible for the\nsecurity of account data the TPSPs possess or\notherwise store, process, or transmit on behalf\nof the entity, or to the extent that the TPSP could\nimpact the security of the entity’s cardholder\ndata and/or sensitive authentication data.",
+  "testing_procedures": "12.8.2.a Examine policies and procedures to verify\nthat processes are defined to maintain written\nagreements with all TPSPs in accordance with all\nelements specified in this requirement.\n12.8.2.b Examine written agreements with TPSPs\nto verify they are maintained in accordance with all\nelements as specified in this requirement.",
+  "customized_approach_objective": "Records are maintained of each TPSP’s\nacknowledgment of its responsibility to protect\naccount data.",
+  "applicability_notes": "The exact wording of an agreement will depend on\nthe details of the service being provided, and the\nresponsibilities assigned to each party. The\nagreement does not have to include the exact\nwording provided in this requirement.\nThe TPSP’s written acknowledgment is a\nconfirmation that states the TPSP is responsible for\nthe security of the account data it may store,\nprocess, or transmit on behalf of the customer or to\nthe extent the TPSP may impact the security of a\ncustomer’s cardholder data and/or sensitive\nauthentication data.\nEvidence that a TPSP is meeting PCI DSS\nrequirements (is not the same as a written\nacknowledgment specified in this requirement. For\nexample, a PCI DSS Attestation of Compliance\n(AOC), a declaration on a company’s website, a\npolicy statement, a responsibility matrix, or other\nevidence not included in a written agreement is not\na written acknowledgment.",
+  "guidance": {
+    "purpose": "The written acknowledgment from a TPSP\ndemonstrates its commitment to maintaining\nproper security of account data that it obtains\nfrom its customers and that the TPSP is fully\naware of the assets that could be affected during\nthe provisioning of the TPSP’s service. The extent\nto which a specific TPSP is responsible for the\nsecurity of account data will depend on the\nservice provided and the responsibilities agreed\nbetween the provider and assessed entity (the\ncustomer).\nIn conjunction with Requirement 12.9.1, this\nrequirement is intended to promote a consistent\nlevel of understanding between parties about their\napplicable PCI DSS responsibilities. For example,\nthe agreement may include the applicable PCI\nDSS requirements to be maintained as part of the\nprovided service.",
+    "good_practice": "The entity may also want to consider including in\ntheir written agreement with a TPSP that the\nTPSP will support the entity’s request for\ninformation per Requirement 12.9.2. Entities will\nalso want to understand whether any TPSPs have\n“nested” relationships with other TPSPs, meaning\nthe primary TPSP contracts with another TPSP(s)\nfor the purposes of providing a service.\nIt is important to understand whether the primary\nTPSP is relying on the secondary TPSP(s) to\nachieve overall compliance of a service, and what\ntypes of written agreements the primary TPSP\nhas in place with the secondary TPSPs. Entities\ncan consider including coverage in their written\nagreement for any “nested” TPSPs a primary\nTPSP may use.",
+    "further_information": "Refer to the Information Supplement: Third-Party\nSecurity Assurance for further guidance."
+  },
+  "extraction_notes": []
+}

@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "2",
+  "document_version": "4.0.1",
+  "requirement_id": "2.2.5",
+  "pdf_pages": [
+    73
+  ],
+  "defined_requirement": "If any insecure services, protocols, or\ndaemons are present:\n•  Business justification is documented.\n•   Additional security features are documented and\nimplemented that reduce the risk of using\ninsecure services, protocols, or daemons.",
+  "testing_procedures": "2.2.5.a If any insecure services, protocols, or\ndaemons are present, examine system\nconfiguration standards and interview personnel to\nverify they are managed and implemented in\naccordance with all elements specified in this\nrequirement.\n2.2.5.b If any insecure services, protocols, or\ndaemons, are present, examine configuration\nsettings to verify that additional security features\nare implemented to reduce the risk of using\ninsecure services, daemons, and protocols.",
+  "customized_approach_objective": "System components cannot be compromised by\nexploiting insecure services, protocols, or daemons.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Ensuring that all insecure services, protocols, and\ndaemons are adequately secured with\nappropriate security features makes it more\ndifficult for malicious individuals to exploit\ncommon points of compromise within a network.",
+    "good_practice": "Enabling security features before new system\ncomponents are deployed will prevent insecure\nconfigurations from being introduced into the\nenvironment. Some vendor solutions may provide\nadditional security functions to assist with\nsecuring an insecure process.",
+    "further_information": "For guidance on services, protocols, or daemons\nconsidered to be insecure, refer to industry\nstandards and guidance (for example, as\npublished by NIST, ENISA, and OWASP)."
+  },
+  "extraction_notes": []
+}

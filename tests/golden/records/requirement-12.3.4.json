@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.3.4",
+  "pdf_pages": [
+    304
+  ],
+  "defined_requirement": "Hardware and software technologies in use\nare reviewed at least once every 12 months,\nincluding at least the following:\n•   Analysis that the technologies continue to\nreceive security fixes from vendors promptly.\n•   Analysis that the technologies continue to\nsupport (and do not preclude) the entity’s PCI\nDSS compliance.\n•  Documentation of any industry announcements\nor trends related to a technology, such as when\na vendor has announced “end of life” plans for a\ntechnology.\n•  Documentation of a plan, approved by senior\nmanagement, to remediate outdated\ntechnologies, including those for which vendors\nhave announced “end of life” plans.",
+  "testing_procedures": "12.3.4 Examine documentation for the review of\nhardware and software technologies in use and\ninterview personnel to verify that the review is in\naccordance with all elements specified in this\nrequirement.",
+  "customized_approach_objective": "The entity’s hardware and software technologies are\nup to date and supported by the vendor. Plans to\nremove or replace all unsupported system\ncomponents are reviewed periodically.",
+  "applicability_notes": "This requirement is a best practice until 31 March\n2025, after which it will be required and must be\nfully considered during a PCI DSS assessment.",
+  "guidance": {
+    "purpose": "Hardware and software technologies are\nconstantly evolving, and organizations need to be\naware of changes to the technologies they use,\nas well as the evolving threats to those\ntechnologies to ensure that they can prepare for,\nand manage, vulnerabilities in hardware and\nsoftware that will not be remediated by the vendor\nor developer. Good Practice\nOrganizations should review firmware versions to\nensure they remain current and supported by the\nvendors. Organizations also need to be aware of\nchanges made by technology vendors to their\nproducts or processes to understand how such\nchanges may impact the organization’s use of the\ntechnology.\nRegular reviews of technologies that impact or\ninfluence PCI DSS controls can assist with\npurchasing, usage, and deployment strategies,\nand ensure controls that rely on those\ntechnologies remain effective. These reviews\ninclude, but are not limited to, reviewing\ntechnologies that are no longer supported by the\nvendor and/or no longer meet the security needs\nof the organization."
+  },
+  "extraction_notes": []
+}

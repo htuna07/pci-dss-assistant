@@ -1,0 +1,46 @@
+{
+  "document_version": "4.0.1",
+  "record_type": "requirement_introduction",
+  "requirement_id": "8",
+  "pdf_pages": [
+    178,
+    179
+  ],
+  "title": "Identify Users and Authenticate Access to System Components",
+  "sections": [
+    {
+      "id": "8.1",
+      "title": "Processes and mechanisms for identifying users and authenticating access to system components are defined and understood."
+    },
+    {
+      "id": "8.2",
+      "title": "User identification and related accounts for users and administrators are strictly managed throughout an account’s lifecycle."
+    },
+    {
+      "id": "8.3",
+      "title": "Strong authentication for users and administrators is established and managed."
+    },
+    {
+      "id": "8.4",
+      "title": "Multi-factor authentication (MFA) is implemented to secure access into the CDE."
+    },
+    {
+      "id": "8.5",
+      "title": "Multi-factor authentication (MFA) systems are configured to prevent misuse."
+    },
+    {
+      "id": "8.6",
+      "title": "Use of application and system accounts and associated authentication factors is strictly managed."
+    }
+  ],
+  "overview": "Two fundamental principles of identifying and authenticating users are to 1) establish the identity of an individual or process on a computer\nsystem, and 2) prove or verify the user associated with the identity is who the user claims to be.\nIdentification of an individual or process on a computer system is conducted by associating an identity with a person or process through an\nidentifier, such as a user, system, or application ID. These IDs (also referred to as “accounts”) fundamentally establish the identity of an individual\nor process by assigning unique identification to each person or process to distinguish one user or process from another. When each user or\nprocess can be uniquely identified, it ensures there is accountability for actions performed by that identity. When such accountability is in place,\nactions taken can be traced to known and authorized users and processes.\nThe element used to prove or verify the identity is known as the authentication factor. Authentication factors are 1) something you know, such as\na password or passphrase, 2) something you have, such as a token device or smart card, or 3) something you are, such as a biometric element.\nThe ID and the authentication factor together are considered authentication credentials and are used to gain access to the rights and privileges\nassociated with a user, application, system, or service accounts.\nThese requirements for identity and authentication are based on industry-accepted security principles and best practices to support the payment\necosystem. NIST Special Publication 800-63, Digital Identity Guidelines provides additional information on acceptable frameworks for digital\nidentity and authentication factors. It is important to note that the NIST Digital Identity Guidelines is intended for US Federal Agencies and should\nbe viewed in its entirety.  Many of the concepts and approaches defined in these guidelines are expected to work with each other and not as\nstandalone parameters.",
+  "category_title": null,
+  "notes": [
+    {
+      "pdf_pages": [
+        179
+      ],
+      "text": "Unless otherwise stated in the requirement, these requirements apply to all accounts on all system components, unless specifically\ncalled out in an individual requirement, including but not limited to:\n\nPoint-of-sale accounts\n\nAccounts with administrative capabilities\n\nSystem and application accounts\n\nAll accounts used to view or access cardholder data or to access systems with cardholder data.\nThis includes accounts used by employees, contractors, consultants, internal and external vendors, and other third parties (for example, for\nproviding support or maintenance services).\nCertain requirements are not intended to apply to user accounts on point-of-sale terminals that have access to only one card number at a time to\nfacilitate a single transaction. When items do not apply, they are noted directly within the specific requirement.\nThese requirements do not apply to accounts used by consumers (cardholders).\nRefer to Appendix G for definitions of PCI DSS terms."
+    }
+  ]
+}

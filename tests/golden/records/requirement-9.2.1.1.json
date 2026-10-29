@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "9",
+  "document_version": "4.0.1",
+  "requirement_id": "9.2.1.1",
+  "pdf_pages": [
+    218
+  ],
+  "defined_requirement": "Individual physical access to sensitive areas\nwithin the CDE is monitored with either video\ncameras or physical access control mechanisms (or\nboth) as follows:\n•   Entry and exit points to/from sensitive areas\nwithin the CDE are monitored.\n•   Monitoring devices or mechanisms are protected\nfrom tampering or disabling.\n•   Collected data is reviewed and correlated with\nother entries.\n•   Collected data is stored for at least three\nmonths, unless otherwise restricted by law.",
+  "testing_procedures": "9.2.1.1.a Observe locations where individual\nphysical access to sensitive areas within the CDE\noccurs to verify that either video cameras or\nphysical access control mechanisms (or both) are\nin place to monitor the entry and exit points.\n9.2.1.1.b Observe locations where individual\nphysical access to sensitive areas within the CDE\noccurs to verify that either video cameras or\nphysical access control mechanisms (or both) are\nprotected from tampering or disabling.\n9.2.1.1.c Observe the physical access control\nmechanisms and/or examine video cameras and\ninterview responsible personnel to verify that:\n•   Collected data from video cameras and/or\nphysical access control mechanisms is\nreviewed and correlated with other entries.\n•   Collected data is stored for at least three\nmonths.",
+  "customized_approach_objective": "Trusted, verifiable records are maintained of\nindividual physical entry to, and exit from, sensitive\nareas.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Maintaining details of individuals entering and\nexiting the sensitive areas can help with\ninvestigations of physical breaches by identifying\nindividuals that physically accessed the sensitive\nareas, as well as when they entered and exited.",
+    "good_practice": "Whichever mechanism meets this requirement, it\nshould effectively monitor all entry and exit points\nto sensitive areas.\nCriminals attempting to gain physical access to\nsensitive areas will often try to disable or bypass\nthe monitoring controls. To protect these controls\nfrom tampering, video cameras could be\npositioned so they are out of reach and/or be\nmonitored to detect tampering. Similarly, physical\naccess control mechanisms could be monitored\nor have physical protections installed to prevent\nthem from being damaged or disabled by\nmalicious individuals."
+  },
+  "extraction_notes": []
+}

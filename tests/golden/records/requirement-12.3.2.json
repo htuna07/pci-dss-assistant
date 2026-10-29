@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.3.2",
+  "pdf_pages": [
+    302
+  ],
+  "defined_requirement": "A targeted risk analysis is performed for each\nPCI DSS requirement that the entity meets with the\ncustomized approach, to include:\n•  Documented evidence detailing each element\nspecified in Appendix D: Customized Approach\n(including, at a minimum, a controls matrix and\nrisk analysis).\n•  Approval of documented evidence by senior\nmanagement.\n•  Performance of the targeted analysis of risk at\nleast once every 12 months.",
+  "testing_procedures": "12.3.2 Examine the documented targeted risk-\nanalysis for each PCI DSS requirement that the\nentity meets with the customized approach to verify\nthat documentation for each requirement exists\nand is in accordance with all elements specified in\nthis requirement.",
+  "customized_approach_objective": "This requirement is part of the customized approach\nand must be met for those using the customized\napproach.",
+  "applicability_notes": "This requirement only applies to entities using a\nCustomized Approach.",
+  "guidance": {
+    "purpose": "A risk analysis following a repeatable and robust\nmethodology enables an entity to meet the\ncustomized approach objective.",
+    "definitions": "The customized approach to meeting a PCI DSS\nrequirement allows entities to define the controls\nused to meet a given requirement’s stated\nCustomized Approach Objective in a way that\ndoes not strictly follow the defined requirement.\nThese controls are expected to at least meet or\nexceed the security provided by the defined\nrequirement and require extensive documentation\nby the entity using the customized approach.",
+    "further_information": "See Appendix D: Customized Approach for\ninstructions on how to document the required\nevidence for the customized approach.\nSee PCI DSS v4.x: Sample Templates to Support\nCustomized Approach on the PCI SSC website\nfor templates that entities may use to document\ntheir customized controls. Note that while use of\nthe templates is optional, the information specified\nwithin each template must be documented and\nprovided to each entity’s assessor."
+  },
+  "extraction_notes": []
+}

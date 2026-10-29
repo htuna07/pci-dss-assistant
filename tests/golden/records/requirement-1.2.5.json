@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "1",
+  "document_version": "4.0.1",
+  "requirement_id": "1.2.5",
+  "pdf_pages": [
+    51
+  ],
+  "defined_requirement": "All services, protocols, and ports allowed are\nidentified, approved, and have a defined business\nneed.",
+  "testing_procedures": "1.2.5.a Examine documentation to verify that a list\nexists of all allowed services, protocols, and ports,\nincluding business justification and approval for\neach.\n1.2.5.b Examine configuration settings for NSCs to\nverify that only approved services, protocols, and\nports are in use.",
+  "customized_approach_objective": "Unauthorized network traffic (services, protocols, or\npackets destined for specific ports) cannot enter or\nleave the network.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Compromises often happen due to unused or\ninsecure services (for example, telnet and FTP),\nprotocols, and ports, since these can lead to\nunnecessary points of access being opened into\nthe CDE. Additionally, services, protocols, and\nports that are enabled but not in use are often\noverlooked and left unsecured and unpatched. By\nidentifying the services, protocols, and ports\nnecessary for business, entities can ensure that\nall other services, protocols, and ports are\ndisabled or removed.",
+    "good_practice": "The security risk associated with each service,\nprotocol, and port allowed should be understood.\nApprovals should be granted by personnel\nindependent of those managing the configuration.\nApproving personnel should possess knowledge\nand accountability appropriate for making\napproval decisions."
+  },
+  "extraction_notes": []
+}

@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "10",
+  "document_version": "4.0.1",
+  "requirement_id": "10.2.1.2",
+  "pdf_pages": [
+    244
+  ],
+  "defined_requirement": "Audit logs capture all actions taken by any\nindividual with administrative access, including any\ninteractive use of application or system accounts.",
+  "testing_procedures": "10.2.1.2 Examine audit log configurations and log\ndata to verify that all actions taken by any\nindividual with administrative access, including any\ninteractive use of application or system accounts,\nare logged.",
+  "customized_approach_objective": "Records of all actions performed by individuals with\nelevated privileges are captured.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Accounts with increased access privileges, such\nas the “administrator” or “root” account, have the\npotential to significantly impact the security or\noperational functionality of a system. Without a\nlog of the activities performed, an organization is\ncannot trace any issues resulting from an\nadministrative mistake or misuse of privilege back\nto the specific action and account.",
+    "definitions": "The functions or activities considered to be\nadministrative are beyond those performed by\nregular users as part of routine business\nfunctions.\nRefer to Appendix G for the definition of\n“administrative access.”"
+  },
+  "extraction_notes": []
+}

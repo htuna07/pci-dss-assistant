@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "6",
+  "document_version": "4.0.1",
+  "requirement_id": "6.3.2",
+  "pdf_pages": [
+    151
+  ],
+  "defined_requirement": "An inventory of bespoke and custom software,\nand third-party software components incorporated\ninto bespoke and custom software is maintained to\nfacilitate vulnerability and patch management.",
+  "testing_procedures": "6.3.2.a Examine documentation and interview\npersonnel to verify that an inventory of bespoke\nand custom software and third-party software\ncomponents incorporated into bespoke and custom\nsoftware is maintained, and that the inventory is\nused to identify and address vulnerabilities.\n6.3.2.b Examine software documentation, including\nfor bespoke and custom software that integrates\nthird-party software components, and compare it to\nthe inventory to verify that the inventory includes\nthe bespoke and custom software and third-party\nsoftware components.",
+  "customized_approach_objective": "Known vulnerabilities in third-party software\ncomponents cannot be exploited in bespoke and\ncustom software.",
+  "applicability_notes": "This requirement is a best practice until 31 March\n2025, after which it will be required and must be\nfully considered during a PCI DSS assessment.",
+  "guidance": {
+    "purpose": "Identifying and listing all the entity’s bespoke and\ncustom software, and any third-party software that is\nincorporated into the entity’s bespoke and custom\nsoftware enables the entity to manage vulnerabilities\nand patches.\nVulnerabilities in third-party components (including\nlibraries, APIs, etc.) embedded in an entity’s software\nalso renders those applications vulnerable to attacks.\nKnowing which third-party components are used in\nthe entity’s software and monitoring the availability of\nsecurity patches to address known vulnerabilities is\ncritical to ensuring the security of the software.",
+    "good_practice": "An entity’s inventory should cover all payment\nsoftware components and dependencies, including\nsupported execution platforms or environments, third-\nparty libraries, services, and other required\nfunctionalities.\nThere are many different types of solutions that can\nhelp with managing software inventories, such as\nsoftware composition analysis tools, application\ndiscovery tools, and mobile device management."
+  },
+  "extraction_notes": []
+}

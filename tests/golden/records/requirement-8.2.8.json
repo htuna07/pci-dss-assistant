@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "8",
+  "document_version": "4.0.1",
+  "requirement_id": "8.2.8",
+  "pdf_pages": [
+    189
+  ],
+  "defined_requirement": "If a user session has been idle for more than\n15 minutes, the user is required to re-authenticate to\nre-activate the terminal or session.",
+  "testing_procedures": "8.2.8 Examine system configuration settings to\nverify that system/session idle timeout features for\nuser sessions have been set to 15 minutes or less.",
+  "customized_approach_objective": "A user session cannot be used except by the\nauthorized user.",
+  "applicability_notes": "This requirement is not intended to apply to user\naccounts on point-of-sale terminals that have\naccess to only one card number at a time to\nfacilitate a single transaction.\nThis requirement is not meant to prevent legitimate\nactivities from being performed while the\nconsole/PC is unattended.",
+  "guidance": {
+    "purpose": "When users walk away from an open machine\nwith access to system components or cardholder\ndata, there is a risk that the machine may be used\nby others in the user’s absence, resulting in\nunauthorized account access and/or misuse.",
+    "good_practice": "The re-authentication can be applied either at the\nsystem level to protect all sessions running on\nthat machine or at the application level.\nEntities may also want to consider staging\ncontrols in succession to further restrict the\naccess of an unattended session as time passes.\nFor example, the screensaver may activate after\n15 minutes and log off the user after an hour.\nHowever, timeout controls must balance the risk\nof access and exposure with the impact to the\nuser and purpose of the access.\nIf a user needs to run a program from an\nunattended computer, the user can log in to the\ncomputer to initiate the program, and then “lock”\nthe computer so that no one else can use the\nuser’s login while the computer is unattended.",
+    "examples": "One way to meet this requirement is to configure\nan automated screensaver to launch whenever\nthe console is idle for 15 minutes and requiring\nthe logged-in user to enter their password to\nunlock the screen."
+  },
+  "extraction_notes": []
+}

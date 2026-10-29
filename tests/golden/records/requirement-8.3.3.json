@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "8",
+  "document_version": "4.0.1",
+  "requirement_id": "8.3.3",
+  "pdf_pages": [
+    192
+  ],
+  "defined_requirement": "User identity is verified before modifying any\nauthentication factor.",
+  "testing_procedures": "8.3.3 Examine procedures for modifying\nauthentication factors and observe security\npersonnel to verify that when a user requests a\nmodification of an authentication factor, the user’s\nidentity is verified before the authentication factor\nis modified.",
+  "customized_approach_objective": "Unauthorized individuals cannot gain system access\nby impersonating the identity of an authorized user.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Malicious individuals use \"social engineering”\ntechniques to impersonate a user of a system —\nfor example, calling a help desk and acting as a\nlegitimate user—to have an authentication factor\nchanged so they can use a valid user ID.\nRequiring positive identification of a user reduces\nthe probability of this type of attack succeeding.",
+    "good_practice": "Modifications to authentication factors for which\nuser identity should be verified include but are not\nlimited to performing password resets,\nprovisioning new hardware or software tokens,\nand generating new keys.",
+    "examples": "Methods to verify a user’s identity include a secret\nquestion/answer, knowledge-based information,\nand calling the user back at a known and\npreviously established phone number."
+  },
+  "extraction_notes": []
+}

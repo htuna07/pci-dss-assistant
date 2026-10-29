@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "8",
+  "document_version": "4.0.1",
+  "requirement_id": "8.3.6",
+  "pdf_pages": [
+    194
+  ],
+  "defined_requirement": "If passwords/passphrases are used as\nauthentication factors to meet Requirement 8.3.1,\nthey meet the following minimum level of\ncomplexity:\n•  A minimum length of 12 characters (or IF the\nsystem does not support 12 characters, a\nminimum length of eight characters).\n•  Contain both numeric and alphabetic characters.",
+  "testing_procedures": "8.3.6 Examine system configuration settings to\nverify that user password/passphrase complexity\nparameters are set in accordance with all elements\nspecified in this requirement.",
+  "customized_approach_objective": "A guessed password/passphrase cannot be verified\nby either an online or offline brute force attack.",
+  "applicability_notes": "This requirement is not intended to apply to:\n•  User accounts on point-of-sale terminals that\nhave access to only one card number at a time\nto facilitate a single transaction.\n•   Application or system accounts, which are\ngoverned by requirements in section 8.6.\nThis requirement is a best practice until 31 March\n2025, after which it will be required and must be\nfully considered during a PCI DSS assessment.\nUntil 31 March 2025, passwords must be a\nminimum length of seven characters in accordance\nwith PCI DSS v3.2.1 Requirement 8.2.3.",
+  "guidance": {
+    "purpose": "Strong passwords/passphrases may be the first\nline of defense into a network since a malicious\nindividual will often first try to find accounts with\nweak, static, or non-existent passwords. If\npasswords are short or easily guessable, it is\nrelatively easy for a malicious individual to find\nthese weak accounts and compromise a network\nunder the guise of a valid user ID.",
+    "good_practice": "Password/passphrase strength is dependent on\npassword/passphrase complexity, length, and\nrandomness. Passwords/passphrases should be\nsufficiently complex, so they are impractical for an\nattacker to guess or otherwise discover its value.\nEntities can consider adding increased complexity\nby requiring the use of special characters and\nupper- and lower-case characters, in addition to\nthe minimum standards outlined by this\nrequirement. Additional complexity increases the\ntime required for offline brute force attacks of\nhashed passwords/passphrases.\nAnother option for increasing the resistance of\npasswords to guessing attacks is by comparing\nproposed password/passphrases to a bad\npassword list and having users provide new\npasswords for any passwords found on the list."
+  },
+  "extraction_notes": []
+}

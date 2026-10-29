@@ -1,0 +1,20 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.8.4",
+  "pdf_pages": [
+    323,
+    324
+  ],
+  "defined_requirement": "A program is implemented to monitor TPSPs’\nPCI DSS compliance status at least once every 12\nmonths.",
+  "testing_procedures": "12.8.4.a Examine policies and procedures to verify\nthat processes are defined to monitor TPSPs’ PCI\nDSS compliance status at least once every 12\nmonths.\n12.8.4.b Examine documentation and interview\nresponsible personnel to verify that the PCI DSS\ncompliance status of each TPSP is monitored at least\nonce every 12 months.",
+  "customized_approach_objective": "The PCI DSS compliance status of TPSPs is verified\nperiodically.",
+  "applicability_notes": "Where an entity has an agreement with a TPSP for\nmeeting PCI DSS requirements on behalf of the\nentity (for example, via a firewall service), the entity\nmust work with the TPSP to make sure the\napplicable PCI DSS requirements are met. If the\nTPSP does not meet those applicable PCI DSS\nrequirements, then those requirements are also “not\nin place” for the entity.",
+  "guidance": {
+    "purpose": "Knowing the PCI DSS compliance status of all\nengaged TPSPs provides assurance and awareness\nabout whether they comply with the requirements\napplicable to the services they offer to the\norganization.",
+    "good_practice": "If the TPSP offers a variety of services, the\ncompliance status the entity monitors should be\nspecific to those services delivered to the entity and\nthose services in scope for the entity’s PCI DSS\nassessment.\nIf a TPSP has a PCI DSS Attestation of\nCompliance (AOC), the expectation is that the\nTPSP should provide that to customers upon\nrequest to demonstrate their PCI DSS compliance\nstatus.\nIf the TPSP did not undergo a PCI DSS\nassessment, it may be able to provide other\nsufficient evidence to demonstrate that it has met\nthe applicable requirements without undergoing a\nformal compliance validation. For example, the\nTPSP can provide specific evidence to the entity’s\nassessor so the assessor can confirm applicable\nrequirements are met. Alternatively, the TPSP\ncan elect to undergo multiple on-demand\nassessments by each of its customers’ assessors,\nwith each assessment targeted to confirm that\napplicable requirements are met.",
+    "further_information": "For more information about third-party service\nproviders, refer to:\n•  PCI DSS section: Use of Third-Party Service\nProviders.\n•   Information Supplement: Third-Party Security\nAssurance."
+  },
+  "extraction_notes": []
+}

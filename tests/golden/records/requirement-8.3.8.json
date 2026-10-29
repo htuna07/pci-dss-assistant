@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "8",
+  "document_version": "4.0.1",
+  "requirement_id": "8.3.8",
+  "pdf_pages": [
+    196
+  ],
+  "defined_requirement": "Authentication policies and procedures are\ndocumented and communicated to all users\nincluding:\n•  Guidance on selecting strong authentication\nfactors.\n•  Guidance for how users should protect their\nauthentication factors.\n•   Instructions not to reuse previously used\npasswords/passphrases.\n•   Instructions to change passwords/passphrases if\nthere is any suspicion or knowledge that the\npassword/passphrases have been compromised\nand how to report the incident.",
+  "testing_procedures": "8.3.8.a Examine procedures and interview\npersonnel to verify that authentication policies and\nprocedures are distributed to all users.\n8.3.8.b Review authentication policies and\nprocedures that are distributed to users and verify\nthey include the elements specified in this\nrequirement.\n8.3.8.c Interview users to verify that they are\nfamiliar with authentication policies and\nprocedures.",
+  "customized_approach_objective": "Users are knowledgeable about the correct use of\nauthentication factors and can access assistance\nand guidance when required.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Communicating authentication policies and\nprocedures to all users helps them to understand\nand abide by the policies.",
+    "good_practice": "Guidance on selecting strong passwords may\ninclude suggestions to help personnel select\nhard-to-guess passwords that do not contain\ndictionary words or information about the user,\nsuch as the user ID, names of family members,\ndate of birth, etc.\nGuidance for protecting authentication factors\nmay include not writing down passwords or not\nsaving them in insecure files, and being alert to\nmalicious individuals who may try to exploit their\npasswords (for example, by calling an employee\nand asking for their password so the caller can\n“troubleshoot a problem”).\nAlternatively, entities can implement processes to\nconfirm passwords meet password policy, for\nexample, by comparing password choices to a list\nof unacceptable passwords and having users\nchoose a new password for any that match with\none on the list. Instructing users to change\npasswords if there is a chance the password is no\nlonger secure can prevent malicious users from\nusing a legitimate password to gain unauthorized\naccess."
+  },
+  "extraction_notes": []
+}

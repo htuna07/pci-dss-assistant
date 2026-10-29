@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "11",
+  "document_version": "4.0.1",
+  "requirement_id": "11.3.1.1",
+  "pdf_pages": [
+    272
+  ],
+  "defined_requirement": "All other applicable vulnerabilities (those\nnot ranked as high-risk vulnerabilities or critical\nvulnerabilities according to the entity’s vulnerability\nrisk rankings defined at Requirement 6.3.1) are\nmanaged as follows:\n•   Addressed based on the risk defined in the\nentity’s targeted risk analysis, which is\nperformed according to all elements specified\nin Requirement 12.3.1.\n•   Rescans are conducted as needed.",
+  "testing_procedures": "11.3.1.1.a Examine the entity’s targeted risk\nanalysis that defines the risk for addressing all\nother applicable vulnerabilities (those not ranked\nas high-risk vulnerabilities or critical vulnerabilities\naccording to the entity’s vulnerability risk rankings\nat Requirement 6.3.1) to verify the risk analysis\nwas performed in accordance with all elements\nspecified at Requirement 12.3.1.\n11.3.1.1.b Interview responsible personnel and\nexamine internal scan report results or other\ndocumentation to verify that all other applicable\nvulnerabilities (those not ranked as high-risk\nvulnerabilities or critical vulnerabilities according to\nthe entity’s vulnerability risk rankings at\nRequirement 6.3.1) are addressed based on the\nrisk defined in the entity’s targeted risk analysis,\nand that the scan process includes rescans as\nneeded to confirm the vulnerabilities have been\naddressed.",
+  "customized_approach_objective": "Lower ranked vulnerabilities (lower than high-risk or\ncritical) are addressed at a frequency in accordance\nwith the entity’s risk.",
+  "applicability_notes": "The timeframe for addressing lower-risk\nvulnerabilities is subject to the results of a risk\nanalysis per Requirement 12.3.1 that includes\n(minimally) identification of assets being protected,\nthreats, and likelihood and/or impact of a threat\nbeing realized.\nThis requirement is a best practice until 31 March\n2025, after which it will be required and must be\nfully considered during a PCI DSS assessment.",
+  "guidance": {
+    "purpose": "All vulnerabilities, regardless of criticality, provide\na potential avenue of attack and must therefore\nbe addressed periodically, with the vulnerabilities\nthat expose the most risk addressed more quickly\nto limit the potential window of attack."
+  },
+  "extraction_notes": []
+}

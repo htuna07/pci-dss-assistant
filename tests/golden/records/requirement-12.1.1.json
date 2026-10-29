@@ -1,0 +1,20 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.1.1",
+  "pdf_pages": [
+    295,
+    296
+  ],
+  "defined_requirement": "An overall information security policy is:\n•   Established.\n•   Published.\n•   Maintained.\n•  Disseminated to all relevant personnel, as well\nas to relevant vendors and business partners.",
+  "testing_procedures": "12.1.1 Examine the information security policy and\ninterview personnel to verify that the overall\ninformation security policy is managed in\naccordance with all elements specified in this\nrequirement.",
+  "customized_approach_objective": "The strategic objectives and principles of\ninformation security are defined, adopted, and\nknown to all personnel.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "An organization’s overall information security\npolicy ties to and governs all other policies and\nprocedures that define protection of cardholder\ndata.\nThe information security policy communicates\nmanagement’s intent and objectives regarding the\nprotection of its most valuable assets, including\ncardholder data.\nWithout an information security policy, individuals\nwill make their own value decisions on the\ncontrols that are required within the organization\nwhich may result in the organization neither\nmeeting its legal, regulatory, and contractual\nobligations, nor being able to adequately protect\nits assets in a consistent manner.\nTo ensure the policy is implemented, it is\nimportant that all relevant personnel within the\norganization, as well as relevant third parties,\nvendors, and business partners are aware of the\norganization’s information security policy and their\nresponsibilities for protecting information assets.",
+    "good_practice": "The security policy for the organization identifies\nthe purpose, scope, accountability, and\ninformation that clearly defines the organization’s\nposition regarding information security.\nThe overall information security policy differs from\nindividual security policies that address specific\ntechnology or security disciplines. This policy sets\nforth the directives for the entire organization\nwhereas individual security policies align and\nsupport the overall security policy and\ncommunicate specific objectives for technology or\nsecurity disciplines.\nIt is important that all relevant personnel within\nthe organization, as well as relevant third parties,\nvendors, and business partners are aware of the\norganization’s information security policy and their\nresponsibilities for protecting information assets.",
+    "definitions": "“Relevant” for this requirement means that the\ninformation security policy is disseminated to\nthose with roles applicable to some or all the\ntopics in the policy, either within the company or\nbecause of services/functions performed by a\nvendor or third party."
+  },
+  "extraction_notes": []
+}

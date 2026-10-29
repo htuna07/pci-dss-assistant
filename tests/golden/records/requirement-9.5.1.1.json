@@ -1,0 +1,20 @@
+{
+  "record_type": "requirement",
+  "section_id": "9",
+  "document_version": "4.0.1",
+  "requirement_id": "9.5.1.1",
+  "pdf_pages": [
+    233,
+    234
+  ],
+  "defined_requirement": "An up-to-date list of POI devices is\nmaintained, including:\n•  Make and model of the device.\n•   Location of device.\n•  Device serial number or other methods of\nunique identification.",
+  "testing_procedures": "9.5.1.1.a Examine the list of POI devices to verify it\nincludes all elements specified in this requirement.\n9.5.1.1.b Observe POI devices and device\nlocations and compare to devices in the list to\nverify that the list is accurate and up to date.\n9.5.1.1.c Interview personnel to verify the list of\nPOI devices is updated when devices are added,\nrelocated, decommissioned, etc.",
+  "customized_approach_objective": "The identity and location of POI devices is recorded\nand known at all times.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Keeping an up-to-date list of POI devices helps\nan organization track where devices are\nsupposed to be and quickly identify if a device is\nmissing or lost.",
+    "good_practice": "The method for maintaining a list of devices may\nbe automated (for example, a device-\nmanagement system) or manual (for example,\ndocumented in electronic or paper records). For\non-the-road devices, the location may include the\nname of the personnel to whom the device is\nassigned.",
+    "examples": "Methods to maintain device locations include\nidentifying the address of the site or facility where\nthe device is located."
+  },
+  "extraction_notes": []
+}

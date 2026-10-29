@@ -1,0 +1,34 @@
+{
+  "document_version": "4.0.1",
+  "record_type": "requirement_introduction",
+  "requirement_id": "9",
+  "pdf_pages": [
+    214
+  ],
+  "title": "Restrict Physical Access to Cardholder Data",
+  "sections": [
+    {
+      "id": "9.1",
+      "title": "Processes and mechanisms for restricting physical access to cardholder data are defined and understood."
+    },
+    {
+      "id": "9.2",
+      "title": "Physical access controls manage entry into facilities and systems containing cardholder data."
+    },
+    {
+      "id": "9.3",
+      "title": "Physical access for personnel and visitors is authorized and managed."
+    },
+    {
+      "id": "9.4",
+      "title": "Media with cardholder data is securely stored, accessed, distributed, and destroyed."
+    },
+    {
+      "id": "9.5",
+      "title": "Point of interaction (POI) devices are protected from tampering and unauthorized substitution."
+    }
+  ],
+  "overview": "Any physical access to cardholder data or systems that store, process, or transmit cardholder data provides the opportunity for individuals to\naccess and/or remove systems or hardcopies containing cardholder data; therefore, physical access should be appropriately restricted.\nThere are three different areas mentioned in Requirement 9:\n1. Requirements that specifically refer to sensitive areas are intended to apply to those areas only. Each entity should identify the sensitive\nareas in its environments to ensure the appropriate physical controls are implemented.\n2. Requirements that specifically refer to the cardholder data environment (CDE) are intended to apply to the entire CDE, including any\nsensitive areas residing within the CDE.\n3. Requirements that specifically refer to the facility are referencing the types of controls that may be managed more broadly at the\nphysical boundary of a business premise (such as a building) within which CDEs and sensitive areas reside. These controls often exist\noutside a CDE or sensitive area, for example a guard desk that identifies, badges, and logs visitors. The term “facility” is used to\nrecognize that these controls may exist at different places within a facility, for instance, at building entry or at an internal entrance to a\ndata center or office space.\nRefer to Appendix G for definitions of “media,” “personnel,” “sensitive areas,” “visitors,” and other PCI DSS terms.",
+  "category_title": null,
+  "notes": []
+}

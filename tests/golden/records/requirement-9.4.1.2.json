@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "9",
+  "document_version": "4.0.1",
+  "requirement_id": "9.4.1.2",
+  "pdf_pages": [
+    226
+  ],
+  "defined_requirement": "The security of the offline media backup\nlocation(s) with cardholder data is reviewed at least\nonce every 12 months.",
+  "testing_procedures": "9.4.1.2.a Examine documentation to verify that\nprocedures are defined for reviewing the security\nof the offline media backup location(s) with\ncardholder data at least once every 12 months.\n9.4.1.2.b Examine documented procedures, logs,\nor other documentation, and interview responsible\npersonnel at the storage location(s) to verify that\nthe storage location’s security is reviewed at least\nonce every 12 months.",
+  "customized_approach_objective": "The security controls protecting offline backups are\nverified periodically by inspection.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Conducting regular reviews of the storage facility\nenables the organization to address identified\nsecurity issues promptly, minimizing the potential\nrisk. It is important for the entity to be aware of the\nsecurity of the area where media is being stored."
+  },
+  "extraction_notes": []
+}

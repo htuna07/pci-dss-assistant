@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "8",
+  "document_version": "4.0.1",
+  "requirement_id": "8.2.4",
+  "pdf_pages": [
+    186
+  ],
+  "defined_requirement": "Addition, deletion, and modification of user\nIDs, authentication factors, and other identifier\nobjects are managed as follows:\n•  Authorized with the appropriate approval.\n•  Implemented with only the privileges specified\non the documented approval.",
+  "testing_procedures": "8.2.4 Examine documented authorizations across\nvarious phases of the account lifecycle (additions,\nmodifications, and deletions) and examine system\nsettings to verify the activity has been managed in\naccordance with all elements specified in this\nrequirement.",
+  "customized_approach_objective": "Lifecycle events for user IDs and authentication\nfactors cannot occur without appropriate\nauthorization.",
+  "applicability_notes": "This requirement applies to all user accounts,\nincluding employees, contractors, consultants,\ntemporary workers, and third-party vendors.",
+  "guidance": {
+    "purpose": "It is imperative that the lifecycle of a user ID\n(additions, deletions, and modifications) is\ncontrolled so that only authorized accounts can\nperform functions, actions are auditable, and\nprivileges are limited to only what is required.\nAttackers often compromise an existing account\nand then escalate the privileges of that account to\nperform unauthorized acts, or they may create\nnew IDs to continue their activity in the\nbackground. It is essential to detect and respond\nwhen user IDs are created or changed outside the\nnormal change process or without corresponding\nauthorization."
+  },
+  "extraction_notes": []
+}

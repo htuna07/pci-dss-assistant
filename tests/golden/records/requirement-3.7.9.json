@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "3",
+  "document_version": "4.0.1",
+  "requirement_id": "3.7.9",
+  "pdf_pages": [
+    113
+  ],
+  "defined_requirement": "Additional requirement for service\nproviders only: Where a service provider shares\ncryptographic keys with its customers for\ntransmission or storage of account data, guidance\non secure transmission, storage and updating of\nsuch keys is documented and distributed to the\nservice provider’s customers.",
+  "testing_procedures": "3.7.9 Additional testing procedure for service\nprovider assessments only: If the service\nprovider shares cryptographic keys with its\ncustomers for transmission or storage of account\ndata, examine the documentation that the service\nprovider provides to its customers to verify it\nincludes guidance on how to securely transmit,\nstore, and update customers’ keys in accordance\nwith all elements specified in Requirements 3.7.1\nthrough 3.7.8 above.",
+  "customized_approach_objective": "Customers are provided with appropriate key\nmanagement guidance whenever they receive\nshared cryptographic keys.",
+  "applicability_notes": "This requirement applies only when the entity being\nassessed is a service provider.",
+  "guidance": {
+    "purpose": "Providing guidance to customers on how to securely\ntransmit, store, and update cryptographic keys can help\nprevent keys from being mismanaged or disclosed to\nunauthorized entities.",
+    "further_information": "Numerous industry standards for key management are\ncited above in the Guidance for Requirements 3.7.1-\n3.7.8."
+  },
+  "extraction_notes": []
+}

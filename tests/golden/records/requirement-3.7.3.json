@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "3",
+  "document_version": "4.0.1",
+  "requirement_id": "3.7.3",
+  "pdf_pages": [
+    107
+  ],
+  "defined_requirement": "Key-management policies and procedures are\nimplemented to include secure storage of\ncryptographic keys used to protect stored account\ndata.",
+  "testing_procedures": "3.7.3.a Examine the documented key-management\npolicies and procedures for keys used for\nprotection of stored account data to verify that they\ndefine secure storage of cryptographic keys.\n3.7.3.b Observe the method for storing keys to\nverify that keys are stored securely.",
+  "customized_approach_objective": "Cryptographic keys are secured when stored.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Storing keys without proper protection could provide\naccess to attackers, resulting in the decryption and\nexposure of account data.",
+    "good_practice": "Data encryption keys can be protected by encrypting\nthem with a key-encrypting key.\nKeys can be stored in a Hardware Security Module\n(HSM).\nSecret or private keys that can decrypt data should\nnever be present in source code."
+  },
+  "extraction_notes": []
+}

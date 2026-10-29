@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.10.4.1",
+  "pdf_pages": [
+    334
+  ],
+  "defined_requirement": "The frequency of periodic training for\nincident response personnel is defined in the\nentity’s targeted risk analysis, which is performed\naccording to all elements specified in Requirement\n12.3.1.",
+  "testing_procedures": "12.10.4.1.a Examine the entity’s targeted risk\nanalysis for the frequency of training for incident\nresponse personnel to verify the risk analysis was\nperformed in accordance with all elements\nspecified in Requirement 12.3.1.\n12.10.4.1.b Examine documented results of\nperiodic training of incident response personnel\nand interview personnel to verify training is\nperformed at the frequency defined in the entity’s\ntargeted risk analysis performed for this\nrequirement.",
+  "customized_approach_objective": "Incident response personnel are trained at a\nfrequency that addresses the entity’s risk.",
+  "applicability_notes": "This requirement is a best practice until 31 March\n2025, after which it will be required and must be\nfully considered during a PCI DSS assessment.",
+  "guidance": {
+    "purpose": "Each entity’s environment and incident response\nplan are different, and the approach will depend\non a number of factors, including the size and\ncomplexity of the entity, the degree of change in\nthe environment, the size of the incident response\nteam, and the turnover in personnel.\nPerforming a risk analysis will allow the entity to\ndetermine the optimum frequency for training\npersonnel with incident response responsibilities."
+  },
+  "extraction_notes": []
+}

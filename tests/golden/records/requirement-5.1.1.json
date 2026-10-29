@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "5",
+  "document_version": "4.0.1",
+  "requirement_id": "5.1.1",
+  "pdf_pages": [
+    124
+  ],
+  "defined_requirement": "All security policies and operational\nprocedures that are identified in Requirement 5 are:\n•  Documented.\n•  Kept up to date.\n•   In use.\n•  Known to all affected parties.",
+  "testing_procedures": "5.1.1 Examine documentation and interview\npersonnel to verify that security policies and\noperational procedures identified in Requirement 5\nare managed in accordance with all elements\nspecified in this requirement.",
+  "customized_approach_objective": "Expectations, controls, and oversight for meeting\nactivities within Requirement 5 are defined and\nadhered to by affected personnel. All supporting\nactivities are repeatable, consistently applied, and\nconform to management’s intent.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Requirement 5.1.1 is about effectively managing\nand maintaining the various policies and procedures\nspecified throughout Requirement 5. While it is\nimportant to define the specific policies or\nprocedures called out in Requirement 5, it is equally\nimportant to ensure they are properly documented,\nmaintained, and disseminated.",
+    "good_practice": "It is important to update policies and procedures as\nneeded to address changes in processes,\ntechnologies, and business objectives. For this\nreason, consider updating these documents as soon\nas possible after a change occurs and not only on a\nperiodic cycle.",
+    "definitions": "Security policies define the entity’s security\nobjectives and principles. Operational procedures\ndescribe how to perform activities, and define the\ncontrols, methods, and processes that are followed\nto achieve the desired result in a consistent manner\nand in accordance with policy objectives."
+  },
+  "extraction_notes": []
+}

@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.10.3",
+  "pdf_pages": [
+    333
+  ],
+  "defined_requirement": "Specific personnel are designated to be\navailable on a 24/7 basis to respond to suspected or\nconfirmed security incidents.",
+  "testing_procedures": "12.10.3 Examine documentation and interview\nresponsible personnel occupying designated roles\nto verify that specific personnel are designated to\nbe available on a 24/7 basis to respond to security\nincidents.",
+  "customized_approach_objective": "Incidents are responded to immediately where\nappropriate.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "An incident could occur at any time, therefore if a\nperson who is trained in incident response and\nfamiliar with the entity’s plan is available when an\nincident is detected, the entity’s ability to correctly\nrespond to the incident is increased.",
+    "good_practice": "Often, specific personnel are designated to be\npart of a security incident response team, with the\nteam having overall responsibility for responding\nto incidents (perhaps on a rotating schedule\nbasis) and managing those incidents in\naccordance with the plan. The incident response\nteam can consist of core members who are\npermanently assigned or “on-demand” personnel\nwho may be called up as necessary, depending\non their expertise and the specifics of the incident.\nHaving available resources to respond quickly to\nincidents minimizes disruption to the organization.\nExamples of types of activity the team or\nindividuals should respond to include any\nevidence of unauthorized activity, detection of\nunauthorized wireless access points, critical IDS\nalerts, and reports of unauthorized critical system\nor content file changes."
+  },
+  "extraction_notes": []
+}

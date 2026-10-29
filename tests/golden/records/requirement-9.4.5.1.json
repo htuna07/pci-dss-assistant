@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "9",
+  "document_version": "4.0.1",
+  "requirement_id": "9.4.5.1",
+  "pdf_pages": [
+    229
+  ],
+  "defined_requirement": "Inventories of electronic media with\ncardholder data are conducted at least once every\n12 months.",
+  "testing_procedures": "9.4.5.1.a Examine documentation to verify that\nprocedures are defined to conduct inventories of\nelectronic media with cardholder data at least once\nevery 12 months.\n9.4.5.1.b Examine electronic media inventory logs\nand interview personnel to verify that electronic\nmedia inventories are performed at least once\nevery 12 months.",
+  "customized_approach_objective": "Media inventories are verified periodically.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Without careful inventory methods and storage\ncontrols, stolen or missing electronic media could\ngo unnoticed for an indefinite amount of time."
+  },
+  "extraction_notes": []
+}

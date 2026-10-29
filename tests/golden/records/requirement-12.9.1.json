@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.9.1",
+  "pdf_pages": [
+    327,
+    328
+  ],
+  "defined_requirement": "Additional requirement for service\nproviders only: TPSPs provide written agreements\nto customers that include acknowledgments that\nTPSPs are responsible for the security of account\ndata the TPSP possesses or otherwise stores,\nprocesses, or transmits on behalf of the customer,\nor to the extent that the TPSP could impact the\nsecurity of the customer’s cardholder data and/or\nsensitive authentication data.",
+  "testing_procedures": "12.9.1 Additional testing procedure for service\nprovider assessments only: Examine TPSP\npolicies, procedures, and templates used for\nwritten agreements to verify processes are defined\nfor the TPSP to provide written acknowledgments\nto customers in accordance with all elements\nspecified in this requirement.",
+  "customized_approach_objective": "TPSPs formally acknowledge their security\nresponsibilities to their customers.",
+  "applicability_notes": "This requirement applies only when the entity being\nassessed is a service provider.\nThe exact wording of an agreement will depend on\nthe details of the service being provided, and the\nresponsibilities assigned to each party. The\nagreement does not have to include the exact\nwording provided in this requirement.\nThe TPSP’s written acknowledgment is a\nconfirmation that states the TPSP is responsible for\nthe security of the account data it may store,\nprocess, or transmit on behalf of the customer or to\nthe extent the TPSP may impact the security of a\ncustomer’s cardholder data and/or sensitive\nauthentication data.\nEvidence that a TPSP is meeting PCI DSS\nrequirements is not the same as a written\nagreement specified in this requirement. For\nexample, a PCI DSS Attestation of Compliance\n(AOC), a declaration on a company’s website, a\npolicy statement, a responsibility matrix, or other\nevidence not included in a written agreement is not\na written acknowledgment.",
+  "guidance": {
+    "purpose": "In conjunction with Requirement 12.8.2, this\nrequirement is intended to promote a consistent\nlevel of understanding between TPSPs and their\ncustomers about their applicable PCI DSS\nresponsibilities. The acknowledgment from the\nTPSP evidences the TPSP’s commitment to\nmaintaining proper security of the account data\nthat it obtains from its customers.\nThe TPSP’s internal policies and procedures\nrelated to their customer engagement process\nand any templates used for written agreements\nshould include provision of an applicable PCI\nDSS acknowledgement to its customers. The\nmethod by which the TPSP provides written\nacknowledgment should be agreed between the\nprovider and its customers."
+  },
+  "extraction_notes": []
+}

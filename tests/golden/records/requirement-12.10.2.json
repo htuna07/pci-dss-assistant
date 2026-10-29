@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.10.2",
+  "pdf_pages": [
+    332
+  ],
+  "defined_requirement": "At least once every 12 months, the security\nincident response plan is:\n•  Reviewed and the content is updated as\nneeded.\n•  Tested, including all elements listed in\nRequirement 12.10.1.",
+  "testing_procedures": "12.10.2 Interview personnel and review\ndocumentation to verify that, at least once every 12\nmonths, the security incident response plan is:\n•  Reviewed and updated as needed.\n•  Tested, including all elements listed in\nRequirement 12.10.1.",
+  "customized_approach_objective": "The incident response plan is kept current and\ntested periodically.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Proper testing of the security incident response\nplan can identify broken business processes and\nensure key steps are not missed, which could\nresult in increased exposure during an incident.\nPeriodic testing of the plan ensures that the\nprocesses remain viable, as well as ensuring that\nall relevant personnel in the organization are\nfamiliar with the plan.",
+    "good_practice": "The test of the incident response plan can include\nsimulated incidents and the corresponding\nresponses in the form of a “table-top exercise”\nthat includes participation by relevant personnel.\nA review of the incident and the quality of the\nresponse can provide entities with the assurance\nthat all required elements are included in the plan."
+  },
+  "extraction_notes": []
+}

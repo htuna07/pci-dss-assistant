@@ -1,0 +1,41 @@
+{
+  "document_version": "4.0.1",
+  "record_type": "requirement_introduction",
+  "requirement_id": "6",
+  "pdf_pages": [
+    138
+  ],
+  "title": "Develop and Maintain Secure Systems and Software",
+  "sections": [
+    {
+      "id": "6.1",
+      "title": "Processes and mechanisms for developing and maintaining secure systems and software are defined and understood."
+    },
+    {
+      "id": "6.2",
+      "title": "Bespoke and custom software are developed securely."
+    },
+    {
+      "id": "6.3",
+      "title": "Security vulnerabilities are identified and addressed."
+    },
+    {
+      "id": "6.4",
+      "title": "Public-facing web applications are protected against attacks."
+    },
+    {
+      "id": "6.5",
+      "title": "Changes to all system components are managed securely."
+    }
+  ],
+  "overview": "Actors with bad intentions can use security vulnerabilities to gain privileged access to systems. Many of these vulnerabilities are fixed by vendor\nprovided security patches, which must be installed by the entities that manage the systems. All system components must have all appropriate\nsoftware patches to protect against the exploitation and compromise of account data by malicious individuals and malicious software.\nAppropriate software patches are those patches that have been evaluated and tested sufficiently to determine that the patches do not conflict\nwith existing security configurations. For bespoke and custom software, numerous vulnerabilities can be avoided by applying software lifecycle\n(SLC) processes and secure coding techniques.\nCode repositories that store application code, system configurations, or other configuration data that can impact the security of cardholder data\nand/or sensitive authentication data are in scope for PCI DSS assessments.\nSee Relationship between PCI DSS and PCI SSC Software Standards on page 7 for information about the use of PCI SSC-validated software\nand software vendors, and how use of PCI SSC’s software standards may help with meeting controls in Requirement 6.\nRefer to Appendix G for definitions of PCI DSS terms.",
+  "category_title": null,
+  "notes": [
+    {
+      "pdf_pages": [
+        138
+      ],
+      "text": "Requirement 6 applies to all system components, except for section 6.2 for developing software securely, which applies only to bespoke\nand custom software used on any system component included in or connected to the CDE."
+    }
+  ]
+}

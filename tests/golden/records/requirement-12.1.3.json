@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.1.3",
+  "pdf_pages": [
+    297
+  ],
+  "defined_requirement": "The security policy clearly defines\ninformation security roles and responsibilities for all\npersonnel, and all personnel are aware of and\nacknowledge their information security\nresponsibilities.",
+  "testing_procedures": "12.1.3.a Examine the information security policy to\nverify that they clearly define information security\nroles and responsibilities for all personnel.\n12.1.3.b Interview personnel in various roles to\nverify they understand their information security\nresponsibilities.\n12.1.3.c Examine documented evidence to verify\npersonnel acknowledge their information security\nresponsibilities.",
+  "customized_approach_objective": "Personnel understand their role in protecting the\nentity’s cardholder data.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Without clearly defined security roles and\nresponsibilities assigned, there could be misuse\nof the organization’s information assets or\ninconsistent interaction with information security\npersonnel, leading to insecure implementation of\ntechnologies or use of outdated or insecure\ntechnologies."
+  },
+  "extraction_notes": []
+}

@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "9",
+  "document_version": "4.0.1",
+  "requirement_id": "9.2.2",
+  "pdf_pages": [
+    219
+  ],
+  "defined_requirement": "Physical and/or logical controls are\nimplemented to restrict use of publicly accessible\nnetwork jacks within the facility.",
+  "testing_procedures": "9.2.2 Interview responsible personnel and observe\nlocations of publicly accessible network jacks to\nverify that physical and/or logical controls are in\nplace to restrict access to publicly accessible\nnetwork jacks within the facility.",
+  "customized_approach_objective": "Unauthorized devices cannot connect to the entity’s\nnetwork from public areas within the facility.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Restricting access to network jacks (or network\nports) will prevent malicious individuals from\nplugging into readily available network jacks and\ngaining access to the CDE or systems connected\nto the CDE.",
+    "good_practice": "Whether logical or physical controls, or a\ncombination of both, are used, they should\nprevent an individual or device that is not explicitly\nauthorized from being able to connect to the\nnetwork.",
+    "examples": "Methods to meet this requirement include network\njacks located in public areas and areas accessible\nto visitors could be disabled and only enabled\nwhen network access is explicitly authorized.\nAlternatively, processes could be implemented to\nensure that visitors are escorted at all times in\nareas with active network jacks."
+  },
+  "extraction_notes": []
+}

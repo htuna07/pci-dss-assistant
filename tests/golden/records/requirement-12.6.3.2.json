@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.6.3.2",
+  "pdf_pages": [
+    317
+  ],
+  "defined_requirement": "Security awareness training includes\nawareness about the acceptable use of end-user\ntechnologies in accordance with Requirement\n12.2.1.",
+  "testing_procedures": "12.6.3.2 Examine security awareness training\ncontent to verify it includes awareness about\nacceptable use of end-user technologies in\naccordance with Requirement 12.2.1.",
+  "customized_approach_objective": "Personnel are knowledgeable about their\nresponsibility for the security and operation of end-\nuser technologies and are able to access assistance\nand guidance when required.",
+  "applicability_notes": "This requirement is a best practice until 31 March\n2025, after which it will be required and must be\nfully considered during a PCI DSS assessment.",
+  "guidance": {
+    "purpose": "By including the key points of the acceptable use\npolicy in regular training and the related context,\npersonnel will understand their responsibilities\nand how these impact the security of an\norganization’s systems."
+  },
+  "extraction_notes": []
+}

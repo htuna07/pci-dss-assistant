@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "11",
+  "document_version": "4.0.1",
+  "requirement_id": "11.4.5",
+  "pdf_pages": [
+    283
+  ],
+  "defined_requirement": "If segmentation is used to isolate the CDE\nfrom other networks, penetration tests are\nperformed on segmentation controls as follows:\n•   At least once every 12 months and after any\nchanges to segmentation controls/methods\n•  Covering all segmentation controls/methods in\nuse.\n•  According to the entity’s defined penetration\ntesting methodology.\n•  Confirming that the segmentation\ncontrols/methods are operational and effective,\nand isolate the CDE from all out-of-scope\nsystems.\n•  Confirming effectiveness of any use of isolation\nto separate systems with differing security levels\n(see Requirement 2.2.3).\n•  Performed by a qualified internal resource or\nqualified external third party.\n•   Organizational independence of the tester exists\n(not required to be a QSA or ASV).",
+  "testing_procedures": "11.4.5.a Examine segmentation controls and\nreview penetration-testing methodology to verify\nthat penetration-testing procedures are defined to\ntest all segmentation methods in accordance with\nall elements specified in this requirement.\n11.4.5.b Examine the results from the most recent\npenetration test to verify the penetration test\ncovers and addresses all elements specified in this\nrequirement.\n11.4.5.c Interview personnel to verify that the test\nwas performed by a qualified internal resource or\nqualified external third party and that organizational\nindependence of the tester exists (not required to\nbe a QSA or ASV).",
+  "customized_approach_objective": "If segmentation is used, it is verified periodically by\ntechnical testing to be continually effective, including\nafter any changes, in isolating the CDE from all out-\nof-scope systems.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "When an entity uses segmentation controls to\nisolate the CDE from internal untrusted networks,\nthe security of the CDE is dependent on that\nsegmentation functioning. Many attacks have\ninvolved the attacker moving laterally from what\nan entity deemed an isolated network into the\nCDE. Using penetration testing tools and\ntechniques to validate that an untrusted network\nis indeed isolated from the CDE can alert the\nentity to a failure or misconfiguration of the\nsegmentation controls, which can then be\nrectified.",
+    "good_practice": "Techniques such as host discovery and port\nscanning can be used to verify out-of-scope\nsegments have no access to the CDE."
+  },
+  "extraction_notes": []
+}

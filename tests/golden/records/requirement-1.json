@@ -1,0 +1,35 @@
+{
+  "document_version": "4.0.1",
+  "record_type": "requirement_introduction",
+  "requirement_id": "1",
+  "pdf_pages": [
+    42,
+    43
+  ],
+  "title": "Install and Maintain Network Security Controls",
+  "sections": [
+    {
+      "id": "1.1",
+      "title": "Processes and mechanisms for installing and maintaining network security controls are defined and understood."
+    },
+    {
+      "id": "1.2",
+      "title": "Network security controls (NSCs) are configured and maintained."
+    },
+    {
+      "id": "1.3",
+      "title": "Network access to and from the cardholder data environment is restricted."
+    },
+    {
+      "id": "1.4",
+      "title": "Network connections between trusted and untrusted networks are controlled."
+    },
+    {
+      "id": "1.5",
+      "title": "Risks to the CDE from computing devices that are able to connect to both untrusted networks and the CDE are mitigated."
+    }
+  ],
+  "overview": "Network security controls (NSCs), such as firewalls and other network security technologies, are network policy enforcement points that\ntypically control network traffic between two or more logical or physical network segments (or subnets) based on pre-defined policies or rules.\nNSCs examine all network traffic entering (ingress) and leaving (egress) a segment and decide, based on the policies defined, whether the\nnetwork traffic is allowed to pass or whether it should be rejected. Typically, NSCs are placed between environments with different security\nneeds or levels of trust, however in some environments NSCs control the traffic to individual devices irrespective of trust boundaries. Policy\nenforcement generally occurs at layer 3 of the OSI model, but data present in higher layers is also frequently used to determine policy\ndecisions.\nTraditionally this function has been provided by physical firewalls; however, now this functionality may be provided by virtual devices, cloud\naccess controls, virtualization/container systems, and other software-defined networking technology.\nNSCs are used to control traffic within an entity’s own networks—for example, between highly sensitive and less sensitive areas—and also to\nprotect the entity’s resources from exposure to untrusted networks. The cardholder data environment (CDE) is an example of a more sensitive\narea within an entity’s network. Often, seemingly insignificant paths to and from untrusted networks can provide unprotected pathways into\nsensitive systems. NSCs provide a key protection mechanism for any computer network.\nCommon examples of untrusted networks include the Internet, dedicated connections such as business-to-business communication channels,\nwireless networks, carrier networks (such as cellular), third-party networks, and other sources outside the entity’s ability to control. Furthermore,\nuntrusted networks also include corporate networks that are considered out-of-scope for PCI DSS, because they are not assessed, and\ntherefore must be treated as untrusted because the existence of security controls has not been verified. While an entity may consider an\ninternal network to be trusted from an infrastructure perspective, if a network is out of scope for PCI DSS, that network must be considered\nuntrusted for PCI DSS.\nRefer to Appendix G for definitions of PCI DSS terms.",
+  "category_title": "Build and Maintain a Secure Network and Systems",
+  "notes": []
+}

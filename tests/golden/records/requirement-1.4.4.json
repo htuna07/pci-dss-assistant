@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "1",
+  "document_version": "4.0.1",
+  "requirement_id": "1.4.4",
+  "pdf_pages": [
+    61
+  ],
+  "defined_requirement": "System components that store cardholder\ndata are not directly accessible from untrusted\nnetworks.",
+  "testing_procedures": "1.4.4.a Examine the data-flow diagram and\nnetwork diagram to verify that it is documented that\nsystem components storing cardholder data are\nnot directly accessible from the untrusted\nnetworks.\n1.4.4.b Examine configurations of NSCs to verify\nthat controls are implemented such that system\ncomponents storing cardholder data are not\ndirectly accessible from untrusted networks.",
+  "customized_approach_objective": "Stored cardholder data cannot be accessed from\nuntrusted networks.",
+  "applicability_notes": "This requirement is not intended to apply to storage\nof account data in volatile memory but does apply\nwhere memory is being treated as persistent\nstorage (for example, RAM disk). Account data can\nonly be stored in volatile memory during the time\nnecessary to support the associated business\nprocess (for example, until completion of the related\npayment card transaction).",
+  "guidance": {
+    "purpose": "Cardholder data that is directly accessible from an\nuntrusted network, for example, because it is\nstored on a system within the DMZ or in a cloud\ndatabase service, is easier for an external\nattacker to access because there are fewer\ndefensive layers to penetrate. Using NSCs to\nensure that system components that store\ncardholder data (such as a database or a file) can\nonly be directly accessed from trusted networks\ncan prevent unauthorized network traffic from\nreaching the system component."
+  },
+  "extraction_notes": []
+}

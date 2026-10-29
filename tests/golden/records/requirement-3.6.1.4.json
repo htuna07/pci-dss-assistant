@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "3",
+  "document_version": "4.0.1",
+  "requirement_id": "3.6.1.4",
+  "pdf_pages": [
+    105
+  ],
+  "defined_requirement": "Cryptographic keys are stored in the fewest\npossible locations.",
+  "testing_procedures": "3.6.1.4 Examine key storage locations and observe\nprocesses to verify that keys are stored in the\nfewest possible locations.",
+  "customized_approach_objective": "Cryptographic keys are retained only where\nnecessary.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Storing any cryptographic keys in the fewest locations\nhelps an organization track and monitor all key\nlocations and minimizes the potential for keys to be\nexposed to unauthorized parties."
+  },
+  "extraction_notes": []
+}

@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "7",
+  "document_version": "4.0.1",
+  "requirement_id": "7.2.4",
+  "pdf_pages": [
+    172
+  ],
+  "defined_requirement": "All user accounts and related access\nprivileges, including third-party/vendor accounts, are\nreviewed as follows:\n•   At least once every six months.\n•  To ensure user accounts and access remain\nappropriate based on job function.\n•  Any inappropriate access is addressed.\n•  Management acknowledges that access\nremains appropriate.",
+  "testing_procedures": "7.2.4.a Examine policies and procedures to verify\nthey define processes to review all user accounts\nand related access privileges, including third-\nparty/vendor accounts, in accordance with all\nelements specified in this requirement.\n7.2.4.b Interview responsible personnel and\nexamine documented results of periodic reviews of\nuser accounts to verify that all the results are in\naccordance with all elements specified in this\nrequirement.",
+  "customized_approach_objective": "Account privilege assignments are verified\nperiodically by management as correct, and\nnonconformities are remediated.",
+  "applicability_notes": "This requirement applies to all user accounts and\nrelated access privileges, including those used by\npersonnel and third parties/vendors, and accounts\nused to access third-party cloud services.\nSee Requirements 7.2.5 and 7.2.5.1 and 8.6.1\nthrough 8.6.3 for controls for application and system\naccounts.\nThis requirement is a best practice until 31 March\n2025, after which it will be required and must be\nfully considered during a PCI DSS assessment.",
+  "guidance": {
+    "purpose": "Regular review of access rights helps to detect\nexcessive access rights remaining after user job\nresponsibilities change, system functions change,\nor other modifications. If excessive user rights are\nnot revoked in due time, they may be used by\nmalicious users for unauthorized access.\nThis review provides another opportunity to\nensure that accounts for all terminated users have\nbeen removed (if any were missed at the time of\ntermination), as well as to ensure that any third\nparties that no longer need access have had their\naccess terminated.",
+    "good_practice": "When a user transfers into a new role or a new\ndepartment, typically the privileges and access\nassociated with their former role are no longer\nrequired. Continued access to privileges or\nfunctions that are no longer required may\nintroduce the risk of misuse or errors. Therefore,\nwhen responsibilities change, processes that\nrevalidate access help to ensure user access is\nappropriate for the user’s new responsibilities.\nEntities can consider implementing a regular,\nrepeatable process for conducting reviews of\naccess rights, and assigning “data owners” that\nare responsible for managing and monitoring\naccess to data related to their job function and\nthat also ensure user access remains current and\nappropriate. As an example, a direct manager\ncould review team access monthly, while the\nsenior manager reviews their groups’ access\nquarterly, both making updates to access as\nneeded. The intent of these best practices is to\nsupport and facilitate conducting the reviews at\nleast once every 6 months."
+  },
+  "extraction_notes": []
+}

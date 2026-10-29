@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "1",
+  "document_version": "4.0.1",
+  "requirement_id": "1.4.1",
+  "pdf_pages": [
+    58
+  ],
+  "defined_requirement": "NSCs are implemented between trusted and\nuntrusted networks.",
+  "testing_procedures": "1.4.1.a Examine configuration standards and\nnetwork diagrams to verify that NSCs are defined\nbetween trusted and untrusted networks.\n1.4.1.b Examine network configurations to verify\nthat NSCs are in place between trusted and\nuntrusted networks, in accordance with the\ndocumented configuration standards and network\ndiagrams.",
+  "customized_approach_objective": "Unauthorized traffic cannot traverse network\nboundaries between trusted and untrusted\nnetworks.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Implementing NSCs at every connection coming\ninto and out of trusted networks allows the entity\nto monitor and control access and minimizes the\nchances of a malicious individual obtaining\naccess to the internal network via an unprotected\nconnection.",
+    "examples": "An entity could implement a DMZ, which is a part\nof the network that manages connections\nbetween an untrusted network (for examples of\nuntrusted networks refer to the Requirement 1\nOverview) and services that an organization\nneeds to have available to the public, such as a\nweb server. Please note that if an entity’s DMZ\nprocesses or transmits account data (for example,\ne-commerce website), it is also considered a\nCDE."
+  },
+  "extraction_notes": []
+}

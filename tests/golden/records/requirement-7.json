@@ -1,0 +1,26 @@
+{
+  "document_version": "4.0.1",
+  "record_type": "requirement_introduction",
+  "requirement_id": "7",
+  "pdf_pages": [
+    165
+  ],
+  "title": "Restrict Access to System Components and Cardholder Data by Business Need to Know",
+  "sections": [
+    {
+      "id": "7.1",
+      "title": "Processes and mechanisms for restricting access to system components and cardholder data by business need to know are defined and understood."
+    },
+    {
+      "id": "7.2",
+      "title": "Access to system components and data is appropriately defined and assigned."
+    },
+    {
+      "id": "7.3",
+      "title": "Access to system components and data is managed via an access control system(s)."
+    }
+  ],
+  "overview": "Unauthorized individuals may gain access to critical data or systems due to ineffective access control rules and definitions. To ensure critical\ndata can only be accessed by authorized personnel, systems and processes must be in place to limit access based on need to know and\naccording to job responsibilities.\n“Access” or “access rights” are created by rules that provide users access to systems, applications, and data, while “privileges” allow a user to\nperform a specific action or function in relation to that system, application, or data. For example, a user may have access rights to specific data,\nbut whether they can only read that data, or can also change or delete the data is determined by the user’s assigned privileges.\n“Need to know” refers to providing access to only the least amount of data needed to perform a job.\n“Least privileges” refers to providing only the minimum level of privileges needed to perform a job.\nThese requirements apply to user accounts and access for employees, contractors, consultants, and internal and external vendors and other\nthird parties (for example, for providing support or maintenance services). Certain requirements also apply to application and system accounts\nused by the entity (also called “service accounts”).\nThese requirements do not apply to consumers (cardholders).\nRefer to Appendix G for definitions of PCI DSS terms.",
+  "category_title": "Implement Strong Access Control Measures",
+  "notes": []
+}

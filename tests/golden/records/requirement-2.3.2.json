@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "2",
+  "document_version": "4.0.1",
+  "requirement_id": "2.3.2",
+  "pdf_pages": [
+    77
+  ],
+  "defined_requirement": "For wireless environments connected to the\nCDE or transmitting account data, wireless\nencryption keys are changed as follows:\n•  Whenever personnel with knowledge of the key\nleave the company or the role for which the\nknowledge was necessary.\n•  Whenever a key is suspected of or known to be\ncompromised.",
+  "testing_procedures": "2.3.2 Interview responsible personnel and examine\nkey-management documentation to verify that\nwireless encryption keys are changed in\naccordance with all elements specified in this\nrequirement.",
+  "customized_approach_objective": "Knowledge of wireless encryption keys cannot allow\nunauthorized access to wireless networks.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Changing wireless encryption keys whenever\nsomeone with knowledge of the key leaves the\norganization or moves to a role that no longer\nrequires knowledge of the key, helps keep\nknowledge of keys limited to only those with a\nbusiness need to know.\nAlso, changing wireless encryption keys\nwhenever a key is suspected or known to be\ncomprised makes a wireless network more\nresistant to compromise.",
+    "good_practice": "This goal can be accomplished in multiple ways,\nincluding periodic changes of keys, changing keys\nvia a defined “joiners-movers-leavers” (JML)\nprocess, implementing additional technical\ncontrols, and not using fixed pre-shared keys.\nIn addition, any keys that are known to be, or\nsuspected of being, compromised should be\nmanaged in accordance with the entity’s incident\nresponse plan at Requirement 12.10.1."
+  },
+  "extraction_notes": []
+}

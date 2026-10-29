@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "7",
+  "document_version": "4.0.1",
+  "requirement_id": "7.2.5.1",
+  "pdf_pages": [
+    174
+  ],
+  "defined_requirement": "All access by application and system\naccounts and related access privileges are reviewed\nas follows:\n•   Periodically (at the frequency defined in the\nentity’s targeted risk analysis, which is\nperformed according to all elements specified in\nRequirement 12.3.1).\n•  The application/system access remains\nappropriate for the function being performed.\n•  Any inappropriate access is addressed.\n•  Management acknowledges that access\nremains appropriate.",
+  "testing_procedures": "7.2.5.1.a Examine policies and procedures to verify\nthey define processes to review all application and\nsystem accounts and related access privileges in\naccordance with all elements specified in this\nrequirement.\n7.2.5.1.b Examine the entity’s targeted risk\nanalysis for the frequency of periodic reviews of\napplication and system accounts and related\naccess privileges to verify the risk analysis was\nperformed in accordance with all elements\nspecified in Requirement 12.3.1.\n7.2.5.1.c Interview responsible personnel and\nexamine documented results of periodic reviews of\nsystem and application accounts and related\nprivileges to verify that the reviews occur in\naccordance with all elements specified in this\nrequirement.",
+  "customized_approach_objective": "Application and system account privilege\nassignments are verified periodically by\nmanagement as correct, and nonconformities are\nremediated.",
+  "applicability_notes": "This requirement is a best practice until 31 March\n2025, after which it will be required and must be\nfully considered during a PCI DSS assessment.",
+  "guidance": {
+    "purpose": "Regular review of access rights helps to detect\nexcessive access rights remaining after system\nfunctions change, or other application or system\nmodifications occur. If excessive rights are not\nremoved when no longer needed, they may be\nused by malicious users for unauthorized access."
+  },
+  "extraction_notes": []
+}

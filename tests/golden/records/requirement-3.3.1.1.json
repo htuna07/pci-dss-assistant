@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "3",
+  "document_version": "4.0.1",
+  "requirement_id": "3.3.1.1",
+  "pdf_pages": [
+    84
+  ],
+  "defined_requirement": "The full contents of any track are not stored upon\ncompletion of the authorization process.",
+  "testing_procedures": "3.3.1.1 Examine data sources to verify that the full\ncontents of any track are not stored upon\ncompletion of the authorization process.",
+  "customized_approach_objective": "This requirement is not eligible for the customized\napproach.",
+  "applicability_notes": "In the normal course of business, the following data\nelements from the track may need to be retained:\n•  Cardholder name.\n•  Primary account number (PAN).\n•   Expiration date.\n•  Service code.\nTo minimize risk, store securely only these data\nelements as needed for business.",
+  "guidance": {
+    "purpose": "If full contents of any track (from the magnetic stripe on\nthe back of a card if present, equivalent data contained\non a chip, or elsewhere) is stored, malicious individuals\nwho obtain that data can use it to reproduce payment\ncards and complete fraudulent transactions.",
+    "definitions": "Full track data is alternatively called full track, track,\ntrack 1, track 2, and magnetic-stripe data. Each track\ncontains a number of data elements, and this\nrequirement specifies only those that may be retained\npost-authorization.",
+    "examples": "Data sources to review to ensure that the full contents\nof any track are not retained upon completion of the\nauthorization process include, but are not limited to:\n•  Incoming transaction data.\n•   All logs (for example, transaction, history,\ndebugging, error).\n•   History files.\n•  Trace files.\n•  Database schemas.\n•  Contents of databases, and on-premise and cloud\ndata stores.\n•  Any existing memory/crash dump files."
+  },
+  "extraction_notes": []
+}

@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "3",
+  "document_version": "4.0.1",
+  "requirement_id": "3.7.8",
+  "pdf_pages": [
+    112
+  ],
+  "defined_requirement": "Key management policies and procedures are\nimplemented to include that cryptographic key\ncustodians formally acknowledge (in writing or\nelectronically) that they understand and accept their\nkey-custodian responsibilities.",
+  "testing_procedures": "3.7.8.a Examine the documented key-management\npolicies and procedures for keys used for\nprotection of stored account data and verify that\nthey define acknowledgments for key custodians in\naccordance with all elements specified in this\nrequirement.\n3.7.8.b Examine documentation or other evidence\nshowing that key custodians have provided\nacknowledgments in accordance with all elements\nspecified in this requirement.",
+  "customized_approach_objective": "Key custodians are knowledgeable about their\nresponsibilities in relation to cryptographic\noperations and can access assistance and guidance\nwhen required.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "This process will help ensure individuals that act as key\ncustodians commit to the key-custodian role and\nunderstand and accept the responsibilities. An annual\nreaffirmation can help remind key custodians of their\nresponsibilities.",
+    "further_information": "Industry guidance for key custodians and their roles\nand responsibilities includes:\n•  NIST SP 800-130 A Framework for Designing\nCryptographic Key Management Systems [5. Roles\nand Responsibilities (especially) for Key\nCustodians]\n•  ISO 11568-1 Banking -- Key management (retail) --\nPart 1: Principles [5 Principles of key management\n(especially b)]"
+  },
+  "extraction_notes": []
+}

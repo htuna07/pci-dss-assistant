@@ -1,0 +1,21 @@
+{
+  "record_type": "requirement",
+  "section_id": "5",
+  "document_version": "4.0.1",
+  "requirement_id": "5.4.1",
+  "pdf_pages": [
+    136,
+    137
+  ],
+  "defined_requirement": "Processes and automated mechanisms are in\nplace to detect and protect personnel against\nphishing attacks.",
+  "testing_procedures": "5.4.1 Observe implemented processes and\nexamine mechanisms to verify controls are in place\nto detect and protect personnel against phishing\nattacks.",
+  "customized_approach_objective": "Mechanisms are in place to protect against and\nmitigate risk posed by phishing attacks.",
+  "applicability_notes": "The focus of this requirement is on protecting\npersonnel with access to system components in-\nscope for PCI DSS.\nMeeting this requirement for technical and\nautomated controls to detect and protect personnel\nagainst phishing is not the same as Requirement\n12.6.3.1 for security awareness training. Meeting\nthis requirement does not also meet the requirement\nfor providing personnel with security awareness\ntraining, and vice versa.\nThis requirement is a best practice until 31 March\n2025, after which it will be required and must be\nfully considered during a PCI DSS assessment.",
+  "guidance": {
+    "purpose": "Technical controls can limit the number of occasions\npersonnel have to evaluate the veracity of a\ncommunication and can also limit the effects of\nindividual responses to phishing.",
+    "good_practice": "When developing anti-phishing controls, entities are\nencouraged to consider a combination of\napproaches. For example, using anti-spoofing\ncontrols such as Domain-based Message\nAuthentication, Reporting & Conformance\n(DMARC), Sender Policy Framework (SPF), and\nDomain Keys Identified Mail (DKIM) will help stop\nphishers from spoofing the entity’s domain and\nimpersonating personnel.\nThe deployment of technologies for blocking\nphishing emails and malware before they reach\npersonnel, such as link scrubbers and server-side\nanti-malware, can reduce incidents and decrease\nthe time required by personnel to check and report\nphishing attacks. Additionally, training personnel to\nrecognize and report phishing emails can allow\nsimilar emails to be identified and permit them to be\nremoved before being opened.\nIt is recommended (but not required) that anti-\nphishing controls are applied across an entity’s\nentire organization.",
+    "definitions": "Phishing is a form of social engineering and\ndescribes the different methods used by attackers to\ntrick personnel into disclosing sensitive information,\nsuch as user account names and passwords, and\naccount data. Attackers will typically disguise\nthemselves and attempt to appear as a genuine or\ntrusted source, directing personnel to send an email\nresponse, click on a web link, or enter data into a\ncompromised website. Mechanisms that can detect\nand prevent phishing attempts are often included in\nanti-malware solutions.",
+    "further_information": "See the following for more information about\nphishing:\nNational Cyber Security Centre - Phishing Attacks:\nDefending your Organization.\nUS Cybersecurity & Infrastructure Security Agency -\nReport Phishing Sites."
+  },
+  "extraction_notes": []
+}

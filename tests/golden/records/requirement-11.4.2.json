@@ -1,0 +1,29 @@
+{
+  "record_type": "requirement",
+  "section_id": "11",
+  "document_version": "4.0.1",
+  "requirement_id": "11.4.2",
+  "pdf_pages": [
+    280,
+    281
+  ],
+  "defined_requirement": "Internal penetration testing is performed:\n•  Per the entity’s defined methodology,\n•   At least once every 12 months\n•   After any significant infrastructure or application\nupgrade or change\n•  By a qualified internal resource or qualified\nexternal third-party\n•   Organizational independence of the tester exists\n(not required to be a QSA or ASV).",
+  "testing_procedures": "11.4.2.a Examine the scope of work and results\nfrom the most recent internal penetration test to\nverify that penetration testing is performed in\naccordance with all elements specified in this\nrequirement.\n11.4.2.b Interview personnel to verify that the\ninternal penetration test was performed by a\nqualified internal resource or qualified external\nthird-party and that organizational independence of\nthe tester exists (not required to be a QSA or\nASV).",
+  "customized_approach_objective": "Internal system defenses are verified by technical\ntesting according to the entity’s defined\nmethodology as frequently as needed to address\nevolving and new attacks and threats and ensure\nthat significant changes do not introduce unknown\nvulnerabilities.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Internal penetration testing serves two purposes.\nFirstly, just like an external penetration test, it\ndiscovers vulnerabilities and misconfigurations\nthat could be used by an attacker that had\nmanaged to get some degree of access to the\ninternal network, whether that is because the\nattacker is an authorized user conducting\nunauthorized activities, or an external attacker\nthat had managed to penetrate the entity’s\nperimeter.\nSecondly, internal penetration testing also helps\nentities to discover where their change control\nprocess failed by detecting previously unknown\nsystems. Additionally, it verifies the status of\nmany of the controls operating within the CDE.\nA penetration test is not truly a “test” because the\noutcome of a penetration test is not something\nthat can be classified as a “pass” or a “fail.” The\nbest outcome of a test is a catalog of\nvulnerabilities and misconfigurations that an entity\ndid not know about, and the penetration tester\nfound them before an attacker could. A\npenetration test that found nothing is typically\nindicative of shortcomings of the penetration\ntester, rather than being a positive reflection of\nthe security posture of the entity.",
+    "good_practice": "Some considerations when choosing a qualified\nresource to perform penetration testing include:\n•   Specific penetration testing certifications,\nwhich may be an indication of the tester’s skill\nlevel and competence.\n•   Prior experience conducting penetration\ntesting—for example, the number of years of\nexperience, and the type and scope of prior\nengagements can help confirm whether the\ntester’s experience is appropriate for the\nneeds of the engagement.",
+    "further_information": "Refer to the Information Supplement: Penetration\nTesting Guidance on the PCI SSC website for\nadditional guidance."
+  },
+  "extraction_notes": [
+    {
+      "pdf_pages": [
+        280,
+        281
+      ],
+      "status": "provisional",
+      "message": "Complete guidance from 11.4.2 duplicated into 11.4.3 for retrieval. Includes internal-testing wording; reassess after evaluation. This is an extraction decision, not confirmed source ownership."
+    }
+  ]
+}

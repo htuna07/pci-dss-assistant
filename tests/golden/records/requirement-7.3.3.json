@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "7",
+  "document_version": "4.0.1",
+  "requirement_id": "7.3.3",
+  "pdf_pages": [
+    177
+  ],
+  "defined_requirement": "The access control system(s) is set to “deny\nall” by default.",
+  "testing_procedures": "7.3.3 Examine vendor documentation and system\nsettings to verify that the access control system(s)\nis set to “deny all” by default.",
+  "customized_approach_objective": "Access rights and privileges are prohibited unless\nexpressly permitted.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "A default setting of “deny all” ensures no one is\ngranted access unless a rule is established\nspecifically granting such access.",
+    "good_practice": "It is important to check the default configuration of\naccess control systems because some are set by\ndefault to “allow all,” thereby permitting access\nunless/until a rule is written to specifically deny it."
+  },
+  "extraction_notes": []
+}

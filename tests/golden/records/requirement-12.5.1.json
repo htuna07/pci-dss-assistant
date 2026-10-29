@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.5.1",
+  "pdf_pages": [
+    308
+  ],
+  "defined_requirement": "An inventory of system components that are\nin scope for PCI DSS, including a description of\nfunction/use, is maintained and kept current.",
+  "testing_procedures": "12.5.1.a Examine the inventory to verify it includes\nall in-scope system components and a description\nof function/use for each.\n12.5.1.b Interview personnel to verify the inventory\nis kept current.",
+  "customized_approach_objective": "All system components in scope for PCI DSS are\nidentified and known.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Maintaining a current list of all system\ncomponents will enable an organization to define\nthe scope of its environment and implement PCI\nDSS requirements accurately and efficiently.\nWithout an inventory, some system components\ncould be overlooked and be inadvertently\nexcluded from the organization’s configuration\nstandards.",
+    "good_practice": "If an entity keeps an inventory of all assets, those\nsystem components in scope for PCI DSS should\nbe clearly identifiable among the other assets.\nInventories should include containers or images\nthat may be instantiated.\nAssigning an owner to the inventory helps to\nensure the inventory stays current.",
+    "examples": "Methods to maintain an inventory include as a\ndatabase, as a series of files, or in an inventory-\nmanagement tool."
+  },
+  "extraction_notes": []
+}

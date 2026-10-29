@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "9",
+  "document_version": "4.0.1",
+  "requirement_id": "9.1.1",
+  "pdf_pages": [
+    215
+  ],
+  "defined_requirement": "All security policies and operational\nprocedures that are identified in Requirement 9 are:\n•  Documented.\n•  Kept up to date.\n•   In use.\n•  Known to all affected parties.",
+  "testing_procedures": "9.1.1 Examine documentation and interview\npersonnel to verify that security policies and\noperational procedures identified in Requirement 9\nare managed in accordance with all elements\nspecified in this requirement.",
+  "customized_approach_objective": "Expectations, controls, and oversight for meeting\nactivities within Requirement 9 are defined and\nadhered to by affected personnel. All supporting\nactivities are repeatable, consistently applied, and\nconform to management’s intent.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Requirement 9.1.1 is about effectively managing\nand maintaining the various policies and\nprocedures specified throughout Requirement 9.\nWhile it is important to define the specific policies\nor procedures called out in Requirement 9, it is\nequally important to ensure they are properly\ndocumented, maintained, and disseminated.",
+    "good_practice": "It is important to update policies and procedures\nas needed to address changes in processes,\ntechnologies, and business objectives. For this\nreason, consider updating these documents as\nsoon as possible after a change occurs and not\nonly on a periodic cycle.",
+    "definitions": "Security policies define the entity’s security\nobjectives and principles. Operational procedures\ndescribe how to perform activities, and define the\ncontrols, methods, and processes that are\nfollowed to achieve the desired result in a\nconsistent manner and in accordance with policy\nobjectives.\nPolicies and procedures, including updates, are\nactively communicated to all affected personnel,\nand are supported by operating procedures\ndescribing how to perform activities."
+  },
+  "extraction_notes": []
+}

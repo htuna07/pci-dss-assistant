@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "3",
+  "document_version": "4.0.1",
+  "requirement_id": "3.3.1.2",
+  "pdf_pages": [
+    85
+  ],
+  "defined_requirement": "The card verification code is not stored upon\ncompletion of the authorization process.",
+  "testing_procedures": "3.3.1.2 Examine data sources, to verify that the\ncard verification code is not stored upon\ncompletion of the authorization process.",
+  "customized_approach_objective": "This requirement is not eligible for the customized\napproach.",
+  "applicability_notes": "The card verification code is the three- or four-digit\nnumber printed on the front or back of a payment card\nused to verify card-not-present transactions.",
+  "guidance": {
+    "purpose": "If card verification code data is stolen, malicious\nindividuals can execute fraudulent Internet and mail-\norder/telephone-order (MO/TO) transactions. Not\nstoring this data reduces the probability of it being\ncompromised.",
+    "examples": "If card verification codes are stored on paper media\nprior to completion of authorization, a method of\nerasing or covering the codes should prevent them\nfrom being read after authorization is complete.\nExample methods of rendering the codes unreadable\ninclude removing the code with scissors and applying a\nsuitably opaque and un-removable marker over the\ncode.\nData sources to review to ensure that the card\nverification code is not retained upon completion of the\nauthorization process include, but are not limited to:\n•  Incoming transaction data.\n•   All logs (for example, transaction, history,\ndebugging, error).\n•   History files.\n•  Trace files.\n•  Database schemas.\n•  Contents of databases, and on-premise and cloud\ndata stores.\n•  Any existing memory/crash dump files."
+  },
+  "extraction_notes": []
+}

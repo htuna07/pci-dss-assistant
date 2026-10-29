@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "1",
+  "document_version": "4.0.1",
+  "requirement_id": "1.2.7",
+  "pdf_pages": [
+    53
+  ],
+  "defined_requirement": "Configurations of NSCs are reviewed at least\nonce every six months to confirm they are relevant\nand effective.",
+  "testing_procedures": "1.2.7.a Examine documentation to verify\nprocedures are defined for reviewing\nconfigurations of NSCs at least once every six\nmonths.\n1.2.7.b Examine documentation of reviews of\nconfigurations for NSCs and interview responsible\npersonnel to verify that reviews occur at least once\nevery six months.\n1.2.7.c Examine configurations for NSCs to verify\nthat configurations identified as no longer being\nsupported by a business justification are removed\nor updated.",
+  "customized_approach_objective": "NSC configurations that allow or restrict access to\ntrusted networks are verified periodically to ensure\nthat only authorized connections with a current\nbusiness justification are permitted.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Such a review gives the organization an\nopportunity to clean up any unneeded, outdated,\nor incorrect rules and configurations which could\nbe utilized by an unauthorized person.\nFurthermore, it ensures that all rules and\nconfigurations allow only authorized services,\nprotocols, and ports that match the documented\nbusiness justifications.",
+    "good_practice": "This review, which can be implemented using\nmanual, automated, or system-based methods, is\nintended to confirm that the settings that manage\ntraffic rules, what is allowed in and out of the\nnetwork, match the approved configurations.\nThe review should provide confirmation that all\npermitted access has a justified business reason.\nAny discrepancies or uncertainties about a rule or\nconfiguration should be escalated for resolution.\nWhile this requirement specifies that this review\noccur at least once every six months,\norganizations with a high volume of changes to\ntheir network configurations may wish to consider\nperforming reviews more frequently to ensure that\nthe configurations continue to meet the needs of\nthe business."
+  },
+  "extraction_notes": []
+}

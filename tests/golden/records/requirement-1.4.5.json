@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "1",
+  "document_version": "4.0.1",
+  "requirement_id": "1.4.5",
+  "pdf_pages": [
+    62
+  ],
+  "defined_requirement": "The disclosure of internal IP addresses and\nrouting information is limited to only authorized\nparties.",
+  "testing_procedures": "1.4.5.a Examine configurations of NSCs to verify\nthat the disclosure of internal IP addresses and\nrouting information is limited to only authorized\nparties.\n1.4.5.b Interview personnel and examine\ndocumentation to verify that controls are\nimplemented such that any disclosure of internal IP\naddresses and routing information is limited to only\nauthorized parties.",
+  "customized_approach_objective": "Internal network information is protected from\nunauthorized disclosure.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Restricting the disclosure of internal, private, and\nlocal IP addresses is useful to prevent a hacker\nfrom obtaining knowledge of these IP addresses\nand using that information to access the network.",
+    "good_practice": "Methods used to meet the intent of this\nrequirement may vary, depending on the specific\nnetworking technology being used. For example,\nthe controls used to meet this requirement may\nbe different for IPv4 networks than for IPv6\nnetworks.",
+    "examples": "Methods to obscure IP addressing may include,\nbut are not limited to:\n•  IPv4 Network Address Translation (NAT).\n•   Placing system components behind proxy\nservers/NSCs.\n•  Removal or filtering of route advertisements\nfor internal networks that use registered\naddressing.\n•   Internal use of RFC 1918 (IPv4) or use IPv6\nprivacy extension (RFC 4941) when initiating\noutgoing sessions to the internet."
+  },
+  "extraction_notes": []
+}

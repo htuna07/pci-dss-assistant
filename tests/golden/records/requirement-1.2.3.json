@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "1",
+  "document_version": "4.0.1",
+  "requirement_id": "1.2.3",
+  "pdf_pages": [
+    48,
+    49
+  ],
+  "defined_requirement": "An accurate network diagram(s) is maintained\nthat shows all connections between the CDE and\nother networks, including any wireless networks.",
+  "testing_procedures": "1.2.3.a Examine diagram(s) and network\nconfigurations to verify that an accurate network\ndiagram(s) exists in accordance with all elements\nspecified in this requirement.\n1.2.3.b Examine documentation and interview\nresponsible personnel to verify that the network\ndiagram(s) is accurate and updated when there are\nchanges to the environment.",
+  "customized_approach_objective": "A representation of the boundaries between the\nCDE, all trusted networks, and all untrusted\nnetworks, is maintained and available.",
+  "applicability_notes": "A current network diagram(s) or other technical or\ntopological solution that identifies network\nconnections and devices can be used to meet this\nrequirement.",
+  "guidance": {
+    "purpose": "Maintaining an accurate and up-to-date network\ndiagram(s) prevents network connections and\ndevices from being overlooked and unknowingly\nleft unsecured and vulnerable to compromise.\nA properly maintained network diagram(s) helps\nan organization verify its PCI DSS scope by\nidentifying systems connecting to and from the\nCDE.",
+    "good_practice": "All connections to and from the CDE should be\nidentified, including systems providing security,\nmanagement, or maintenance services to CDE\nsystem components. Entities should consider\nincluding the following in their network diagrams:\n•   All locations, including retail locations, data\ncenters, corporate locations, cloud providers,\netc.\n•  Clear labeling of all network segments.\n•   All security controls providing segmentation,\nincluding unique identifiers for each control\n(for example, name of control, make, model,\nand version).\n•   All in-scope system components, including\nNSCs, web app firewalls, anti-malware\nsolutions, change management solutions,\nIDS/IPS, log aggregation systems, payment\nterminals, payment applications, HSMs, etc.\n•  Clear labeling of any out-of-scope areas on\nthe diagram via a shaded box or other\nmechanism.\n•  Date of last update, and names of people that\nmade and approved the updates.\n•  A legend or key to explain the diagram.\nDiagrams should be updated by authorized\npersonnel to ensure diagrams continue to provide\nan accurate description of the network."
+  },
+  "extraction_notes": []
+}

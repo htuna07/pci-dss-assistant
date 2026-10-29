@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.2.1",
+  "pdf_pages": [
+    299
+  ],
+  "defined_requirement": "Acceptable use policies for end-user\ntechnologies are documented and implemented,\nincluding:\n•   Explicit approval by authorized parties.\n•  Acceptable uses of the technology.\n•   List of products approved by the company for\nemployee use, including hardware and software.",
+  "testing_procedures": "12.2.1 Examine the acceptable use policies for\nend-user technologies and interview responsible\npersonnel to verify processes are documented and\nimplemented in accordance with all elements\nspecified in this requirement.",
+  "customized_approach_objective": "The use of end-user technologies is defined and\nmanaged to ensure authorized usage.",
+  "applicability_notes": "Examples of end-user technologies for which\nacceptable use policies are expected include, but\nare not limited to, remote access and wireless\ntechnologies, laptops, tablets, mobile phones, and\nremovable electronic media, email usage, and\nInternet usage.",
+  "guidance": {
+    "purpose": "End-user technologies are a significant\ninvestment and may pose significant risk to an\norganization if not managed properly. Acceptable\nuse policies outline the expected behavior from\npersonnel when using the organization’s\ninformation technology and reflect the\norganization’s risk tolerance\nThese policies instruct personnel on what they\ncan and cannot do with company equipment and\ninstruct personnel on correct and incorrect uses of\ncompany Internet and email resources. Such\npolicies can legally protect an organization and\nallow it to act when the policies are violated.",
+    "good_practice": "It is important that usage policies are supported\nby technical controls to manage the enforcement\nof the policies.\nStructuring polices as simple “do” and “do not”\nrequirements that are linked to a purpose can\nhelp remove ambiguity and provide personnel\nwith the context for the requirement."
+  },
+  "extraction_notes": []
+}

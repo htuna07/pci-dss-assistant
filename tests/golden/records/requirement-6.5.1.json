@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "6",
+  "document_version": "4.0.1",
+  "requirement_id": "6.5.1",
+  "pdf_pages": [
+    159
+  ],
+  "defined_requirement": "Changes to all system components in the\nproduction environment are made according to\nestablished procedures that include:\n•  Reason for, and description of, the change.\n•  Documentation of security impact.\n•  Documented change approval by authorized\nparties.\n•   Testing to verify that the change does not\nadversely impact system security.\n•  For bespoke and custom software changes, all\nupdates are tested for compliance with\nRequirement 6.2.4 before being deployed into\nproduction.\n•  Procedures to address failures and return to a\nsecure state.",
+  "testing_procedures": "6.5.1.a Examine documented change control\nprocedures to verify procedures are defined for\nchanges to all system components in the\nproduction environment to include all elements\nspecified in this requirement.\n6.5.1.b Examine recent changes to system\ncomponents and trace those changes back to\nrelated change control documentation. For each\nchange examined, verify the change is\nimplemented in accordance with all elements\nspecified in this requirement.",
+  "customized_approach_objective": "All changes are tracked, authorized, and evaluated\nfor impact and security, and changes are managed\nto avoid unintended effects to the security of system\ncomponents.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Change management procedures must be applied to\nall changes—including the addition, removal, or\nmodification of any system component—in the\nproduction environment. It is important to document\nthe reason for a change and the change description\nso that relevant parties understand and agree the\nchange is needed. Likewise, documenting the\nimpacts of the change allows all affected parties to\nplan appropriately for any processing changes.",
+    "good_practice": "Approval by authorized parties confirms that the\nchange is legitimate and that the change is\nsanctioned by the organization. Changes should be\napproved by individuals with the appropriate authority\nand knowledge to understand the impact of the\nchange.\nThorough testing by the entity confirms that the\nsecurity of the environment is not reduced by\nimplementing a change and that all existing security\ncontrols either remain in place or are replaced with\nequal or stronger security controls after the change.\nThe specific testing to be performed will vary\naccording to the type of change and system\ncomponent(s) affected.\nFor each change, it is important to have documented\nprocedures that address any failures and provide\ninstructions on how to return to a secure state in case\nthe change fails or adversely affects the security of\nan application or system. These procedures will allow\nthe application or system to be restored to its\nprevious secure state."
+  },
+  "extraction_notes": []
+}

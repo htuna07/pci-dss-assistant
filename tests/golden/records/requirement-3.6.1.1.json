@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "3",
+  "document_version": "4.0.1",
+  "requirement_id": "3.6.1.1",
+  "pdf_pages": [
+    101,
+    102
+  ],
+  "defined_requirement": "Additional requirement for service\nproviders only: A documented description of the\ncryptographic architecture is maintained that\nincludes:\n•   Details of all algorithms, protocols, and keys\nused for the protection of stored account data,\nincluding key strength and expiry date.\n•  Preventing the use of the same cryptographic\nkeys in production and test environments. This\nbullet is a best practice until its effective date;\nrefer to Applicability Notes below for details.\n•   Description of the key usage for each key.\n•   Inventory of any hardware security modules\n(HSMs), key management systems (KMS), and\nother secure cryptographic devices (SCDs) used\nfor key management, including type and location\nof devices, to support meeting Requirement\n12.3.4.",
+  "testing_procedures": "3.6.1.1 Additional testing procedure for service\nprovider assessments only: Interview\nresponsible personnel and examine documentation\nto verify that a document exists to describe the\ncryptographic architecture that includes all\nelements specified in this requirement.",
+  "customized_approach_objective": "Accurate details of the cryptographic architecture\nare maintained and available.",
+  "applicability_notes": "This requirement applies only when the entity being\nassessed is a service provider.\nIn cloud HSM implementations, responsibility for the\ncryptographic architecture according to this\nRequirement will be shared between the cloud\nprovider and the cloud customer.\nThe bullet above (for including, in the cryptographic\narchitecture, that the use of the same cryptographic\nkeys in production and test is prevented) is a best\npractice until 31 March 2025, after which it will be\nrequired as part of Requirement 3.6.1.1 and must\nbe fully considered during a PCI DSS assessment.",
+  "guidance": {
+    "purpose": "Maintaining current documentation of the cryptographic\narchitecture enables an entity to understand the\nalgorithms, protocols, and cryptographic keys used to\nprotect stored account data, as well as the devices that\ngenerate, use, and protect the keys. This allows an\nentity to keep pace with evolving threats to its\narchitecture and plan for updates as the assurance\nlevel provided by different algorithms and key strengths\nchanges. Maintaining such documentation also allows\nan entity to detect lost or missing keys or key-\nmanagement devices and identify unauthorized\nadditions to its cryptographic architecture.\nThe use of the same cryptographic keys in both\nproduction and test environments introduces a risk of\nexposing the key if the test environment is not at the\nsame security level as the production environment.",
+    "good_practice": "Having an automated reporting mechanism can assist\nwith maintenance of the cryptographic attributes."
+  },
+  "extraction_notes": []
+}

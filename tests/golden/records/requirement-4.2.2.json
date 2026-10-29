@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "4",
+  "document_version": "4.0.1",
+  "requirement_id": "4.2.2",
+  "pdf_pages": [
+    122
+  ],
+  "defined_requirement": "PAN is secured with strong cryptography\nwhenever it is sent via end-user messaging\ntechnologies.",
+  "testing_procedures": "4.2.2.a Examine documented policies and\nprocedures to verify that processes are defined to\nsecure PAN with strong cryptography whenever\nsent over end-user messaging technologies.\n4.2.2.b Examine system configurations and vendor\ndocumentation to verify that PAN is secured with\nstrong cryptography whenever it is sent via end-\nuser messaging technologies.",
+  "customized_approach_objective": "Cleartext PAN cannot be read or intercepted from\ntransmissions using end-user messaging\ntechnologies.",
+  "applicability_notes": "This requirement also applies if a customer, or other\nthird party, requests that PAN is sent to them via\nend-user messaging technologies.\nThere could be occurrences where an entity\nreceives unsolicited cardholder data via an insecure\ncommunication channel that was not intended for\ntransmissions of sensitive data. In this situation, the\nentity can choose to either include the channel in\nthe scope of their CDE and secure it according to\nPCI DSS or delete the cardholder data and\nimplement measures to prevent the channel from\nbeing used for cardholder data.",
+  "guidance": {
+    "purpose": "End-user messaging technologies typically can be\neasily intercepted by packet-sniffing during\ndelivery across internal and public networks.",
+    "good_practice": "The use of end-user messaging technology to\nsend PAN should only be considered where there\nis a defined business need and should be\ncontrolled through the Acceptable Use Policies for\nend-user technologies defined by the entity\naccording to Requirement 12.2.1.",
+    "examples": "E-mail, instant messaging, SMS, and chat are\nexamples of the type of end-user messaging\ntechnology that this requirement refers to."
+  },
+  "extraction_notes": []
+}

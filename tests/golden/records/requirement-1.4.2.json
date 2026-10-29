@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "1",
+  "document_version": "4.0.1",
+  "requirement_id": "1.4.2",
+  "pdf_pages": [
+    59
+  ],
+  "defined_requirement": "Inbound traffic from untrusted networks to\ntrusted networks is restricted to:\n•  Communications with system components that\nare authorized to provide publicly accessible\nservices, protocols, and ports.\n•   Stateful responses to communications initiated\nby system components in a trusted network.\n•   All other traffic is denied.",
+  "testing_procedures": "1.4.2 Examine vendor documentation and\nconfigurations of NSCs to verify that inbound traffic\nfrom untrusted networks to trusted networks is\nrestricted in accordance with all elements specified\nin this requirement.",
+  "customized_approach_objective": "Only traffic that is authorized or that is a response to\na system component in the trusted network can\nenter a trusted network from an untrusted network.",
+  "applicability_notes": "The intent of this requirement is to address\ncommunication sessions between trusted and\nuntrusted networks, rather than the specifics of\nprotocols.\nThis requirement does not limit the use of UDP or\nother connectionless network protocols if state is\nmaintained by the NSC.",
+  "guidance": {
+    "purpose": "Ensuring that public access to a system\ncomponent is specifically authorized reduces the\nrisk of system components being unnecessarily\nexposed to untrusted networks.",
+    "good_practice": "System components that provide publicly\naccessible services, such as email, web, and\nDNS servers, are the most vulnerable to threats\noriginating from untrusted networks.\nIdeally, such systems are placed within a\ndedicated trusted network that is public facing (for\nexample, a DMZ) but that is separated via NSCs\nfrom more sensitive internal systems, which helps\nprotect the rest of the network in the event these\nexternally accessible systems are compromised.\nThis functionality is intended to prevent malicious\nactors from accessing the organization's internal\nnetwork from the Internet, or from using services,\nprotocols, or ports in an unauthorized manner.\nWhere this functionality is provided as a built-in\nfeature of an NSC, the entity should ensure that\nits configurations do not result in the functionality\nbeing disabled or bypassed.",
+    "definitions": "Maintaining the \"state\" (or status) for each\nconnection into a network means the NSC\n“knows” whether an apparent response to a\nprevious connection is a valid, authorized\nresponse (since the NSC retains each\nconnection’s status) or whether it is malicious\ntraffic trying to fool the NSC into allowing the\nconnection."
+  },
+  "extraction_notes": []
+}

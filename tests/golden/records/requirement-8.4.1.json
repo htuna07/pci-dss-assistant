@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "8",
+  "document_version": "4.0.1",
+  "requirement_id": "8.4.1",
+  "pdf_pages": [
+    202
+  ],
+  "defined_requirement": "MFA is implemented for all non-console\naccess into the CDE for personnel with\nadministrative access.",
+  "testing_procedures": "8.4.1.a Examine network and/or system\nconfigurations to verify MFA is required for all non-\nconsole into the CDE for personnel with\nadministrative access.\n8.4.1.b Observe administrator personnel logging\ninto the CDE and verify that MFA is required.",
+  "customized_approach_objective": "Administrative access to the CDE cannot be\nobtained by the use of a single authentication factor.",
+  "applicability_notes": "The requirement for MFA for non-console\nadministrative access applies to all personnel with\nelevated or increased privileges accessing the CDE\nvia a non-console connection—that is, via logical\naccess occurring over a network interface rather\nthan via a direct, physical connection.",
+  "guidance": {
+    "purpose": "Requiring more than one type of authentication\nfactor reduces the probability that an attacker can\ngain access to a system by masquerading as a\nlegitimate user, because the attacker would need\nto compromise multiple authentication factors.\nThis is especially true in environments where\ntraditionally the single authentication factor\nemployed was something a user knows such as a\npassword or passphrase.",
+    "good_practice": "Implementing MFA for non-console administrative\naccess to in-scope system components that are\nnot part of the CDE will help prevent unauthorized\nusers from using a single factor to gain access\nand compromise in-scope system components.",
+    "definitions": "Using one factor twice (for example, using two\nseparate passwords) is not considered multi-\nfactor authentication."
+  },
+  "extraction_notes": []
+}

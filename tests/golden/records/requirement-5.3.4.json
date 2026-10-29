@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "5",
+  "document_version": "4.0.1",
+  "requirement_id": "5.3.4",
+  "pdf_pages": [
+    134
+  ],
+  "defined_requirement": "Audit logs for the anti-malware solution(s) are\nenabled and retained in accordance with\nRequirement 10.5.1.",
+  "testing_procedures": "5.3.4 Examine anti-malware solution(s)\nconfigurations to verify logs are enabled and\nretained in accordance with Requirement 10.5.1.",
+  "customized_approach_objective": "Historical records of anti-malware actions are\nimmediately available and retained for at least 12\nmonths.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "It is important to track the effectiveness of the anti-\nmalware mechanisms—for example, by confirming\nthat updates and scans are being performed as\nexpected, and that malware is identified and\naddressed. Audit logs also allow an entity to\ndetermine how malware entered the environment\nand track its activity when inside the entity’s\nnetwork."
+  },
+  "extraction_notes": []
+}

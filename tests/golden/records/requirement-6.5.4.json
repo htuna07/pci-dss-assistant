@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "6",
+  "document_version": "4.0.1",
+  "requirement_id": "6.5.4",
+  "pdf_pages": [
+    162
+  ],
+  "defined_requirement": "Roles and functions are separated between\nproduction and pre-production environments to\nprovide accountability such that only reviewed and\napproved changes are deployed.",
+  "testing_procedures": "6.5.4.a Examine policies and procedures to verify\nthat processes are defined for separating roles and\nfunctions to provide accountability such that only\nreviewed and approved changes are deployed.\n6.5.4.b Observe processes and interview\npersonnel to verify implemented controls separate\nroles and functions and provide accountability such\nthat only reviewed and approved changes are\ndeployed.",
+  "customized_approach_objective": "Job roles and accountability that differentiate\nbetween pre-production and production activities\nare defined and managed to minimize the risk of\nunauthorized, unintentional, or inappropriate\nactions.",
+  "applicability_notes": "In environments with limited personnel where\nindividuals perform multiple roles or functions, this\nsame goal can be achieved with additional\nprocedural controls that provide accountability. For\nexample, a developer may also be an administrator\nthat uses an administrator-level account with\nelevated privileges in the development environment\nand, for their developer role, they use a separate\naccount with user-level access to the production\nenvironment.",
+  "guidance": {
+    "purpose": "The goal of separating roles and functions between\nproduction and pre-production environments is to\nreduce the number of personnel with access to the\nproduction environment and account data and\nthereby minimize risk of unauthorized, unintentional,\nor inappropriate access to data and system\ncomponents and help ensure that access is limited to\nthose individuals with a business need for such\naccess.\nThe intent of this control is to separate critical\nactivities to provide oversight and review to catch\nerrors and minimize the chances of fraud or theft\n(since two people would need to collude in order to\nhide an activity).\nSeparating roles and functions, also referred to as\nseparation or segregation of duties, is a key internal\ncontrol concept to protect an entity’s assets."
+  },
+  "extraction_notes": []
+}

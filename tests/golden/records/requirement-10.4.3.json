@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "10",
+  "document_version": "4.0.1",
+  "requirement_id": "10.4.3",
+  "pdf_pages": [
+    255
+  ],
+  "defined_requirement": "Exceptions and anomalies identified during\nthe review process are addressed.",
+  "testing_procedures": "10.4.3.a Examine security policies and procedures\nto verify that processes are defined for addressing\nexceptions and anomalies identified during the\nreview process.\n10.4.3.b Observe processes and interview\npersonnel to verify that, when exceptions and\nanomalies are identified, they are addressed.",
+  "customized_approach_objective": "Suspicious or anomalous activities are addressed.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "If exceptions and anomalies identified during the\nlog-review process are not investigated, the entity\nmay be unaware of unauthorized and potentially\nmalicious activities occurring within their network.",
+    "good_practice": "Entities should consider how to address the\nfollowing when developing their processes for\ndefining and managing exceptions and\nanomalies:\n•  How log review activities are recorded,\n•  How to rank and prioritize exceptions and\nanomalies,\n•  What procedures should be in place to report\nand escalate exceptions and anomalies, and\n•  Who is responsible for investigating and for\nany remediation tasks."
+  },
+  "extraction_notes": []
+}

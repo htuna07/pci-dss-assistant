@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.10.7",
+  "pdf_pages": [
+    337
+  ],
+  "defined_requirement": "Incident response procedures are in place,\nto be initiated upon the detection of stored PAN\nanywhere it is not expected, and include:\n•  Determining what to do if PAN is discovered\noutside the CDE, including its retrieval, secure\ndeletion, and/or migration into the currently\ndefined CDE, as applicable.\n•   Identifying whether sensitive authentication data\nis stored with PAN.\n•  Determining where the account data came from\nand how it ended up where it was not expected.\n•  Remediating data leaks or process gaps that\nresulted in the account data being where it was\nnot expected.",
+  "testing_procedures": "12.10.7.a Examine documented incident response\nprocedures to verify that procedures for responding\nto the detection of stored PAN anywhere it is not\nexpected to exist, ready to be initiated, and include\nall elements specified in this requirement.\n12.10.7.b Interview personnel and examine\nrecords of response actions to verify that incident\nresponse procedures are performed upon\ndetection of stored PAN anywhere it is not\nexpected.",
+  "customized_approach_objective": "Processes are in place to quickly respond, analyze,\nand address situations in the event that cleartext\nPAN is detected where it is not expected.",
+  "applicability_notes": "This requirement is a best practice until 31 March\n2025, after which it will be required and must be\nfully considered during a PCI DSS assessment.",
+  "guidance": {
+    "purpose": "Having documented incident response\nprocedures that are followed in the event that\nstored PAN is found anywhere it is not expected\nto be, helps to identify the necessary remediation\nactions and prevent future leaks.",
+    "good_practice": "If PAN was found outside the CDE, analysis\nshould be performed to 1) determine whether it\nwas saved independently of other data or with\nsensitive authentication data, 2) identify the\nsource of the data, and 3) identify the control\ngaps that resulted in the data being outside the\nCDE.\nEntities should consider whether there are\ncontributory factors, such as business processes,\nuser behavior, improper system configurations,\netc. that caused the PAN to be stored in an\nunexpected location. If such contributory factors\nare present, they should be addressed per this\nRequirement to prevent recurrence."
+  },
+  "extraction_notes": []
+}

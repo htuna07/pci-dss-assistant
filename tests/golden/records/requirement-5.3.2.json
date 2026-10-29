@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "5",
+  "document_version": "4.0.1",
+  "requirement_id": "5.3.2",
+  "pdf_pages": [
+    131
+  ],
+  "defined_requirement": "The anti-malware solution(s):\n•  Performs periodic scans and active or real-time\nscans.\nOR\n•  Performs continuous behavioral analysis of\nsystems or processes.",
+  "testing_procedures": "5.3.2.a Examine anti-malware solution(s)\nconfigurations, including any master installation of\nthe software, to verify the solution(s) is configured\nto perform at least one of the elements specified in\nthis requirement.\n5.3.2.b Examine system components, including all\noperating system types identified as at risk for\nmalware, to verify the solution(s) is enabled in\naccordance with at least one of the elements\nspecified in this requirement.\n5.3.2.c Examine logs and scan results to verify that\nthe solution(s) is enabled in accordance with at\nleast one of the elements specified in this\nrequirement.",
+  "customized_approach_objective": "Malware cannot complete execution.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Periodic scans can identify malware that is present,\nbut currently inactive, within the environment. Some\nmalware, such as zero-day malware, can enter an\nenvironment before the scan solution is capable of\ndetecting it. Performing regular periodic scans or\ncontinuous behavioral analysis of systems or\nprocesses helps ensure that previously\nundetectable malware can be identified, removed,\nand investigated to determine how it gained access\nto the environment.",
+    "good_practice": "Using a combination of periodic scans (scheduled\nand on-demand) and active, real-time (on-access)\nscanning helps ensure that malware residing in both\nstatic and dynamic elements of the CDE is\naddressed. Users should also be able to run on-\ndemand scans on their systems if suspicious activity\nis detected – this can be useful in the early\ndetection of malware.\nScans should include the entire file system,\nincluding all disks, memory, and start-up files and\nboot records (at system restart) to detect all\nmalware upon file execution, including any software\nthat may be resident on a system but not currently\nactive. Scan scope should include all systems and\nsoftware in the CDE, including those that are often\noverlooked such as email servers, web browsers,\nand instant messaging software.",
+    "definitions": "Active, or real-time, scanning checks files for\nmalware upon any attempt to open, close, rename,\nor otherwise interact with a file, preventing the\nmalware from being activated."
+  },
+  "extraction_notes": []
+}

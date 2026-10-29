@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "9",
+  "document_version": "4.0.1",
+  "requirement_id": "9.4.2",
+  "pdf_pages": [
+    226
+  ],
+  "defined_requirement": "All media with cardholder data is classified in\naccordance with the sensitivity of the data.",
+  "testing_procedures": "9.4.2.a Examine documentation to verify that\nprocedures are defined for classifying media with\ncardholder data in accordance with the sensitivity\nof the data.\n9.4.2.b Examine media logs or other\ndocumentation to verify that all media is classified\nin accordance with the sensitivity of the data.",
+  "customized_approach_objective": "Media are classified and protected appropriately.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Media not identified as confidential may not be\nadequately protected or may be lost or stolen.",
+    "good_practice": "It is important that media be identified such that\nits classification status is apparent. This does not\nmean however that the media needs to have a\n“confidential” label."
+  },
+  "extraction_notes": []
+}

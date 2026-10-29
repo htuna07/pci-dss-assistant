@@ -1,0 +1,38 @@
+{
+  "document_version": "4.0.1",
+  "record_type": "requirement_introduction",
+  "requirement_id": "11",
+  "pdf_pages": [
+    264
+  ],
+  "title": "Test Security of Systems and Networks Regularly",
+  "sections": [
+    {
+      "id": "11.1",
+      "title": "Processes and mechanisms for regularly testing security of systems and networks are defined and understood."
+    },
+    {
+      "id": "11.2",
+      "title": "Wireless access points are identified and monitored, and unauthorized wireless access points are addressed."
+    },
+    {
+      "id": "11.3",
+      "title": "External and internal vulnerabilities are regularly identified, prioritized, and addressed."
+    },
+    {
+      "id": "11.4",
+      "title": "External and internal penetration testing is regularly performed, and exploitable vulnerabilities and security weaknesses are corrected."
+    },
+    {
+      "id": "11.5",
+      "title": "Network intrusions and unexpected file changes are detected and responded to."
+    },
+    {
+      "id": "11.6",
+      "title": "Unauthorized changes on payment pages are detected and responded to."
+    }
+  ],
+  "overview": "Vulnerabilities are being discovered continually by malicious individuals and researchers, as well as being introduced by new software. System\ncomponents, processes, and bespoke and custom software should be tested frequently to ensure security controls continue to reflect a\nchanging environment.\nRefer to Appendix G for definitions of PCI DSS terms.",
+  "category_title": null,
+  "notes": []
+}

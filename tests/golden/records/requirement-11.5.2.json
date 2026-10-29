@@ -1,0 +1,20 @@
+{
+  "record_type": "requirement",
+  "section_id": "11",
+  "document_version": "4.0.1",
+  "requirement_id": "11.5.2",
+  "pdf_pages": [
+    290,
+    291
+  ],
+  "defined_requirement": "A change-detection mechanism (for example,\nfile integrity monitoring tools) is deployed as follows:\n•  To alert personnel to unauthorized modification\n(including changes, additions, and deletions) of\ncritical files.\n•  To perform critical file comparisons at least\nonce weekly.",
+  "testing_procedures": "11.5.2.a Examine system settings, monitored files,\nand results from monitoring activities to verify the\nuse of a change-detection mechanism.\n11.5.2.b Examine settings for the change-detection\nmechanism to verify it is configured in accordance\nwith all elements specified in this requirement.",
+  "customized_approach_objective": "Critical files cannot be modified by unauthorized\npersonnel without an alert being generated.",
+  "applicability_notes": "For change-detection purposes, critical files are\nusually those that do not regularly change, but the\nmodification of which could indicate a system\ncompromise or risk of compromise. Change-\ndetection mechanisms such as file integrity\nmonitoring products usually come pre-configured\nwith critical files for the related operating system.\nOther critical files, such as those for custom\napplications, must be evaluated and defined by the\nentity (that is, the merchant or service provider).",
+  "guidance": {
+    "purpose": "Changes to critical system, configuration, or\ncontent files can be an indicator an attacker has\naccessed an organization’s system. Such\nchanges can allow an attacker to take additional\nmalicious actions, access cardholder data, and/or\nconduct activities without detection or record.\nA change detection mechanism will detect and\nevaluate such changes to critical files and\ngenerate alerts that can be responded to following\ndefined processes so that personnel can take\nappropriate actions.\nIf not implemented properly and the output of the\nchange-detection solution monitored, a malicious\nindividual could add, remove, or alter\nconfiguration file contents, operating system\nprograms, or application executables.\nUnauthorized changes, if undetected, could\nrender existing security controls ineffective and/or\nresult in cardholder data being stolen with no\nperceptible impact to normal processing.",
+    "good_practice": "Examples of the types of files that should be\nmonitored include, but are not limited to:\n•  System executables.\n•   Application executables.\n•   Configuration and parameter files.\n•   Centrally stored, historical, or archived audit\nlogs.\n•   Additional critical files determined by entity (for\nexample, through risk assessment or other\nmeans).",
+    "examples": "Change-detection solutions such as file integrity\nmonitoring (FIM) tools check for changes,\nadditions, and deletions to critical files, and notify\nwhen such changes are detected."
+  },
+  "extraction_notes": []
+}

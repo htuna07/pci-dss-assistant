@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "6",
+  "document_version": "4.0.1",
+  "requirement_id": "6.5.2",
+  "pdf_pages": [
+    160
+  ],
+  "defined_requirement": "Upon completion of a significant change, all\napplicable PCI DSS requirements are confirmed to\nbe in place on all new or changed systems and\nnetworks, and documentation is updated as\napplicable.",
+  "testing_procedures": "6.5.2 Examine documentation for significant\nchanges, interview personnel, and observe the\naffected systems/networks to verify that the entity\nconfirmed applicable PCI DSS requirements were\nin place on all new or changed systems and\nnetworks and that documentation was updated as\napplicable.",
+  "customized_approach_objective": "All system components are verified after a\nsignificant change to be compliant with the\napplicable PCI DSS requirements.",
+  "applicability_notes": "These significant changes should also be captured\nand reflected in the entity’s annual PCI DSS scope\nconfirmation activity per Requirement 12.5.2.",
+  "guidance": {
+    "purpose": "Having processes to analyze significant changes\nhelps ensure that all appropriate PCI DSS controls\nare applied to any systems or networks added or\nchanged within the in-scope environment, and that\nPCI DSS requirements continue to be met to secure\nthe environment.",
+    "good_practice": "Building this validation into change management\nprocesses helps ensure that device inventories and\nconfiguration standards are kept up to date and\nsecurity controls are applied where needed.",
+    "examples": "Applicable PCI DSS requirements that could be\nimpacted include, but are not limited to:\n•  Network and data-flow diagrams are updated to\nreflect changes.\n•  Systems are configured per configuration\nstandards, with all default passwords changed\nand unnecessary services disabled.\n•  Systems are protected with required controls—for\nexample, file integrity monitoring (FIM), anti-\nmalware, patches, and audit logging.\n•   Sensitive authentication data is not stored, and all\naccount data storage is documented and\nincorporated into data retention policy and\nprocedures.\n•  New systems are included in the quarterly\nvulnerability scanning process.\n•  Systems are scanned for internal and external\nvulnerabilities after significant changes per\nRequirements 11.3.1.3 and 11.3.2.1."
+  },
+  "extraction_notes": []
+}

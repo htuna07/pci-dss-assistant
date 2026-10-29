@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "3",
+  "document_version": "4.0.1",
+  "requirement_id": "3.7.7",
+  "pdf_pages": [
+    111
+  ],
+  "defined_requirement": "Key management policies and procedures are\nimplemented to include the prevention of\nunauthorized substitution of cryptographic keys.",
+  "testing_procedures": "3.7.7.a Examine the documented key-management\npolicies and procedures for keys used for\nprotection of stored account data and verify that\nthey define prevention of unauthorized substitution\nof cryptographic keys.\n3.7.7.b Interview personnel and/or observe\nprocesses to verify that unauthorized substitution\nof keys is prevented.",
+  "customized_approach_objective": "Cryptographic keys cannot be substituted by\nunauthorized personnel.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "If an attacker is able to substitute an entity’s key with a\nkey the attacker knows, the attacker will be able to\ndecrypt all data encrypted with that key.",
+    "good_practice": "The encryption solution should not allow for or accept\nsubstitution of keys from unauthorized sources or\nunexpected processes.\nControls should include ensuring that individuals with\naccess to key components or shares do not have\naccess to other components or shares that form the\nnecessary threshold to derive the key."
+  },
+  "extraction_notes": []
+}

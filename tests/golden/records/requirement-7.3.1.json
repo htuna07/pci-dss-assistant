@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "7",
+  "document_version": "4.0.1",
+  "requirement_id": "7.3.1",
+  "pdf_pages": [
+    176
+  ],
+  "defined_requirement": "An access control system(s) is in place that\nrestricts access based on a user’s need to know\nand covers all system components.",
+  "testing_procedures": "7.3.1 Examine vendor documentation and system\nsettings to verify that access is managed for each\nsystem component via an access control system(s)\nthat restricts access based on a user’s need to\nknow and covers all system components.",
+  "customized_approach_objective": "Access rights and privileges are managed via\nmechanisms intended for that purpose.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Without a mechanism to restrict access based on\nuser’s need to know, a user may unknowingly be\ngranted access to cardholder data. Access control\nsystems automate the process of restricting\naccess and assigning privileges."
+  },
+  "extraction_notes": []
+}

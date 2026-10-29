@@ -1,0 +1,20 @@
+{
+  "record_type": "requirement",
+  "section_id": "11",
+  "document_version": "4.0.1",
+  "requirement_id": "11.3.1",
+  "pdf_pages": [
+    270,
+    271
+  ],
+  "defined_requirement": "Internal vulnerability scans are performed as\nfollows:\n•   At least once every three months.\n•   Vulnerabilities that are either high-risk or critical\n(according to the entity’s vulnerability risk\nrankings defined at Requirement 6.3.1) are\nresolved.\n•  Rescans are performed that confirm all high-risk\nand all critical vulnerabilities (as noted above)\nhave been resolved.\n•  Scan tool is kept up to date with latest\nvulnerability information.\n•  Scans are performed by qualified personnel and\norganizational independence of the tester exists.",
+  "testing_procedures": "11.3.1.a Examine internal scan report results from\nthe last 12 months to verify that internal scans\noccurred at least once every three months in the\nmost recent 12-month period.\n11.3.1.b Examine internal scan report results from\neach scan and rescan run in the last 12 months to\nverify that all high-risk vulnerabilities and all critical\nvulnerabilities (defined in PCI DSS Requirement\n6.3.1) are resolved.\n11.3.1.c Examine scan tool configurations and\ninterview personnel to verify that the scan tool is\nkept up to date with the latest vulnerability\ninformation.\n11.3.1.d Interview responsible personnel to verify\nthat the scan was performed by a qualified internal\nresource(s) or qualified external third party and that\norganizational independence of the tester exists.",
+  "customized_approach_objective": "The security posture of all system components is\nverified periodically using automated tools designed\nto detect vulnerabilities operating inside the\nnetwork. Detected vulnerabilities are assessed and\nrectified based on a formal risk assessment\nframework.",
+  "applicability_notes": "It is not required to use a QSA or ASV to conduct\ninternal vulnerability scans.\nInternal vulnerability scans can be performed by\nqualified, internal staff that are reasonably\nindependent of the system component(s) being\nscanned (for example, a network administrator\nshould not be responsible for scanning the network),\nor an entity may choose to have internal\nvulnerability scans performed by a firm specializing\nin vulnerability scanning.",
+  "guidance": {
+    "purpose": "Identifying and addressing vulnerabilities promptly\nreduces the likelihood of a vulnerability being\nexploited and the potential compromise of a\nsystem component or cardholder data.\nVulnerability scans conducted at least every three\nmonths provide this detection and identification.",
+    "good_practice": "Vulnerabilities posing the greatest risk to the\nenvironment (for example, ranked high or critical\nper Requirement 6.3.1) should be resolved with\nthe highest priority. Vulnerabilities identified\nduring internal vulnerability scans should be part\nof a vulnerability management process that\nincludes multiple vulnerability sources, as\nspecified in Requirement 6.3.1.\nMultiple scan reports can be combined for the\nquarterly scan process to show that all systems\nwere scanned and all applicable vulnerabilities\nwere resolved as part of the three-month\nvulnerability scan cycle. However, additional\ndocumentation may be required to verify non-\nremediated vulnerabilities are in the process of\nbeing resolved.\nWhile scans are required at least once every\nthree months, more frequent scans are\nrecommended depending on the network\ncomplexity, frequency of change, and types of\ndevices, software, and operating systems used.",
+    "definitions": "A vulnerability scan is a combination of\nautomated tools, techniques, and/or methods run\nagainst external and internal devices and servers,\ndesigned to expose potential vulnerabilities in\napplications, operating systems, and network\ndevices that could be found and exploited by\nmalicious individuals."
+  },
+  "extraction_notes": []
+}

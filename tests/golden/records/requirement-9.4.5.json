@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "9",
+  "document_version": "4.0.1",
+  "requirement_id": "9.4.5",
+  "pdf_pages": [
+    228
+  ],
+  "defined_requirement": "Inventory logs of all electronic media with\ncardholder data are maintained.",
+  "testing_procedures": "9.4.5.a Examine documentation to verify that\nprocedures are defined to maintain electronic\nmedia inventory logs.\n9.4.5.b Examine electronic media inventory logs\nand interview responsible personnel to verify that\nlogs are maintained.",
+  "customized_approach_objective": "Accurate inventories of stored electronic media are\nmaintained.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Without careful inventory methods and storage\ncontrols, stolen or missing electronic media could\ngo unnoticed for an indefinite amount of time."
+  },
+  "extraction_notes": []
+}

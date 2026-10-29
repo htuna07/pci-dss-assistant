@@ -1,0 +1,21 @@
+{
+  "record_type": "requirement",
+  "section_id": "11",
+  "document_version": "4.0.1",
+  "requirement_id": "11.2.1",
+  "pdf_pages": [
+    267,
+    268
+  ],
+  "defined_requirement": "Authorized and unauthorized wireless access\npoints are managed as follows:\n•  The presence of wireless (Wi-Fi) access points\nis tested for,\n•   All authorized and unauthorized wireless access\npoints are detected and identified,\n•   Testing, detection, and identification occurs at\nleast once every three months.\n•    If automated monitoring is used, personnel are\nnotified via generated alerts.",
+  "testing_procedures": "11.2.1.a Examine policies and procedures to verify\nprocesses are defined for managing both\nauthorized and unauthorized wireless access\npoints with all elements specified in this\nrequirement.\n11.2.1.b Examine the methodology(ies) in use and\nthe resulting documentation, and interview\npersonnel to verify processes are defined to detect\nand identify both authorized and unauthorized\nwireless access points in accordance with all\nelements specified in this requirement.\n11.2.1.c Examine wireless assessment results and\ninterview personnel to verify that wireless\nassessments were conducted in accordance with\nall elements specified in this requirement.\n11.2.1.d If automated monitoring is used, examine\nconfiguration settings to verify the configuration will\ngenerate alerts to notify personnel.",
+  "customized_approach_objective": "Unauthorized wireless access points are identified\nand addressed periodically.",
+  "applicability_notes": "The requirement applies even when a policy exists\nthat prohibits the use of wireless technology.\nMethods used to meet this requirement must be\nsufficient to detect and identify both authorized and\nunauthorized devices, including unauthorized\ndevices attached to devices that themselves are\nauthorized.",
+  "guidance": {
+    "purpose": "Implementation and/or exploitation of wireless\ntechnology within a network are common paths\nfor malicious users to gain unauthorized access to\nthe network and cardholder data. Unauthorized\nwireless devices could be hidden within or\nattached to a computer or other system\ncomponent. These devices could also be\nattached directly to a network port, to a network\ndevice such as a switch or router, or inserted as a\nwireless interface card inside a system\ncomponent.\nEven if a company has a policy prohibiting the\nuse of wireless technologies, an unauthorized\nwireless device or network could be installed\nwithout the company’s knowledge, allowing an\nattacker to enter the network easily and “invisibly.”\nDetecting and removing such unauthorized\naccess points reduces the duration and likelihood\nof such devices being leveraged for an attack.",
+    "good_practice": "The size and complexity of an environment will\ndictate the appropriate tools and processes to be\nused to provide sufficient assurance that a rogue\nwireless access point has not been installed in the\nenvironment.\nFor example, performing a detailed physical\ninspection of a single stand-alone retail kiosk in a\nshopping mall, where all communication\ncomponents are contained within tamper-resistant\nand tamper-evident casings, may be sufficient to\nprovide assurance that a rogue wireless access\npoint has not been attached or installed.\nHowever, in an environment with multiple nodes\n(such as in a large retail store, call center, server\nroom or data center), detailed physical inspection\ncan be difficult. In this case, multiple methods\nmay be combined, such as performing physical\nsystem inspections in conjunction with the results\nof a wireless analyzer.",
+    "definitions": "This is also referred to as rogue access point\ndetection.",
+    "examples": "Methods that may be used include but are not\nlimited to wireless network scans, physical/logical\ninspections of system components and\ninfrastructure, network access control (NAC), or\nwireless IDS/IPS. NAC and wireless IDS/IPS are\nexamples of automated monitoring tools."
+  },
+  "extraction_notes": []
+}

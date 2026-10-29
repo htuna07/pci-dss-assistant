@@ -1,0 +1,42 @@
+{
+  "document_version": "4.0.1",
+  "record_type": "requirement_introduction",
+  "requirement_id": "3",
+  "pdf_pages": [
+    78
+  ],
+  "title": "Protect Stored Account Data",
+  "sections": [
+    {
+      "id": "3.1",
+      "title": "Processes and mechanisms for protecting stored account data are defined and understood."
+    },
+    {
+      "id": "3.2",
+      "title": "Storage of account data is kept to a minimum."
+    },
+    {
+      "id": "3.3",
+      "title": "Sensitive authentication data (SAD) is not stored after authorization."
+    },
+    {
+      "id": "3.4",
+      "title": "Access to displays of full PAN and ability to copy PAN are restricted."
+    },
+    {
+      "id": "3.5",
+      "title": "Primary account number (PAN) is secured wherever it is stored."
+    },
+    {
+      "id": "3.6",
+      "title": "Cryptographic keys used to protect stored account data are secured."
+    },
+    {
+      "id": "3.7",
+      "title": "Where cryptography is used to protect stored account data, key management processes and procedures covering all aspects of the key lifecycle are defined and implemented."
+    }
+  ],
+  "overview": "Protection methods such as encryption, truncation, masking, and hashing are critical components of account data protection. If an intruder\ncircumvents other security controls and gains access to encrypted account data, the data is unreadable without the proper cryptographic keys\nand is unusable to that intruder. Other effective methods of protecting stored data should also be considered as potential risk-mitigation\nopportunities. For example, methods for minimizing risk include not storing account data unless necessary, truncating cardholder data if full\nPAN is not needed, and not sending unprotected PANs using end-user messaging technologies such as e-mail and instant messaging.\nIf account data is present in non-persistent memory (for example, RAM, volatile memory), encryption of PAN is not required. However, proper\ncontrols must be in place to ensure that memory maintains a non-persistent state. Data should be removed from volatile memory once the\nbusiness purpose (for example, the associated transaction) is complete. In the case that data storage becomes persistent, all applicable PCI\nDSS Requirements will apply including encryption of stored data.\nRequirement 3 applies to protection of stored account data unless specifically called out in an individual requirement.\nRefer to Appendix G for definitions of “strong cryptography” and other PCI DSS terms.",
+  "category_title": "Protect Account Data",
+  "notes": []
+}

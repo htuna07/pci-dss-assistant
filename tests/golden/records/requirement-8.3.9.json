@@ -1,0 +1,20 @@
+{
+  "record_type": "requirement",
+  "section_id": "8",
+  "document_version": "4.0.1",
+  "requirement_id": "8.3.9",
+  "pdf_pages": [
+    197,
+    198
+  ],
+  "defined_requirement": "If passwords/passphrases are used as the\nonly authentication factor for user access (i.e., in\nany single-factor authentication implementation)\nthen either:\n•  Passwords/passphrases are changed at least\nonce every 90 days,\nOR\n•  The security posture of accounts is dynamically\nanalyzed, and real-time access to resources is\nautomatically determined accordingly.",
+  "testing_procedures": "8.3.9 If passwords/passphrases are used as the\nonly authentication factor for user access, inspect\nsystem configuration settings to verify that\npasswords/passphrases are managed in\naccordance with ONE of the elements specified in\nthis requirement.",
+  "customized_approach_objective": "An undetected compromised password/passphrase\ncannot be used indefinitely.",
+  "applicability_notes": "This requirement does not apply to in-scope system\ncomponents where MFA is used.\nThis requirement is not intended to apply to user\naccounts on point-of-sale terminals that have\naccess to only one card number at a time to\nfacilitate a single transaction.\nThis requirement does not apply to service\nproviders’ customer accounts but does apply to\naccounts for service provider personnel.",
+  "guidance": {
+    "purpose": "Access to in-scope system components that are\nnot in the CDE may be provided using a single\nauthentication factor, such as a\npassword/passphrase, token device or smart\ncard, or biometric attribute. Where\npasswords/passphrases are employed as the only\nauthentication factor for such access, additional\ncontrols are required to protect the integrity of the\npassword/passphrase.",
+    "good_practice": "Passwords/passphrases that are valid for a long\ntime without a change provide malicious\nindividuals with more time to break the\npassword/phrase. Periodically changing\npasswords offers less time for a malicious\nindividual to crack a password/passphrase and\nless time to use a compromised password.\nUsing a password/passphrase as the only\nauthentication factor provides a single point of\nfailure if compromised. Therefore, in these\nimplementations, controls are needed to minimize\nhow long malicious activity could occur via a\ncompromised password/passphrase.\nDynamically analyzing an account’s security\nposture is another option that allows for more\nrapid detection and response to address\npotentially compromised credentials. Such\nanalysis takes a number of data points, which\nmay include device integrity, location, access\ntimes, and the resources accessed to determine\nin real time whether an account can be granted\naccess to a requested resource. In this way,\naccess can be denied and accounts blocked if it is\nsuspected that authentication credentials have\nbeen compromised.",
+    "further_information": "For information about using dynamic analysis to\nmanage user access to resources, see NIST SP\n800-207 Zero Trust Architecture."
+  },
+  "extraction_notes": []
+}

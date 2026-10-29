@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "5",
+  "document_version": "4.0.1",
+  "requirement_id": "5.3.5",
+  "pdf_pages": [
+    135
+  ],
+  "defined_requirement": "Anti-malware mechanisms cannot be disabled\nor altered by users, unless specifically documented,\nand authorized by management on a case-by-case\nbasis for a limited time period.",
+  "testing_procedures": "5.3.5.a Examine anti-malware configurations, to\nverify that the anti-malware mechanisms cannot be\ndisabled or altered by users.\n5.3.5.b Interview responsible personnel and\nobserve processes to verify that any requests to\ndisable or alter anti-malware mechanisms are\nspecifically documented and authorized by\nmanagement on a case-by-case basis for a limited\ntime period.",
+  "customized_approach_objective": "Anti-malware mechanisms cannot be modified by\nunauthorized personnel.",
+  "applicability_notes": "Anti-malware solutions may be temporarily disabled\nonly if there is a legitimate technical need, as\nauthorized by management on a case-by-case\nbasis. If anti-malware protection needs to be\ndisabled for a specific purpose, it must be formally\nauthorized. Additional security measures may also\nneed to be implemented for the period during which\nanti-malware protection is not active.",
+  "guidance": {
+    "purpose": "It is important that defensive mechanisms are\nalways running so that malware is detected in real\ntime. Ad-hoc starting and stopping of anti-malware\nsolutions could allow malware to propagate\nunchecked and undetected.",
+    "good_practice": "Where there is a legitimate need to temporarily\ndisable a system’s anti-malware protection—for\nexample, to support a specific maintenance activity\nor investigation of a technical problem—the reason\nfor taking such action should be understood and\napproved by an appropriate management\nrepresentative. Any disabling or altering of anti-\nmalware mechanisms, including on administrators’\nown devices, should be performed by authorized\npersonnel. It is recognized that administrators have\nprivileges that may allow them to disable anti-\nmalware on their own computers, but there should\nbe alerting mechanisms in place when such\nsoftware is disabled and then follow up that occurs\nto ensure correct processes were followed.",
+    "examples": "Additional security measures that may need to be\nimplemented for the period during which anti-\nmalware protection is not active include\ndisconnecting the unprotected system from the\nInternet while the anti-malware protection is\ndisabled and running a full scan once it is re-\nenabled."
+  },
+  "extraction_notes": []
+}

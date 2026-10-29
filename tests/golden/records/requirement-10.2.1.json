@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "10",
+  "document_version": "4.0.1",
+  "requirement_id": "10.2.1",
+  "pdf_pages": [
+    243
+  ],
+  "defined_requirement": "Audit logs are enabled and active for all\nsystem components and cardholder data.",
+  "testing_procedures": "10.2.1 Interview the system administrator and\nexamine system configurations to verify that audit\nlogs are enabled and active for all system\ncomponents.",
+  "customized_approach_objective": "Records of all activities affecting system\ncomponents and cardholder data are captured.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Audit logs must exist for all system components.\nAudit logs send alerts the system administrator,\nprovides data to other monitoring mechanisms,\nsuch as intrusion-detection systems (IDS) and\nsecurity information and event monitoring\nsystems (SIEM) tools, and provide a history trail\nfor post-incident investigation.\nLogging and analyzing security-relevant events\nenable an organization to identify and trace\npotentially malicious activities.",
+    "good_practice": "When an entity considers which information to\nrecord in their logs, it is important to remember\nthat information stored in audit logs is sensitive\nand should be protected per requirements in this\nstandard. Care should be taken to only store\nessential information in the audit logs to minimize\nrisk."
+  },
+  "extraction_notes": []
+}

@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "10",
+  "document_version": "4.0.1",
+  "requirement_id": "10.3.3",
+  "pdf_pages": [
+    249
+  ],
+  "defined_requirement": "Audit log files, including those for external-\nfacing technologies, are promptly backed up to a\nsecure, central, internal log server(s) or other media\nthat is difficult to modify.",
+  "testing_procedures": "10.3.3 Examine backup configurations or log files\nto verify that current audit log files, including those\nfor external-facing technologies, are promptly\nbacked up to a secure, central, internal log\nserver(s) or other media that is difficult to modify.",
+  "customized_approach_objective": "Stored activity records are secured and preserved in\na central location to prevent unauthorized\nmodification.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Promptly backing up the logs to a centralized log\nserver or media that is difficult to alter keeps the\nlogs protected, even if the system generating the\nlogs becomes compromised.\nWriting logs from external-facing technologies\nsuch as wireless, network security controls, DNS,\nand mail servers, reduces the risk of those logs\nbeing lost or altered.",
+    "good_practice": "Each entity determines the best way to back up\nlog files, whether via one or more centralized log\nservers or other secure media. Logs may be\nwritten directly, offloaded, or copied from external\nsystems to the secure internal system or media."
+  },
+  "extraction_notes": []
+}

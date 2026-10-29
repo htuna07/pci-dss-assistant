@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "7",
+  "document_version": "4.0.1",
+  "requirement_id": "7.2.2",
+  "pdf_pages": [
+    170
+  ],
+  "defined_requirement": "Access is assigned to users, including\nprivileged users, based on:\n•  Job classification and function.\n•  Least privileges necessary to perform job\nresponsibilities.",
+  "testing_procedures": "7.2.2.a Examine policies and procedures to verify\nthey cover assigning access to users in\naccordance with all elements specified in this\nrequirement.\n7.2.2.b Examine user access settings, including for\nprivileged users, and interview responsible\nmanagement personnel to verify that privileges\nassigned are in accordance with all elements\nspecified in this requirement.\n7.2.2.c Interview personnel responsible for\nassigning access to verify that privileged user\naccess is assigned in accordance with all elements\nspecified in this requirement.",
+  "customized_approach_objective": "Access to systems and data is limited to only the\naccess needed to perform job functions, as defined\nin the related access roles.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Assigning least privileges helps prevent users\nwithout sufficient knowledge about the application\nfrom incorrectly or accidentally changing\napplication configuration or altering its security\nsettings. Enforcing least privilege also helps to\nminimize the scope of damage if an unauthorized\nperson gains access to a user ID.",
+    "good_practice": "Access rights are granted to a user by\nassignment to one or several functions. Access is\nassigned depending on the specific user functions\nand with the minimum scope required for the job.\nWhen assigning privileged access, it is important\nto assign individuals only the privileges they need\nto perform their job (the “least privileges”). For\nexample, the database administrator or backup\nadministrator should not be assigned the same\nprivileges as the overall systems administrator.\nOnce needs are defined for user functions (per\nPCI DSS requirement 7.2.1), it is easy to grant\nindividuals access according to their job\nclassification and function by using the already-\ncreated roles.\nEntities may wish to consider use of Privileged\nAccess Management (PAM), which is a method to\ngrant access to privileged accounts only when\nthose privileges are required, immediately\nrevoking that access once they are no longer\nneeded."
+  },
+  "extraction_notes": []
+}

@@ -1,0 +1,20 @@
+{
+  "record_type": "requirement",
+  "section_id": "11",
+  "document_version": "4.0.1",
+  "requirement_id": "11.3.2",
+  "pdf_pages": [
+    275,
+    276
+  ],
+  "defined_requirement": "External vulnerability scans are performed as\nfollows:\n•   At least once every three months.\n•  By a PCI SSC Approved Scanning Vendor\n(ASV).\n•   Vulnerabilities are resolved and ASV Program\nGuide requirements for a passing scan are met.\n•  Rescans are performed as needed to confirm\nthat vulnerabilities are resolved per the ASV\nProgram Guide requirements for a passing\nscan.",
+  "testing_procedures": "11.3.2.a Examine ASV scan reports from the last\n12 months to verify that external vulnerability scans\noccurred at least once every three months in the\nmost recent 12-month period.\n11.3.2.b Examine the ASV scan report from each\nscan and rescan run in the last 12 months to verify\nthat vulnerabilities are resolved and the ASV\nProgram Guide requirements for a passing scan\nare met.\n11.3.2.c Examine the ASV scan reports to verify\nthat the scans were completed by a PCI SSC\nApproved Scanning Vendor (ASV).",
+  "customized_approach_objective": "This requirement is not eligible for the customized\napproach.",
+  "applicability_notes": "For the initial PCI DSS assessment against this\nrequirement, it is not required that four passing\nscans be completed within 12 months if the\nassessor verifies: 1) the most recent scan result was\na passing scan, 2) the entity has documented\npolicies and procedures requiring scanning at least\nonce every three months, and 3) vulnerabilities\nnoted in the scan results have been corrected as\nshown in a re-scan(s).\nHowever, for subsequent years after the initial PCI\nDSS assessment, passing scans at least every three\nmonths must have occurred.\nASV scanning tools can scan a vast array of\nnetwork types and topologies. Any specifics about\nthe target environment (for example, load balancers,\nthird-party providers, ISPs, specific configurations,\nprotocols in use, scan interference) should be\nworked out between the ASV and scan customer.\nRefer to the ASV Program Guide published on the\nPCI SSC website for scan customer responsibilities,\nscan preparation, etc.",
+  "guidance": {
+    "purpose": "Attackers routinely look for unpatched or\nvulnerable externally facing servers, which can be\nleveraged to launch a directed attack.\nOrganizations must ensure these externally facing\ndevices are regularly scanned for weaknesses\nand that vulnerabilities are patched or remediated\nto protect the entity.\nBecause external networks are at greater risk of\ncompromise, external vulnerability scanning must\nbe performed at least once every three months by\na PCI SSC Approved Scanning Vendor (ASV).",
+    "good_practice": "While scans are required at least once every\nthree months, more frequent scans are\nrecommended depending on the network\ncomplexity, frequency of change, and types of\ndevices, software, and operating systems used.\nVulnerabilities identified during external\nvulnerability scans should be part of a\nvulnerability management process that includes\nmultiple vulnerability sources, as specified in\nRequirement 6.3.1.\nMultiple scan reports can be combined to show\nthat all systems were scanned and that all\napplicable vulnerabilities were resolved as part of\nthe three-month vulnerability scan cycle.\nHowever, additional documentation may be\nrequired to verify non-remediated vulnerabilities\nare in the process of being resolved.",
+    "further_information": "See the ASV Program Guide on the PCI SSC\nwebsite."
+  },
+  "extraction_notes": []
+}

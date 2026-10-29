@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "10",
+  "document_version": "4.0.1",
+  "requirement_id": "10.2.1.1",
+  "pdf_pages": [
+    243
+  ],
+  "defined_requirement": "Audit logs capture all individual user\naccess to cardholder data.",
+  "testing_procedures": "10.2.1.1 Examine audit log configurations and log\ndata to verify that all individual user access to\ncardholder data is logged.",
+  "customized_approach_objective": "Records of all individual user access to cardholder\ndata are captured.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "It is critical to have a process or system that links\nuser access to system components accessed.\nMalicious individuals could obtain knowledge of a\nuser account with access to systems in the CDE,\nor they could create a new, unauthorized account\nto access cardholder data.",
+    "good_practice": "A record of all individual access to cardholder\ndata can identify which accounts may have been\ncompromised or misused."
+  },
+  "extraction_notes": []
+}

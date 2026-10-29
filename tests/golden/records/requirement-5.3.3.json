@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "5",
+  "document_version": "4.0.1",
+  "requirement_id": "5.3.3",
+  "pdf_pages": [
+    133
+  ],
+  "defined_requirement": "For removable electronic media, the anti-\nmalware solution(s):\n•  Performs automatic scans of when the media is\ninserted, connected, or logically mounted,\nOR\n•  Performs continuous behavioral analysis of\nsystems or processes when the media is\ninserted, connected, or logically mounted.",
+  "testing_procedures": "5.3.3.a Examine anti-malware solution(s)\nconfigurations to verify that, for removable\nelectronic media, the solution is configured to\nperform at least one of the elements specified in\nthis requirement.\n5.3.3.b Examine system components with\nremovable electronic media connected to verify\nthat the solution(s) is enabled in accordance with\nat least one of the elements as specified in this\nrequirement.\n5.3.3.c Examine logs and scan results to verify that\nthe solution(s) is enabled in accordance with at\nleast one of the elements specified in this\nrequirement.",
+  "customized_approach_objective": "Malware cannot be introduced to system\ncomponents via external removable media.",
+  "applicability_notes": "This requirement is a best practice until 31 March\n2025, after which it will be required and must be\nfully considered during a PCI DSS assessment.",
+  "guidance": {
+    "purpose": "Portable media devices are often overlooked as an\nentry method for malware. Attackers will often pre-\nload malware onto portable devices such as USB\nand flash drives; connecting an infected device to a\ncomputer then triggers the malware, introducing\nnew threats within the environment."
+  },
+  "extraction_notes": []
+}

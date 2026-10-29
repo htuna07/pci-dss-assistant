@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "2",
+  "document_version": "4.0.1",
+  "requirement_id": "2.2.4",
+  "pdf_pages": [
+    72
+  ],
+  "defined_requirement": "Only necessary services, protocols, daemons,\nand functions are enabled, and all unnecessary\nfunctionality is removed or disabled.",
+  "testing_procedures": "2.2.4.a Examine system configuration standards to\nverify necessary services, protocols, daemons, and\nfunctions are identified and documented.\n2.2.4.b Examine system configurations to verify the\nfollowing:\n•   All unnecessary functionality is removed or\ndisabled.\n•  Only required functionality, as documented in\nthe configuration standards, is enabled.",
+  "customized_approach_objective": "System components cannot be compromised by\nexploiting unnecessary functionality present in the\nsystem component.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Unnecessary services and functions can provide\nadditional opportunities for malicious individuals\nto gain access to a system. By removing or\ndisabling all unnecessary services, protocols,\ndaemons, and functions, organizations can focus\non securing the functions that are required and\nreduce the risk that unknown or unnecessary\nfunctions will be exploited.",
+    "good_practice": "There are many protocols that could be enabled\nby default that are commonly used by malicious\nindividuals to compromise a network. Disabling or\nremoving all services, functions, and protocols\nthat are not used minimizes the potential attack\nsurface—for example, by removing or disabling\nan unused FTP or web server.",
+    "examples": "Unnecessary functionality may include, but is not\nlimited to scripts, drivers, features, subsystems,\nfile systems, interfaces (USB and Bluetooth), and\nunnecessary web servers."
+  },
+  "extraction_notes": []
+}

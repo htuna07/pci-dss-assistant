@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.6.3.1",
+  "pdf_pages": [
+    316
+  ],
+  "defined_requirement": "Security awareness training includes\nawareness of threats and vulnerabilities that could\nimpact the security of cardholder data and/or\nsensitive authentication data, including but not\nlimited to:\n•  Phishing and related attacks.\n•   Social engineering.",
+  "testing_procedures": "12.6.3.1 Examine security awareness training\ncontent to verify it includes all elements specified in\nthis requirement.",
+  "customized_approach_objective": "Personnel are knowledgeable about their own\nhuman vulnerabilities and how threat actors will\nattempt to exploit such vulnerabilities. Personnel are\nable to access assistance and guidance when\nrequired.",
+  "applicability_notes": "See Requirement 5.4.1 for guidance on the\ndifference between technical and automated\ncontrols to detect and protect users from phishing\nattacks, and this requirement for providing users\nsecurity awareness training about phishing and\nsocial engineering. These are two separate and\ndistinct requirements, and one is not met by\nimplementing controls required by the other one.\nThis requirement is a best practice until 31 March\n2025, after which it will be required and must be\nfully considered during a PCI DSS assessment.",
+  "guidance": {
+    "purpose": "Educating personnel on how to detect, react to,\nand report potential phishing and related attacks\nand social engineering attempts is essential to\nminimizing the probability of successful attacks.",
+    "good_practice": "An effective security awareness program should\ninclude examples of phishing emails and periodic\ntesting to determine the prevalence of personnel\nreporting such attacks. Training material an entity\ncan consider for this topic include:\n•  How to identify phishing and other social\nengineering attacks.\n•  How to react to suspected phishing and social\nengineering.\n•  Where and how to report suspected phishing\nand social engineering activity.\nAn emphasis on reporting allows the organization\nto reward positive behavior, to optimize technical\ndefenses (see Requirement 5.4.1), and to take\nimmediate action to remove similar phishing\nemails that evaded technical defenses from\nrecipient inboxes."
+  },
+  "extraction_notes": []
+}

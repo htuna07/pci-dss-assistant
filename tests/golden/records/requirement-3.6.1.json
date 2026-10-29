@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "3",
+  "document_version": "4.0.1",
+  "requirement_id": "3.6.1",
+  "pdf_pages": [
+    100
+  ],
+  "defined_requirement": "Procedures are defined and implemented to\nprotect cryptographic keys used to protect stored\naccount data against disclosure and misuse that\ninclude:\n•  Access to keys is restricted to the fewest\nnumber of custodians necessary.\n•  Key-encrypting keys are at least as strong as\nthe data-encrypting keys they protect.\n•  Key-encrypting keys are stored separately from\ndata-encrypting keys.\n•  Keys are stored securely in the fewest possible\nlocations and forms.",
+  "testing_procedures": "3.6.1 Examine documented key-management\npolicies and procedures to verify that processes to\nprotect cryptographic keys used to protect stored\naccount data against disclosure and misuse are\ndefined to include all elements specified in this\nrequirement.",
+  "customized_approach_objective": "Processes that protect cryptographic keys used to\nprotect stored account data against disclosure and\nmisuse are defined and implemented.",
+  "applicability_notes": "This requirement applies to keys used to protect\nstored account data and to key-encrypting keys\nused to protect data-encrypting keys.\nThe requirement to protect keys used to protect\nstored account data from disclosure and misuse\napplies to both data-encrypting keys and key-\nencrypting keys. Because one key-encrypting key\nmay grant access to many data-encrypting keys, the\nkey-encrypting keys require strong protection\nmeasures.",
+  "guidance": {
+    "purpose": "Cryptographic keys must be strongly protected because\nthose who obtain access will be able to decrypt data.",
+    "good_practice": "Having a centralized key management system based\non industry standards is recommended for managing\ncryptographic keys.",
+    "further_information": "The entity’s key management procedures will benefit\nthrough alignment with industry requirements, Sources\nfor information on cryptographic key management life\ncycles include:\n•  ISO 11568-1 Banking — Key management (retail)\n— Part 1: Principles (specifically Chapter 10 and the\nreferenced Parts 2 & 4)\n•  NIST SP 800-57 Part 1 Revision 5—\nRecommendation for Key Management, Part 1:\nGeneral."
+  },
+  "extraction_notes": []
+}

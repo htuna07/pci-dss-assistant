@@ -1,0 +1,20 @@
+{
+  "record_type": "requirement",
+  "section_id": "9",
+  "document_version": "4.0.1",
+  "requirement_id": "9.3.1",
+  "pdf_pages": [
+    221
+  ],
+  "defined_requirement": "Procedures are implemented for authorizing\nand managing physical access of personnel to the\nCDE, including:\n•   Identifying personnel.\n•  Managing changes to an individual’s physical\naccess requirements.\n•  Revoking or terminating personnel identification.\n•   Limiting access to the identification process or\nsystem to authorized personnel.",
+  "testing_procedures": "9.3.1.a Examine documented procedures to verify\nthat procedures to authorize and manage physical\naccess of personnel to the CDE are defined in\naccordance with all elements specified in this\nrequirement.\n9.3.1.b Observe identification methods, such as ID\nbadges, and processes to verify that personnel in\nthe CDE are clearly identified.\n9.3.1.c Observe processes to verify that access to\nthe identification process, such as a badge system,\nis limited to authorized personnel.",
+  "customized_approach_objective": "Requirements for access to the physical CDE are\ndefined and enforced to identify and authorize\npersonnel.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Establishing procedures for granting, managing,\nand removing access when it is no longer needed\nensures non-authorized individuals are prevented\nfrom gaining access to areas containing\ncardholder data. In addition, it is important to limit\naccess to the actual badging system and badging\nmaterials to prevent unauthorized personnel from\nmaking their own badges and/or setting up their\nown access rules.",
+    "good_practice": "It is important to visually identify the personnel\nthat are physically present, and whether the\nindividual is a visitor or an employee.",
+    "definitions": "Refer to Appendix G for the definition of\n“personnel.”",
+    "examples": "One way to identify personnel is to assign them\nbadges."
+  },
+  "extraction_notes": []
+}

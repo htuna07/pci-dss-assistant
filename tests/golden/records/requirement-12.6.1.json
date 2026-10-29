@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.6.1",
+  "pdf_pages": [
+    313
+  ],
+  "defined_requirement": "A formal security awareness program is\nimplemented to make all personnel aware of the\nentity’s information security policy and procedures,\nand their role in protecting the cardholder data.",
+  "testing_procedures": "12.6.1 Examine the security awareness program to\nverify it provides awareness to all personnel about\nthe entity’s information security policy and\nprocedures, and personnel’s role in protecting the\ncardholder data.",
+  "customized_approach_objective": "Personnel are knowledgeable about the threat\nlandscape, their responsibility for the operation of\nrelevant security controls, and are able to access\nassistance and guidance when required.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "If personnel are not educated about their\ncompany’s information security policies and\nprocedures and their own security responsibilities,\nsecurity safeguards and processes that have\nbeen implemented may become ineffective\nthrough unintentional errors or intentional actions."
+  },
+  "extraction_notes": []
+}

@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "10",
+  "document_version": "4.0.1",
+  "requirement_id": "10.4.1",
+  "pdf_pages": [
+    251
+  ],
+  "defined_requirement": "The following audit logs are reviewed at least\nonce daily:\n•   All security events.\n•  Logs of all system components that store, process,\nor transmit CHD and/or SAD.\n•  Logs of all critical system components.\n•  Logs of all servers and system components that\nperform security functions (for example, network\nsecurity controls, intrusion-detection\nsystems/intrusion-prevention systems (IDS/IPS),\nauthentication servers).",
+  "testing_procedures": "10.4.1.a Examine security policies and procedures to\nverify that processes are defined for reviewing all\nelements specified in this requirement at least once\ndaily.\n10.4.1.b Observe processes and interview\npersonnel to verify that all elements specified in\nthis requirement are reviewed at least once daily",
+  "customized_approach_objective": "Potentially suspicious or anomalous activities are\nquickly identified to minimize impact.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Many breaches occur months before being detected.\nRegular log reviews mean incidents can be quickly\nidentified and proactively addressed.",
+    "good_practice": "Checking logs daily (7 days a week, 365 days a\nyear, including holidays) minimizes the amount of\ntime and exposure of a potential breach. Log\nharvesting, parsing, and alerting tools, centralized\nlog management systems, event log analyzers, and\nsecurity information and event management (SIEM)\nsolutions are examples of automated tools that can\nbe used to meet this requirement.\nDaily review of security events—for example,\nnotifications or alerts that identify suspicious or\nanomalous activities—as well as logs from critical\nsystem components, and logs from systems that\nperform security functions, such as firewalls,\nIDS/IPS, file integrity monitoring (FIM) systems, etc.,\nis necessary to identify potential issues.\nThe determination of “security event” will vary for\neach organization and may include consideration for\nthe type of technology, location, and function of the\ndevice. Organizations may also wish to maintain a\nbaseline of “normal” traffic to help identify anomalous\nbehavior.\nAn entity that uses third-party service providers to\nperform log review services is responsible to provide\ncontext about the entity’s environment to the service\nproviders, so it understands the entity’s environment,\nhas a baseline of “normal” traffic for the entity, and\ncan detect potential security issues and provide\naccurate exceptions and anomaly notifications."
+  },
+  "extraction_notes": []
+}

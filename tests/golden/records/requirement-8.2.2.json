@@ -1,0 +1,20 @@
+{
+  "record_type": "requirement",
+  "section_id": "8",
+  "document_version": "4.0.1",
+  "requirement_id": "8.2.2",
+  "pdf_pages": [
+    183,
+    184
+  ],
+  "defined_requirement": "Group, shared, or generic IDs, or other shared\nauthentication credentials are only used when\nnecessary on an exception basis, and are managed\nas follows:\n•   ID use is prevented unless needed for an\nexceptional circumstance.\n•  Use is limited to the time needed for the\nexceptional circumstance.\n•  Business justification for use is documented.\n•  Use is explicitly approved by management.\n•   Individual user identity is confirmed before\naccess to an account is granted.\n•  Every action taken is attributable to an individual\nuser.",
+  "testing_procedures": "8.2.2.a Examine user account lists on system\ncomponents and applicable documentation to\nverify that shared authentication credentials are\nonly used when necessary, on an exception basis,\nand are managed in accordance with all elements\nspecified in this requirement.\n8.2.2.b Examine authentication policies and\nprocedures to verify processes are defined for\nshared authentication credentials such that they\nare only used when necessary, on an exception\nbasis, and are managed in accordance with all\nelements specified in this requirement.\n8.2.2.c Interview system administrators to verify\nthat shared authentication credentials are only\nused when necessary, on an exception basis, and\nare managed in accordance with all elements\nspecified in this requirement.",
+  "customized_approach_objective": "All actions performed by users with group, shared,\nor generic IDs are attributable to an individual\nperson.",
+  "applicability_notes": "This requirement is not intended to apply to user\naccounts within point-of-sale terminals that have\naccess to only one card number at a time to\nfacilitate a single transaction.",
+  "guidance": {
+    "purpose": "Group, shared, or generic (or default) IDs are\ntypically delivered with software or operating\nsystems—for example, root or with privileges\nassociated with a specific function, such as an\nadministrator.\nIf multiple users share the same authentication\ncredentials (for example, user ID and password),\nit becomes impossible to trace system access\nand activities to an individual. In turn, this\nprevents an entity from assigning accountability\nfor, or having effective logging of, an individual’s\nactions since a given action could have been\nperformed by anyone in the group with knowledge\nof the user ID and associated authentication\nfactors.\nThe ability to associate individuals to the actions\nperformed with an ID is essential to provide\nindividual accountability and traceability regarding\nwho performed an action, what action was\nperformed, and when that action occurred.",
+    "good_practice": "If shared IDs are used for any reason, strong\nmanagement controls need to be established to\nmaintain individual accountability and traceability.",
+    "examples": "Tools and techniques can facilitate both\nmanagement and security of these types of\naccounts and confirm individual user identity\nbefore access to an account is granted. Entities\ncan consider password vaults or other system-\nmanaged controls such as the sudo command.\nAn example of an exceptional circumstance is\nwhere all other authentication methods have\nfailed, and a shared ID is needed for emergency\nuse or “break the glass” administrator access."
+  },
+  "extraction_notes": []
+}

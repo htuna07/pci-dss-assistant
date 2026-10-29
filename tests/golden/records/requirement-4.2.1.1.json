@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "4",
+  "document_version": "4.0.1",
+  "requirement_id": "4.2.1.1",
+  "pdf_pages": [
+    120
+  ],
+  "defined_requirement": "An inventory of the entity’s trusted keys and\ncertificates used to protect PAN during transmission\nis maintained.",
+  "testing_procedures": "4.2.1.1.a Examine documented policies and\nprocedures to verify processes are defined for the\nentity to maintain an inventory of its trusted keys\nand certificates.\n4.2.1.1.b Examine the inventory of trusted keys\nand certificates to verify it is kept up to date.",
+  "customized_approach_objective": "All keys and certificates used to protect PAN during\ntransmission are identified and confirmed as trusted.",
+  "applicability_notes": "This requirement is a best practice until 31 March\n2025, after which it will be required and must be\nfully considered during a PCI DSS assessment.",
+  "guidance": {
+    "purpose": "The inventory of trusted keys helps the entity\nkeep track of the algorithms, protocols, key\nstrength, key custodians, and key expiry dates.\nThis enables the entity to respond quickly to\nvulnerabilities discovered in encryption software,\ncertificates, and cryptographic algorithms.",
+    "good_practice": "For certificates, the inventory should include the\nissuing CA and certification expiration date."
+  },
+  "extraction_notes": []
+}

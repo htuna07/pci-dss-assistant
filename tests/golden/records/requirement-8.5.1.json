@@ -1,0 +1,21 @@
+{
+  "record_type": "requirement",
+  "section_id": "8",
+  "document_version": "4.0.1",
+  "requirement_id": "8.5.1",
+  "pdf_pages": [
+    208,
+    209
+  ],
+  "defined_requirement": "MFA systems are implemented as follows:\n•  The MFA system is not susceptible to replay\nattacks.\n•  MFA systems cannot be bypassed by any users,\nincluding administrative users unless specifically\ndocumented, and authorized by management on\nan exception basis, for a limited time period.\n•   At least two different types of authentication\nfactors are used.\n•  Success of all authentication factors is required\nbefore access is granted.",
+  "testing_procedures": "8.5.1.a Examine vendor system documentation to\nverify that the MFA system is not susceptible to\nreplay attacks.\n8.5.1.b Examine system configurations for the\nMFA implementation to verify it is configured in\naccordance with all elements specified in this\nrequirement.\n8.5.1.c Interview responsible personnel and\nobserve processes to verify that any requests to\nbypass MFA are specifically documented and\nauthorized by management on an exception basis,\nfor a limited time period.\n8.5.1.d Observe personnel logging into system\ncomponents in the CDE to verify that access is\ngranted only after all authentication factors are\nsuccessful.\n8.5.1.e Observe personnel connecting remotely\nfrom outside the entity’s network to verify that\naccess is granted only after all authentication\nfactors are successful.",
+  "customized_approach_objective": "MFA systems are resistant to attack and strictly\ncontrol any administrative overrides.",
+  "applicability_notes": "This requirement is a best practice until 31 March\n2025, after which it will be required and must be\nfully considered during a PCI DSS assessment.",
+  "guidance": {
+    "purpose": "Poorly configured MFA systems can be bypassed\nby attackers. This requirement therefore\naddresses configuration of MFA system(s) that\nprovide MFA for users accessing system\ncomponents in the CDE.",
+    "definitions": "Using one type of factor twice (for example, using\ntwo separate passwords) is not considered multi-\nfactor authentication.\nA replay attack is when an attacker intercepts a\nvalid transmission of data and then resends or\nredirects this communication for malicious\npurposes. In MFA implementations, replay attacks\nare typically used to gain unauthorized access by\nleveraging legitimate credentials.",
+    "examples": "Examples of methods to help protect against\nreplay attacks include, but are not limited to:\n•  Unique session identifiers and session keys\n•  Timestamps\n•  Time-based, one-time passwords or\npasscodes\n•   Anti-replay mechanisms that detect and reject\nduplicated authentication attempts.",
+    "further_information": "For more information about MFA systems and\nfeatures, refer to the following:\nPCI SSC’s Information Supplement: Multi-Factor\nAuthentication\nPCI SSC’s Frequently Asked Questions (FAQs)\non this topic."
+  },
+  "extraction_notes": []
+}

@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "2",
+  "document_version": "4.0.1",
+  "requirement_id": "2.3.1",
+  "pdf_pages": [
+    76
+  ],
+  "defined_requirement": "For wireless environments connected to the\nCDE or transmitting account data, all wireless\nvendor defaults are changed at installation or are\nconfirmed to be secure, including but not limited to:\n•   Default wireless encryption keys.\n•  Passwords on wireless access points.\n•  SNMP defaults.\n•  Any other security-related wireless vendor\ndefaults.",
+  "testing_procedures": "2.3.1.a Examine policies and procedures and\ninterview responsible personnel to verify that\nprocesses are defined for wireless vendor defaults\nto either change them upon installation or to\nconfirm them to be secure in accordance with all\nelements of this requirement.\n2.3.1.b Examine vendor documentation and\nobserve a system administrator logging into\nwireless devices to verify:\n•  SNMP defaults are not used.\n•   Default passwords/passphrases on wireless\naccess points are not used.\n2.3.1.c Examine vendor documentation and\nwireless configuration settings to verify other\nsecurity-related wireless vendor defaults were\nchanged, if applicable.",
+  "customized_approach_objective": "Wireless networks cannot be accessed using\nvendor default passwords or default configurations.",
+  "applicability_notes": "This includes, but is not limited to, default wireless\nencryption keys, passwords on wireless access\npoints, SNMP defaults, and any other security-\nrelated wireless vendor defaults.",
+  "guidance": {
+    "purpose": "If wireless networks are not implemented with\nsufficient security configurations (including\nchanging default settings), wireless sniffers can\neavesdrop on the traffic, easily capture data and\npasswords, and easily enter and attack the\nnetwork.",
+    "good_practice": "Wireless passwords should be constructed so\nthat they are resistant to offline brute force\nattacks."
+  },
+  "extraction_notes": []
+}

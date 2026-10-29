@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "5",
+  "document_version": "4.0.1",
+  "requirement_id": "5.2.1",
+  "pdf_pages": [
+    126
+  ],
+  "defined_requirement": "An anti-malware solution(s) is deployed on all\nsystem components, except for those system\ncomponents identified in periodic evaluations per\nRequirement 5.2.3 that concludes the system\ncomponents are not at risk from malware.",
+  "testing_procedures": "5.2.1.a Examine system components to verify that\nan anti-malware solution(s) is deployed on all\nsystem components, except for those determined\nto not be at risk from malware based on periodic\nevaluations per Requirement 5.2.3.\n5.2.1.b For any system components without an\nanti-malware solution, examine the periodic\nevaluations to verify the component was evaluated\nand the evaluation concludes that the component\nis not at risk from malware.",
+  "customized_approach_objective": "Automated mechanisms are implemented to prevent\nsystems from becoming an attack vector for\nmalware.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "There is a constant stream of attacks targeting\nnewly discovered vulnerabilities in systems\npreviously regarded as secure. Without an anti-\nmalware solution that is updated regularly, new\nforms of malware can be used to attack systems,\ndisable a network, or compromise data.",
+    "good_practice": "It is beneficial for entities to be aware of \"zero-day\"\nattacks (those that exploit a previously unknown\nvulnerability) and consider solutions that focus on\nbehavioral characteristics and will alert and react to\nunexpected behavior.",
+    "definitions": "System components known to be affected by\nmalware have active malware exploits available in\nthe real world (not only theoretical exploits)."
+  },
+  "extraction_notes": []
+}

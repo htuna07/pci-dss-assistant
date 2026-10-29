@@ -1,0 +1,20 @@
+{
+  "record_type": "requirement",
+  "section_id": "9",
+  "document_version": "4.0.1",
+  "requirement_id": "9.4.7",
+  "pdf_pages": [
+    231
+  ],
+  "defined_requirement": "Electronic media with cardholder data is\ndestroyed when no longer needed for business or\nlegal reasons via one of the following:\n•  The electronic media is destroyed.\n•  The cardholder data is rendered unrecoverable\nso that it cannot be reconstructed.",
+  "testing_procedures": "9.4.7.a Examine the media destruction policy to\nverify that procedures are defined to destroy\nelectronic media when no longer needed for\nbusiness or legal reasons in accordance with all\nelements specified in this requirement.\n9.4.7.b Observe the media destruction process\nand interview responsible personnel to verify that\nelectronic media with cardholder data is destroyed\nvia one of the methods specified in this\nrequirement.",
+  "customized_approach_objective": "Cardholder data cannot be recovered from media\nthat has been erased or destroyed.",
+  "applicability_notes": "These requirements for media destruction when that\nmedia is no longer needed for business or legal\nreasons are separate and distinct from PCI DSS\nRequirement 3.2.1, which is for securely deleting\ncardholder data when no longer needed per the\nentity’s cardholder data retention policies.",
+  "guidance": {
+    "purpose": "If steps are not taken to destroy information\ncontained on electronic media when no longer\nneeded, malicious individuals may retrieve\ninformation from the disposed media, leading to a\ndata compromise. For example, malicious\nindividuals may use a technique known as\n“dumpster diving,” where they search through\ntrashcans and recycle bins looking for information\nthey can use to launch an attack.",
+    "good_practice": "The deletion function in most operating systems\nallows deleted data to be recovered, so instead, a\ndedicated secure deletion function or application\nshould be used to make data unrecoverable.",
+    "examples": "Methods for securely destroying electronic media\ninclude secure wiping in accordance with\nindustry-accepted standards for secure deletion,\ndegaussing, or physical destruction (such as\ngrinding or shredding hard disks).",
+    "further_information": "See NIST Special Publication 800-88, Revision 1:\nGuidelines for Media Sanitization"
+  },
+  "extraction_notes": []
+}

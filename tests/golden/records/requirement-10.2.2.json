@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "10",
+  "document_version": "4.0.1",
+  "requirement_id": "10.2.2",
+  "pdf_pages": [
+    247
+  ],
+  "defined_requirement": "Audit logs record the following details for\neach auditable event:\n•  User identification.\n•  Type of event.\n•  Date and time.\n•  Success and failure indication.\n•   Origination of event.\n•   Identity or name of affected data, system\ncomponent, resource, or service (for example,\nname and protocol).",
+  "testing_procedures": "10.2.2 Interview personnel and examine audit log\nconfigurations and log data to verify that all\nelements specified in this requirement are included\nin log entries for each auditable event (from\n10.2.1.1 through 10.2.1.7).",
+  "customized_approach_objective": "Sufficient data to be able to identify successful and\nfailed attempts and who, what, when, where, and\nhow for each event listed in requirement 10.2.1 are\ncaptured.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "By recording these details for the auditable events\nat 10.2.1.1 through 10.2.1.7, a potential\ncompromise can be quickly identified, with\nsufficient detail to facilitate following up on\nsuspicious activities."
+  },
+  "extraction_notes": []
+}

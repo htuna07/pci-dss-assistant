@@ -1,0 +1,21 @@
+{
+  "record_type": "requirement",
+  "section_id": "7",
+  "document_version": "4.0.1",
+  "requirement_id": "7.2.1",
+  "pdf_pages": [
+    168,
+    169
+  ],
+  "defined_requirement": "An access control model is defined and\nincludes granting access as follows:\n•   Appropriate access depending on the entity’s\nbusiness and access needs.\n•  Access to system components and data\nresources that is based on users’ job\nclassification and functions.\n•  The least privileges required (for example, user,\nadministrator) to perform a job function.",
+  "testing_procedures": "7.2.1.a Examine documented policies and\nprocedures and interview personnel to verify the\naccess control model is defined in accordance with\nall elements specified in this requirement.\n7.2.1.b Examine access control model settings and\nverify that access needs are appropriately defined\nin accordance with all elements specified in this\nrequirement.",
+  "customized_approach_objective": "Access requirements are established according to\njob functions following least-privilege and need-to-\nknow principles.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Defining an access control model that is\nappropriate for the entity’s technology and access\ncontrol philosophy supports a consistent and\nuniform way of allocating access and reduces the\npossibility of errors such as the granting of\nexcessive rights.",
+    "good_practice": "A factor to consider when defining access needs\nis the separation of duties principle. This principle\nis intended to prevent fraud and misuse or theft of\nresources. For example, 1) dividing mission-\ncritical functions and information system support\nfunctions among different individuals and/or\nfunctions, 2) establishing roles such that\ninformation system support activities are\nperformed by different functions/individuals (for\nexample, system management, programming,\nconfiguration management, quality assurance and\ntesting, and network security), and 3) ensuring\nsecurity personnel administering access control\nfunctions do not also administer audit functions.\nIn environments where one individual performs\nmultiple functions, such as administration and\nsecurity operations, duties may be assigned so\nthat no single individual has end-to-end control of\na process without an independent checkpoint. For\nexample, responsibility for configuration and\nresponsibility for approving changes could be\nassigned to separate individuals.",
+    "definitions": "Key elements of an access control model include:\n•  Resources to be protected (the\nsystems/devices/data to which access is\nneeded),\n•  Job functions that need access to the\nresource (for example, system administrator,\ncall-center personnel, store clerk), and\n•  Which activities each job function needs to\nperform (for example, read/write or query).\nOnce job functions, resources, and activities per\njob functions are defined, individuals can be\ngranted access accordingly.",
+    "examples": "Access control models that entities can consider\ninclude role-based access control (RBAC) and\nattribute-based access control (ABAC). The\naccess control model used by a given entity\ndepends on their business and access needs."
+  },
+  "extraction_notes": []
+}

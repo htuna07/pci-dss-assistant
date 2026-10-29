@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.8.3",
+  "pdf_pages": [
+    322
+  ],
+  "defined_requirement": "An established process is implemented for\nengaging TPSPs, including proper due diligence\nprior to engagement.",
+  "testing_procedures": "12.8.3.a Examine policies and procedures to verify\nthat processes are defined for engaging TPSPs,\nincluding proper due diligence prior to\nengagement.\n12.8.3.b Examine evidence and interview\nresponsible personnel to verify the process for\nengaging TPSPs includes proper due diligence\nprior to engagement.",
+  "customized_approach_objective": "The capability, intent, and resources of a\nprospective TPSP to adequately protect account\ndata are assessed before the TPSP is engaged.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "A thorough process for engaging TPSPs,\nincluding details for selection and vetting prior to\nengagement, helps ensure that a TPSP is\nthoroughly vetted internally by an entity prior to\nestablishing a formal relationship and that the risk\nto cardholder data associated with the\nengagement of the TPSP is understood.",
+    "good_practice": "Specific due-diligence processes and goals will\nvary for each organization. Elements that should\nbe considered include the provider’s reporting\npractices, breach-notification and incident\nresponse procedures, details of how PCI DSS\nresponsibilities are assigned between each party,\nhow the TPSP validates their PCI DSS\ncompliance and what evidence they provide."
+  },
+  "extraction_notes": []
+}

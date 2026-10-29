@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "10",
+  "document_version": "4.0.1",
+  "requirement_id": "10.5.1",
+  "pdf_pages": [
+    256
+  ],
+  "defined_requirement": "Retain audit log history for at least 12\nmonths, with at least the most recent three months\nimmediately available for analysis.",
+  "testing_procedures": "10.5.1.a Examine documentation to verify that the\nfollowing is defined:\n•   Audit log retention policies.\n•  Procedures for retaining audit log history for at\nleast 12 months, with at least the most recent\nthree months immediately available online.\n10.5.1.b Examine configurations of audit log\nhistory, interview personnel and examine audit logs\nto verify that audit logs history is retained for at\nleast 12 months.\n10.5.1.c Interview personnel and observe\nprocesses to verify that at least the most recent\nthree months’ audit log history is immediately\navailable for analysis.",
+  "customized_approach_objective": "Historical records of activity are available\nimmediately to support incident response and are\nretained for at least 12 months.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Retaining historical audit logs for at least 12\nmonths is necessary because compromises often\ngo unnoticed for significant lengths of time.\nHaving centrally stored log history allows\ninvestigators to better determine the length of\ntime a potential breach was occurring, and the\npossible system(s) impacted. By having three\nmonths of logs immediately available, an entity\ncan quickly identify and minimize impact of a data\nbreach.",
+    "examples": "Methods that allow logs to be immediately\navailable include storing logs online, archiving\nlogs, or restoring logs quickly from backups."
+  },
+  "extraction_notes": []
+}

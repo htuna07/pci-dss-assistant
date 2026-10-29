@@ -1,0 +1,20 @@
+{
+  "record_type": "requirement",
+  "section_id": "8",
+  "document_version": "4.0.1",
+  "requirement_id": "8.4.2",
+  "pdf_pages": [
+    203,
+    204,
+    205
+  ],
+  "defined_requirement": "MFA is implemented for all non-console\naccess into the CDE.",
+  "testing_procedures": "8.4.2.a Examine network and/or system\nconfigurations to verify MFA is implemented for all\nnon-console access into the CDE.\n8.4.2.b Observe personnel logging in to the CDE\nand examine evidence to verify that MFA is\nrequired.",
+  "customized_approach_objective": "Access into the CDE cannot be obtained by the use\nof a single authentication factor.",
+  "applicability_notes": "This requirement does not apply to:\n•   Application or system accounts performing\nautomated functions.\n•  User accounts on point-of-sale terminals that\nhave access to only one card number at a time\nto facilitate a single transaction.\n•  User accounts that are only authenticated with\nphishing-resistant authentication factors.\nMFA is required for both types of access specified in\nRequirements 8.4.2 and 8.4.3. Therefore, applying\nMFA to one type of access does not replace the\nneed to apply another instance of MFA to the other\ntype of access. If an individual first connects to the\nentity’s network via remote access, and then later\ninitiates a connection into the CDE from within the\nnetwork, per this requirement the individual would\nauthenticate using MFA twice, once when\nconnecting via remote access to the entity’s network\nand once when connecting from the entity’s network\ninto the CDE.\nThe MFA requirements apply for all types of system\ncomponents, including cloud, hosted systems, and\non-premises applications, network security devices,\nworkstations, servers, and endpoints, and includes\naccess directly to an entity’s networks or systems as\nwell as web-based access to an application or\nfunction.\nMFA for access into the CDE can be implemented\nat the network or system/application level; it does\nnot have to be applied at both levels. For example, if\nMFA is used when a user connects to the CDE\nnetwork, it does not have to be used when the user\nlogs into each system or application within the CDE.\nThis requirement is a best practice until 31 March\n2025, after which it will be required and must be\nfully considered during a PCI DSS assessment.",
+  "guidance": {
+    "purpose": "Requiring more than one type of authentication\nfactor reduces the probability that an attacker can\ngain access to a system by masquerading as a\nlegitimate user, because the attacker would need\nto compromise multiple authentication factors.\nThis is especially true in environments where\ntraditionally the single authentication factor\nemployed was something a user knows such as a\npassword or passphrase.",
+    "definitions": "Using one factor twice (for example, using two\nseparate passwords) is not considered multi-\nfactor authentication.\nRefer to Appendix G for the definition of “phishing\nresistant authentication.”"
+  },
+  "extraction_notes": []
+}

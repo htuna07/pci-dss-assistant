@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "8",
+  "document_version": "4.0.1",
+  "requirement_id": "8.2.6",
+  "pdf_pages": [
+    187
+  ],
+  "defined_requirement": "Inactive user accounts are removed or\ndisabled within 90 days of inactivity.",
+  "testing_procedures": "8.2.6 Examine user accounts and last logon\ninformation, and interview personnel to verify that\nany inactive user accounts are removed or\ndisabled within 90 days of inactivity.",
+  "customized_approach_objective": "Inactive user accounts cannot be used.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Accounts that are not used regularly are often\ntargets of attack since it is less likely that any\nchanges, such as a changed password, will be\nnoticed. As such, these accounts may be more\neasily exploited and used to access cardholder\ndata.",
+    "good_practice": "Where it may be reasonably anticipated that an\naccount will not be used for an extended period of\ntime, such as an extended leave of absence, the\naccount should be disabled as soon as the leave\nbegins, rather than waiting 90 days."
+  },
+  "extraction_notes": []
+}

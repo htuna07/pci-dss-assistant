@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "2",
+  "document_version": "4.0.1",
+  "requirement_id": "2.2.6",
+  "pdf_pages": [
+    74
+  ],
+  "defined_requirement": "System security parameters are configured to\nprevent misuse.",
+  "testing_procedures": "2.2.6.a Examine system configuration standards to\nverify they include configuring system security\nparameters to prevent misuse.\n2.2.6.b Interview system administrators and/or\nsecurity managers to verify they have knowledge\nof common security parameter settings for system\ncomponents.\n2.2.6.c Examine system configurations to verify\nthat common security parameters are set\nappropriately and in accordance with the system\nconfiguration standards.",
+  "customized_approach_objective": "System components cannot be compromised\nbecause of incorrect security parameter\nconfiguration.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Correctly configuring security parameters\nprovided in system components takes advantage\nof the capabilities of the system component to\ndefeat malicious attacks.",
+    "good_practice": "System configuration standards and related\nprocesses should specifically address security\nsettings and parameters that have known security\nimplications for each type of system in use.\nFor systems to be configured securely, personnel\nresponsible for configuration and/or administering\nsystems should be knowledgeable in the specific\nsecurity parameters and settings that apply to the\nsystem. Considerations should also include\nsecure settings for parameters used to access\ncloud portals.",
+    "further_information": "Refer to vendor documentation and industry\nreferences noted in Requirement 2.2.1 for\ninformation about applicable security parameters\nfor each type of system."
+  },
+  "extraction_notes": []
+}

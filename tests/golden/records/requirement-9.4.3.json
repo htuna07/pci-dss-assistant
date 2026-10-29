@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "9",
+  "document_version": "4.0.1",
+  "requirement_id": "9.4.3",
+  "pdf_pages": [
+    227
+  ],
+  "defined_requirement": "Media with cardholder data sent outside the\nfacility is secured as follows:\n•  Media sent outside the facility is logged.\n•  Media is sent by secured courier or other\ndelivery method that can be accurately tracked.\n•   Offsite tracking logs include details about media\nlocation.",
+  "testing_procedures": "9.4.3.a Examine documentation to verify that\nprocedures are defined for securing media sent\noutside the facility in accordance with all elements\nspecified in this requirement.\n9.4.3.b Interview personnel and examine records\nto verify that all media sent outside the facility is\nlogged and sent via secured courier or other\ndelivery method that can be tracked.\n9.4.3.c Examine offsite tracking logs for all media\nto verify tracking details are documented.",
+  "customized_approach_objective": "Media is secured and tracked when transported\noutside the facility.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Media may be lost or stolen if sent via a non-\ntrackable method such as regular postal mail. The\nuse of secure couriers to deliver any media that\ncontains cardholder data allows organizations to\nuse their tracking systems to maintain inventory\nand location of shipments."
+  },
+  "extraction_notes": []
+}

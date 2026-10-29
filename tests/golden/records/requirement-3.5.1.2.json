@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "3",
+  "document_version": "4.0.1",
+  "requirement_id": "3.5.1.2",
+  "pdf_pages": [
+    97,
+    98
+  ],
+  "defined_requirement": "If disk-level or partition-level encryption (rather\nthan file-, column-, or field-level database encryption) is\nused to render PAN unreadable, it is implemented only\nas follows:\n•  On removable electronic media\nOR\n•    If used for non-removable electronic media, PAN is\nalso rendered unreadable via another mechanism\nthat meets Requirement 3.5.1.",
+  "testing_procedures": "3.5.1.2.a Examine encryption processes to verify\nthat, if disk-level or partition-level encryption is\nused to render PAN unreadable, it is implemented\nonly as follows:\n•  On removable electronic media,\nOR\n•    If used for non-removable electronic media,\nexamine encryption processes used to verify\nthat PAN is also rendered unreadable via\nanother method that meets Requirement 3.5.1.\n3.5.1.2.b Examine configurations and/or vendor\ndocumentation and observe encryption processes\nto verify the system is configured according to\nvendor documentation the result is that the disk or\nthe partition is rendered unreadable.",
+  "customized_approach_objective": "Encrypted PAN is only decrypted when there is a\nlegitimate business need to access that PAN.",
+  "applicability_notes": "This requirement applies to any encryption method that\nprovides clear-text PAN automatically when a system\nruns, even though an authorized user has not\nspecifically requested that data.\nWhile disk or partition encryption may still be present on\nthese types of devices, it cannot be the only mechanism\nused to protect PAN stored on those systems. Any\nstored PAN must also be rendered unreadable per\nRequirement 3.5.1—for example, through truncation or a\ndata-level encryption mechanism. Full disk encryption\nhelps to protect data in the event of physical loss of a\ndisk and therefore its use is appropriate only for\nremovable electronic media storage devices.\nMedia that is part of a data center architecture (for\nexample, hot-swappable drives, bulk tape-backups) is\nconsidered non-removable electronic media to which\nRequirement 3.5.1 applies.\nDisk or partition encryption implementations must also\nmeet all other PCI DSS encryption and key-management\nrequirements.\nFor issuers and companies that support issuing services:\nThis requirement does not apply to PANs being\naccessed for real-time transaction processing. However,\nit does apply to PANs stored for other purposes.\nThis requirement is a best practice until 31 March 2025,\nafter which it will be required and must be fully\nconsidered during a PCI DSS assessment.",
+  "guidance": {
+    "purpose": "Disk-level and partition-level encryption typically\nencrypts the entire disk or partition using the same key,\nwith all data automatically decrypted when the system\nruns or when an authorized user requests it. For this\nreason, disk-level encryption is not appropriate to\nprotect stored PAN on computers, laptops, servers,\nstorage arrays, or any other system that provides\ntransparent decryption upon user authentication.",
+    "further_information": "Where available, following vendors’ hardening and\nindustry best practice guidelines can assist in securing\nPAN on these devices."
+  },
+  "extraction_notes": []
+}

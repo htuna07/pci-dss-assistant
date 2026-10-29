@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "3",
+  "document_version": "4.0.1",
+  "requirement_id": "3.3.3",
+  "pdf_pages": [
+    89,
+    90
+  ],
+  "defined_requirement": "Additional requirement for issuers and\ncompanies that support issuing services and store\nsensitive authentication data: Any storage of sensitive\nauthentication data is:\n•   Limited to that which is needed for a legitimate\nissuing business need and is secured.\n•   Encrypted using strong cryptography. This bullet is a\nbest practice until its effective date; refer to\nApplicability Notes below for details.",
+  "testing_procedures": "3.3.3.a Additional testing procedure for issuers\nand companies that support issuing services\nand store sensitive authentication data:\nExamine documented policies and interview\npersonnel to verify there is a documented business\njustification for the storage of sensitive\nauthentication data.\n3.3.3.b Additional testing procedure for issuers\nand companies that support issuing services\nand store sensitive authentication data:\nExamine data stores and system configurations to\nverify that the sensitive authentication data is\nstored securely.",
+  "customized_approach_objective": "Sensitive authentication data is retained only as required\nto support issuing functions and is secured from\nunauthorized access.",
+  "applicability_notes": "This requirement applies only to issuers and companies\nthat support issuing services and store sensitive\nauthentication data.\nEntities that issue payment cards or that perform or\nsupport issuing services will often create and control\nsensitive authentication data as part of the issuing\nfunction. It is allowable for companies that perform,\nfacilitate, or support issuing services to store sensitive\nauthentication data ONLY IF they have a legitimate\nbusiness need to store such data.\nA legitimate issuing business need is one that is\nnecessary for the performance of the function being\nprovided by or for the issuer.\nThe bullet above (for encrypting stored SAD with strong\ncryptography) is a best practice until 31 March 2025,\nafter which it will be required as part of Requirement\n3.3.3 and must be fully considered during a PCI DSS\nassessment.",
+  "guidance": {
+    "purpose": "SAD can be used by malicious individuals to increase\nthe probability of successfully generating counterfeit\npayment cards and creating fraudulent transactions.",
+    "good_practice": "Entities should consider encrypting SAD with a different\ncryptographic key than is used to encrypt PAN. Note\nthat this does not mean that PAN present in SAD (as\npart of track data) would need to be separately\nencrypted."
+  },
+  "extraction_notes": []
+}

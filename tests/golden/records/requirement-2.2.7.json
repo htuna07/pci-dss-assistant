@@ -1,0 +1,20 @@
+{
+  "record_type": "requirement",
+  "section_id": "2",
+  "document_version": "4.0.1",
+  "requirement_id": "2.2.7",
+  "pdf_pages": [
+    75
+  ],
+  "defined_requirement": "All non-console administrative access is\nencrypted using strong cryptography.",
+  "testing_procedures": "2.2.7.a Examine system configuration standards to\nverify they include encrypting all non-console\nadministrative access using strong cryptography.\n2.2.7.b Observe an administrator log on to system\ncomponents and examine system configurations to\nverify that non-console administrative access is\nmanaged in accordance with this requirement.\n2.2.7.c Examine settings for system components\nand authentication services to verify that insecure\nremote login services are not available for non-\nconsole administrative access.\n2.2.7.d Examine vendor documentation and\ninterview personnel to verify that strong\ncryptography for the technology in use is\nimplemented according to industry best practices\nand/or vendor recommendations.",
+  "customized_approach_objective": "Cleartext administrative authorization factors cannot\nbe read or intercepted from any network\ntransmissions.",
+  "applicability_notes": "This includes administrative access via browser-\nbased interfaces and application programming\ninterfaces (APIs).",
+  "guidance": {
+    "purpose": "If non-console (including remote) administration\ndoes not use encrypted communications,\nadministrative authorization factors (such as IDs\nand passwords) can be revealed to an\neavesdropper. A malicious individual could use\nthis information to access the network, become\nadministrator, and steal data.",
+    "good_practice": "Whichever security protocol is used, it should be\nconfigured to use only secure versions and\nconfigurations to prevent use of an insecure\nconnection—for example, by using only trusted\ncertificates, supporting only strong encryption,\nand not supporting fallback to weaker, insecure\nprotocols or methods.",
+    "examples": "Cleartext protocols (such as HTTP, telnet, etc.) do\nnot encrypt traffic or logon details, making it easy\nfor an eavesdropper to intercept this information.\nNon-console access may be facilitated by\ntechnologies that provide alternative access to\nsystems, including but not limited to, out-of-band\n(OOB), lights-out management (LOM), Intelligent\nPlatform Management Interface (IPMI), and\nkeyboard, video, mouse (KVM) switches with\nremote capabilities. These and other non-console\naccess technologies and methods must be\nsecured with strong cryptography.",
+    "further_information": "Refer to industry standards and best practices\nsuch as NIST SP 800-52 and SP 800-57."
+  },
+  "extraction_notes": []
+}

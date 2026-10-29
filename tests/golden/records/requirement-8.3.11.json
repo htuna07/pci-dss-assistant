@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "8",
+  "document_version": "4.0.1",
+  "requirement_id": "8.3.11",
+  "pdf_pages": [
+    201
+  ],
+  "defined_requirement": "Where authentication factors such as\nphysical or logical security tokens, smart cards, or\ncertificates are used:\n•  Factors are assigned to an individual user and\nnot shared among multiple users.\n•   Physical and/or logical controls ensure only the\nintended user can use that factor to gain access.",
+  "testing_procedures": "8.3.11.a Examine authentication policies and\nprocedures to verify that procedures for using\nauthentication factors such as physical security\ntokens, smart cards, and certificates are defined\nand include all elements specified in this\nrequirement.\n8.3.11.b Interview security personnel to verify\nauthentication factors are assigned to an individual\nuser and not shared among multiple users.\n8.3.11.c Examine system configuration settings\nand/or observe physical controls, as applicable, to\nverify that controls are implemented to ensure only\nthe intended user can use that factor to gain\naccess.",
+  "customized_approach_objective": "An authentication factor cannot be used by anyone\nother than the user to which it is assigned.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "If multiple users can use authentication factors\nsuch as tokens, smart cards, and certificates, it\nmay be impossible to identify the individual using\nthe authentication mechanism.",
+    "good_practice": "Having physical and/or logical controls (for\nexample, a PIN, biometric data, or a password) to\nuniquely authenticate the user of the account will\nprevent unauthorized users from gaining access\nto the user account through use of a shared\nauthentication factor."
+  },
+  "extraction_notes": []
+}

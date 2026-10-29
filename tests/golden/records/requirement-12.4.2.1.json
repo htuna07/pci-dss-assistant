@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.4.2.1",
+  "pdf_pages": [
+    307
+  ],
+  "defined_requirement": "Additional requirement for service\nproviders only: Reviews conducted in accordance\nwith Requirement 12.4.2 are documented to include:\n•  Results of the reviews.\n•  Documented remediation actions taken for any\ntasks that were found to not be performed at\nRequirement 12.4.2.\n•  Review and sign-off of results by personnel\nassigned responsibility for the PCI DSS\ncompliance program.",
+  "testing_procedures": "12.4.2.1 Additional testing procedure for\nservice provider assessments only: Examine\ndocumentation from the reviews conducted in\naccordance with PCI DSS Requirement 12.4.2 to\nverify the documentation includes all elements\nspecified in this requirement.",
+  "customized_approach_objective": "Findings from operational effectiveness reviews are\nevaluated by management; appropriate remediation\nactivities are implemented.",
+  "applicability_notes": "This requirement applies only when the entity being\nassessed is a service provider.",
+  "guidance": {
+    "purpose": "The intent of these independent checks is to\nconfirm whether security activities are being\nperformed on an ongoing basis. These reviews\ncan also be used to verify that appropriate\nevidence is being maintained—for example, audit\nlogs, vulnerability scan reports, reviews of\nnetwork security control rulesets—to assist in the\nentity’s preparation for its next PCI DSS\nassessment."
+  },
+  "extraction_notes": []
+}

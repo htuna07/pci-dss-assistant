@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "10",
+  "document_version": "4.0.1",
+  "requirement_id": "10.2.1.7",
+  "pdf_pages": [
+    247
+  ],
+  "defined_requirement": "Audit logs capture all creation and deletion\nof system-level objects.",
+  "testing_procedures": "10.2.1.7 Examine audit log configurations and log\ndata to verify that creation and deletion of system\nlevel objects is captured.",
+  "customized_approach_objective": "Records of alterations that indicate a system has\nbeen modified from its intended functionality are\ncaptured.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Malicious software, such as malware, often\ncreates or replaces system-level objects on the\ntarget system to control a particular function or\noperation on that system. By logging when\nsystem-level objects are created or deleted, it will\nbe easier to determine whether such\nmodifications were authorized."
+  },
+  "extraction_notes": []
+}

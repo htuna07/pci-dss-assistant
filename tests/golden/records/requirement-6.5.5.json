@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "6",
+  "document_version": "4.0.1",
+  "requirement_id": "6.5.5",
+  "pdf_pages": [
+    163
+  ],
+  "defined_requirement": "Live PANs are not used in pre-production\nenvironments, except where those environments\nare included in the CDE and protected in\naccordance with all applicable PCI DSS\nrequirements.",
+  "testing_procedures": "6.5.5.a Examine policies and procedures to verify\nthat processes are defined for not using live PANs\nin pre-production environments, except where\nthose environments are in a CDE and protected in\naccordance with all applicable PCI DSS\nrequirements.\n6.5.5.b Observe testing processes and interview\npersonnel to verify procedures are in place to\nensure live PANs are not used in pre-production\nenvironments, except where those environments\nare in a CDE and protected in accordance with all\napplicable PCI DSS requirements.\n6.5.5.c Examine pre-production test data to verify\nlive PANs are not used in pre-production\nenvironments, except where those environments\nare in a CDE and protected in accordance with all\napplicable PCI DSS requirements.",
+  "customized_approach_objective": "Live PANs cannot be present in pre-production\nenvironments outside the CDE.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Use of live PANs outside of protected CDEs provides\nmalicious individuals with the opportunity to gain\nunauthorized access to cardholder data.",
+    "definitions": "Live PANs refer to valid PANs (not test PANs) issued\nby, or on behalf of, a payment brand. Additionally,\nwhen payment cards expire, the same PAN is often\nreused with a different expiry date. All PANs must be\nverified as being unable to conduct payment\ntransactions or pose fraud risk to the payment\nsystem before they are excluded from PCI DSS\nscope. It is the responsibility of the entity to confirm\nthat PANs are not live."
+  },
+  "extraction_notes": []
+}

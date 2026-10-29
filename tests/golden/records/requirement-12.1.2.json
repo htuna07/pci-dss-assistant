@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.1.2",
+  "pdf_pages": [
+    297
+  ],
+  "defined_requirement": "The information security policy is:\n•  Reviewed at least once every 12 months.\n•  Updated as needed to reflect changes to\nbusiness objectives or risks to the environment.",
+  "testing_procedures": "12.1.2 Examine the information security policy and\ninterview responsible personnel to verify the policy\nis managed in accordance with all elements\nspecified in this requirement.",
+  "customized_approach_objective": "The information security policy continues to reflect\nthe organization’s strategic objectives and\nprinciples.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Security threats and associated protection\nmethods evolve rapidly. Without updating the\ninformation security policy to reflect relevant\nchanges, new measures to defend against these\nthreats may not be addressed."
+  },
+  "extraction_notes": []
+}

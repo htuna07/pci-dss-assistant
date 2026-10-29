@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "10",
+  "document_version": "4.0.1",
+  "requirement_id": "10.3.4",
+  "pdf_pages": [
+    250
+  ],
+  "defined_requirement": "File integrity monitoring or change-detection\nmechanisms is used on audit logs to ensure that\nexisting log data cannot be changed without\ngenerating alerts.",
+  "testing_procedures": "10.3.4 Examine system settings, monitored files,\nand results from monitoring activities to verify the\nuse of file integrity monitoring or change-detection\nsoftware on audit logs.",
+  "customized_approach_objective": "Stored activity records cannot be modified without\nan alert being generated.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "File integrity monitoring or change-detection\nsystems check for changes to critical files and\nnotify when such changes are identified. For file\nintegrity monitoring purposes, an entity usually\nmonitors files that do not regularly change, but\nwhen changed, indicate a possible compromise.",
+    "good_practice": "Software used to monitor changes to audit logs\nshould be configured to provide alerts when\nexisting log data or files are changed or deleted.\nHowever, new log data being added to an audit\nlog should not generate an alert."
+  },
+  "extraction_notes": []
+}

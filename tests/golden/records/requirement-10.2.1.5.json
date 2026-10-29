@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "10",
+  "document_version": "4.0.1",
+  "requirement_id": "10.2.1.5",
+  "pdf_pages": [
+    246
+  ],
+  "defined_requirement": "Audit logs capture all changes to\nidentification and authentication credentials\nincluding, but not limited to:\n•   Creation of new accounts.\n•   Elevation of privileges.\n•   All changes, additions, or deletions to accounts\nwith administrative access.",
+  "testing_procedures": "10.2.1.5 Examine audit log configurations and log\ndata to verify that changes to identification and\nauthentication credentials are captured in\naccordance with all elements specified in this\nrequirement.",
+  "customized_approach_objective": "Records of all changes to identification and\nauthentication credentials are captured.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Logging changes to authentication credentials\n(including elevation of privileges, additions, and\ndeletions of accounts with administrative access)\nprovides residual evidence of activities.\nMalicious users may attempt to manipulate\nauthentication credentials to bypass them or\nimpersonate a valid account."
+  },
+  "extraction_notes": []
+}

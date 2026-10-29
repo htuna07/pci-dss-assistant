@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "1",
+  "document_version": "4.0.1",
+  "requirement_id": "1.2.6",
+  "pdf_pages": [
+    52
+  ],
+  "defined_requirement": "Security features are defined and\nimplemented for all services, protocols, and ports\nthat are in use and considered to be insecure, such\nthat the risk is mitigated.",
+  "testing_procedures": "1.2.6.a Examine documentation that identifies all\ninsecure services, protocols, and ports in use to\nverify that for each, security features are defined to\nmitigate the risk.\n1.2.6.b Examine configuration settings for NSCs to\nverify that the defined security features are\nimplemented for each identified insecure service,\nprotocol, and port.",
+  "customized_approach_objective": "The specific risks associated with the use of\ninsecure services, protocols, and ports are\nunderstood, assessed, and appropriately mitigated.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Compromises take advantage of insecure\nnetwork configurations.",
+    "good_practice": "If insecure services, protocols, or ports are\nnecessary for business, the risk posed by these\nservices, protocols, and ports should be clearly\nunderstood and accepted by the organization, the\nuse of the service, protocol, or port should be\njustified, and the security features that mitigate\nthe risk of using these services, protocols, and\nports should be defined and implemented by the\nentity.",
+    "further_information": "For guidance on services, protocols, or ports\nconsidered to be insecure, refer to industry\nstandards and guidance (for example, from NIST,\nENISA, OWASP)."
+  },
+  "extraction_notes": []
+}

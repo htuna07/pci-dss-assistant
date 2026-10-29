@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.10.6",
+  "pdf_pages": [
+    336
+  ],
+  "defined_requirement": "The security incident response plan is\nmodified and evolved according to lessons learned\nand to incorporate industry developments.",
+  "testing_procedures": "12.10.6.a Examine policies and procedures to\nverify that processes are defined to modify and\nevolve the security incident response plan\naccording to lessons learned and to incorporate\nindustry developments.\n12.10.6.b Examine the security incident response\nplan and interview responsible personnel to verify\nthat the incident response plan is modified and\nevolved according to lessons learned and to\nincorporate industry developments.",
+  "customized_approach_objective": "The effectiveness and accuracy of the incident\nresponse plan is reviewed and updated after each\ninvocation.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Incorporating lessons learned into the incident\nresponse plan after an incident occurs and in-step\nwith industry developments, helps keep the plan\ncurrent and able to react to emerging threats and\nsecurity trends.",
+    "good_practice": "The lessons-learned exercise should include all\nlevels of personnel. Although it is often included\nas part of the review of the entire incident, it\nshould focus on how the entity’s response to the\nincident could be improved.\nIt is important to not just consider elements of the\nresponse that did not have the planned outcomes\nbut also to understand what worked well and\nwhether lessons from those elements that worked\nwell can be applied to areas of the plan that did\nnot.\nAnother way to optimize an entity’s incident\nresponse plan is to understand the attacks made\nagainst other organizations and use that\ninformation to fine-tune the entity’s detection,\ncontainment, mitigation, or recovery procedures."
+  },
+  "extraction_notes": []
+}

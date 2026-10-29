@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "6",
+  "document_version": "4.0.1",
+  "requirement_id": "6.5.3",
+  "pdf_pages": [
+    161
+  ],
+  "defined_requirement": "Pre-production environments are separated\nfrom production environments and the separation is\nenforced with access controls.",
+  "testing_procedures": "6.5.3.a Examine policies and procedures to verify\nthat processes are defined for separating the pre-\nproduction environment from the production\nenvironment via access controls that enforce the\nseparation.\n6.5.3.b Examine network documentation and\nconfigurations of network security controls to verify\nthat the pre-production environment is separate\nfrom the production environment(s).\n6.5.3.c Examine access control settings to verify\nthat access controls are in place to enforce\nseparation between the pre-production and\nproduction environment(s).",
+  "customized_approach_objective": "Pre-production environments cannot introduce risks\nand vulnerabilities into production environments.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Due to the constantly changing state of pre-\nproduction environments, they are often less secure\nthan the production environment.",
+    "good_practice": "Organizations must clearly understand which\nenvironments are test environments or development\nenvironments and how these environments interact\non the level of networks and applications.",
+    "definitions": "Pre-production environments include development,\ntesting, user acceptance testing (UAT), etc. Even\nwhere production infrastructure is used to facilitate\ntesting or development, production environments still\nneed to be separated (logically or physically) from\npre-production functionality such that vulnerabilities\nintroduced as a result of pre-production activities do\nnot adversely affect production systems."
+  },
+  "extraction_notes": []
+}

@@ -1,0 +1,54 @@
+{
+  "document_version": "4.0.1",
+  "record_type": "requirement_introduction",
+  "requirement_id": "12",
+  "pdf_pages": [
+    294
+  ],
+  "title": "Support Information Security with Organizational Policies and Programs",
+  "sections": [
+    {
+      "id": "12.1",
+      "title": "A comprehensive information security policy that governs and provides direction for protection of the entity’s information assets is known and current."
+    },
+    {
+      "id": "12.2",
+      "title": "Acceptable use policies for end-user technologies are defined and implemented."
+    },
+    {
+      "id": "12.3",
+      "title": "Risks to the cardholder data environment are formally identified, evaluated, and managed."
+    },
+    {
+      "id": "12.4",
+      "title": "PCI DSS compliance is managed."
+    },
+    {
+      "id": "12.5",
+      "title": "PCI DSS scope is documented and validated."
+    },
+    {
+      "id": "12.6",
+      "title": "Security awareness education is an ongoing activity."
+    },
+    {
+      "id": "12.7",
+      "title": "Personnel are screened to reduce risks from insider threats."
+    },
+    {
+      "id": "12.8",
+      "title": "Risk to information assets associated with third-party service provider (TPSP) relationships is managed."
+    },
+    {
+      "id": "12.9",
+      "title": "Third-party service providers (TPSPs) support their customers’ PCI DSS compliance."
+    },
+    {
+      "id": "12.10",
+      "title": "Suspected and confirmed security incidents that could impact the CDE are responded to immediately."
+    }
+  ],
+  "overview": "The organization’s overall information security policy sets the tone for the whole entity and informs personnel what is expected of them. All\npersonnel should be aware of the sensitivity of cardholder data and their responsibilities for protecting it.\nFor the purposes of Requirement 12, “personnel” refers to full-time and part-time employees, temporary employees, contractors, and\nconsultants with security responsibilities for protecting account data or that can impact the security of cardholder data and/or sensitive\nauthentication data.\nRefer to Appendix G for definitions of PCI DSS terms.",
+  "category_title": "Maintain an Information Security Policy",
+  "notes": []
+}

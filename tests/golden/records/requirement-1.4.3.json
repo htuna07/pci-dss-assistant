@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "1",
+  "document_version": "4.0.1",
+  "requirement_id": "1.4.3",
+  "pdf_pages": [
+    60
+  ],
+  "defined_requirement": "Anti-spoofing measures are implemented to\ndetect and block forged source IP addresses from\nentering the trusted network.",
+  "testing_procedures": "1.4.3 Examine vendor documentation and\nconfigurations for NSCs to verify that anti-spoofing\nmeasures are implemented to detect and block\nforged source IP addresses from entering the\ntrusted network.",
+  "customized_approach_objective": "Packets with forged IP source addresses cannot\nenter a trusted network.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Filtering packets coming into the trusted network\nhelps to, among other things, ensure packets are\nnot “spoofed” to appear as if they are coming from\nan organization’s own internal network. For\nexample, anti-spoofing measures prevent internal\naddresses originating from the Internet from\npassing into the DMZ.",
+    "good_practice": "Products usually come with anti-spoofing set as a\ndefault and may not be configurable. Entities\nshould consult the vendor's documentation for\nmore information.",
+    "examples": "Normally, a packet contains the IP address of the\ncomputer that originally sent it so other computers\nin the network know where the packet originated.\nMalicious individuals will often try to spoof (or\nimitate) the sending IP address to fool the target\nsystem into believing the packet is from a trusted\nsource."
+  },
+  "extraction_notes": []
+}

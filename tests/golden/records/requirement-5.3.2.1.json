@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "5",
+  "document_version": "4.0.1",
+  "requirement_id": "5.3.2.1",
+  "pdf_pages": [
+    132
+  ],
+  "defined_requirement": "If periodic malware scans are performed to\nmeet Requirement 5.3.2, the frequency of scans is\ndefined in the entity’s targeted risk analysis, which\nis performed according to all elements specified in\nRequirement 12.3.1.",
+  "testing_procedures": "5.3.2.1.a Examine the entity’s targeted risk\nanalysis for the frequency of periodic malware\nscans to verify the risk analysis was performed in\naccordance with all elements specified in\nRequirement 12.3.1.\n5.3.2.1.b Examine documented results of periodic\nmalware scans and interview personnel to verify\nscans are performed at the frequency defined in\nthe entity’s targeted risk analysis performed for this\nrequirement.",
+  "customized_approach_objective": "Scans by the malware solution are performed at a\nfrequency that addresses the entity’s risk.",
+  "applicability_notes": "This requirement applies to entities conducting\nperiodic malware scans to meet Requirement 5.3.2.\nThis requirement is a best practice until 31 March\n2025, after which it will be required and must be\nfully considered during a PCI DSS assessment.",
+  "guidance": {
+    "purpose": "Entities can determine the optimum period to\nundertake periodic scans based on their own\nassessment of the risks posed to their\nenvironments."
+  },
+  "extraction_notes": []
+}

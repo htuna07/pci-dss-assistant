@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.1.4",
+  "pdf_pages": [
+    298
+  ],
+  "defined_requirement": "Responsibility for information security is\nformally assigned to a Chief Information Security\nOfficer or other information security knowledgeable\nmember of executive management. .",
+  "testing_procedures": "12.1.4 Examine the information security policy to\nverify that information security is formally assigned\nto a Chief Information Security Officer or other\ninformation security-knowledgeable member of\nexecutive management.",
+  "customized_approach_objective": "A designated member of executive management is\nresponsible for information security.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "To ensure someone with sufficient authority and\nresponsibility is actively managing and\nchampioning the organization’s information\nsecurity program, accountability and responsibility\nfor information security needs to be assigned at\nthe executive level within an organization.",
+    "good_practice": "These executive management positions are often\nat the most senior level of management and are\npart of the chief executive level or C-level,\ntypically reporting to the Chief Executive Officer or\nthe Board of Directors. Information security\nknowledge for this executive management role\ncan be indicated by work experience, education,\nand/or relevant professional certifications. The\nexpectation is that this individual can provide\nassurance about the implementation of an\neffective security program and ensure the right\ntechnical experts are employed.\nEntities should also consider transition and/or\nsuccession plans for these key personnel to avoid\npotential gaps in critical security activities."
+  },
+  "extraction_notes": []
+}

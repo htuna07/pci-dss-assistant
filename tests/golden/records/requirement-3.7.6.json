@@ -1,0 +1,22 @@
+{
+  "record_type": "requirement",
+  "section_id": "3",
+  "document_version": "4.0.1",
+  "requirement_id": "3.7.6",
+  "pdf_pages": [
+    110,
+    111
+  ],
+  "defined_requirement": "Where manual cleartext cryptographic key-\nmanagement operations are performed by\npersonnel, key-management policies and\nprocedures are implemented, including managing\nthese operations using split knowledge and dual\ncontrol.",
+  "testing_procedures": "3.7.6.a Examine the documented key-management\npolicies and procedures for keys used for\nprotection of stored account data and verify that\nthey define using split knowledge and dual control.\n3.7.6.b Interview personnel and/or observe\nprocesses to verify that manual cleartext keys are\nmanaged with split knowledge and dual control.",
+  "customized_approach_objective": "Cleartext secret or private keys cannot be known by\nanyone. Operations involving cleartext keys cannot\nbe carried out by a single person.",
+  "applicability_notes": "This control is applicable for manual key-\nmanagement operations.\nA cryptographic key that is simply split into two parts\ndoes not meet this requirement. Secret or private\nkeys stored as key components or key shares must\nbe generated via one of the following:\n•  Using an approved random number generator\nand within a secure cryptographic device (SCD),\nsuch as a hardware security module (HSM) or\nPTS-approved point-of-interaction device,\nOR\n• According to ISO 19592 or equivalent industry\nstandard for generation of secret key shares.",
+  "guidance": {
+    "purpose": "Split knowledge and dual control of keys are used to\neliminate the possibility of a single person having\naccess to the whole key and therefore being able to\ngain unauthorized access to the data.",
+    "definitions": "Split knowledge is a method in which two or more\npeople separately have key components, where each\nperson knows only their own key component, and the\nindividual key components convey no knowledge of\nother components or of the original cryptographic key.\nDual control requires two or more people to\nauthenticate the use of a cryptographic key or perform\na key-management function. No single person can\naccess or use the authentication factor (for example,\nthe password, PIN, or key) of another.",
+    "good_practice": "Where key components or key shares are used,\nprocedures should ensure that no single custodian ever\nhas access to sufficient key components or shares to\nreconstruct the cryptographic key. For example, in an\nm-of-n scheme (for example, Shamir), where only two\nof any three components are required to reconstruct the\ncryptographic key, a custodian must not have current or\nprior knowledge of more than one component. If a\ncustodian was previously assigned component A, which\nwas then reassigned, the custodian should not then be\nassigned component B or C, as this would give the\ncustodian knowledge of two components and the ability\nto recreate the key.",
+    "examples": "Key-management operations that might be performed\nmanually include, but are not limited to, key generation,\ntransmission, loading, storage, and destruction.",
+    "further_information": "Industry standards for managing key components\ninclude:\n•  NIST SP 800-57 Part 2, Revision 1 --\nRecommendation for Key Management: Part 2 –\nBest Practices for Key Management Organizations\n[4.6 Keying Material Distribution]\n•  ISO 11568-2 Banking — Key management (retail)\n— Part 2: Symmetric ciphers, their key\nmanagement and life cycle [4.7.2.3 Key\ncomponents and 4.9.3 Key components]\n•  European Payments Council EPC342-08\nGuidelines on Cryptographic Algorithms Usage and\nKey Management [especially 4.1.4 Key installation]."
+  },
+  "extraction_notes": []
+}

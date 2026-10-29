@@ -1,0 +1,20 @@
+{
+  "record_type": "requirement",
+  "section_id": "9",
+  "document_version": "4.0.1",
+  "requirement_id": "9.5.1.3",
+  "pdf_pages": [
+    238,
+    239
+  ],
+  "defined_requirement": "Training is provided for personnel in POI\nenvironments to be aware of attempted tampering\nor replacement of POI devices, and includes:\n•   Verifying the identity of any third-party persons\nclaiming to be repair or maintenance personnel,\nbefore granting them access to modify or\ntroubleshoot devices.\n•  Procedures to ensure devices are not installed,\nreplaced, or returned without verification.\n•  Being aware of suspicious behavior around\ndevices.\n•  Reporting suspicious behavior and indications of\ndevice tampering or substitution to appropriate\npersonnel.",
+  "testing_procedures": "9.5.1.3.a Review training materials for personnel in\nPOI environments to verify they include all\nelements specified in this requirement.\n9.5.1.3.b Interview personnel in POI environments\nto verify they have received training and know the\nprocedures for all elements specified in this\nrequirement.",
+  "customized_approach_objective": "Personnel are knowledgeable about the types of\nattacks against POI devices, the entity’s technical\nand procedural countermeasures, and can access\nassistance and guidance when required.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Criminals will often pose as authorized\nmaintenance personnel to gain access to POI\ndevices.",
+    "good_practice": "Personnel training should include being alert to\nand questioning anyone who shows up to do POI\nmaintenance to ensure they are authorized and\nhave a valid work order, including any agents,\nmaintenance or repair personnel, technicians,\nservice providers, or other third parties. All third\nparties requesting access to devices should\nalways be verified before being provided\naccess—for example, by checking with\nmanagement or phoning the POI maintenance\ncompany, such as the vendor or acquirer, for\nverification. Many criminals will try to fool\npersonnel by dressing for the part (for example,\ncarrying toolboxes and dressed in work apparel),\nand could also be knowledgeable about locations\nof devices, so personnel should be trained to\nalways follow procedures.\nAnother trick that criminals use is to send a “new”\nPOI device with instructions for swapping it with a\nlegitimate device and “returning” the legitimate\ndevice. The criminals may even provide return\npostage to their specified address. Therefore,\npersonnel should always verify with their manager\nor supplier that the device is legitimate and came\nfrom a trusted source before installing it or using it\nfor business.",
+    "examples": "Suspicious behavior that personnel should be\naware of includes attempts by unknown persons\nto unplug or open devices.\nEnsuring personnel are aware of mechanisms for\nreporting suspicious behavior and who to report\nsuch behavior to—for example, a manager or\nsecurity officer—will help reduce the likelihood\nand potential impact of a device being tampered\nwith or substituted."
+  },
+  "extraction_notes": []
+}

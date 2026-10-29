@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.10.4",
+  "pdf_pages": [
+    334
+  ],
+  "defined_requirement": "Personnel responsible for responding to\nsuspected and confirmed security incidents are\nappropriately and periodically trained on their\nincident response responsibilities.",
+  "testing_procedures": "12.10.4 Examine training documentation and\ninterview incident response personnel to verify that\npersonnel are appropriately and periodically\ntrained on their incident response responsibilities.",
+  "customized_approach_objective": "Personnel are knowledgeable about their role and\nresponsibilities in incident response and are able to\naccess assistance and guidance when required.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Without a trained and readily available incident\nresponse team, extended damage to the network\ncould occur, and critical data and systems may\nbecome “polluted” by inappropriate handling of\nthe targeted systems. This can hinder the\nsuccess of a post-incident investigation.",
+    "good_practice": "It is important that all personnel involved in\nincident response are trained and knowledgeable\nabout managing evidence for forensics and\ninvestigations."
+  },
+  "extraction_notes": []
+}

@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "8",
+  "document_version": "4.0.1",
+  "requirement_id": "8.3.2",
+  "pdf_pages": [
+    191
+  ],
+  "defined_requirement": "Strong cryptography is used to render all\nauthentication factors unreadable during\ntransmission and storage on all system\ncomponents.",
+  "testing_procedures": "8.3.2.a Examine vendor documentation and\nsystem configuration settings to verify that\nauthentication factors are rendered unreadable\nwith strong cryptography during transmission and\nstorage.\n8.3.2.b Examine repositories of authentication\nfactors to verify that they are unreadable during\nstorage.\n8.3.2.c Examine data transmissions to verify that\nauthentication factors are unreadable during\ntransmission.",
+  "customized_approach_objective": "Cleartext authentication factors cannot be obtained,\nderived, or reused from the interception of\ncommunications or from stored data.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Network devices and applications have been\nknown to transmit unencrypted, readable\nauthentication factors (such as passwords and\npassphrases) across the network and/or store\nthese values without encryption. As a result, a\nmalicious individual can easily intercept this\ninformation during transmission using a “sniffer,”\nor directly access unencrypted authentication\nfactors in files where they are stored, and then\nuse this data to gain unauthorized access."
+  },
+  "extraction_notes": []
+}

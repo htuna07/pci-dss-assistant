@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.8.1",
+  "pdf_pages": [
+    319
+  ],
+  "defined_requirement": "A list of all third-party service providers\n(TPSPs) with which account data is shared or that\ncould affect the security of account data is\nmaintained, including a description for each of the\nservices provided.",
+  "testing_procedures": "12.8.1.a Examine policies and procedures to verify\nthat processes are defined to maintain a list of\nTPSPs, including a description for each of the\nservices provided, for all TPSPs with whom\naccount data is shared or that could affect the\nsecurity of account data.\n12.8.1.b Examine documentation to verify that a\nlist of all TPSPs is maintained that includes a\ndescription of the services provided.",
+  "customized_approach_objective": "Records are maintained of TPSPs and the services\nprovided.",
+  "applicability_notes": "The use of a PCI DSS compliant TPSP does not\nmake an entity PCI DSS compliant, nor does it\nremove the entity’s responsibility for its own PCI\nDSS compliance.",
+  "guidance": {
+    "purpose": "Maintaining a list of all TPSPs identifies where\npotential risk extends outside the organization\nand defines the organization’s extended attack\nsurface.",
+    "examples": "Different types of TPSPs include those that:\n•   Store, process, or transmit account data on\nthe entity’s behalf (such as payment\ngateways, payment processors, payment\nservice providers (PSPs), and off-site storage\nproviders).\n•  Manage system components included in the\nentity’s PCI DSS assessment (such as\nproviders of network security control services,\nanti-malware services, and security incident\nand event management (SIEM); contact and\ncall centers; web-hosting companies; and\nIaaS, PaaS, SaaS, and FaaS cloud\nproviders).\n•  Could impact the security of the entity’s\ncardholder data and/or sensitive\nauthentication data (such as vendors\nproviding support via remote access, and\nbespoke software developers)."
+  },
+  "extraction_notes": []
+}

@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "10",
+  "document_version": "4.0.1",
+  "requirement_id": "10.7.1",
+  "pdf_pages": [
+    260
+  ],
+  "defined_requirement": "Additional requirement for service\nproviders only: Failures of critical security control\nsystems are detected, alerted, and addressed\npromptly, including but not limited to failure of the\nfollowing critical security control systems:\n•  Network security controls.\n•  IDS/IPS.\n•  FIM.\n•  Anti-malware solutions.\n•   Physical access controls.\n•   Logical access controls.\n•   Audit logging mechanisms.\n•  Segmentation controls (if used).",
+  "testing_procedures": "10.7.1.a Additional testing procedure for\nservice provider assessments only: Examine\ndocumentation to verify that processes are defined\nfor the prompt detection and addressing of failures\nof critical security control systems, including but\nnot limited to failure of all elements specified in this\nrequirement.\n10.7.1.b Additional testing procedure for\nservice provider assessments only: Observe\ndetection and alerting processes and interview\npersonnel to verify that failures of critical security\ncontrol systems are detected and reported, and\nthat failure of a critical security control results in the\ngeneration of an alert.",
+  "customized_approach_objective": "Failures in critical security control systems are\npromptly identified and addressed.",
+  "applicability_notes": "This requirement applies only when the entity being\nassessed is a service provider.\nThis requirement will be superseded by\nRequirement 10.7.2 as of 31 March 2025.",
+  "guidance": {
+    "purpose": "Without formal processes to detect and alert\nwhen critical security controls fail, failures may go\nundetected for extended periods and provide\nattackers ample time to compromise system\ncomponents and steal account data from the\nCDE.",
+    "good_practice": "The specific types of failures may vary, depending\non the function of the device system component\nand technology in use. Typical failures include a\nsystem ceasing to perform its security function or\nnot functioning in its intended manner, such as a\nfirewall erasing all its rules or going offline."
+  },
+  "extraction_notes": []
+}

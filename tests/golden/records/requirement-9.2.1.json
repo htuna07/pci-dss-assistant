@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "9",
+  "document_version": "4.0.1",
+  "requirement_id": "9.2.1",
+  "pdf_pages": [
+    217
+  ],
+  "defined_requirement": "Appropriate facility entry controls are in place\nto restrict physical access to systems in the CDE.",
+  "testing_procedures": "9.2.1 Observe entry controls and interview\nresponsible personnel to verify that physical\nsecurity controls are in place to restrict access to\nsystems in the CDE.",
+  "customized_approach_objective": "System components in the CDE cannot be\nphysically accessed by unauthorized personnel.",
+  "applicability_notes": "This requirement does not apply to locations that\nare publicly accessible by consumers (cardholders).",
+  "guidance": {
+    "purpose": "Without physical access controls, unauthorized\npersons could potentially gain access to the CDE\nand sensitive information, or could alter system\nconfigurations, introduce vulnerabilities into the\nnetwork, or destroy or steal equipment. Therefore,\nthe purpose of this requirement is that physical\naccess to the CDE is controlled via physical\nsecurity controls such as badge readers or other\nmechanisms such as lock and key.",
+    "good_practice": "Whichever mechanism meets this requirement, it\nmust be sufficient for the organization to verify\nthat only authorized personnel are granted\naccess.",
+    "examples": "Facility entry controls include physical security\ncontrols at each computer room, data center, and\nother physical areas with systems in the CDE. It\ncan also include badge readers or other devices\nthat manage physical access controls, such as\nlock and key with a current list of all individuals\nholding the keys."
+  },
+  "extraction_notes": []
+}

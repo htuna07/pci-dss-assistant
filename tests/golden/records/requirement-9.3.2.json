@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "9",
+  "document_version": "4.0.1",
+  "requirement_id": "9.3.2",
+  "pdf_pages": [
+    223
+  ],
+  "defined_requirement": "Procedures are implemented for authorizing\nand managing visitor access to the CDE, including:\n•   Visitors are authorized before entering.\n•   Visitors are escorted at all times.\n•   Visitors are clearly identified and given a badge\nor other identification that expires.\n•   Visitor badges or other identification visibly\ndistinguishes visitors from personnel.",
+  "testing_procedures": "9.3.2.a Examine documented procedures and\ninterview personnel to verify procedures are\ndefined for authorizing and managing visitor\naccess to the CDE in accordance with all elements\nspecified in this requirement.\n9.3.2.b Observe processes when visitors are\npresent in the CDE and interview personnel to\nverify that visitors are:\n•  Authorized before entering the CDE.\n•  Escorted at all times within the CDE.\n9.3.2.c Observe the use of visitor badges or other\nidentification to verify that the badge or other\nidentification does not permit unescorted access to\nthe CDE.\n9.3.2.d Observe visitors in the CDE to verify that:\n•   Visitor badges or other identification are being\nused for all visitors.\n•   Visitor badges or identification easily\ndistinguish visitors from personnel.\n9.3.2.e Examine visitor badges or other\nidentification and observe evidence in the badging\nsystem to verify visitor badges or other\nidentification expires.",
+  "customized_approach_objective": "Requirements for visitor access to the CDE are\ndefined and enforced. Visitors cannot exceed any\nauthorized physical access allowed while in the\nCDE.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Visitor controls are important to reduce the ability\nof unauthorized and malicious persons to gain\naccess to facilities and potentially to cardholder\ndata.\nVisitor controls ensure visitors are identifiable as\nvisitors so personnel can monitor their activities,\nand that their access is restricted to just the\nduration of their legitimate visit.",
+    "definitions": "Refer to Appendix G for the definition of “visitor.”"
+  },
+  "extraction_notes": []
+}

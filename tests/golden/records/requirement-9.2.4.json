@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "9",
+  "document_version": "4.0.1",
+  "requirement_id": "9.2.4",
+  "pdf_pages": [
+    220
+  ],
+  "defined_requirement": "Access to consoles in sensitive areas is\nrestricted via locking when not in use.",
+  "testing_procedures": "9.2.4 Observe a system administrator’s attempt to\nlog into consoles in sensitive areas and verify that\nthey are “locked” to prevent unauthorized use.",
+  "customized_approach_objective": "Physical consoles within sensitive areas cannot be\nused by unauthorized personnel.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Locking console login screens prevents\nunauthorized persons from gaining access to\nsensitive information, altering system\nconfigurations, introducing vulnerabilities into the\nnetwork, or destroying records."
+  },
+  "extraction_notes": []
+}

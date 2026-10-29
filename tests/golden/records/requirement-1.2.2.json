@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "1",
+  "document_version": "4.0.1",
+  "requirement_id": "1.2.2",
+  "pdf_pages": [
+    47
+  ],
+  "defined_requirement": "All changes to network connections and to\nconfigurations of NSCs are approved and managed\nin accordance with the change control process\ndefined at Requirement 6.5.1.",
+  "testing_procedures": "1.2.2.a Examine documented procedures to verify\nthat changes to network connections and\nconfigurations of NSCs are included in the formal\nchange control process in accordance with\nRequirement 6.5.1.\n1.2.2.b Examine network configuration settings to\nidentify changes made to network connections.\nInterview responsible personnel and examine\nchange control records to verify that identified\nchanges to network connections were approved\nand managed in accordance with Requirement\n6.5.1.\n1.2.2.c Examine network configuration settings to\nidentify changes made to configurations of NSCs.\nInterview responsible personnel and examine\nchange control records to verify that identified\nchanges to configurations of NSCs were approved\nand managed in accordance with Requirement\n6.5.1.",
+  "customized_approach_objective": "Changes to network connections and NSCs cannot\nresult in misconfiguration, implementation of\ninsecure services, or unauthorized network\nconnections.",
+  "applicability_notes": "Changes to network connections include the\naddition, removal, or modification of a connection.\nChanges to NSC configurations include those\nrelated to the component itself as well as those\naffecting how it performs its security function.",
+  "guidance": {
+    "purpose": "Following a structured change control process for\nall changes to NSCs reduces the risk that a\nchange could introduce a security vulnerability.",
+    "good_practice": "Changes should be approved by individuals with\nthe appropriate authority and knowledge to\nunderstand the impact of the change. Verification\nshould provide reasonable assurance that the\nchange did not adversely impact the security of\nthe network and that the change performs as\nexpected.\nTo avoid having to address security issues\nintroduced by a change, all changes should be\napproved prior to being implemented and verified\nafter the change is implemented. Once approved\nand verified, network documentation should be\nupdated to include the changes to prevent\ninconsistencies between network documentation\nand the actual configuration."
+  },
+  "extraction_notes": []
+}

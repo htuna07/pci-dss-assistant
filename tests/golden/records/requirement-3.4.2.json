@@ -1,0 +1,20 @@
+{
+  "record_type": "requirement",
+  "section_id": "3",
+  "document_version": "4.0.1",
+  "requirement_id": "3.4.2",
+  "pdf_pages": [
+    93
+  ],
+  "defined_requirement": "When using remote-access technologies, technical\ncontrols prevent copy and/or relocation of PAN for all\npersonnel, except for those with documented, explicit\nauthorization and a legitimate, defined business need.",
+  "testing_procedures": "3.4.2.a Examine documented policies and\nprocedures and documented evidence for technical\ncontrols that prevent copy and/or relocation of PAN\nwhen using remote-access technologies onto local\nhard drives or removable electronic media to verify\nthe following:\n•  Technical controls prevent all personnel not\nspecifically authorized from copying and/or\nrelocating PAN.\n•  A list of personnel with permission to copy\nand/or relocate PAN is maintained, together\nwith the documented, explicit authorization and\nlegitimate, defined business need.\n3.4.2.b Examine configurations for remote-access\ntechnologies to verify that technical controls to\nprevent copy and/or relocation of PAN for all\npersonnel, unless explicitly authorized.\n3.4.2.c Observe processes and interview\npersonnel to verify that only personnel with\ndocumented, explicit authorization and a\nlegitimate, defined business need have permission\nto copy and/or relocate PAN when using remote-\naccess technologies.",
+  "customized_approach_objective": "PAN cannot be copied or relocated by unauthorized\npersonnel using remote-access technologies.",
+  "applicability_notes": "Storing or relocating PAN onto local hard drives,\nremovable electronic media, and other storage devices\nbrings these devices into scope for PCI DSS.\nThis requirement is a best practice until 31 March 2025,\nafter which it will be required and must be fully\nconsidered during a PCI DSS assessment.",
+  "guidance": {
+    "purpose": "Relocation of PAN to unauthorized storage devices is a\ncommon way for this data to be obtained and used\nfraudulently.\nMethods to ensure that only those with explicit\nauthorization and a legitimate business reason can\ncopy or relocate PAN minimizes the risk of\nunauthorized persons gaining access to PAN.",
+    "good_practice": "Copying and relocation of PAN should only be done to\nstorage devices that are permissible and authorized for\nthat individual.",
+    "definitions": "A virtual desktop is an example of a remote-access\ntechnology. Such remote access technologies often\ninclude tools to disable copy and/or relocation\nfunctionality.\nStorage devices include, but are not limited to, local\nhard drives, virtual drives, removable electronic media,\nnetwork drives, and cloud storage.",
+    "further_information": "Vendor documentation for the remote-access\ntechnology in use will provide information about the\nsystem settings needed to implement this requirement."
+  },
+  "extraction_notes": []
+}

@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "10",
+  "document_version": "4.0.1",
+  "requirement_id": "10.4.1.1",
+  "pdf_pages": [
+    252
+  ],
+  "defined_requirement": "Automated mechanisms are used to\nperform audit log reviews.",
+  "testing_procedures": "10.4.1.1 Examine log review mechanisms and\ninterview personnel to verify that automated\nmechanisms are used to perform log reviews.",
+  "customized_approach_objective": "Potentially suspicious or anomalous activities are\nidentified via a repeatable and consistent\nmechanism.",
+  "applicability_notes": "This requirement is a best practice until 31 March\n2025, after which it will be required and must be\nfully considered during a PCI DSS assessment.",
+  "guidance": {
+    "purpose": "Manual log reviews are difficult to perform, even\nfor one or two systems, due to the amount of log\ndata that is generated. However, using log\nharvesting, parsing, and alerting tools, centralized\nlog management systems, event log analyzers,\nand security information and event management\n(SIEM) solutions can help facilitate the process by\nidentifying log events that need to be reviewed.",
+    "good_practice": "Establishing a baseline of normal audit activity\npatterns is critical to the effectiveness of an\nautomated log review mechanism. The analysis of\nnew audit activity against the established baseline\ncan significantly improve the identification of\nsuspicious or anomalous activities.\nThe entity should keep logging tools aligned with\nany changes in their environment by periodically\nreviewing tool settings and updating settings to\nreflect any changes.",
+    "further_information": "Refer to the Information Supplement: Effective\nDaily Log Monitoring for additional guidance."
+  },
+  "extraction_notes": []
+}

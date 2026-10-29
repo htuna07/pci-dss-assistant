@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "8",
+  "document_version": "4.0.1",
+  "requirement_id": "8.2.7",
+  "pdf_pages": [
+    187,
+    188
+  ],
+  "defined_requirement": "Accounts used by third parties to access,\nsupport, or maintain system components via remote\naccess are managed as follows:\n•  Enabled only during the time period needed and\ndisabled when not in use.\n•  Use is monitored for unexpected activity.",
+  "testing_procedures": "8.2.7 Interview personnel, examine documentation\nfor managing accounts, and examine evidence to\nverify that accounts used by third parties for\nremote access are managed according to all\nelements specified in this requirement.",
+  "customized_approach_objective": "Third-party remote access cannot be used except\nwhere specifically authorized and use is overseen\nby management.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Allowing third parties to have 24/7 access into an\nentity’s systems and networks in case they need\nto provide support increases the chances of\nunauthorized access. This access could result in\nan unauthorized user in the third party’s\nenvironment or a malicious individual using the\nalways-available external entry point into an\nentity’s network. Where third parties do need\naccess 24/7, it should be documented, justified,\nmonitored, and tied to specific service reasons.",
+    "good_practice": "Enabling access only for the time periods needed\nand disabling it as soon as it is no longer required\nhelps prevent misuse of these connections.\nAdditionally, consider assigning third parties a\nstart and stop date for their access in accordance\nwith their service contract.\nMonitoring third-party access helps ensure that\nthird parties are accessing only the systems\nnecessary and only during approved time frames.\nAny unusual activity using third-party accounts\nshould be followed up and resolved."
+  },
+  "extraction_notes": []
+}

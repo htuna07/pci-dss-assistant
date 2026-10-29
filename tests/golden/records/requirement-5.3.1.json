@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "5",
+  "document_version": "4.0.1",
+  "requirement_id": "5.3.1",
+  "pdf_pages": [
+    130
+  ],
+  "defined_requirement": "The anti-malware solution(s) is kept current\nvia automatic updates.",
+  "testing_procedures": "5.3.1.a Examine anti-malware solution(s)\nconfigurations, including any master installation of\nthe software, to verify the solution is configured to\nperform automatic updates.\n5.3.1.b Examine system components and logs, to\nverify that the anti-malware solution(s) and\ndefinitions are current and have been promptly\ndeployed",
+  "customized_approach_objective": "Anti-malware mechanisms can detect and address\nthe latest malware threats.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "For an anti-malware solution to remain effective, it\nneeds to have the latest security updates,\nsignatures, threat analysis engines, and any other\nmalware protections on which the solution relies.\nHaving an automated update process avoids\nburdening end users with responsibility for manually\ninstalling updates and provides greater assurance\nthat anti-malware protection mechanisms are\nupdated as quickly as possible after an update is\nreleased.",
+    "good_practice": "Anti-malware mechanisms should be updated via a\ntrusted source as soon as possible after an update\nis available. Using a trusted common source to\ndistribute updates to end-user systems helps ensure\nthe integrity and consistency of the solution\narchitecture.\nUpdates may be automatically downloaded to a\ncentral location—for example, to allow for testing—\nprior to being deployed to individual system\ncomponents."
+  },
+  "extraction_notes": []
+}

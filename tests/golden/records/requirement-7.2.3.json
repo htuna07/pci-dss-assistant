@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "7",
+  "document_version": "4.0.1",
+  "requirement_id": "7.2.3",
+  "pdf_pages": [
+    171
+  ],
+  "defined_requirement": "Required privileges are approved by\nauthorized personnel.",
+  "testing_procedures": "7.2.3.a Examine policies and procedures to verify\nthey define processes for approval of all privileges\nby authorized personnel.\n7.2.3.b Examine user IDs and assigned privileges,\nand compare with documented approvals to verify\nthat:\n•  Documented approval exists for the assigned\nprivileges.\n•  The approval was by authorized personnel.\n•   Specified privileges match the roles assigned\nto the individual.",
+  "customized_approach_objective": "Access privileges cannot be granted to users\nwithout appropriate, documented authorization.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Documented approval (for example, in writing or\nelectronically) assures that those with access and\nprivileges are known and authorized by\nmanagement, and that their access is necessary\nfor their job function."
+  },
+  "extraction_notes": []
+}

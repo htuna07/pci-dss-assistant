@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.5.2.1",
+  "pdf_pages": [
+    311
+  ],
+  "defined_requirement": "Additional requirement for service\nproviders only: PCI DSS scope is documented and\nconfirmed by the entity at least once every six\nmonths and upon significant change to the in-scope\nenvironment. At a minimum, the scoping validation\nincludes all the elements specified in Requirement\n12.5.2.",
+  "testing_procedures": "12.5.2.1.a Additional testing procedure for\nservice provider assessments only: Examine\ndocumented results of scope reviews and interview\npersonnel to verify that reviews per Requirement\n12.5.2 are performed:\n•   At least once every six months, and\n•   After significant changes\n12.5.2.1.b Additional testing procedure for\nservice provider assessments only: Examine\ndocumented results of scope reviews to verify that\nscoping validation includes all elements specified\nin Requirement 12.5.2.",
+  "customized_approach_objective": "The accuracy of PCI DSS scope is verified to be\ncontinuously accurate by comprehensive analysis\nand appropriate technical measures.",
+  "applicability_notes": "This requirement applies only when the entity being\nassessed is a service provider.\nThis requirement is a best practice until 31 March\n2025, after which it will be required and must be\nfully considered during a PCI DSS assessment.",
+  "guidance": {
+    "purpose": "Service providers typically have access to greater\nvolumes of cardholder data than do merchants, or\ncan provide an entry point that can be exploited to\nthen compromise multiple other entities. Service\nproviders also typically have larger and more\ncomplex networks that are subject to more\nfrequent change. The probability of overlooked\nchanges to scope in complex and dynamic\nnetworks is greater in service-providers\nenvironments.\nValidating PCI DSS scope more frequently is\nlikely to discover such overlooked changes before\nthey can be exploited by an attacker."
+  },
+  "extraction_notes": []
+}

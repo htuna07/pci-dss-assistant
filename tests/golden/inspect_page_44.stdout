@@ -1,0 +1,89 @@
+
+=== PAGE 44 ===
+
+--- Block 3 x=198.6..639.7 y=82.2..96.5 ---
+Requirements and Testing Procedures 
+Guidance
+
+--- Block 4 x=78.0..607.6 y=109.0..122.6 ---
+1.1 Processes and mechanisms for installing and maintaining network security controls are defined and understood.
+
+--- Block 5 x=78.0..552.7 y=132.4..146.3 ---
+Defined Approach Requirements 
+Defined Approach Testing Procedures 
+Purpose
+
+--- Block 11 x=78.0..288.6 y=155.7..179.6 ---
+1.1.1 All security policies and operational 
+procedures that are identified in Requirement 1 are:
+
+--- Block 12 x=78.0..148.4 y=181.7..194.0 ---
+• 
+Documented.
+
+--- Block 13 x=78.0..158.5 y=196.1..208.4 ---
+• 
+Kept up to date.
+
+--- Block 16 x=298.2..502.4 y=155.7..213.7 ---
+1.1.1 Examine documentation and interview 
+personnel to verify that security policies and 
+operational procedures identified in Requirement 1 
+are managed in accordance with all elements 
+specified in this requirement.
+
+--- Block 14 x=78.0..121.9 y=210.4..222.6 ---
+• 
+In use.
+
+--- Block 6 x=514.2..712.4 y=148.0..228.5 ---
+Requirement 1.1.1 is about effectively managing 
+and maintaining the various policies and 
+procedures specified throughout Requirement 1. 
+While it is important to define the specific policies 
+or procedures called out in Requirement 1, it is 
+equally important to ensure they are properly 
+documented, maintained, and disseminated.
+
+--- Block 15 x=78.0..210.5 y=224.8..237.0 ---
+• 
+Known to all affected parties.
+
+--- Block 7 x=514.2..577.8 y=230.5..243.4 ---
+Good Practice
+
+--- Block 17 x=78.0..226.8 y=247.4..261.0 ---
+Customized Approach Objective
+
+--- Block 8 x=514.2..710.9 y=245.1..314.2 ---
+It is important to update policies and procedures 
+as needed to address changes in processes, 
+technologies, and business objectives. For these 
+reasons, consider updating these documents as 
+soon as possible after a change occurs and not 
+only on a periodic cycle.
+
+--- Block 18 x=78.0..284.6 y=270.8..329.1 ---
+Expectations, controls, and oversight for meeting 
+activities within Requirement 1 are defined, 
+understood, and adhered to by affected personnel. 
+All supporting activities are repeatable, consistently 
+applied, and conform to management’s intent.
+
+--- Block 9 x=514.2..563.3 y=316.2..329.1 ---
+Definitions
+
+--- Block 10 x=514.2..714.0 y=330.7..411.3 ---
+Security policies define the entity’s security 
+objectives and principles. Operational procedures 
+describe how to perform activities, and define the 
+controls, methods, and processes that are 
+followed to achieve the desired result in a 
+consistent manner and in accordance with policy 
+objectives.
+
+--- Block 2 x=72.0..722.5 y=541.9..576.6 ---
+Payment Card Industry Data Security Standard: Requirements and Testing Procedures, v4.0.1 
+June 2024 
+©2006 - 2024 PCI Security Standards Council, LLC. All Rights Reserved. 
+Page 40

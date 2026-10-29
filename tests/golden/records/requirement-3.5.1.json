@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "3",
+  "document_version": "4.0.1",
+  "requirement_id": "3.5.1",
+  "pdf_pages": [
+    94
+  ],
+  "defined_requirement": "PAN is rendered unreadable anywhere it is stored\nby using any of the following approaches:\n•  One-way hashes based on strong cryptography of\nthe entire PAN.\n•   Truncation (hashing cannot be used to replace the\ntruncated segment of PAN).\n–    If hashed and truncated versions of the same\nPAN, or different truncation formats of the same\nPAN, are present in an environment, additional\ncontrols are in place such that the different\nversions cannot be correlated to reconstruct the\noriginal PAN.\n•  Index tokens.\n•  Strong cryptography with associated key-\nmanagement processes and procedures.",
+  "testing_procedures": "3.5.1.a Examine documentation about the system\nused to render PAN unreadable, including the\nvendor, type of system/process, and the encryption\nalgorithms (if applicable) to verify that the PAN is\nrendered unreadable using any of the methods\nspecified in this requirement.\n3.5.1.b Examine data repositories and audit logs,\nincluding payment application logs, to verify the\nPAN is rendered unreadable using any of the\nmethods specified in this requirement.\n3.5.1.c If hashed and truncated versions of the\nsame PAN are present in the environment,\nexamine implemented controls to verify that the\nhashed and truncated versions cannot be\ncorrelated to reconstruct the original PAN.",
+  "customized_approach_objective": "Cleartext PAN cannot be read from storage media.",
+  "applicability_notes": "This requirement applies to PANs stored in primary\nstorage (databases, or flat files such as text files\nspreadsheets) as well as non-primary storage (backup,\naudit logs, exception, or troubleshooting logs).\nThis requirement does not preclude the use of temporary\nfiles containing cleartext PAN while encrypting and\ndecrypting PAN.",
+  "guidance": {
+    "purpose": "Rendering stored PAN unreadable is a defense in\ndepth control designed to protect the data if an\nunauthorized individual gains access to stored data by\ntaking advantage of a vulnerability or misconfiguration\nof an entity’s primary access control.",
+    "good_practice": "It is a relatively trivial effort for a malicious individual to\nreconstruct original PAN data if they have access to\nboth the truncated and hashed versions of a PAN.\nControls that prevent the correlation of this data will\nhelp ensure that the original PAN remains unreadable.\nImplementing keyed cryptographic hashes with\nassociated key management processes and\nprocedures in accordance with Requirement 3.5.1.1 is\na valid additional control to prevent correlation.",
+    "further_information": "For information about truncation formats and truncation\nin general, see PCI SSC’s FAQs on the topic.\nSources for information about index tokens include:\n•  PCI SSC’s Tokenization Product Security\nGuidelines\n(https://www.pcisecuritystandards.org/documents/T\nokenization_Product_Security_Guidelines.pdf)\n•  ANSI X9.119-2-2017: Retail Financial Services -\nRequirements For Protection Of Sensitive Payment\nCard Data - Part 2: Implementing Post-Authorization\nTokenization Systems"
+  },
+  "extraction_notes": []
+}

@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "3",
+  "document_version": "4.0.1",
+  "requirement_id": "3.7.5",
+  "pdf_pages": [
+    109
+  ],
+  "defined_requirement": "Key management policies procedures are\nimplemented to include the retirement, replacement,\nor destruction of keys used to protect stored\naccount data, as deemed necessary when:\n•  The key has reached the end of its defined\ncryptoperiod.\n•  The integrity of the key has been weakened,\nincluding when personnel with knowledge of a\ncleartext key component leaves the company, or\nthe role for which the key component was\nknown.\n•  The key is suspected of or known to be\ncompromised.\nRetired or replaced keys are not used for encryption\noperations.",
+  "testing_procedures": "3.7.5.a Examine the documented key-management\npolicies and procedures for keys used for\nprotection of stored account data and verify that\nthey define retirement, replacement, or destruction\nof keys in accordance with all elements specified in\nthis requirement.\n3.7.5.b Interview personnel to verify that processes\nare implemented in accordance with all elements\nspecified in this requirement.",
+  "customized_approach_objective": "Keys are removed from active use when it is\nsuspected or known that the integrity of the key is\nweakened.",
+  "applicability_notes": "If retired or replaced cryptographic keys need to be\nretained, these keys must be securely archived (for\nexample, by using a key-encryption key).",
+  "guidance": {
+    "purpose": "Keys that are no longer required, keys with weakened\nintegrity, and keys that are known or suspected to be\ncompromised, should be archived, revoked, and/or\ndestroyed to ensure that the keys can no longer be\nused.\nIf such keys need to be kept (for example, to support\narchived encrypted data), they should be strongly\nprotected.",
+    "good_practice": "Archived cryptographic keys should be used only for\ndecryption/verification purposes.\nThe encryption solution should provide for and facilitate\na process to replace keys that are due for replacement\nor that are known to be, or suspected of being,\ncompromised. In addition, any keys that are known to\nbe, or suspected of being, compromised should be\nmanaged in accordance with the entity’s incident\nresponse plan per Requirement 12.10.1.",
+    "further_information": "Industry best practices for archiving retired keys are\noutlined in NIST SP 800-57 Part 1, Revision 5, Section\n8.3.1, and includes maintaining the archive with a\ntrusted third party and storing archived key information\nseparately from operational data."
+  },
+  "extraction_notes": []
+}

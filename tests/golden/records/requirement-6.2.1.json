@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "6",
+  "document_version": "4.0.1",
+  "requirement_id": "6.2.1",
+  "pdf_pages": [
+    141
+  ],
+  "defined_requirement": "Bespoke and custom software are developed\nsecurely, as follows:\n•  Based on industry standards and/or best\npractices for secure development.\n•   In accordance with PCI DSS (for example,\nsecure authentication and logging).\n•   Incorporating consideration of information\nsecurity issues during each stage of the\nsoftware development lifecycle.",
+  "testing_procedures": "6.2.1 Examine documented software development\nprocedures to verify that processes are defined\nthat include all elements specified in this\nrequirement.",
+  "customized_approach_objective": "Bespoke and custom software is developed in\naccordance with PCI DSS and secure development\nprocesses throughout the software lifecycle.",
+  "applicability_notes": "This applies to all software developed for or by the\nentity for the entity’s own use. This includes both\nbespoke and custom software. This does not apply\nto third-party software.",
+  "guidance": {
+    "purpose": "Without the inclusion of security during the\nrequirements definition, design, analysis, and testing\nphases of software development, security\nvulnerabilities can be inadvertently or maliciously\nintroduced into the production environment.",
+    "good_practice": "Understanding how sensitive data is handled by the\napplication—including when stored, transmitted, and\nin memory—can help identify where data needs to be\nprotected.\nPCI DSS requirements must be considered when\ndeveloping software to meet those requirements by\ndesign, rather than trying to retrofit the software later.",
+    "examples": "Secure software lifecycle management\nmethodologies and frameworks include PCI Software\nSecurity Framework, BSIMM, OPENSAMM, and\nworks from NIST, ISO, and SAFECode."
+  },
+  "extraction_notes": []
+}

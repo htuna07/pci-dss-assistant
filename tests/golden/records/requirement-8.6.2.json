@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "8",
+  "document_version": "4.0.1",
+  "requirement_id": "8.6.2",
+  "pdf_pages": [
+    211
+  ],
+  "defined_requirement": "Passwords/passphrases for any application\nand system accounts that can be used for\ninteractive login are not hard coded in scripts,\nconfiguration/property files, or bespoke and custom\nsource code.",
+  "testing_procedures": "8.6.2.a Interview personnel and examine system\ndevelopment procedures to verify that processes\nare defined for application and system accounts\nthat can be used for interactive login, specifying\nthat passwords/passphrases are not hard coded in\nscripts, configuration/property files, or bespoke and\ncustom source code.\n8.6.2.b Examine scripts, configuration/property\nfiles, and bespoke and custom source code for\napplication and system accounts that can be used\nfor interactive login, to verify\npasswords/passphrases for those accounts are not\npresent.",
+  "customized_approach_objective": "Passwords/passphrases used by application and\nsystem accounts cannot be used by unauthorized\npersonnel.",
+  "applicability_notes": "Stored passwords/passphrases are required to be\nencrypted in accordance with PCI DSS\nRequirement 8.3.2.\nThis requirement is a best practice until 31 March\n2025, after which it will be required and must be\nfully considered during a PCI DSS assessment.",
+  "guidance": {
+    "purpose": "Not properly protecting passwords/passphrases\nused by application and system accounts,\nespecially if those accounts can be used for\ninteractive login, increases the risk and success\nof unauthorized use of those privileged accounts.",
+    "good_practice": "Changing these values due to suspected or\nconfirmed disclosure can be particularly difficult to\nimplement.\nTools can facilitate both management and\nsecurity of authentication factors for application\nand system accounts. For example, consider\npassword vaults or other system-managed\ncontrols."
+  },
+  "extraction_notes": []
+}

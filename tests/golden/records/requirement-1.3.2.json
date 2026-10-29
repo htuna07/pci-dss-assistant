@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "1",
+  "document_version": "4.0.1",
+  "requirement_id": "1.3.2",
+  "pdf_pages": [
+    56
+  ],
+  "defined_requirement": "Outbound traffic from the CDE is restricted as\nfollows:\n•  To only traffic that is necessary.\n•   All other traffic is specifically denied.",
+  "testing_procedures": "1.3.2.a Examine configuration standards for NSCs\nto verify that they define restricting outbound traffic\nfrom the CDE in accordance with all elements\nspecified in this requirement.\n1.3.2.b Examine configurations of NSCs to verify\nthat outbound traffic from the CDE is restricted in\naccordance with all elements specified in this\nrequirement.",
+  "customized_approach_objective": "Unauthorized traffic cannot leave the CDE.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "This requirement aims to prevent malicious\nindividuals and compromised system components\nwithin the entity’s network from communicating\nwith an untrusted external host.",
+    "good_practice": "All traffic outbound from the CDE, regardless of\nthe destination, should be evaluated to ensure it\nfollows established, authorized rules. Connections\nshould be inspected to restrict traffic to only\nauthorized communications—for example, by\nrestricting source/destination addresses and\nports, and blocking of content.",
+    "examples": "Implementing a rule that denies all inbound and\noutbound traffic that is not specifically needed—\nfor example, by using an explicit “deny all” or\nimplicit deny after allow statement—helps to\nprevent inadvertent holes that would allow\nunintended and potentially harmful traffic."
+  },
+  "extraction_notes": []
+}

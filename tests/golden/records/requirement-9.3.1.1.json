@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "9",
+  "document_version": "4.0.1",
+  "requirement_id": "9.3.1.1",
+  "pdf_pages": [
+    222
+  ],
+  "defined_requirement": "Physical access to sensitive areas within the\nCDE for personnel is controlled as follows:\n•  Access is authorized and based on individual job\nfunction.\n•  Access is revoked immediately upon\ntermination.\n•   All physical access mechanisms, such as keys,\naccess cards, etc., are returned or disabled\nupon termination.",
+  "testing_procedures": "9.3.1.1.a Observe personnel in sensitive areas\nwithin the CDE, interview responsible personnel,\nand examine physical access control lists to verify\nthat:\n•  Access to the sensitive area is authorized.\n•  Access is required for the individual’s job\nfunction.\n9.3.1.1.b Observe processes and interview\npersonnel to verify that access of all personnel is\nrevoked immediately upon termination.\n9.3.1.1.c For terminated personnel, examine\nphysical access controls lists and interview\nresponsible personnel to verify that all physical\naccess mechanisms (such as keys, access cards,\netc.) were returned or disabled.",
+  "customized_approach_objective": "Sensitive areas cannot be accessed by\nunauthorized personnel.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Controlling physical access to sensitive areas\nhelps ensure that only authorized personnel with\na legitimate business need are granted access.",
+    "good_practice": "Where possible, organizations should have\npolicies and procedures to ensure that before\npersonnel leaving the organization, all physical\naccess mechanisms are returned, or disabled as\nsoon as possible upon their departure. This will\nensure personnel cannot gain physical access to\nsensitive areas once their employment has\nended."
+  },
+  "extraction_notes": []
+}

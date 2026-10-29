@@ -1,0 +1,180 @@
+
+=== PAGE 281 ===
+
+--- Block 3 x=198.6..639.7 y=80.2..94.5 ---
+Requirements and Testing Procedures 
+Guidance
+
+--- Block 11 x=78.0..275.2 y=127.4..140.3 ---
+11.4.3 External penetration testing is performed:
+
+--- Block 12 x=78.0..243.0 y=142.0..154.2 ---
+• 
+Per the entity’s defined methodology
+
+--- Block 13 x=78.0..218.5 y=156.4..168.6 ---
+• 
+At least once every 12 months
+
+--- Block 4 x=78.0..701.6 y=102.2..171.4 ---
+Defined Approach Requirements 
+Defined Approach Testing Procedures 
+did not know about, and the penetration tester 
+found them before an attacker could. A 
+penetration test that found nothing is typically 
+indicative of shortcomings of the penetration 
+tester, rather than being a positive reflection of 
+the security posture of the entity.
+
+--- Block 17 x=298.2..492.3 y=127.4..185.3 ---
+11.4.3.a Examine the scope of work and results 
+from the most recent external penetration test to 
+verify that penetration testing is performed 
+according to all elements specified in this 
+requirement.
+
+--- Block 5 x=514.0..577.5 y=173.4..186.3 ---
+Good Practice
+
+--- Block 14 x=78.0..284.6 y=170.8..194.3 ---
+• 
+After any significant infrastructure or application 
+upgrade or change
+
+--- Block 6 x=514.0..706.8 y=187.9..211.6 ---
+Some considerations when choosing a qualified 
+resource to perform penetration testing include:
+
+--- Block 15 x=78.0..265.1 y=196.4..220.1 ---
+• 
+By a qualified internal resource or qualified 
+external third party
+
+--- Block 16 x=78.0..287.6 y=222.2..245.9 ---
+• 
+Organizational independence of the tester exists 
+(not required to be a QSA or ASV)
+
+--- Block 7 x=514.0..713.2 y=213.7..248.8 ---
+• 
+Specific penetration testing certifications, 
+which may be an indication of the tester’s skill 
+level and competence.
+
+--- Block 18 x=298.2..504.9 y=196.7..254.6 ---
+11.4.3.b Interview personnel to verify that the 
+external penetration test was performed by a 
+qualified internal resource or qualified external third 
+party and that organizational independence of the 
+tester exists (not required to be a QSA or ASV).
+
+--- Block 19 x=78.0..300.7 y=264.9..278.5 ---
+Customized Approach Objective
+
+--- Block 8 x=514.0..708.6 y=250.8..320.1 ---
+• 
+Prior experience conducting penetration 
+testing—for example, the number of years of 
+experience, and the type and scope of prior 
+engagements can help confirm whether the 
+tester’s experience is appropriate for the 
+needs of the engagement.
+
+--- Block 9 x=514.0..600.0 y=322.1..335.0 ---
+Further Information
+
+--- Block 20 x=78.0..288.8 y=288.4..357.5 ---
+External system defenses are verified by technical 
+testing according to the entity’s defined 
+methodology as frequently as needed to address 
+evolving and new attacks and threats, and to ensure 
+that significant changes do not introduce unknown 
+vulnerabilities.
+
+--- Block 10 x=514.0..712.8 y=336.5..371.6 ---
+Refer to the Information Supplement: Penetration 
+Testing Guidance on the PCI SSC website for 
+additional guidance.
+
+--- Block 2 x=72.0..722.5 y=541.9..576.6 ---
+Payment Card Industry Data Security Standard: Requirements and Testing Procedures, v4.0.1 
+June 2024 
+©2006 - 2024 PCI Security Standards Council, LLC. All Rights Reserved. 
+Page 277
+
+=== PAGE 282 ===
+
+--- Block 3 x=198.6..639.7 y=80.2..94.5 ---
+Requirements and Testing Procedures 
+Guidance
+
+--- Block 4 x=78.0..552.7 y=104.1..118.0 ---
+Defined Approach Requirements 
+Defined Approach Testing Procedures 
+Purpose
+
+--- Block 10 x=78.0..274.8 y=127.4..162.7 ---
+11.4.4 Exploitable vulnerabilities and security 
+weaknesses found during penetration testing are 
+corrected as follows:
+
+--- Block 13 x=298.2..502.9 y=127.4..174.1 ---
+11.4.4 Examine penetration testing results to verify 
+that noted exploitable vulnerabilities and security 
+weaknesses were corrected in accordance with all 
+elements specified in this requirement.
+
+--- Block 11 x=78.0..288.6 y=164.8..199.7 ---
+• 
+In accordance with the entity’s assessment of 
+the risk posed by the security issue as defined in 
+Requirement 6.3.1.
+
+--- Block 5 x=514.2..713.4 y=119.6..223.0 ---
+The results of a penetration test are usually a 
+prioritized list of vulnerabilities discovered by the 
+exercise. Often a tester will have chained a 
+number of vulnerabilities together to compromise 
+a system component. Remediating the 
+vulnerabilities found by a penetration test 
+significantly reduces the probability that the same 
+vulnerabilities will be exploited by a malicious 
+attacker.
+
+--- Block 12 x=78.0..266.0 y=201.8..225.5 ---
+• 
+Penetration testing is repeated to verify the 
+corrections.
+
+--- Block 14 x=78.0..226.8 y=235.7..249.3 ---
+Customized Approach Objective
+
+--- Block 15 x=78.0..287.7 y=259.2..282.9 ---
+Vulnerabilities and security weaknesses found while 
+verifying system defenses are mitigated.
+
+--- Block 6 x=514.2..709.4 y=225.1..282.9 ---
+Using the entity’s own vulnerability risk 
+assessment process (see requirement 6.3.1) 
+ensures that the vulnerabilities that pose the 
+highest risk to the entity will be remediated more 
+quickly.
+
+--- Block 7 x=514.2..577.8 y=284.9..297.8 ---
+Good Practice
+
+--- Block 8 x=514.2..712.9 y=299.4..345.8 ---
+As part of the entity’s assessment of risk, entities 
+should consider how likely the vulnerability is to 
+be exploited and whether there are other controls 
+present in the environment to reduce the risk.
+
+--- Block 9 x=514.2..714.8 y=347.9..371.6 ---
+Any weaknesses that point to PCI DSS 
+requirements not being met should be addressed.
+
+--- Block 2 x=72.0..722.5 y=541.9..576.6 ---
+Payment Card Industry Data Security Standard: Requirements and Testing Procedures, v4.0.1 
+June 2024 
+©2006 - 2024 PCI Security Standards Council, LLC. All Rights Reserved. 
+Page 278

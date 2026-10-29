@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "6",
+  "document_version": "4.0.1",
+  "requirement_id": "6.2.3",
+  "pdf_pages": [
+    143
+  ],
+  "defined_requirement": "Bespoke and custom software is reviewed\nprior to being released into production or to\ncustomers, to identify and correct potential coding\nvulnerabilities, as follows:\n•  Code reviews ensure code is developed\naccording to secure coding guidelines.\n•  Code reviews look for both existing and\nemerging software vulnerabilities.\n•   Appropriate corrections are implemented prior to\nrelease.",
+  "testing_procedures": "6.2.3.a Examine documented software\ndevelopment procedures and interview responsible\npersonnel to verify that processes are defined that\nrequire all bespoke and custom software to be\nreviewed in accordance with all elements specified\nin this requirement.\n6.2.3.b Examine evidence of changes to bespoke\nand custom software to verify that the code\nchanges were reviewed in accordance with all\nelements specified in this requirement.",
+  "customized_approach_objective": "Bespoke and custom software cannot be exploited\nvia coding vulnerabilities.",
+  "applicability_notes": "This requirement for code reviews applies to all\nbespoke and custom software (both internal and\npublic facing), as part of the system development\nlifecycle.\nPublic-facing web applications are also subject to\nadditional controls, to address ongoing threats and\nvulnerabilities after implementation, as defined at\nPCI DSS Requirement 6.4.\nCode reviews may be performed using either\nmanual or automated processes, or a combination\nof both.",
+  "guidance": {
+    "purpose": "Security vulnerabilities in bespoke and custom\nsoftware are commonly exploited by malicious\nindividuals to gain access to a network and\ncompromise account data.\nVulnerable code is far more difficult and expensive to\naddress after it has been deployed or released into\nproduction environments. Requiring a formal review\nand signoff by management prior to release helps to\nensure that code is approved and has been\ndeveloped in accordance with policies and\nprocedures.",
+    "good_practice": "The following items should be considered for\ninclusion in code reviews:\n•  Searching for undocumented features (implant\ntools, backdoors).\n•  Confirming that software securely uses external\ncomponents’ functions (libraries, frameworks,\nAPIs, etc.). For example, if a third-party library\nproviding cryptographic functions is used, verify\nthat it was integrated securely.\n•  Checking for correct use of logging to prevent\nsensitive data from getting into logs.\n•   Analysis of insecure code structures that may\ncontain potential vulnerabilities related to\ncommon software attacks identified in\nRequirement 6.2.4.\n•  Checking the application’s behavior to detect\nlogical vulnerabilities."
+  },
+  "extraction_notes": []
+}

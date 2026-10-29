@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.6.2",
+  "pdf_pages": [
+    314
+  ],
+  "defined_requirement": "The security awareness program is:\n•  Reviewed at least once every 12 months, and\n•  Updated as needed to address any new threats\nand vulnerabilities that may impact the security\nof the entity’s cardholder data and/or sensitive\nauthentication data, or the information provided\nto personnel about their role in protecting\ncardholder data.",
+  "testing_procedures": "12.6.2 Examine security awareness program\ncontent, evidence of reviews, and interview\npersonnel to verify that the security awareness\nprogram is in accordance with all elements\nspecified in this requirement.",
+  "customized_approach_objective": "The content of security awareness material is\nreviewed and updated periodically.",
+  "applicability_notes": "This requirement is a best practice until 31 March\n2025, after which it will be required and must be\nfully considered during a PCI DSS assessment.",
+  "guidance": {
+    "purpose": "The threat environment and an entity’s defenses\nare not static. As such, the security awareness\nprogram materials must be updated as frequently\nas needed to ensure that the education received\nby personnel is up to date and represents the\ncurrent threat environment."
+  },
+  "extraction_notes": []
+}

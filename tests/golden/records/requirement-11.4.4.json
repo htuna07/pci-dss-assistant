@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "11",
+  "document_version": "4.0.1",
+  "requirement_id": "11.4.4",
+  "pdf_pages": [
+    282
+  ],
+  "defined_requirement": "Exploitable vulnerabilities and security\nweaknesses found during penetration testing are\ncorrected as follows:\n•   In accordance with the entity’s assessment of\nthe risk posed by the security issue as defined in\nRequirement 6.3.1.\n•   Penetration testing is repeated to verify the\ncorrections.",
+  "testing_procedures": "11.4.4 Examine penetration testing results to verify\nthat noted exploitable vulnerabilities and security\nweaknesses were corrected in accordance with all\nelements specified in this requirement.",
+  "customized_approach_objective": "Vulnerabilities and security weaknesses found while\nverifying system defenses are mitigated.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "The results of a penetration test are usually a\nprioritized list of vulnerabilities discovered by the\nexercise. Often a tester will have chained a\nnumber of vulnerabilities together to compromise\na system component. Remediating the\nvulnerabilities found by a penetration test\nsignificantly reduces the probability that the same\nvulnerabilities will be exploited by a malicious\nattacker.\nUsing the entity’s own vulnerability risk\nassessment process (see requirement 6.3.1)\nensures that the vulnerabilities that pose the\nhighest risk to the entity will be remediated more\nquickly.",
+    "good_practice": "As part of the entity’s assessment of risk, entities\nshould consider how likely the vulnerability is to\nbe exploited and whether there are other controls\npresent in the environment to reduce the risk.\nAny weaknesses that point to PCI DSS\nrequirements not being met should be addressed."
+  },
+  "extraction_notes": []
+}

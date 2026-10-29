@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "3",
+  "document_version": "4.0.1",
+  "requirement_id": "3.7.1",
+  "pdf_pages": [
+    106
+  ],
+  "defined_requirement": "Key-management policies and procedures are\nimplemented to include generation of strong\ncryptographic keys used to protect stored account\ndata.",
+  "testing_procedures": "3.7.1.a Examine the documented key-management\npolicies and procedures for keys used for\nprotection of stored account data to verify that they\ndefine generation of strong cryptographic keys.\n3.7.1.b Observe the method for generating keys to\nverify that strong keys are generated.",
+  "customized_approach_objective": "Strong cryptographic keys are generated.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Use of strong cryptographic keys significantly increases\nthe level of security of encrypted account data.",
+    "further_information": "See the sources referenced at Cryptographic Key\nGeneration in Appendix G."
+  },
+  "extraction_notes": []
+}

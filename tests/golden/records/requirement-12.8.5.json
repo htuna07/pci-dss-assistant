@@ -1,0 +1,20 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.8.5",
+  "pdf_pages": [
+    325,
+    326
+  ],
+  "defined_requirement": "Information is maintained about which PCI\nDSS requirements are managed by each TPSP,\nwhich are managed by the entity, and any that are\nshared between the TPSP and the entity.",
+  "testing_procedures": "12.8.5.a Examine policies and procedures to verify\nthat processes are defined to maintain information\nabout which PCI DSS requirements are managed\nby each TPSP, which are managed by the entity,\nand any that are shared between both the TPSP\nand the entity.\n12.8.5.b Examine documentation and interview\npersonnel to verify the entity maintains information\nabout which PCI DSS requirements are managed\nby each TPSP, which are managed by the entity,\nand any that are shared between both entities.",
+  "customized_approach_objective": "Records detailing the PCI DSS requirements and\nrelated system components for which each TPSP is\nsolely or jointly responsible, are maintained and\nreviewed periodically.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "It is important that the entity understands which\nPCI DSS requirements and sub-requirements its\nTPSPs have agreed to meet, which requirements\nare shared between the TPSP and the entity, and\nfor those that are shared, specifics about how the\nrequirements are shared and which entity is\nresponsible for meeting each sub-requirement.\nWithout this shared understanding, it is inevitable\nthat the entity and the TPSP will assume a given\nPCI DSS sub-requirement is the responsibility of\nthe other party, and therefore that sub-\nrequirement may not be addressed at all.\nThe specific information an entity maintains will\ndepend on the particular agreement with their\nproviders, the type of service, etc. TPSPs may\ndefine their PCI DSS responsibilities to be the\nsame for all their customers; otherwise, this\nresponsibility should be agreed upon by both the\nentity and TPSP.",
+    "good_practice": "Entities can document these responsibilities via a\nmatrix that identifies all applicable PCI DSS\nrequirements and indicates for each requirement\nwhether the entity or TPSP is responsible for\nmeeting that requirement or whether it is a shared\nresponsibility. This type of document is often\nreferred to as a responsibility matrix.\nIt is also important for entities to understand\nwhether any TPSPs have “nested” relationships\nwith other TPSPs, meaning the primary TPSP\ncontracts with another TPSP(s) for the purposes\nof providing a service. It is important to\nunderstand whether the primary TPSP is relying\non the secondary TPSP(s) to achieve overall\ncompliance of a service, and how the primary\nTPSP is monitoring performance of the service\nand the PCI DSS compliance status of the\nsecondary TPSP(s). Note that it is the\nresponsibility of the primary TPSP to manage and\nmonitor any secondary TPSPs.",
+    "further_information": "Refer to Information Supplement: Third-Party\nSecurity Assurance for a sample responsibility\nmatrix template."
+  },
+  "extraction_notes": []
+}

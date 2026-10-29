@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.6.3",
+  "pdf_pages": [
+    315
+  ],
+  "defined_requirement": "Personnel receive security awareness\ntraining as follows:\n•  Upon hire and at least once every 12 months.\n•   Multiple methods of communication are used.\n•  Personnel acknowledge at least once every 12\nmonths that they have read and understood the\ninformation security policy and procedures.",
+  "testing_procedures": "12.6.3.a Examine security awareness program\nrecords to verify that personnel attend security\nawareness training upon hire and at least once\nevery 12 months.\n12.6.3.b Examine security awareness program\nmaterials to verify the program includes multiple\nmethods of communicating awareness and\neducating personnel.\n12.6.3.c Interview personnel to verify they have\ncompleted awareness training and are aware of\ntheir role in protecting cardholder data.\n12.6.3.d Examine security awareness program\nmaterials and personnel acknowledgments to\nverify that personnel acknowledge at least once\nevery 12 months that they have read and\nunderstand the information security policy and\nprocedures.",
+  "customized_approach_objective": "Personnel remain knowledgeable about the threat\nlandscape, their responsibility for the operation of\nrelevant security controls, and are able to access\nassistance and guidance when required.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Training of personnel ensures they receive the\ninformation about the importance of information\nsecurity and that they understand their role in\nprotecting the organization.\nRequiring an acknowledgment by personnel helps\nensure that they have read and understood the\nsecurity policies and procedures, and that they\nhave made and will continue to make a\ncommitment to comply with these policies.",
+    "good_practice": "Entities may incorporate new-hire training as part\nof the Human Resources onboarding process.\nTraining should outline the security-related “dos”\nand “don’ts.” Periodic refresher training reinforces\nkey security processes and procedures that may\nbe forgotten or bypassed.\nEntities should consider requiring security\nawareness training anytime personnel transfer\ninto roles where they can impact the security of\ncardholder data and/or sensitive authentication\ndata from roles where they did not have this\nimpact.\nMethods and training content can vary, depending\non personnel roles.",
+    "examples": "Different methods that can be used to provide\nsecurity awareness and education include\nposters, letters, web-based training, in-person\ntraining, team meetings, and incentives.\nPersonnel acknowledgments may be recorded in\nwriting or electronically."
+  },
+  "extraction_notes": []
+}

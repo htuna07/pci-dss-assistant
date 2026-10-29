@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "7",
+  "document_version": "4.0.1",
+  "requirement_id": "7.2.6",
+  "pdf_pages": [
+    175
+  ],
+  "defined_requirement": "All user access to query repositories of stored\ncardholder data is restricted as follows:\n•  Via applications or other programmatic methods,\nwith access and allowed actions based on user\nroles and least privileges.\n•  Only the responsible administrator(s) can\ndirectly access or query repositories of stored\nCHD.",
+  "testing_procedures": "7.2.6.a Examine policies and procedures and\ninterview personnel to verify processes are defined\nfor granting user access to query repositories of\nstored cardholder data, in accordance with all\nelements specified in this requirement.\n7.2.6.b Examine configuration settings for querying\nrepositories of stored cardholder data to verify they\nare in accordance with all elements specified in\nthis requirement.",
+  "customized_approach_objective": "Direct unfiltered (ad hoc) query access to\ncardholder data repositories is prohibited, unless\nperformed by an authorized administrator.",
+  "applicability_notes": "This requirement applies to controls for user access\nto query repositories of stored cardholder data.\nSee Requirements 7.2.5 and 7.2.5.1 and 8.6.1\nthrough 8.6.3 for controls for application and system\naccounts.",
+  "guidance": {
+    "purpose": "The misuse of query access to repositories of\ncardholder data has been a regular cause of data\nbreaches. Limiting such access to administrators\nreduces the risk of such access being abused by\nunauthorized users.",
+    "definitions": "“Programmatic methods” means granting access\nthrough means such as database stored\nprocedures that allow users to perform controlled\nactions to data in a table, rather than via direct,\nunfiltered access to the data repository by end\nusers (except for the responsible administrator(s),\nwho need direct access to the database for their\nadministrative duties).",
+    "good_practice": "Typical user actions include moving, copying, and\ndeleting data. Also consider the scope of privilege\nneeded when granting access. For example,\naccess can be granted to specific objects such as\ndata elements, files, tables, indexes, views, and\nstored routines. Granting access to repositories of\ncardholder data should follow the same process\nas all other granted access, meaning that it is\nbased on roles, with only the privileges assigned\nto each user that are needed to perform their job\nfunctions."
+  },
+  "extraction_notes": []
+}

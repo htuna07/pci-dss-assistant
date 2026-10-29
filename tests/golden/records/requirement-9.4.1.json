@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "9",
+  "document_version": "4.0.1",
+  "requirement_id": "9.4.1",
+  "pdf_pages": [
+    225
+  ],
+  "defined_requirement": "All media with cardholder data is physically\nsecured.",
+  "testing_procedures": "9.4.1. Examine documentation to verify that the\nprocedures defined for protecting cardholder data\ninclude controls for physically securing all media.",
+  "customized_approach_objective": "Media with cardholder data cannot be accessed by\nunauthorized personnel.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Controls for physically securing media are\nintended to prevent unauthorized persons from\ngaining access to cardholder data on any media.\nCardholder data is susceptible to unauthorized\nviewing, copying, or scanning if it is unprotected\nwhile it is on removable or portable media, printed\nout, or left on someone’s desk."
+  },
+  "extraction_notes": []
+}

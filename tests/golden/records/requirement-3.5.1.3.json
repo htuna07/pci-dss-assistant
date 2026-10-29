@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "3",
+  "document_version": "4.0.1",
+  "requirement_id": "3.5.1.3",
+  "pdf_pages": [
+    99
+  ],
+  "defined_requirement": "If disk-level or partition-level encryption is used\n(rather than file-, column-, or field-level database\nencryption) to render PAN unreadable, it is managed as\nfollows:\n•   Logical access is managed separately and\nindependently of native operating system\nauthentication and access control mechanisms.\n•   Decryption keys are not associated with user\naccounts.\n•   Authentication factors (passwords, passphrases, or\ncryptographic keys) that allow access to\nunencrypted data are stored securely.",
+  "testing_procedures": "3.5.1.3.a If disk-level or partition-level encryption is\nused to render PAN unreadable, examine the\nsystem configuration and observe the\nauthentication process to verify that logical access\nis implemented in accordance with all elements\nspecified in this requirement.\n3.5.1.3.b Examine files containing authentication\nfactors (passwords, passphrases, or cryptographic\nkeys) and interview personnel to verify that\nauthentication factors that allow access to\nunencrypted data are stored securely and are\nindependent from the native operating system’s\nauthentication and access control methods.",
+  "customized_approach_objective": "Disk encryption implementations are configured to\nrequire independent authentication and logical access\ncontrols for decryption.",
+  "applicability_notes": "Disk or partition encryption implementations must also\nmeet all other PCI DSS encryption and key-management\nrequirements.",
+  "guidance": {
+    "purpose": "Disk-level encryption typically encrypts the entire disk\nor partition using the same key, with all data\nautomatically decrypted when the system runs or when\nan authorized user requests it. Many disk-encryption\nsolutions intercept operating system read/write\noperations and perform the appropriate cryptographic\ntransformations without any special action by the user\nother than supplying a password or passphrase at\nsystem start-up or at the beginning of a session. This\nprovides no protection from a malicious individual that\nhas already managed to gain access to a valid user\naccount.",
+    "good_practice": "Full disk encryption helps to protect data in the event of\nphysical loss of a disk and therefore its use is best\nlimited only to removable electronic media storage\ndevices."
+  },
+  "extraction_notes": []
+}

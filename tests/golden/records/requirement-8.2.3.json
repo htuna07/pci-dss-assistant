@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "8",
+  "document_version": "4.0.1",
+  "requirement_id": "8.2.3",
+  "pdf_pages": [
+    184,
+    185
+  ],
+  "defined_requirement": "Additional requirement for service\nproviders only: Service providers with remote\naccess to customer premises use unique\nauthentication factors for each customer premises.",
+  "testing_procedures": "8.2.3 Additional testing procedure for service\nprovider assessments only: Examine\nauthentication policies and procedures and\ninterview personnel to verify that service providers\nwith remote access to customer premises use\nunique authentication factors for remote access to\neach customer premises.",
+  "customized_approach_objective": "A service provider’s credential used for one\ncustomer cannot be used for any other customer.",
+  "applicability_notes": "This requirement applies only when the entity being\nassessed is a service provider.\nThis requirement is not intended to apply to service\nproviders accessing their own shared services\nenvironments, where multiple customer\nenvironments are hosted.\nIf service provider employees use shared\nauthentication factors to remotely access customer\npremises, these factors must be unique per\ncustomer and managed in accordance with\nRequirement 8.2.2.",
+  "guidance": {
+    "purpose": "Service providers with remote access to customer\npremises typically use this access to support POS\nPOI systems or provide other remote services.\nIf a service provider uses the same authentication\nfactors to access multiple customers, all the\nservice provider’s customers can easily be\ncompromised if an attacker compromises that one\nfactor.\nCriminals know this and deliberately target\nservice providers looking for a shared\nauthentication factor that gives them remote\naccess to many merchants via that single factor.",
+    "examples": "Technologies such as multi-factor mechanisms\nthat provide a unique credential for each\nconnection (such as a single-use password) could\nalso meet the intent of this requirement."
+  },
+  "extraction_notes": []
+}

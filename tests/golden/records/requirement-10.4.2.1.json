@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "10",
+  "document_version": "4.0.1",
+  "requirement_id": "10.4.2.1",
+  "pdf_pages": [
+    254
+  ],
+  "defined_requirement": "The frequency of periodic log reviews for\nall other system components (not defined in\nRequirement 10.4.1) is defined in the entity’s\ntargeted risk analysis, which is performed\naccording to all elements specified in Requirement\n12.3.1",
+  "testing_procedures": "10.4.2.1.a Examine the entity’s targeted risk\nanalysis for the frequency of periodic log reviews\nfor all other system components (not defined in\nRequirement 10.4.1) to verify the risk analysis was\nperformed in accordance with all elements\nspecified at Requirement 12.3.1.\n10.4.2.1.b Examine documented results of periodic\nlog reviews of all other system components (not\ndefined in Requirement 10.4.1) and interview\npersonnel to verify log reviews are performed at\nthe frequency specified in the entity’s targeted risk\nanalysis performed for this requirement.",
+  "customized_approach_objective": "Log reviews for lower-risk system components are\nperformed at a frequency that addresses the entity’s\nrisk.",
+  "applicability_notes": "This requirement is a best practice until 31 March\n2025, after which it will be required and must be\nfully considered during a PCI DSS assessment.",
+  "guidance": {
+    "purpose": "Entities can determine the optimum period to\nreview these logs based on criteria such as the\ncomplexity of each entity’s environment, the\nnumber of types of systems that are required to\nbe evaluated, and the functions of such systems."
+  },
+  "extraction_notes": []
+}

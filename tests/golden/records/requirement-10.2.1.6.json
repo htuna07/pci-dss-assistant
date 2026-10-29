@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "10",
+  "document_version": "4.0.1",
+  "requirement_id": "10.2.1.6",
+  "pdf_pages": [
+    246
+  ],
+  "defined_requirement": "Audit logs capture the following:\n•   All initialization of new audit logs, and\n•   All starting, stopping, or pausing of the existing\naudit logs.",
+  "testing_procedures": "10.2.1.6 Examine audit log configurations and log\ndata to verify that all elements specified in this\nrequirement are captured.",
+  "customized_approach_objective": "Records of all changes to audit log activity status\nare captured.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Turning off or pausing audit logs before\nperforming illicit activities is common practice for\nmalicious users who want to avoid detection.\nInitialization of audit logs could indicate that that a\nuser disabled the log function to hide their\nactions."
+  },
+  "extraction_notes": []
+}

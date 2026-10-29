@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "5",
+  "document_version": "4.0.1",
+  "requirement_id": "5.2.2",
+  "pdf_pages": [
+    127
+  ],
+  "defined_requirement": "The deployed anti-malware solution(s):\n•  Detects all known types of malware.\n•  Removes, blocks, or contains all known types of\nmalware.",
+  "testing_procedures": "5.2.2 Examine vendor documentation and\nconfigurations of the anti-malware solution(s) to\nverify that the solution:\n•  Detects all known types of malware.\n•  Removes, blocks, or contains all known types\nof malware.",
+  "customized_approach_objective": "Malware cannot execute or infect other system\ncomponents.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "It is important to protect against all types and forms\nof malware to prevent unauthorized access.",
+    "good_practice": "Anti-malware solutions may include a combination\nof network-based controls, host-based controls, and\nendpoint security solutions. In addition to signature-\nbased tools, capabilities used by modern anti-\nmalware solutions include sandboxing, privilege\nescalation controls, and machine learning.\nSolution techniques include preventing malware\nfrom getting into the network and removing or\ncontaining malware that does get into the network.",
+    "examples": "Types of malware include, but are not limited to,\nviruses, Trojans, worms, spyware, ransomware,\nkeyloggers, rootkits, malicious code, scripts, and\nlinks."
+  },
+  "extraction_notes": []
+}

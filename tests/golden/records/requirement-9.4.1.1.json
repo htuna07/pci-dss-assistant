@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "9",
+  "document_version": "4.0.1",
+  "requirement_id": "9.4.1.1",
+  "pdf_pages": [
+    225
+  ],
+  "defined_requirement": "Offline media backups with cardholder data\nare stored in a secure location.",
+  "testing_procedures": "9.4.1.1.a Examine documentation to verify that\nprocedures are defined for physically securing\noffline media backups with cardholder data in a\nsecure location.\n9.4.1.1.b Examine logs or other documentation\nand interview responsible personnel at the storage\nlocation to verify that offline media backups are\nstored in a secure location.",
+  "customized_approach_objective": "Offline backups cannot be accessed by\nunauthorized personnel.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "If stored in a non-secured facility, backups\ncontaining cardholder data may easily be lost,\nstolen, or copied for malicious intent.",
+    "good_practice": "For secure storage of backup media, a good\npractice is to store media in an off-site facility,\nsuch as an alternate or backup site or commercial\nstorage facility."
+  },
+  "extraction_notes": []
+}

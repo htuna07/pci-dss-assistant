@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "8",
+  "document_version": "4.0.1",
+  "requirement_id": "8.6.1",
+  "pdf_pages": [
+    210
+  ],
+  "defined_requirement": "If accounts used by systems or applications\ncan be used for interactive login, they are managed\nas follows:\n•   Interactive use is prevented unless needed for\nan exceptional circumstance.\n•   Interactive use is limited to the time needed for\nthe exceptional circumstance.\n•  Business justification for interactive use is\ndocumented.\n•   Interactive use is explicitly approved by\nmanagement.\n•   Individual user identity is confirmed before\naccess to account is granted.\n•  Every action taken is attributable to an individual\nuser.",
+  "testing_procedures": "8.6.1 Examine application and system accounts\nthat can be used interactively and interview\nadministrative personnel to verify that application\nand system accounts are managed in accordance\nwith all elements specified in this requirement.",
+  "customized_approach_objective": "When used interactively, all actions with accounts\ndesignated as system or application accounts are\nauthorized and attributable to an individual person.",
+  "applicability_notes": "This requirement is a best practice until 31 March\n2025, after which it will be required and must be\nfully considered during a PCI DSS assessment.",
+  "guidance": {
+    "purpose": "Like individual user accounts, system and\napplication accounts require accountability and\nstrict management to ensure they are used only\nfor the intended purpose and are not misused.\nAttackers often compromise system or application\naccounts to gain access to cardholder data.",
+    "good_practice": "Where possible, configure system and application\naccounts to disallow interactive login to prevent\nunauthorized individuals from logging in and using\nthe account with its associated system privileges,\nand to limit the machines and devices on which\nthe account can be used.",
+    "definitions": "Interactive login is the ability for a person to log\ninto a system or application account in the same\nmanner as a normal user account. Using system\nand application accounts this way means there is\nno accountability and traceability of actions taken\nby the user.\nRefer to Appendix G for the definition of\n“application and system accounts.”"
+  },
+  "extraction_notes": []
+}

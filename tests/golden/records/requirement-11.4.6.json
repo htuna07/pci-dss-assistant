@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "11",
+  "document_version": "4.0.1",
+  "requirement_id": "11.4.6",
+  "pdf_pages": [
+    284
+  ],
+  "defined_requirement": "Additional requirement for service\nproviders only: If segmentation is used to isolate\nthe CDE from other networks, penetration tests are\nperformed on segmentation controls as follows:\n•   At least once every six months and after any\nchanges to segmentation controls/methods.\n•  Covering all segmentation controls/methods in\nuse.\n•  According to the entity’s defined penetration\ntesting methodology.\n•  Confirming that the segmentation\ncontrols/methods are operational and effective,\nand isolate the CDE from all out-of-scope\nsystems.\n•  Confirming effectiveness of any use of isolation\nto separate systems with differing security levels\n(see Requirement 2.2.3).\n•  Performed by a qualified internal resource or\nqualified external third party.\n•   Organizational independence of the tester exists\n(not required to be a QSA or ASV).",
+  "testing_procedures": "11.4.6.a Additional testing procedure for\nservice provider assessments only: Examine\nthe results from the most recent penetration test to\nverify that the penetration covers and addressed all\nelements specified in this requirement.\n11.4.6.b Additional testing procedure for\nservice provider assessments only: Interview\npersonnel to verify that the test was performed by\na qualified internal resource or qualified external\nthird party and that organizational independence of\nthe tester exists (not required to be a QSA or\nASV).",
+  "customized_approach_objective": "If segmentation is used, it is verified by technical\ntesting to be continually effective, including after any\nchanges, in isolating the CDE from out-of-scope\nsystems.",
+  "applicability_notes": "This requirement applies only when the entity being\nassessed is a service provider.",
+  "guidance": {
+    "purpose": "Service providers typically have access to greater\nvolumes of cardholder data or can provide an\nentry point that can be exploited to then\ncompromise multiple other entities. Service\nproviders also typically have larger and more\ncomplex networks that are subject to more\nfrequent change. The probability of segmentation\ncontrols failing in complex and dynamic networks\nis greater in service-provider environments.\nValidating segmentation controls more frequently\nis likely to discover such failings before they can\nbe exploited by an attacker attempting to pivot\nlaterally from an out-of-scope untrusted network\nto the CDE.",
+    "good_practice": "Although the requirement specifies that this scope\nvalidation is carried out at least once every six\nmonths and after significant change, this exercise\nshould be performed as frequently as possible to\nensure it remains effective at isolating the CDE\nfrom other networks."
+  },
+  "extraction_notes": []
+}

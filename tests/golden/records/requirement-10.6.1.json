@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "10",
+  "document_version": "4.0.1",
+  "requirement_id": "10.6.1",
+  "pdf_pages": [
+    257
+  ],
+  "defined_requirement": "System clocks and time are synchronized\nusing time-synchronization technology.",
+  "testing_procedures": "10.6.1 Examine system configuration settings to\nverify that time-synchronization technology is\nimplemented and kept current.",
+  "customized_approach_objective": "Common time is established across all systems.",
+  "applicability_notes": "Keeping time-synchronization technology current\nincludes managing vulnerabilities and patching the\ntechnology according to PCI DSS Requirements\n6.3.1 and 6.3.3.",
+  "guidance": {
+    "purpose": "Time synchronization technology is used to\nsynchronize clocks on multiple systems. When\nclocks are not properly synchronized, it can be\ndifficult, if not impossible, to compare log files\nfrom different systems and establish an exact\nsequence of events, which is crucial for forensic\nanalysis following a breach.\nFor post-incident forensics teams, the accuracy\nand consistency of time across all systems and\nthe time of each activity are critical in determining\nhow the systems were compromised.",
+    "examples": "Network Time Protocol (NTP) is one example of\ntime-synchronization technology."
+  },
+  "extraction_notes": []
+}

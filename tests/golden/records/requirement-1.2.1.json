@@ -1,0 +1,20 @@
+{
+  "record_type": "requirement",
+  "section_id": "1",
+  "document_version": "4.0.1",
+  "requirement_id": "1.2.1",
+  "pdf_pages": [
+    46
+  ],
+  "defined_requirement": "Configuration standards for NSC rulesets are:\n•   Defined.\n•  Implemented.\n•   Maintained.",
+  "testing_procedures": "1.2.1.a Examine the configuration standards for\nNSC rulesets to verify the standards are in\naccordance with all elements specified in this\nrequirement.\n1.2.1.b Examine configuration settings for NSC\nrulesets to verify that rulesets are implemented\naccording to the configuration standards.",
+  "customized_approach_objective": "The way that NSCs are configured and operate are\ndefined and consistently applied.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "The implementation of these configuration\nstandards results in the NSC being configured\nand managed to properly perform their security\nfunction (often referred to as the ruleset).",
+    "good_practice": "These standards often define the requirements for\nacceptable protocols, ports that are permitted to\nbe used, and specific configuration requirements\nthat are acceptable. Configuration standards may\nalso outline what the entity considers not\nacceptable or not permitted within its network.",
+    "definitions": "NSCs are key components of a network\narchitecture. Most commonly, NSCs are used at\nthe boundaries of the CDE to control network\ntraffic flowing inbound and outbound from the\nCDE.\nConfiguration standards outline an entity’s\nminimum requirements for the configuration of its\nNSCs.",
+    "examples": "Examples of NSCs covered by these\nconfiguration standards include, but are not\nlimited to, firewalls, routers configured with\naccess control lists, and cloud virtual networks."
+  },
+  "extraction_notes": []
+}

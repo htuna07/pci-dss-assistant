@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "2",
+  "document_version": "4.0.1",
+  "requirement_id": "2.2.2",
+  "pdf_pages": [
+    69
+  ],
+  "defined_requirement": "Vendor default accounts are managed as\nfollows:\n•    If the vendor default account(s) will be used, the\ndefault password is changed per Requirement\n8.3.6.\n•    If the vendor default account(s) will not be used,\nthe account is removed or disabled.",
+  "testing_procedures": "2.2.2.a Examine system configuration standards to\nverify they include managing vendor default\naccounts in accordance with all elements specified\nin this requirement.\n2.2.2.b Examine vendor documentation and\nobserve a system administrator logging on using\nvendor default accounts to verify accounts are\nimplemented in accordance with all elements\nspecified in this requirement.\n2.2.2.c Examine configuration files and interview\npersonnel to verify that all vendor default accounts\nthat will not be used are removed or disabled.",
+  "customized_approach_objective": "System components cannot be accessed using\ndefault passwords.",
+  "applicability_notes": "This applies to ALL vendor default accounts and\npasswords, including, but not limited to, those used\nby operating systems, software that provides\nsecurity services, application and system accounts,\npoint-of-sale (POS) terminals, payment applications,\nand Simple Network Management Protocol (SNMP)\ndefaults.\nThis requirement also applies where a system\ncomponent is not installed within an entity’s\nenvironment, for example, software and applications\nthat are part of the CDE and are accessed via a\ncloud subscription service.",
+  "guidance": {
+    "purpose": "Malicious individuals often use vendor default\naccount names and passwords to compromise\noperating systems, applications, and the systems\non which they are installed. Because these\ndefault settings are often published and are well\nknown, changing these settings will make\nsystems less vulnerable to attack.",
+    "good_practice": "All vendor default accounts should be identified,\nand their purpose and use understood. It is\nimportant to establish controls for application and\nsystem accounts, including those used to deploy\nand maintain cloud services so that they do not\nuse default passwords and are not usable by\nunauthorized individuals.\nWhere a default account is not intended to be\nused, changing the default password to a unique\npassword that meets PCI DSS Requirement\n8.3.6, removing any access to the default\naccount, and then disabling the account, will\nprevent a malicious individual from re-enabling\nthe account and gaining access with the default\npassword.\nUsing an isolated staging network to install and\nconfigure new systems is recommended and can\nalso be used to confirm that default credentials\nhave not been introduced into production\nenvironments.",
+    "examples": "Defaults to be considered include user IDs,\npasswords, and other authentication credentials\ncommonly used by vendors in their products."
+  },
+  "extraction_notes": []
+}

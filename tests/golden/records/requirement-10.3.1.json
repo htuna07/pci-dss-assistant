@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "10",
+  "document_version": "4.0.1",
+  "requirement_id": "10.3.1",
+  "pdf_pages": [
+    248
+  ],
+  "defined_requirement": "Read access to audit logs files is limited to\nthose with a job-related need.",
+  "testing_procedures": "10.3.1 Interview system administrators and\nexamine system configurations and privileges to\nverify that only individuals with a job-related need\nhave read access to audit log files.",
+  "customized_approach_objective": "Stored activity records cannot be accessed by\nunauthorized personnel.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Audit log files contain sensitive information, and\nread access to the log files must be limited only to\nthose with a valid business need. This access\nincludes audit log files on the originating systems\nas well as anywhere else they are stored.",
+    "good_practice": "Adequate protection of the audit logs includes\nstrong access control that limits access to logs\nbased on “need to know” only and the use of\nphysical or network segregation to make the logs\nharder to find and modify."
+  },
+  "extraction_notes": []
+}

@@ -1,0 +1,20 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.9.2",
+  "pdf_pages": [
+    329,
+    330
+  ],
+  "defined_requirement": "Additional requirement for service\nproviders only: TPSPs support their customers’\nrequests for information to meet Requirements\n12.8.4 and 12.8.5 by providing the following upon\ncustomer request:\n•  PCI DSS compliance status information\n(Requirement 12.8.4).\n•   Information about which PCI DSS requirements\nare the responsibility of the TPSP and which are\nthe responsibility of the customer, including any\nshared responsibilities (Requirement 12.8.5), for\nany service the TPSP provides that meets a PCI\nDSS requirement(s) on behalf of customers or\nthat can impact security of customers’\ncardholder data or sensitive authentication data.",
+  "testing_procedures": "12.9.2 Additional testing procedure for service\nprovider assessments only: Examine policies\nand procedures to verify processes are defined for\nthe TPSPs to support customers’ request for\ninformation to meet Requirements 12.8.4 and\n12.8.5 in accordance with all elements specified in\nthis requirement.",
+  "customized_approach_objective": "TPSPs provide information as needed to support\ntheir customers’ PCI DSS compliance efforts.",
+  "applicability_notes": "This requirement applies only when the entity being\nassessed is a service provider.",
+  "guidance": {
+    "purpose": "If a TPSP does not provide the necessary\ninformation to enable its customers to meet their\nsecurity and compliance requirements, the\ncustomers will not be able to protect cardholder\ndata nor meet their own contractual obligations.",
+    "good_practice": "If a TPSP has a PCI DSS Attestation of\nCompliance (AOC), the expectation is that the\nTPSP should provide that to customers upon\nrequest to demonstrate their PCI DSS compliance\nstatus.\nIf the TPSP did not undergo a PCI DSS\nassessment, they may be able to provide other\nsufficient evidence to demonstrate that it has met\nthe applicable requirements without undergoing a\nformal compliance validation. For example, the\nTPSP can provide specific evidence to the entity’s\nassessor so the assessor can confirm applicable\nrequirements are met. Alternatively, the TPSP\ncan elect to undergo multiple on-demand\nassessments by each of its customers’ assessors,\nwith each assessment targeted to confirm that\napplicable requirements are met.\nTPSPs should provide sufficient evidence to their\ncustomers to verify that the scope of the TPSP’s\nPCI DSS assessment covered the services\napplicable to the customer and that the relevant\nPCI DSS requirements were examined and\ndetermined to be in place.\nTPSPs may define their PCI DSS responsibilities\nto be the same for all their customers; otherwise,\nthis responsibility should be agreed upon by both\nthe customer and TPSP. It is important that the\ncustomer understands which PCI DSS\nrequirements and sub-requirements its TPSPs\nhave agreed to meet, which requirements are\nshared between the TPSP and the customer, and\nfor those that are shared, specifics about how the\nrequirements are shared and which entity is\nresponsible for meeting each sub-requirement. An\nexample of a way to document these\nresponsibilities is via a matrix that identifies all\napplicable PCI DSS requirements and indicates\nwhether the customer or TPSP is responsible for\nmeeting that requirement or whether it is a shared\nresponsibility.",
+    "further_information": "For further guidance, refer to:\n•  PCI DSS section: Use of Third-Party Service\nProviders.\n•   Information Supplement: Third-Party Security\nAssurance (includes a sample responsibility\nmatrix template)."
+  },
+  "extraction_notes": []
+}

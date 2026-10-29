@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "6",
+  "document_version": "4.0.1",
+  "requirement_id": "6.2.2",
+  "pdf_pages": [
+    142
+  ],
+  "defined_requirement": "Software development personnel working on\nbespoke and custom software are trained at least\nonce every 12 months as follows:\n•  On software security relevant to their job\nfunction and development languages.\n•   Including secure software design and secure\ncoding techniques.\n•   Including, if security testing tools are used, how\nto use the tools for detecting vulnerabilities in\nsoftware.",
+  "testing_procedures": "6.2.2.a Examine software development procedures\nto verify that processes are defined for training of\nsoftware development personnel developing\nbespoke and custom software that includes all\nelements specified in this requirement.\n6.2.2.b Examine training records and interview\npersonnel to verify that software development\npersonnel working on bespoke and custom\nsoftware received software security training that is\nrelevant to their job function and development\nlanguages in accordance with all elements\nspecified in this requirement.",
+  "customized_approach_objective": "Software development personnel remain\nknowledgeable about secure development\npractices; software security; and attacks against the\nlanguages, frameworks, or applications they\ndevelop. Personnel are able to access assistance\nand guidance when required.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Having staff knowledgeable in secure coding\nmethods, including techniques defined in\nRequirement 6.2.4, will help minimize the number of\nsecurity vulnerabilities introduced through poor\ncoding practices.",
+    "good_practice": "Training for developers may be provided in-house or\nby third parties.\nTraining should include, but is not limited to,\ndevelopment languages in use, secure software\ndesign, secure coding techniques, use of\ntechniques/methods for finding vulnerabilities in\ncode, processes to prevent reintroducing previously\nresolved vulnerabilities, and how to use any\nautomated security testing tools for detecting\nvulnerabilities in software.\nAs industry-accepted secure coding practices\nchange, organizational coding practices and\ndeveloper training may need to be updated to\naddress new threats."
+  },
+  "extraction_notes": []
+}

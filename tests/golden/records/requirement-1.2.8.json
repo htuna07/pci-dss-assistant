@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "1",
+  "document_version": "4.0.1",
+  "requirement_id": "1.2.8",
+  "pdf_pages": [
+    54
+  ],
+  "defined_requirement": "Configuration files for NSCs are:\n•   Secured from unauthorized access.\n•   Kept consistent with active network\nconfigurations.",
+  "testing_procedures": "1.2.8 Examine configuration files for NSCs to verify\nthey are in accordance with all elements specified\nin this requirement.",
+  "customized_approach_objective": "NSCs cannot be defined or modified using untrusted\nconfiguration objects (including files).",
+  "applicability_notes": "Any file or setting used to configure or synchronize\nNSCs is considered to be a “configuration file.” This\nincludes files, automated and system-based\ncontrols, scripts, settings, infrastructure as code, or\nother parameters that are backed up, archived, or\nstored remotely.",
+  "guidance": {
+    "purpose": "To prevent unauthorized configurations from\nbeing applied to the network, stored files with\nconfigurations for network controls need to be\nkept up to date and secured against unauthorized\nchanges.\nKeeping configuration information current and\nsecure ensures that the correct settings for NSCs\nare applied whenever the configuration is run.",
+    "examples": "If the secure configuration for a router is stored in\nnon-volatile memory, when that router is restarted\nor rebooted, these controls should ensure that its\nsecure configuration is reinstated."
+  },
+  "extraction_notes": []
+}

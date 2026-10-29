@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "5",
+  "document_version": "4.0.1",
+  "requirement_id": "5.1.2",
+  "pdf_pages": [
+    125
+  ],
+  "defined_requirement": "Roles and responsibilities for performing\nactivities in Requirement 5 are documented,\nassigned, and understood.",
+  "testing_procedures": "5.1.2.a Examine documentation to verify that\ndescriptions of roles and responsibilities for\nperforming activities in Requirement 5 are\ndocumented and assigned.\n5.1.2.b Interview personnel with responsibility for\nperforming activities in Requirement 5 to verify that\nroles and responsibilities are assigned as\ndocumented and are understood.",
+  "customized_approach_objective": "Day-to-day responsibilities for performing all the\nactivities in Requirement 5 are allocated. Personnel\nare accountable for successful, continuous\noperation of these requirements.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "If roles and responsibilities are not formally\nassigned, networks and systems may not be\nproperly protected from malware.",
+    "good_practice": "Roles and responsibilities may be documented\nwithin policies and procedures or maintained within\nseparate documents.\nAs part of communicating roles and responsibilities,\nentities can consider having personnel acknowledge\ntheir acceptance and understanding of their\nassigned roles and responsibilities.",
+    "examples": "A method to document roles and responsibilities is a\nresponsibility assignment matrix that includes who is\nresponsible, accountable, consulted, and informed\n(also called a RACI matrix)."
+  },
+  "extraction_notes": []
+}

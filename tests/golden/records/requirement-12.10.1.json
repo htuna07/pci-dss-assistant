@@ -1,0 +1,21 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.10.1",
+  "pdf_pages": [
+    331,
+    332
+  ],
+  "defined_requirement": "An incident response plan exists and is\nready to be activated in the event of a suspected or\nconfirmed security incident. The plan includes, but is\nnot limited to:\n•   Roles, responsibilities, and communication and\ncontact strategies in the event of a suspected or\nconfirmed security incident, including notification\nof payment brands and acquirers, at a minimum.\n•   Incident response procedures with specific\ncontainment and mitigation activities for different\ntypes of incidents.\n•  Business recovery and continuity procedures.\n•  Data backup processes.\n•   Analysis of legal requirements for reporting\ncompromises.\n•  Coverage and responses of all critical system\ncomponents.\n•  Reference or inclusion of incident response\nprocedures from the payment brands.",
+  "testing_procedures": "12.10.1.a Examine the incident response plan to\nverify that the plan exists and includes at least the\nelements specified in this requirement.\n12.10.1.b Interview personnel and examine\ndocumentation from previously reported incidents\nor alerts to verify that the documented incident\nresponse plan and procedures were followed.",
+  "customized_approach_objective": "A comprehensive incident response plan that meets\ncard brand expectations is maintained.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Without a comprehensive incident response plan\nthat is properly disseminated, read, and\nunderstood by the parties responsible, confusion\nand lack of a unified response could create further\ndowntime for the business, unnecessary public\nmedia exposure, as well as risk of financial and/or\nreputational loss and legal liabilities.",
+    "good_practice": "The incident response plan should be thorough\nand contain all the key elements for stakeholders\n(for example, legal, communications) to allow the\nentity to respond effectively in the event of a\nbreach that could impact account data. It is\nimportant to keep the plan up to date with current\ncontact information of all individuals designated\nas having a role in incident response. Other\nrelevant parties for notifications may include\ncustomers, financial institutions (acquirers and\nissuers), and business partners.\nEntities should consider how to address all\ncompromises of data within the CDE in their\nincident response plans, including compromises\nto account data, wireless encryption keys,\nencryption keys used for transmission and\nstorage or account data or cardholder data, etc.",
+    "examples": "Legal requirements for reporting compromises\ninclude those in most US states, the EU General\nData Protection Regulation (GDPR), and the\nPersonal Data Protection Act (Singapore).",
+    "further_information": "For more information, refer to the NIST SP 800-\n61 Rev. 2, Computer Security Incident Handling\nGuide."
+  },
+  "extraction_notes": []
+}

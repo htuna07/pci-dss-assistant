@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "8",
+  "document_version": "4.0.1",
+  "requirement_id": "8.3.5",
+  "pdf_pages": [
+    193
+  ],
+  "defined_requirement": "If passwords/passphrases are used as\nauthentication factors to meet Requirement 8.3.1,\nthey are set and reset for each user as follows:\n•  Set to a unique value for first-time use and upon\nreset.\n•  Forced to be changed immediately after the first\nuse.",
+  "testing_procedures": "8.3.5 Examine procedures for setting and resetting\npasswords/passphrases (if used as authentication\nfactors to meet Requirement 8.3.1) and observe\nsecurity personnel to verify that\npasswords/passphrases are set and reset in\naccordance with all elements specified in this\nrequirement.",
+  "customized_approach_objective": "An initial or reset password/passphrase assigned to\na user cannot be used by an unauthorized user.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "If the same password/passphrase is used for\nevery new user, an internal user, former\nemployee, or malicious individual may know or\neasily discover the value and use it to gain access\nto accounts before the authorized user attempts\nto use the password."
+  },
+  "extraction_notes": []
+}

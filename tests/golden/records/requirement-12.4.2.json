@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.4.2",
+  "pdf_pages": [
+    306
+  ],
+  "defined_requirement": "Additional requirement for service\nproviders only: Reviews are performed at least\nonce every three months to confirm that personnel\nare performing their tasks in accordance with all\nsecurity policies and operational procedures.\nReviews are performed by personnel other than\nthose responsible for performing the given task and\ninclude, but are not limited to, the following tasks:\n•   Daily log reviews.\n•   Configuration reviews for network security\ncontrols.\n•  Applying configuration standards to new\nsystems.\n•  Responding to security alerts.\n•  Change-management processes.",
+  "testing_procedures": "12.4.2.a Additional testing procedure for\nservice provider assessments only: Examine\npolicies and procedures to verify that processes\nare defined for conducting reviews to confirm that\npersonnel are performing their tasks in accordance\nwith all security policies and all operational\nprocedures, including but not limited to the tasks\nspecified in this requirement.\n12.4.2.b Additional testing procedure for\nservice provider assessments only: Interview\nresponsible personnel and examine records of\nreviews to verify that reviews are performed:\n•   At least once every three months.\n•  By personnel other than those responsible for\nperforming the given task.",
+  "customized_approach_objective": "The operational effectiveness of critical PCI DSS\ncontrols is verified periodically by manual inspection\nof records.",
+  "applicability_notes": "This requirement applies only when the entity being\nassessed is a service provider.",
+  "guidance": {
+    "purpose": "Regularly confirming that security policies and\nprocedures are being followed provides\nassurance that the expected controls are active\nand working as intended. This requirement is\ndistinct from other requirements that specify a\ntask to be performed. The objective of these\nreviews is not to reperform other PCI DSS\nrequirements, but to confirm that security\nactivities are being performed on an ongoing\nbasis.",
+    "good_practice": "These reviews can also be used to verify that\nappropriate evidence is being maintained—for\nexample, audit logs, vulnerability scan reports,\nreviews of network security control rulesets—to\nassist in the entity’s preparation for its next PCI\nDSS assessment.",
+    "examples": "Looking at Requirement 1.2.7 as one example,\nRequirement 12.4.2 is met by confirming, at least\nonce every three months, that reviews of\nconfigurations of network security controls have\noccurred at the required frequency. On the other\nhand, Requirement 1.2.7 is met by reviewing\nthose configurations as specified in the\nrequirement."
+  },
+  "extraction_notes": []
+}

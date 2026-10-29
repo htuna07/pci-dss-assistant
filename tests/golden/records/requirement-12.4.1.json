@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.4.1",
+  "pdf_pages": [
+    305
+  ],
+  "defined_requirement": "Additional requirement for service\nproviders only: Responsibility is established by\nexecutive management for the protection of\ncardholder data and a PCI DSS compliance\nprogram to include:\n•   Overall accountability for maintaining PCI DSS\ncompliance.\n•   Defining a charter for a PCI DSS compliance\nprogram and communication to executive\nmanagement.",
+  "testing_procedures": "12.4.1 Additional testing procedure for service\nprovider assessments only: Examine\ndocumentation to verify that executive\nmanagement has established responsibility for the\nprotection of cardholder data and a PCI DSS\ncompliance program in accordance with all\nelements specified in this requirement.",
+  "customized_approach_objective": "Executives are responsible and accountable for\nsecurity of cardholder data.",
+  "applicability_notes": "This requirement applies only when the entity being\nassessed is a service provider.\nExecutive management may include C-level\npositions, board of directors, or equivalent. The\nspecific titles will depend on the particular\norganizational structure.\nResponsibility for the PCI DSS compliance program\nmay be assigned to individual roles and/or to\nbusiness units within the organization.",
+  "guidance": {
+    "purpose": "Executive management assignment of PCI DSS\ncompliance responsibilities ensures executive-\nlevel visibility into the PCI DSS compliance\nprogram and allows for the opportunity to ask\nappropriate questions to determine the\neffectiveness of the program and influence\nstrategic priorities."
+  },
+  "extraction_notes": []
+}

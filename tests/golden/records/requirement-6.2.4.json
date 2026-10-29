@@ -1,0 +1,20 @@
+{
+  "record_type": "requirement",
+  "section_id": "6",
+  "document_version": "4.0.1",
+  "requirement_id": "6.2.4",
+  "pdf_pages": [
+    145,
+    146
+  ],
+  "defined_requirement": "Software engineering techniques or other\nmethods are defined and in use by software\ndevelopment personnel to prevent or mitigate\ncommon software attacks and related vulnerabilities\nin bespoke and custom software, including but not\nlimited to the following:\n•   Injection attacks, including SQL, LDAP, XPath,\nor other command, parameter, object, fault, or\ninjection-type flaws.\n•   Attacks on data and data structures, including\nattempts to manipulate buffers, pointers, input\ndata, or shared data.\n•   Attacks on cryptography usage, including\nattempts to exploit weak, insecure, or\ninappropriate cryptographic implementations,\nalgorithms, cipher suites, or modes of operation.\n•   Attacks on business logic, including attempts to\nabuse or bypass application features and\nfunctionalities through the manipulation of APIs,\ncommunication protocols and channels, client-\nside functionality, or other system/application\nfunctions and resources. This includes cross-site\nscripting (XSS) and cross-site request forgery\n(CSRF).\n•   Attacks on access control mechanisms,\nincluding attempts to bypass or abuse\nidentification, authentication, or authorization\nmechanisms, or attempts to exploit weaknesses\nin the implementation of such mechanisms.\n•   Attacks via any “high-risk” vulnerabilities\nidentified in the vulnerability identification\nprocess, as defined in Requirement 6.3.1.",
+  "testing_procedures": "6.2.4 Examine documented procedures and\ninterview responsible software development\npersonnel to verify that software engineering\ntechniques or other methods are defined and in\nuse by developers of bespoke and custom\nsoftware to prevent or mitigate all common\nsoftware attacks as specified in this requirement.",
+  "customized_approach_objective": "Bespoke and custom software cannot be exploited\nvia common attacks and related vulnerabilities.",
+  "applicability_notes": "This applies to all software developed for or by the\nentity for the entity’s own use. This includes both\nbespoke and custom software. This does not apply\nto third-party software.",
+  "guidance": {
+    "purpose": "Detecting or preventing common errors that result in\nvulnerable code as early as possible in the software\ndevelopment process lowers the probability that such\nerrors make it through to production and lead to a\ncompromise. Having formal engineering techniques\nand tools embedded in the development process will\ncatch these errors early. This philosophy is\nsometimes called “shifting security left.”",
+    "good_practice": "For both bespoke and custom software, the entity\nmust ensure that code is developed focusing on the\nprevention or mitigation of common software attacks,\nincluding:\n•  Attempts to exploit common coding vulnerabilities\n(bugs).\n•  Attempts to exploit software design flaws.\n•  Attempts to exploit implementation/configuration\nflaws.\n•  Enumeration attacks – automated attacks that are\nactively exploited in payments and abuse\nidentification, authentication, or authorization\nmechanisms. See the PCI Perspectives blog\narticle “Beware of Account Testing Attacks.”\nResearching and documenting software engineering\ntechniques or other methods helps to define how\nsoftware developers prevent or mitigate various\nsoftware attacks by features or countermeasures\nthey build into software. This might include\nidentification/authentication mechanisms, access\ncontrol, input validation routines, etc. Developers\nshould be familiar with different types of\nvulnerabilities and potential attacks and use\nmeasures to avoid potential attack vectors when\ndeveloping code.",
+    "examples": "Techniques include automated processes and\npractices that scan code early in the development\ncycle when code is checked in to confirm the\nvulnerabilities are not present."
+  },
+  "extraction_notes": []
+}

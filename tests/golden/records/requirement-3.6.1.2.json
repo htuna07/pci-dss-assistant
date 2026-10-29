@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "3",
+  "document_version": "4.0.1",
+  "requirement_id": "3.6.1.2",
+  "pdf_pages": [
+    103,
+    104
+  ],
+  "defined_requirement": "Secret and private keys used to protect\nstored account data are stored in one (or more) of\nthe following forms at all times:\n•  Encrypted with a key-encrypting key that is at\nleast as strong as the data-encrypting key, and\nthat is stored separately from the data-\nencrypting key.\n•   Within a secure cryptographic device (SCD),\nsuch as a hardware security module (HSM) or\nPTS-approved point-of-interaction device.\n•  As at least two full-length key components or\nkey shares, in accordance with an industry-\naccepted method.",
+  "testing_procedures": "3.6.1.2.a Examine documented procedures to\nverify it is defined that cryptographic keys used to\nencrypt/decrypt stored account data must exist\nonly in one (or more) of the forms specified in this\nrequirement.\n3.6.1.2.b Examine system configurations and key\nstorage locations to verify that cryptographic keys\nused to encrypt/decrypt stored account data exist\nin one (or more) of the forms specified in this\nrequirement.\n3.6.1.2.c Wherever key-encrypting keys are used,\nexamine system configurations and key storage\nlocations to verify:\n•  Key-encrypting keys are at least as strong as\nthe data-encrypting keys they protect.\n•  Key-encrypting keys are stored separately from\ndata-encrypting keys.",
+  "customized_approach_objective": "Secret and private keys are stored in a secure form\nthat prevents unauthorized retrieval or access.",
+  "applicability_notes": "It is not required that public keys be stored in one of\nthese forms.\nCryptographic keys stored as part of a key\nmanagement system (KMS) that employs SCDs are\nacceptable.\nA cryptographic key that is split into two parts does\nnot meet this requirement. Secret or private keys\nstored as key components or key shares must be\ngenerated via one of the following:\n•  Using an approved random number generator\nand within an SCD,\nOR\n•  According to ISO 19592 or equivalent industry\nstandard for generation of secret key shares.",
+  "guidance": {
+    "purpose": "Storing cryptographic keys securely prevents\nunauthorized or unnecessary access that could result in\nthe exposure of stored account data. Storing keys\nseparately means they are stored such that if the\nlocation of one key is compromised, the second key is\nnot also compromised.",
+    "good_practice": "Where data-encrypting keys are stored in an HSM, the\nHSM interaction channel should be protected to prevent\ninterception of encryption or decryption operations."
+  },
+  "extraction_notes": []
+}

@@ -1,0 +1,26 @@
+{
+  "document_version": "4.0.1",
+  "record_type": "requirement_introduction",
+  "requirement_id": "2",
+  "pdf_pages": [
+    65
+  ],
+  "title": "Apply Secure Configurations to All System Components",
+  "sections": [
+    {
+      "id": "2.1",
+      "title": "Processes and mechanisms for applying secure configurations to all system components are defined and understood."
+    },
+    {
+      "id": "2.2",
+      "title": "System components are configured and managed securely."
+    },
+    {
+      "id": "2.3",
+      "title": "Wireless environments are configured and managed securely."
+    }
+  ],
+  "overview": "Malicious individuals, both external and internal to an entity, often use default passwords and other vendor default settings to compromise\nsystems. These passwords and settings are well known and are easily determined via public information.\nApplying secure configurations to system components reduces the means available to an attacker to compromise the system. Changing default\npasswords, removing unnecessary software, functions, and accounts, and disabling or removing unnecessary services all help to reduce the\npotential attack surface.\nRefer to Appendix G for definitions of PCI DSS terms.",
+  "category_title": null,
+  "notes": []
+}

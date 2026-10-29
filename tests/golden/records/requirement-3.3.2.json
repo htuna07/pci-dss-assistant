@@ -1,0 +1,20 @@
+{
+  "record_type": "requirement",
+  "section_id": "3",
+  "document_version": "4.0.1",
+  "requirement_id": "3.3.2",
+  "pdf_pages": [
+    87,
+    88
+  ],
+  "defined_requirement": "SAD that is stored electronically prior to completion\nof authorization is encrypted using strong cryptography.",
+  "testing_procedures": "3.3.2 Examine data stores, system configurations,\nand/or vendor documentation to verify that all SAD\nthat is stored electronically prior to completion of\nauthorization is encrypted using strong\ncryptography.",
+  "customized_approach_objective": "This requirement is not eligible for the customized\napproach.",
+  "applicability_notes": "Whether SAD is permitted to be stored prior to\nauthorization is determined by the organizations that\nmanage compliance programs (for example, payment\nbrands and acquirers). Contact these organizations for\nany additional criteria.\nThis requirement applies to all storage of SAD, even if\nno PAN is present in the environment.\nRefer to Requirement 3.2.1 for an additional requirement\nthat applies if SAD is stored prior to completion of\nauthorization.\nIssuers and companies that support issuing services,\nwhere there is a legitimate and documented business\nneed to store SAD, are not required to meet this\nrequirement. A legitimate business need is one that is\nnecessary for the performance of the function being\nprovided by or for the issuer.\nRefer to Requirement 3.3.3 for requirements specifically\nfor these entities.\nThis requirement does not replace how PIN blocks are\nrequired to be managed, nor does it mean that a\nproperly encrypted PIN block needs to be encrypted\nagain.\nThis requirement is a best practice until 31 March 2025,\nafter which it will be required and must be fully\nconsidered during a PCI DSS assessment.",
+  "guidance": {
+    "purpose": "SAD can be used by malicious individuals to increase\nthe probability of successfully generating counterfeit\npayment cards and creating fraudulent transactions.",
+    "good_practice": "Entities should consider encrypting SAD with a different\ncryptographic key than is used to encrypt PAN. Note\nthat this does not mean that PAN present in SAD (as\npart of track data) would need to be separately\nencrypted.",
+    "definitions": "The authorization process is completed when a\nmerchant receives a transaction response (for example,\nan approval or decline) .\nRefer to Appendix G for the definition of “authorization.”"
+  },
+  "extraction_notes": []
+}

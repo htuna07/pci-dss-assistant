@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "8",
+  "document_version": "4.0.1",
+  "requirement_id": "8.3.1",
+  "pdf_pages": [
+    190
+  ],
+  "defined_requirement": "All user access to system components for\nusers and administrators is authenticated via at\nleast one of the following authentication factors:\n•  Something you know, such as a password or\npassphrase.\n•  Something you have, such as a token device or\nsmart card.\n•  Something you are, such as a biometric\nelement.",
+  "testing_procedures": "8.3.1.a Examine documentation describing the\nauthentication factor(s) used to verify that user\naccess to system components is authenticated via\nat least one authentication factor specified in this\nrequirement.\n8.3.1.b For each type of authentication factor used\nwith each type of system component, observe an\nauthentication to verify that authentication is\nfunctioning consistently with documented\nauthentication factor(s).",
+  "customized_approach_objective": "An account cannot be accessed except with a\ncombination of user identity and an authentication\nfactor.",
+  "applicability_notes": "This requirement is not intended to apply to user\naccounts on point-of-sale terminals that have\naccess to only one card number at a time to\nfacilitate a single transaction.\nThis requirement does not supersede multi-factor\nauthentication (MFA) requirements but applies to\nthose in-scope systems not otherwise subject to\nMFA requirements.\nA digital certificate is a valid option for “something\nyou have” if it is unique for a particular user.",
+  "guidance": {
+    "purpose": "When used in addition to unique IDs, an\nauthentication factor helps protect user IDs from\nbeing compromised, since the attacker needs to\nhave the unique ID and compromise the\nassociated authentication factor(s).",
+    "good_practice": "A common approach for a malicious individual to\ncompromise a system is to exploit weak or\nnonexistent authentication factors (for example,\npasswords/passphrases). Requiring strong\nauthentication factors helps protect against this\nattack.",
+    "further_information": "See fidoalliance.org for more information about\nusing tokens, smart cards, or biometrics as\nauthentication factors."
+  },
+  "extraction_notes": []
+}

@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "9",
+  "document_version": "4.0.1",
+  "requirement_id": "9.4.4",
+  "pdf_pages": [
+    228
+  ],
+  "defined_requirement": "Management approves all media with\ncardholder data that is moved outside the facility\n(including when media is distributed to individuals).",
+  "testing_procedures": "9.4.4.a Examine documentation to verify that\nprocedures are defined to ensure that media\nmoved outside the facility is approved by\nmanagement.\n9.4.4.b Examine offsite media tracking logs and\ninterview responsible personnel to verify that\nproper management authorization is obtained for\nall media moved outside the facility (including\nmedia distributed to individuals).",
+  "customized_approach_objective": "Media cannot leave a facility without the approval of\naccountable personnel.",
+  "applicability_notes": "Individuals approving media movements should\nhave the appropriate level of management authority\nto grant this approval. However, it is not specifically\nrequired that such individuals have “manager” as\npart of their title.",
+  "guidance": {
+    "purpose": "Without a firm process for ensuring that all media\nmovements are approved before the media is\nremoved from secure areas, the media would not\nbe tracked or appropriately protected, and its\nlocation would be unknown, leading to lost or\nstolen media."
+  },
+  "extraction_notes": []
+}

@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "10",
+  "document_version": "4.0.1",
+  "requirement_id": "10.7.2",
+  "pdf_pages": [
+    261
+  ],
+  "defined_requirement": "Failures of critical security control systems\nare detected, alerted, and addressed promptly,\nincluding but not limited to failure of the following\ncritical security control systems:\n•  Network security controls.\n•  IDS/IPS.\n•  Change-detection mechanisms.\n•  Anti-malware solutions.\n•   Physical access controls.\n•   Logical access controls.\n•   Audit logging mechanisms.\n•  Segmentation controls (if used).\n•   Audit log review mechanisms.\n•  Automated security testing tools (if used).",
+  "testing_procedures": "10.7.2.a Examine documentation to verify that\nprocesses are defined for the prompt detection and\naddressing of failures of critical security control\nsystems, including but not limited to failure of all\nelements specified in this requirement.\n10.7.2.b Observe detection and alerting processes\nand interview personnel to verify that failures of\ncritical security control systems are detected and\nreported, and that failure of a critical security\ncontrol results in the generation of an alert.",
+  "customized_approach_objective": "Failures in critical security control systems are\npromptly identified and addressed.",
+  "applicability_notes": "This requirement applies to all entities, including\nservice providers, and will supersede Requirement\n10.7.1 as of 31 March 2025. It includes two\nadditional critical security control systems not in\nRequirement 10.7.1.\nThis requirement is a best practice until 31 March\n2025, after which it will be required and must be\nfully considered during a PCI DSS assessment.",
+  "guidance": {
+    "purpose": "Without formal processes to detect and alert\nwhen critical security controls fail, failures may go\nundetected for extended periods and provide\nattackers ample time to compromise system\ncomponents and steal account data from the\nCDE.",
+    "good_practice": "The specific types of failures may vary, depending\non the function of the device system component\nand technology in use. However, typical failures\ninclude a system no longer performing its security\nfunction or not functioning in its intended\nmanner—for example, a firewall erasing its rules\nor going offline."
+  },
+  "extraction_notes": []
+}

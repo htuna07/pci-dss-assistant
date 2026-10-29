@@ -1,0 +1,20 @@
+{
+  "record_type": "requirement",
+  "section_id": "1",
+  "document_version": "4.0.1",
+  "requirement_id": "1.5.1",
+  "pdf_pages": [
+    63,
+    64
+  ],
+  "defined_requirement": "Security controls are implemented on any\ncomputing devices, including company- and\nemployee-owned devices, that connect to both\nuntrusted networks (including the Internet) and the\nCDE as follows:\n•   Specific configuration settings are defined to\nprevent threats being introduced into the\nentity’s network.\n•   Security controls are actively running.\n•   Security controls are not alterable by users of\nthe computing devices unless specifically\ndocumented and authorized by management on\na case-by-case basis for a limited period.",
+  "testing_procedures": "1.5.1.a Examine policies and configuration\nstandards and interview personnel to verify\nsecurity controls for computing devices that\nconnect to both untrusted networks, and the CDE,\nare implemented in accordance with all elements\nspecified in this requirement.\n1.5.1.b Examine configuration settings on\ncomputing devices that connect to both untrusted\nnetworks and the CDE to verify settings are\nimplemented in accordance with all elements\nspecified in this requirement.",
+  "customized_approach_objective": "Devices that connect to untrusted environments and\nalso connect to the CDE cannot introduce threats to\nthe entity’s CDE.",
+  "applicability_notes": "These security controls may be temporarily disabled\nonly if there is legitimate technical need, as\nauthorized by management on a case-by-case\nbasis. If these security controls need to be disabled\nfor a specific purpose, it must be formally\nauthorized. Additional security measures may also\nneed to be implemented for the period during which\nthese security controls are not active.\nThis requirement applies to employee-owned and\ncompany-owned computing devices. Systems that\ncannot be managed by corporate policy introduce\nweaknesses and provide opportunities that\nmalicious individuals may exploit.",
+  "guidance": {
+    "purpose": "Computing devices that are allowed to connect to\nthe Internet from outside the corporate\nenvironment—for example, desktops, laptops,\ntablets, smartphones, and other mobile computing\ndevices used by employees—are more vulnerable\nto Internet-based threats.\nUse of security controls such as host-based\ncontrols (for example, personal firewall software\nor end-point protection solutions), network-based\nsecurity controls (for example, firewalls, network-\nbased heuristics inspection, and malware\nsimulation), or hardware, helps to protect devices\nfrom Internet-based attacks, which could use the\ndevice to gain access to the organization’s\nsystems and data when the device reconnects to\nthe network.",
+    "good_practice": "The specific configuration settings are determined\nby the entity and should be consistent with its\nnetwork security policies and procedures.\nWhere there is a legitimate need to temporarily\ndisable security controls on a company-owned or\nemployee-owned device that connects to both an\nuntrusted network and the CDE—for example, to\nsupport a specific maintenance activity or\ninvestigation of a technical problem—the reason\nfor taking such action is understood and approved\nby an appropriate management representative.\nAny disabling or altering of these security\ncontrols, including on administrators’ own\ndevices, is performed by authorized personnel.\nIt is recognized that administrators have privileges\nthat may allow them to disable security controls\non their own computers, but there should be\nalerting mechanisms in place when such controls\nare disabled and follow up that occurs to ensure\nprocesses were followed.",
+    "examples": "Practices include forbidding split-tunneling of\nVPNs for employee-owned or corporate-owned\nmobile devices and requiring that such devices\nboot up into a VPN."
+  },
+  "extraction_notes": []
+}

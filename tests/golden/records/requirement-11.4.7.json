@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "11",
+  "document_version": "4.0.1",
+  "requirement_id": "11.4.7",
+  "pdf_pages": [
+    285,
+    286
+  ],
+  "defined_requirement": "Additional requirement for multi-tenant\nservice providers only: Multi-tenant service\nproviders support their customers for external\npenetration testing per Requirement 11.4.3 and\n11.4.4.",
+  "testing_procedures": "11.4.7 Additional testing procedure for multi-\ntenant service providers only: Examine evidence\nto verify that multi-tenant service providers support\ntheir customers for external penetration testing per\nRequirement 11.4.3 and 11.4.4.",
+  "customized_approach_objective": "Multi-tenant service providers support their\ncustomers’ need for technical testing either by\nproviding access or evidence that comparable\ntechnical testing has been undertaken.",
+  "applicability_notes": "This requirement applies only when the entity being\nassessed is a multi-tenant service provider.\nTo meet this requirement, a multi-tenant service\nprovider may either:\n•  Provide evidence to its customers to show that\npenetration testing has been performed\naccording to Requirements 11.4.3 and 11.4.4 on\nthe customers’ subscribed infrastructure, or\n•  Provide prompt access to each of its customers,\nso customers can perform their own penetration\ntesting.\nEvidence provided to customers can include\nredacted penetration testing results but needs to\ninclude sufficient information to prove that all\nelements of Requirements 11.4.3 and 11.4.4 have\nbeen met on the customer’s behalf.\nRefer also to Appendix A1: Additional PCI DSS\nRequirements for Multi-Tenant Service Providers.\nThis requirement is a best practice until 31 March\n2025, after which it will be required and must be\nfully considered during a PCI DSS assessment.",
+  "guidance": {
+    "purpose": "Entities need to conduct penetration tests in\naccordance with PCI DSS to simulate attacker\nbehavior and discover vulnerabilities in their\nenvironment. In shared and cloud environments,\nthe multi-tenant service provider may be\nconcerned about the activities of a penetration\ntester affecting other customers’ systems.\nMulti-tenant service providers cannot forbid\npenetration testing because this would leave their\ncustomers’ systems open to exploitation.\nTherefore, multi-tenant service providers must\nsupport customer requests to conduct penetration\ntesting or for penetration testing results."
+  },
+  "extraction_notes": []
+}

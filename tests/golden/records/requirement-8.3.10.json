@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "8",
+  "document_version": "4.0.1",
+  "requirement_id": "8.3.10",
+  "pdf_pages": [
+    199
+  ],
+  "defined_requirement": "Additional requirement for service\nproviders only: If passwords/passphrases are\nused as the only authentication factor for customer\nuser access to cardholder data (i.e., in any single-\nfactor authentication implementation), then\nguidance is provided to customer users including:\n•  Guidance for customers to change their user\npasswords/passphrases periodically.\n•  Guidance as to when, and under what\ncircumstances, passwords/passphrases are to\nbe changed.",
+  "testing_procedures": "8.3.10 Additional testing procedure for service\nprovider assessments only: If\npasswords/passphrases are used as the only\nauthentication factor for customer user access to\ncardholder data, examine guidance provided to\ncustomer users to verify that the guidance includes\nall elements specified in this requirement.",
+  "customized_approach_objective": "Passwords/passphrases for service providers’\ncustomers cannot be used indefinitely.",
+  "applicability_notes": "This requirement applies only when the entity being\nassessed is a service provider.\nThis requirement does not apply to accounts of\nconsumer users accessing their own payment card\ninformation.\nThis requirement for service providers will be\nsuperseded by Requirement 8.3.10.1 once 8.3.10.1\nbecomes effective.",
+  "guidance": {
+    "purpose": "Using a password/passphrase as the only\nauthentication factor provides a single point of\nfailure if compromised. Therefore, in these\nimplementations, controls are needed to minimize\nhow long malicious activity could occur via a\ncompromised password/passphrase.",
+    "good_practice": "Passwords/passphrases that are valid for a long\ntime without a change provide malicious\nindividuals with more time to break the\npassword/phrase. Periodically changing\npasswords offers less time for a malicious\nindividual to crack a password/passphrase and\nless time to use a compromised password."
+  },
+  "extraction_notes": []
+}

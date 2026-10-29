@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "9",
+  "document_version": "4.0.1",
+  "requirement_id": "9.3.4",
+  "pdf_pages": [
+    224
+  ],
+  "defined_requirement": "Visitor logs are used to maintain a physical\nrecord of visitor activity both within the facility and\nwithin sensitive areas, including:\n•  The visitor’s name and the organization\nrepresented.\n•  The date and time of the visit.\n•  The name of the personnel authorizing physical\naccess.\n•   Retaining the log for at least three months,\nunless otherwise restricted by law.",
+  "testing_procedures": "9.3.4.a Examine the visitor logs and interview\nresponsible personnel to verify that visitor logs are\nused to record physical access to both the facility\nand sensitive areas.\n9.3.4.b Examine the visitor logs and verify that the\nlogs contain:\n•  The visitor’s name and the organization\nrepresented.\n•  The personnel authorizing physical access.\n•  Date and time of visit.\n9.3.4.c Examine visitor log storage locations and\ninterview responsible personnel to verify that the\nlog is retained for at least three months, unless\notherwise restricted by law.",
+  "customized_approach_objective": "Records of visitor access that enable the\nidentification of individuals are maintained.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "A visitor log documenting minimum information\nabout the visitor is easy and inexpensive to\nmaintain. It will assist in identifying historical\nphysical access to a building or room and\npotential access to cardholder data.",
+    "good_practice": "When logging the date and time of visit, including\nboth in and out times is considered a best\npractice, since it provides helpful tracking\ninformation and provides assurance that a visitor\nhas left at the end of the day. It is also good to\nverify that a visitor’s ID (driver’s license, etc.)\nmatches the name they put on the visitor log."
+  },
+  "extraction_notes": []
+}

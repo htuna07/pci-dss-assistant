@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "9",
+  "document_version": "4.0.1",
+  "requirement_id": "9.5.1.2.1",
+  "pdf_pages": [
+    237
+  ],
+  "defined_requirement": "The frequency of periodic POI device\ninspections and the type of inspections performed is\ndefined in the entity’s targeted risk analysis, which is\nperformed according to all elements specified in\nRequirement 12.3.1.",
+  "testing_procedures": "9.5.1.2.1.a Examine the entity’s targeted risk\nanalysis for the frequency of periodic POI device\ninspections and type of inspections performed to\nverify the risk analysis was performed in\naccordance with all elements specified in\nRequirement 12.3.1.\n9.5.1.2.1.b Examine documented results of\nperiodic device inspections and interview\npersonnel to verify that the frequency and type of\nPOI device inspections performed match what is\ndefined in the entity’s targeted risk analysis\nconducted for this requirement.",
+  "customized_approach_objective": "POI devices are inspected at a frequency that\naddresses the entity’s risk.",
+  "applicability_notes": "This requirement is a best practice until 31 March\n2025, after which it will be required and must be\nfully considered during a PCI DSS assessment.",
+  "guidance": {
+    "purpose": "Entities are best placed to determine the\nfrequency of POI device inspections based on the\nenvironment in which the device operates.",
+    "good_practice": "The frequency of inspections will depend on\nfactors such as the location of a device and\nwhether the device is attended or unattended. For\nexample, devices left in public areas without\nsupervision by the organization’s personnel might\nhave more frequent inspections than devices kept\nin secure areas or supervised when accessible to\nthe public. In addition, many POI vendors include\nguidance in their user documentation about how\noften POI devices should be checked, and for\nwhat – entities should consult their vendors’\ndocumentation and incorporate those\nrecommendations into their periodic inspections."
+  },
+  "extraction_notes": []
+}

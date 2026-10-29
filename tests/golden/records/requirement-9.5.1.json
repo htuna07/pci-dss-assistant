@@ -1,0 +1,20 @@
+{
+  "record_type": "requirement",
+  "section_id": "9",
+  "document_version": "4.0.1",
+  "requirement_id": "9.5.1",
+  "pdf_pages": [
+    232,
+    233
+  ],
+  "defined_requirement": "POI devices that capture payment card data\nvia direct physical interaction with the payment card\nform factor are protected from tampering and\nunauthorized substitution, including the following:\n•   Maintaining a list of POI devices.\n•   Periodically inspecting POI devices to look for\ntampering or unauthorized substitution.\n•   Training personnel to be aware of suspicious\nbehavior and to report tampering or\nunauthorized substitution of devices.",
+  "testing_procedures": "9.5.1 Examine documented policies and\nprocedures to verify that processes are defined\nthat include all elements specified in this\nrequirement.",
+  "customized_approach_objective": "The entity has defined procedures to protect and\nmanage point-of-interaction devices. Expectations,\ncontrols, and oversight for the management and\nprotection of POI devices are defined and adhered\nto by affected personnel.",
+  "applicability_notes": "These requirements apply to deployed POI devices\nused in card-present transactions (that is, a\npayment card form factor such as a card that is\nswiped, tapped, or dipped).\nThese requirements do not apply to:\n•  Components used only for manual PAN key\nentry.\n•  Commercial off-the-shelf (COTS) devices (for\nexample, smartphones or tablets), which are\nmobile merchant-owned devices designed for\nmass-market distribution.",
+  "guidance": {
+    "purpose": "Criminals attempt to steal payment card data by\nstealing and/or manipulating card-reading devices\nand terminals. Criminals will try to steal devices\nso they can learn how to break into them, and\nthey often try to replace legitimate devices with\nfraudulent devices that send them payment card\ndata every time a card is entered.\nThey will also try to add “skimming” components\nto the outside of devices, which are designed to\ncapture payment card data before it enters the\ndevice—for example, by attaching an additional\ncard reader on top of the legitimate card reader\nso that the payment card data is captured twice:\nonce by the criminal’s component and then by the\ndevice’s legitimate component. In this way,\ntransactions may still be completed without\ninterruption while the criminal is “skimming” the\npayment card data during the process.",
+    "good_practice": "Entities may consider implementing protection\nfrom tampering and unauthorized substitution for:\n•  Components used only for manual PAN key\nentry.\n•  Commercial off-the-shelf (COTS) devices (for\nexample, smartphones or tablets), which are\nmobile merchant-owned devices designed for\nmass-market distribution.",
+    "further_information": "Additional best practices on skimming prevention\nare available on the PCI SSC website."
+  },
+  "extraction_notes": []
+}

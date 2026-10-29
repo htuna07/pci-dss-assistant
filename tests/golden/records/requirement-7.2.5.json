@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "7",
+  "document_version": "4.0.1",
+  "requirement_id": "7.2.5",
+  "pdf_pages": [
+    173
+  ],
+  "defined_requirement": "All application and system accounts and\nrelated access privileges are assigned and\nmanaged as follows:\n•  Based on the least privileges necessary for the\noperability of the system or application.\n•  Access is limited to the systems, applications, or\nprocesses that specifically require their use.",
+  "testing_procedures": "7.2.5.a Examine policies and procedures to verify\nthey define processes to manage and assign\napplication and system accounts and related\naccess privileges in accordance with all elements\nspecified in this requirement.\n7.2.5.b Examine privileges associated with system\nand application accounts and interview responsible\npersonnel to verify that application and system\naccounts and related access privileges are\nassigned and managed in accordance with all\nelements specified in this requirement.",
+  "customized_approach_objective": "Access rights granted to application and system\naccounts are limited to only the access needed for\nthe operability of that application or system.",
+  "applicability_notes": "This requirement is a best practice until 31 March\n2025, after which it will be required and must be\nfully considered during a PCI DSS assessment.",
+  "guidance": {
+    "purpose": "It is important to establish the appropriate access\nlevel for application or system accounts. If such\naccounts are compromised, malicious users will\nreceive the same access level as that granted to\nthe application or system. Therefore, it is\nimportant to ensure limited access is granted to\nsystem and application accounts on the same\nbasis as to user accounts.",
+    "good_practice": "Entities may want to consider establishing a\nbaseline when setting up these application and\nsystem accounts including the following as\napplicable to the organization:\n•  Making sure that the account is not a member\nof a privileged group such as domain\nadministrators, local administrators, or root.\n•   Restricting which computers the account can\nbe used on.\n•   Restricting hours of use.\n•  Removing any additional settings like VPN\naccess and remote access."
+  },
+  "extraction_notes": []
+}

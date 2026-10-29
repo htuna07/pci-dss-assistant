@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "3",
+  "document_version": "4.0.1",
+  "requirement_id": "3.3.1.3",
+  "pdf_pages": [
+    86
+  ],
+  "defined_requirement": "The personal identification number (PIN) and the\nPIN block are not stored upon completion of the\nauthorization process.",
+  "testing_procedures": "3.3.1.3 Examine data sources, to verify that PINs\nand PIN blocks are not stored upon completion of\nthe authorization process.",
+  "customized_approach_objective": "This requirement is not eligible for the customized\napproach.",
+  "applicability_notes": "PIN blocks are encrypted during the natural course of\ntransaction processes, but even if an entity encrypts the\nPIN block again, it is still not allowed to be stored after\nthe completion of the authorization process.",
+  "guidance": {
+    "purpose": "PIN and PIN blocks should be known only to the card\nowner or entity that issued the card. If this data is\nstolen, malicious individuals can execute fraudulent\nPIN-based transactions (for example, in-store\npurchases and ATM withdrawals). Not storing this data\nreduces the probability of it being compromised.",
+    "examples": "Data sources to review to ensure that PIN and PIN\nblocks are not retained upon completion of the\nauthorization process include, but are not limited to:\n•  Incoming transaction data.\n•   All logs (for example, transaction, history,\ndebugging, error).\n•   History files.\n•  Trace files.\n•  Database schemas.\n•  Contents of databases, and on-premise and cloud\ndata stores.\n•  Any existing memory/crash dump files."
+  },
+  "extraction_notes": []
+}

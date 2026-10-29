@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "8",
+  "document_version": "4.0.1",
+  "requirement_id": "8.4.3",
+  "pdf_pages": [
+    206,
+    207
+  ],
+  "defined_requirement": "MFA is implemented for all remote access\noriginating from outside the entity’s network that\ncould access or impact the CDE.",
+  "testing_procedures": "8.4.3.a Examine network and/or system\nconfigurations for remote access servers and\nsystems to verify MFA is required in accordance\nwith all elements specified in this requirement.\n8.4.3.b Observe personnel (for example, users and\nadministrators) and third parties connecting\nremotely to the network and verify that multi-factor\nauthentication is required.",
+  "customized_approach_objective": "Remote access to the entity’s network cannot be\nobtained by using a single authentication factor.",
+  "applicability_notes": "The requirement for MFA for remote access\noriginating from outside the entity’s network applies\nto all user accounts that can access the network\nremotely, where that remote access leads to or\ncould lead to access into the CDE. This includes all\nremote access by personnel (users and\nadministrators), and third parties (including, but not\nlimited to, vendors, suppliers, service providers, and\ncustomers).\nIf remote access is to a part of the entity’s network\nthat is properly segmented from the CDE, such that\nremote users cannot access or impact the CDE,\nMFA for remote access to that part of the network is\nnot required. However, MFA is required for any\nremote access to networks with access to the CDE\nand is recommended for all remote access to the\nentity’s networks.\nThe MFA requirements apply for all types of system\ncomponents, including cloud, hosted systems, and\non-premises applications, network security devices,\nworkstations, servers, and endpoints, and includes\naccess directly to an entity’s networks or systems as\nwell as web-based access to an application or\nfunction.",
+  "guidance": {
+    "purpose": "Requiring more than one type of authentication\nfactor reduces the probability that an attacker can\ngain access to a system by masquerading as a\nlegitimate user, because the attacker would need\nto compromise multiple authentication factors.\nThis is especially true in environments where\ntraditionally the single authentication factor\nemployed was something a user knows, such as\na password or passphrase.",
+    "definitions": "Multi-factor authentication (MFA) requires an\nindividual to present a minimum of two of the\nthree authentication factors specified in\nRequirement 8.3.1 before access is granted.\nUsing one factor twice (for example, using two\nseparate passwords) is not considered multi-\nfactor authentication."
+  },
+  "extraction_notes": []
+}

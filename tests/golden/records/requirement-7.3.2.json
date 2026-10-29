@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "7",
+  "document_version": "4.0.1",
+  "requirement_id": "7.3.2",
+  "pdf_pages": [
+    176
+  ],
+  "defined_requirement": "The access control system(s) is configured to\nenforce permissions assigned to individuals,\napplications, and systems based on job\nclassification and function.",
+  "testing_procedures": "7.3.2 Examine vendor documentation and system\nsettings to verify that the access control system(s)\nis configured to enforce permissions assigned to\nindividuals, applications, and systems based on job\nclassification and function.",
+  "customized_approach_objective": "Individual account access rights and privileges to\nsystems, applications, and data are only inherited\nfrom group membership.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Restricting privileged access with an access\ncontrol system reduces the opportunity for errors\nin the assignment of permissions to individuals,\napplications, and systems."
+  },
+  "extraction_notes": []
+}

@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "11",
+  "document_version": "4.0.1",
+  "requirement_id": "11.3.1.2",
+  "pdf_pages": [
+    273
+  ],
+  "defined_requirement": "Internal vulnerability scans are performed\nvia authenticated scanning as follows:\n•  Systems that are unable to accept credentials\nfor authenticated scanning are documented.\n•   Sufficient privileges are used for those systems\nthat accept credentials for scanning.\n•    If accounts used for authenticated scanning can\nbe used for interactive login, they are managed\nin accordance with Requirement 8.2.2.",
+  "testing_procedures": "11.3.1.2.a Examine scan tool configurations to\nverify that authenticated scanning is used for\ninternal scans, with sufficient privileges, for those\nsystems that accept credentials for scanning.\n11.3.1.2.b Examine scan report results and\ninterview personnel to verify that authenticated\nscans are performed.\n11.3.1.2.c If accounts used for authenticated\nscanning can be used for interactive login,\nexamine the accounts and interview personnel to\nverify the accounts are managed following all\nelements specified in Requirement 8.2.2.\n11.3.1.2.d Examine documentation to verify that\nsystems that are unable to accept credentials for\nauthenticated scanning are defined.",
+  "customized_approach_objective": "Automated tools used to detect vulnerabilities can\ndetect vulnerabilities local to each system, which\nare not visible remotely.",
+  "applicability_notes": "The authenticated scanning tools can be either\nhost-based or network-based.\n“Sufficient” privileges are those needed to access\nsystem resources such that a thorough scan can be\nconducted that detects known vulnerabilities.\nThis requirement does not apply to system\ncomponents that cannot accept credentials for\nscanning. Examples of systems that may not accept\ncredentials for scanning include some network and\nsecurity appliances, mainframes, and containers.\nThis requirement is a best practice until 31 March\n2025, after which it will be required and must be\nfully considered during a PCI DSS assessment.",
+  "guidance": {
+    "purpose": "Authenticated scanning provides greater insight\ninto an entity’s vulnerability landscape since it can\ndetect vulnerabilities that unauthenticated scans\ncannot detect. Attackers may leverage\nvulnerabilities that an entity is unaware of\nbecause certain vulnerabilities will only be\ndetected with authenticated scanning.\nAuthenticated scanning can yield significant\nadditional information about an organization’s\nvulnerabilities.",
+    "good_practice": "The credentials used for these scans should be\nconsidered highly privileged. They should be\nprotected and controlled as such, following PCI\nDSS Requirements 7 and 8 (except for those\nrequirements for multi-factor authentication and\napplication and system accounts)."
+  },
+  "extraction_notes": []
+}

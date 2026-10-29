@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.7.1",
+  "pdf_pages": [
+    318
+  ],
+  "defined_requirement": "Potential personnel who will have access to\nthe CDE are screened, within the constraints of\nlocal laws, prior to hire to minimize the risk of\nattacks from internal sources.",
+  "testing_procedures": "12.7.1 Interview responsible Human Resource\ndepartment management to verify that screening is\nconducted, within the constraints of local laws,\nprior to hiring potential personnel who will have\naccess to the CDE.",
+  "customized_approach_objective": "The risk related to allowing new members of staff\naccess to the CDE is understood and managed.",
+  "applicability_notes": "For those potential personnel to be hired for\npositions such as store cashiers, who only have\naccess to one card number at a time when\nfacilitating a transaction, this requirement is a\nrecommendation only.",
+  "guidance": {
+    "purpose": "Performing thorough screening prior to hiring\npotential personnel who are expected to be given\naccess to the CDE provides entities with the\ninformation necessary to make informed risk\ndecisions regarding personnel they hire that will\nhave access to the CDE.\nOther benefits of screening potential personnel\ninclude helping to ensure workplace safety and\nconfirming information provided by prospective\nemployees on their resumes.",
+    "good_practice": "Entities should consider screening for existing\npersonnel anytime they transfer into roles where\nthey have access to the CDE from roles where\nthey did not have this access.\nTo be effective, the level of screening should be\nappropriate for the position. For example,\npositions requiring greater responsibility or that\nhave administrative access to critical data or\nsystems may warrant more detailed or more\nfrequent screening than positions with less\nresponsibility and access.",
+    "examples": "Screening options can include, as appropriate for\nthe entity’s region, previous employment history,\nreview of public information/social media\nresources, criminal record, credit history, and\nreference checks."
+  },
+  "extraction_notes": []
+}

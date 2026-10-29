@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "9",
+  "document_version": "4.0.1",
+  "requirement_id": "9.2.3",
+  "pdf_pages": [
+    219
+  ],
+  "defined_requirement": "Physical access to wireless access points,\ngateways, networking/communications hardware,\nand telecommunication lines within the facility is\nrestricted.",
+  "testing_procedures": "9.2.3 Interview responsible personnel and observe\nlocations of hardware and lines to verify that\nphysical access to wireless access points,\ngateways, networking/communications hardware,\nand telecommunication lines within the facility is\nrestricted.",
+  "customized_approach_objective": "Physical networking equipment cannot be accessed\nby unauthorized personnel.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Without appropriate physical security over access\nto wireless components and devices, and\ncomputer networking and telecommunications\nequipment and lines, malicious users could gain\naccess to the entity’s network resources.\nAdditionally, they could connect their own devices\nto the network to gain unauthorized access to the\nCDE or systems connected to the CDE.\nAdditionally, securing networking and\ncommunications hardware prevents malicious\nusers from intercepting network traffic or\nphysically connecting their own devices to wired\nnetwork resources."
+  },
+  "extraction_notes": []
+}

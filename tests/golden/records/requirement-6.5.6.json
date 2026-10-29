@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "6",
+  "document_version": "4.0.1",
+  "requirement_id": "6.5.6",
+  "pdf_pages": [
+    164
+  ],
+  "defined_requirement": "Test data and test accounts are removed from\nsystem components before the system goes into\nproduction.",
+  "testing_procedures": "6.5.6.a Examine policies and procedures to verify\nthat processes are defined for removal of test data\nand test accounts from system components before\nthe system goes into production.\n6.5.6.b Observe testing processes for both off-the-\nshelf software and in-house applications, and\ninterview personnel to verify test data and test\naccounts are removed before a system goes into\nproduction.\n6.5.6.c Examine data and accounts for recently\ninstalled or updated off-the-shelf software and in-\nhouse applications to verify there is no test data or\ntest accounts on systems in production.",
+  "customized_approach_objective": "Test data and test accounts cannot exist in\nproduction environments.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "This data may give away information about the\nfunctioning of an application or system and is an\neasy target for unauthorized individuals to exploit to\ngain access to systems. Possession of such\ninformation could facilitate compromise of the system\nand related account data."
+  },
+  "extraction_notes": []
+}

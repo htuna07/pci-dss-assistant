@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "4",
+  "document_version": "4.0.1",
+  "requirement_id": "4.2.1.2",
+  "pdf_pages": [
+    121
+  ],
+  "defined_requirement": "Wireless networks transmitting PAN or\nconnected to the CDE use industry best practices to\nimplement strong cryptography for authentication\nand transmission.",
+  "testing_procedures": "4.2.1.2 Examine system configurations to verify\nthat wireless networks transmitting PAN or\nconnected to the CDE use industry best practices\nto implement strong cryptography for\nauthentication and transmission.",
+  "customized_approach_objective": "Cleartext PAN cannot be read or intercepted from\nwireless network transmissions.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Since wireless networks do not require physical\nmedia to connect, it is important to establish\ncontrols limiting who can connect and what\ntransmission protocols will be used. Malicious\nusers use free and widely available tools to\neavesdrop on wireless communications. Use of\nstrong cryptography can help limit disclosure of\nsensitive information across wireless networks.\nWireless networks present unique risks to an\norganization; therefore, they must be identified\nand protected according to industry requirements.\nStrong cryptography for authentication and\ntransmission of PAN is required to prevent\nmalicious users from gaining access to the\nwireless network or utilizing wireless networks to\naccess other internal networks or data.",
+    "good_practice": "Wireless networks should not permit fallback or\ndowngrade to an insecure protocol or lower\nencryption strength that does not meet the intent\nof strong cryptography.",
+    "further_information": "Review the vendor’s specific documentation for\nmore details on the choice of protocols,\nconfigurations, and settings related to\ncryptography."
+  },
+  "extraction_notes": []
+}

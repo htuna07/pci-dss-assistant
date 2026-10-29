@@ -1,0 +1,21 @@
+{
+  "record_type": "requirement",
+  "section_id": "3",
+  "document_version": "4.0.1",
+  "requirement_id": "3.4.1",
+  "pdf_pages": [
+    91,
+    92
+  ],
+  "defined_requirement": "PAN is masked when displayed (the BIN and last\nfour digits are the maximum number of digits to be\ndisplayed), such that only personnel with a legitimate\nbusiness need can see more than the BIN and last four\ndigits of the PAN.",
+  "testing_procedures": "3.4.1.a Examine documented policies and\nprocedures for masking the display of PANs to\nverify:\n•  A list of roles that need access to more than\nthe BIN and last four digits of the PAN\n(includes full PAN) is documented, together\nwith a legitimate business need for each role\nto have such access.\n•  PAN is masked when displayed such that only\npersonnel with a legitimate business need can\nsee more than the BIN and last four digits of\nthe PAN.\n•   All roles not specifically authorized to see the\nfull PAN must only see masked PANs.\n3.4.1.b Examine system configurations to verify\nthat full PAN is only displayed for roles with a\ndocumented business need, and that PAN is\nmasked for all other requests.\n3.4.1.c Examine displays of PAN (for example, on\nscreen, on paper receipts) to verify that PANs are\nmasked when displayed, and that only those with a\nlegitimate business need are able to see more than\nthe BIN and/or last four digits of the PAN.",
+  "customized_approach_objective": "PAN displays are restricted to the minimum number of\ndigits necessary to meet a defined business need.",
+  "applicability_notes": "This requirement does not supersede stricter\nrequirements in place for displays of cardholder data—\nfor example, legal or payment brand requirements for\npoint-of-sale (POS) receipts.\nThis requirement relates to protection of PAN where it is\ndisplayed on screens, paper receipts, printouts, etc., and\nis not to be confused with Requirement 3.5.1 for\nprotection of PAN when stored, processed, or\ntransmitted.",
+  "guidance": {
+    "purpose": "The display of full PAN on computer screens, payment\ncard receipts, paper reports, etc. can result in this data\nbeing obtained by unauthorized individuals and used\nfraudulently. Ensuring that the full PAN is displayed\nonly for those with a legitimate business need\nminimizes the risk of unauthorized persons gaining\naccess to PAN data.",
+    "good_practice": "Applying access controls according to defined roles is\none way to limit access to viewing full PAN to only\nthose individuals with a defined business need.\nThe masking approach should always display only the\nnumber of digits needed to perform a specific business\nfunction. For example, if only the last four digits are\nneeded to perform a business function, PAN should be\nmasked to only show the last four digits. As another\nexample, if a function needs to view the bank\nidentification number (BIN) for routing purposes,\nunmask only the BIN digits for that function.",
+    "definitions": "Masking is not synonymous with truncation and these\nterms cannot be used interchangeably. Masking refers\nto the concealment of certain digits during display or\nprinting, even when the entire PAN is stored on a\nsystem. This is different from truncation, in which the\ntruncated digits are removed and cannot be retrieved\nwithin the system. Masked PAN could be “unmasked”,\nbut there is no \"un-truncation\" without recreating the\nPAN from another source.\nRefer to Appendix G for definitions of “masking” and\n“truncation.”",
+    "further_information": "For more information about masking and truncation,\nsee PCI SSC’s FAQs on these topics."
+  },
+  "extraction_notes": []
+}

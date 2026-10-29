@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "10",
+  "document_version": "4.0.1",
+  "requirement_id": "10.6.2",
+  "pdf_pages": [
+    258
+  ],
+  "defined_requirement": "Systems are configured to the correct and\nconsistent time as follows:\n•  One or more designated time servers are in use.\n•  Only the designated central time server(s)\nreceives time from external sources.\n•  Time received from external sources is based on\nInternational Atomic Time or Coordinated\nUniversal Time (UTC).\n•  The designated time server(s) accept time\nupdates only from specific industry-accepted\nexternal sources.\n•  Where there is more than one designated time\nserver, the time servers peer with one another to\nkeep accurate time.\n•   Internal systems receive time information only\nfrom designated central time server(s).",
+  "testing_procedures": "10.6.2 Examine system configuration settings for\nacquiring, distributing, and storing the correct time\nto verify the settings are configured in accordance\nwith all elements specified in this requirement.",
+  "customized_approach_objective": "The time on all systems is accurate and consistent.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Using reputable time servers is a critical\ncomponent of the time synchronization process.\nAccepting time updates from specific, industry-\naccepted external sources helps prevent a\nmalicious individual from changing time settings\non systems.",
+    "good_practice": "Another option to prevent unauthorized use of\ninternal time servers is to encrypt updates with a\nsymmetric key and create access control lists that\nspecify the IP addresses of client machines that\nwill be provided with the time updates."
+  },
+  "extraction_notes": []
+}

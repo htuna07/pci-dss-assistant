@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "8",
+  "document_version": "4.0.1",
+  "requirement_id": "8.2.1",
+  "pdf_pages": [
+    182
+  ],
+  "defined_requirement": "All users are assigned a unique ID before\naccess to system components or cardholder data is\nallowed.",
+  "testing_procedures": "8.2.1.a Interview responsible personnel to verify\nthat all users are assigned a unique ID for access\nto system components and cardholder data.\n8.2.1.b Examine audit logs and other evidence to\nverify that access to system components and\ncardholder data can be uniquely identified and\nassociated with individuals.",
+  "customized_approach_objective": "All actions by all users are attributable to an\nindividual.",
+  "applicability_notes": "This requirement is not intended to apply to user\naccounts within point-of-sale terminals that have\naccess to only one card number at a time to\nfacilitate a single transaction",
+  "guidance": {
+    "purpose": "The ability to trace actions performed on a\ncomputer system to an individual establishes\naccountability and traceability and is fundamental\nto establishing effective access controls.\nBy ensuring each user is uniquely identified,\ninstead of using one ID for several employees, an\norganization can maintain individual responsibility\nfor actions and an effective record in the audit log\nper employee. In addition, this will assist with\nissue resolution and containment when misuse or\nmalicious intent occurs."
+  },
+  "extraction_notes": []
+}

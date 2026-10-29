@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "11",
+  "document_version": "4.0.1",
+  "requirement_id": "11.2.2",
+  "pdf_pages": [
+    269
+  ],
+  "defined_requirement": "An inventory of authorized wireless access\npoints is maintained, including a documented\nbusiness justification.",
+  "testing_procedures": "11.2.2 Examine documentation to verify that an\ninventory of authorized wireless access points is\nmaintained, and a business justification is\ndocumented for all authorized wireless access\npoints.",
+  "customized_approach_objective": "Unauthorized wireless access points are not\nmistaken for authorized wireless access points.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "An inventory of authorized wireless access points\ncan help administrators quickly respond when\nunauthorized wireless access points are detected.\nThis helps to proactively minimize the exposure of\nCDE to malicious individuals.",
+    "good_practice": "If using a wireless scanner, it is equally important\nto have a defined list of known access points\nwhich, while not attached to the company’s\nnetwork, will usually be detected during a scan.\nThese non-company devices are often found in\nmulti-tenant buildings or businesses located near\none another. However, it is important to verify that\nthese devices are not connected to the entity’s\nnetwork port or through another network-\nconnected device and given an SSID resembling\na nearby business. Scan results should note such\ndevices and how it was determined that these\ndevices could be “ignored.” In addition, detection\nof any unauthorized wireless access points that\nare determined to be a threat to the CDE should\nbe managed following the entity’s incident\nresponse plan per Requirement 12.10.1."
+  },
+  "extraction_notes": []
+}

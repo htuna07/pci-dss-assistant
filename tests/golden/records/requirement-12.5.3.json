@@ -1,0 +1,18 @@
+{
+  "record_type": "requirement",
+  "section_id": "12",
+  "document_version": "4.0.1",
+  "requirement_id": "12.5.3",
+  "pdf_pages": [
+    312
+  ],
+  "defined_requirement": "Additional requirement for service\nproviders only: Significant changes to\norganizational structure result in a documented\n(internal) review of the impact to PCI DSS scope\nand applicability of controls, with results\ncommunicated to executive management.",
+  "testing_procedures": "12.5.3.a Additional testing procedure for\nservice provider assessments only: Examine\npolicies and procedures to verify that processes\nare defined such that a significant change to\norganizational structure results in documented\nreview of the impact to PCI DSS scope and\napplicability of controls.\n12.5.3.b Additional testing procedure for\nservice provider assessments only: Examine\ndocumentation (for example, meeting minutes) and\ninterview responsible personnel to verify that\nsignificant changes to organizational structure\nresulted in documented reviews that included all\nelements specified in this requirement, with results\ncommunicated to executive management.",
+  "customized_approach_objective": "PCI DSS scope is confirmed after significant\norganizational change.",
+  "applicability_notes": "This requirement applies only when the entity being\nassessed is a service provider.\nThis requirement is a best practice until 31 March\n2025, after which it will be required and must be\nfully considered during a PCI DSS assessment.",
+  "guidance": {
+    "purpose": "An organization’s structure and management\ndefine the requirements and protocol for effective\nand secure operations. Changes to this structure\ncould have negative effects to existing controls\nand frameworks by reallocating or removing\nresources that once supported PCI DSS controls\nor inheriting new responsibilities that may not\nhave established controls in place. Therefore, it is\nimportant to revisit PCI DSS scope and controls\nwhen there are changes to an organization’s\nstructure and management to ensure controls are\nin place and active.",
+    "examples": "Changes to organizational structure include, but\nare not limited to, company mergers or\nacquisitions, and significant changes or\nreassignments of personnel with responsibility for\nsecurity controls."
+  },
+  "extraction_notes": []
+}

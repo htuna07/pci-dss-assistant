@@ -1,0 +1,20 @@
+{
+  "record_type": "requirement",
+  "section_id": "6",
+  "document_version": "4.0.1",
+  "requirement_id": "6.3.3",
+  "pdf_pages": [
+    152,
+    153
+  ],
+  "defined_requirement": "All system components are protected from\nknown vulnerabilities by installing applicable\nsecurity patches/updates as follows:\n•  Patches/updates for critical vulnerabilities\n(identified according to the risk ranking process\nat Requirement 6.3.1) are installed within one\nmonth of release.\n•   All other applicable security patches/updates are\ninstalled within an appropriate time frame as\ndetermined by the entity’s assessment of the\ncriticality of the risk to the environment as\nidentified according to the risk ranking process\nat Requirement 6.3.1.",
+  "testing_procedures": "6.3.3.a Examine policies and procedures to verify\nprocesses are defined for addressing\nvulnerabilities by installing applicable security\npatches/updates in accordance with all elements\nspecified in this requirement.\n6.3.3.b Examine system components and related\nsoftware and compare the list of installed security\npatches/updates to the most recent security\npatch/update information to verify vulnerabilities\nare addressed in accordance with all elements\nspecified in this requirement.",
+  "customized_approach_objective": "System components cannot be compromised via\nthe exploitation of a known vulnerability.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "New exploits are constantly being discovered, and\nthese can permit attacks against systems that have\npreviously been considered secure. If the most\nrecent security patches/updates are not implemented\non critical systems as soon as possible, a malicious\nactor can use these exploits to attack or disable a\nsystem or gain access to sensitive data.",
+    "good_practice": "Prioritizing security patches/updates for critical\ninfrastructure ensures that high-priority systems and\ndevices are protected from vulnerabilities as soon as\npossible after a patch is released.\nAn entity’s patching cadence should factor in any re-\nevaluation of vulnerabilities and subsequent changes\nin the criticality of a vulnerability per Requirement\n6.3.1. For example, a vulnerability initially identified\nas low risk could become a higher risk later.\nAdditionally, vulnerabilities individually considered to\nbe low or medium risk could collectively pose a high\nor critical risk if present on the same system, or if\nexploited on a low-risk system that could result in\naccess to the CDE.\nIt is recommended that the entity complete a targeted\nrisk analysis (TRA) according to PCI DSS\nRequirement 12.3.1 to document the frequency of\ninstalling all other applicable security\npatches/updates. This TRA would include\nconsideration of the entity’s assessment of the\ncriticality of the risk to their environment as identified\nin the risk ranking process at Requirement 6.3.1.",
+    "examples": "An example time frame for installation of\npatches/updates could be 60 days for high-risk\nvulnerabilities and 90 days for others, as determined\nby the entity’s assessment of risk."
+  },
+  "extraction_notes": []
+}

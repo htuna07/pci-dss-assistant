@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "3",
+  "document_version": "4.0.1",
+  "requirement_id": "3.7.2",
+  "pdf_pages": [
+    106
+  ],
+  "defined_requirement": "Key-management policies and procedures are\nimplemented to include secure distribution of\ncryptographic keys used to protect stored account\ndata.",
+  "testing_procedures": "3.7.2.a Examine the documented key-management\npolicies and procedures for keys used for\nprotection of stored account data to verify that they\ndefine secure distribution of cryptographic keys.\n3.7.2.b Observe the method for distributing keys to\nverify that keys are distributed securely.",
+  "customized_approach_objective": "Cryptographic keys are secured during distribution.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Secure distribution or conveyance of secret or private\ncryptographic keys means that keys are distributed only\nto authorized custodians, as identified in Requirement\n3.6.1.2, and are never distributed insecurely."
+  },
+  "extraction_notes": []
+}

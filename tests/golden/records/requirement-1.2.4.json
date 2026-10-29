@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "1",
+  "document_version": "4.0.1",
+  "requirement_id": "1.2.4",
+  "pdf_pages": [
+    49,
+    50
+  ],
+  "defined_requirement": "An accurate data-flow diagram(s) is\nmaintained that meets the following:\n•  Shows all account data flows across systems\nand networks.\n•  Updated as needed upon changes to the\nenvironment.",
+  "testing_procedures": "1.2.4.a Examine data-flow diagram(s) and\ninterview personnel to verify the diagram(s) show\nall account data flows in accordance with all\nelements specified in this requirement.\n1.2.4.b Examine documentation and interview\nresponsible personnel to verify that the data-flow\ndiagram(s) is accurate and updated when there are\nchanges to the environment.",
+  "customized_approach_objective": "A representation of all transmissions of account\ndata between system components and across\nnetwork segments is maintained and available.",
+  "applicability_notes": "A data-flow diagram(s) or other technical or\ntopological solution that identifies flows of account\ndata across systems and networks can be used to\nmeet this requirement.",
+  "guidance": {
+    "purpose": "An up-to-date, readily available data-flow diagram\nhelps an organization understand and keep track\nof the scope of its environment by showing how\naccount data flows across networks and between\nindividual systems and devices.\nMaintaining an up-to-date data-flow diagram(s)\nprevents account data from being overlooked and\nunknowingly left unsecured.",
+    "good_practice": "The data-flow diagram should include all\nconnection points where account data is received\ninto and sent out of the network, including\nconnections to open, public networks, application\nprocessing flows, storage, transmissions between\nsystems and networks, and file backups.\nThe data-flow diagram is meant to be in addition\nto the network diagram and should reconcile with\nand augment the network diagram. As a best\npractice, entities can consider including the\nfollowing in their data-flow diagrams:\n•   All processing flows of account data, including\nauthorization, capture, settlement,\nchargeback, and refunds.\n•   All distinct acceptance channels, including\ncard-present, card-not-present, and e-\ncommerce.\n•   All types of data receipt or transmission,\nincluding any involving hard copy/paper\nmedia.\n•  The flow of account data from the point where\nit enters the environment, to its final\ndisposition.\n•  Where account data is transmitted and\nprocessed, where it is stored, and whether\nstorage is short term or long term.\n•  The source of all account data received (for\nexample, customers, third party, etc.), and any\nentities with which account data is shared.\n•  Date of last update, and names of people that\nmade and approved the updates."
+  },
+  "extraction_notes": []
+}

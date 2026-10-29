@@ -1,0 +1,19 @@
+{
+  "record_type": "requirement",
+  "section_id": "9",
+  "document_version": "4.0.1",
+  "requirement_id": "9.4.6",
+  "pdf_pages": [
+    230
+  ],
+  "defined_requirement": "Hard-copy materials with cardholder data are\ndestroyed when no longer needed for business or\nlegal reasons, as follows:\n•   Materials are cross-cut shredded, incinerated, or\npulped so that cardholder data cannot be\nreconstructed.\n•   Materials are stored in secure storage\ncontainers prior to destruction.",
+  "testing_procedures": "9.4.6.a Examine the media destruction policy to\nverify that procedures are defined to destroy hard-\ncopy media with cardholder data when no longer\nneeded for business or legal reasons in\naccordance with all elements specified in this\nrequirement.\n9.4.6.b Observe processes and interview\npersonnel to verify that hard-copy materials are\ncross-cut shredded, incinerated, or pulped such\nthat cardholder data cannot be reconstructed.\n9.4.6.c Observe storage containers used for\nmaterials that contain information to be destroyed\nto verify that the containers are secure.",
+  "customized_approach_objective": "Cardholder data cannot be recovered from media\nthat has been destroyed or which is pending\ndestruction.",
+  "applicability_notes": "These requirements for media destruction when that\nmedia is no longer needed for business or legal\nreasons are separate and distinct from PCI DSS\nRequirement 3.2.1, which is for securely deleting\ncardholder data when no longer needed per the\nentity’s cardholder data retention policies.",
+  "guidance": {
+    "purpose": "If steps are not taken to destroy information\ncontained on hard-copy media before disposal,\nmalicious individuals may retrieve information\nfrom the disposed media, leading to a data\ncompromise. For example, malicious individuals\nmay use a technique known as “dumpster diving,”\nwhere they search through trashcans and recycle\nbins looking for hard-copy materials with\ninformation they can use to launch an attack.\nSecuring storage containers used for materials\nthat are going to be destroyed prevents sensitive\ninformation from being captured while the\nmaterials are being collected.",
+    "good_practice": "Consider “to-be-shredded” containers with a lock\nthat prevents access to its contents or that\nphysically prevent access to the inside of the\ncontainer.",
+    "further_information": "See NIST Special Publication 800-88, Revision 1:\nGuidelines for Media Sanitization."
+  },
+  "extraction_notes": []
+}

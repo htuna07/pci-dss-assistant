@@ -1,0 +1,17 @@
+{
+  "record_type": "requirement",
+  "section_id": "10",
+  "document_version": "4.0.1",
+  "requirement_id": "10.6.3",
+  "pdf_pages": [
+    259
+  ],
+  "defined_requirement": "Time synchronization settings and data are\nprotected as follows:\n•  Access to time data is restricted to only\npersonnel with a business need.\n•  Any changes to time settings on critical systems\nare logged, monitored, and reviewed.",
+  "testing_procedures": "10.6.3.a Examine system configurations and time-\nsynchronization settings to verify that access to\ntime data is restricted to only personnel with a\nbusiness need.\n10.6.3.b Examine system configurations and time\nsynchronization settings and logs and observe\nprocesses to verify that any changes to time\nsettings on critical systems are logged, monitored,\nand reviewed.",
+  "customized_approach_objective": "System time settings cannot be modified by\nunauthorized personnel.",
+  "applicability_notes": null,
+  "guidance": {
+    "purpose": "Attackers will try to change time configurations to\nhide their activity. Therefore, restricting the ability\nto change or modify time synchronization\nconfigurations or the system time to\nadministrators will lessen the probability of an\nattacker successfully changing time\nconfigurations."
+  },
+  "extraction_notes": []
+}
