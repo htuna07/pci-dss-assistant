@@ -60,7 +60,7 @@ Files are `data/processed/requirement-<id>.json`; 262 total, discriminated by `r
 - Tests drive the CLI as a subprocess against the real PDF and compare with `tests/golden/` (every record, `Saved:` report, decision log, inspect output) plus structural invariants. They never import extraction internals, so internals can be refactored freely.
 - A golden diff means behavior changed, not that it is wrong. Correctness is checked separately: `tests/test_independent_oracle.py` compares every record with `tests/pdf_oracle.py` (reads the PDF by typography only, shares no code with `src/`), and `tests/test_sampled_expectations.py` holds values read by hand from specific PDF pages.
 - Regenerate golden files only after confirming the change is intentional and reviewing the diff.
-- Known extraction bug: 12.3.3 and 12.3.4 lose their `good_practice` field because the PDF prints the "Good Practice" heading inline after the Purpose text. Tracked as a strict `xfail`; remove the marker when fixed.
+- The PDF prints the "Good Practice" heading inline after the Purpose text for 12.3.3 and 12.3.4; `split_inline_heading` in `src/table.py` handles it.
 - The 7.1.2 label on PDF page 169 is a genuine PDF error (it belongs to 7.2.1) and is handled by `CONTINUATION_CORRECTIONS`; the oracle ignores continuation labels so it does not depend on it.
 - Never point tests at `data/processed/`; they use `--output-dir`.
 

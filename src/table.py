@@ -282,6 +282,22 @@ def has_substantive_content(columns: Columns) -> bool:
     return False
 
 
+def split_inline_heading(line: str, headings: dict[str, str]) -> list[str]:
+    """Separate a heading typeset at the end of a paragraph's last line.
+
+    The PDF sometimes prints "... implementations. Good Practice" on one line.
+    Requiring sentence-ending punctuation before the heading keeps prose that
+    merely ends with a heading word intact.
+    """
+    names = "|".join(re.escape(name) for name in headings)
+    match = re.fullmatch(rf"(.*[.!?])\s+({names})", line)
+    if match is None:
+        return [line]
+
+    logger.debug("Split inline heading %r from %r", match.group(2), line)
+    return [match.group(1), match.group(2)]
+
+
 def consume_column(
     record: RequirementDraft,
     column: str,
@@ -294,11 +310,14 @@ def consume_column(
     headings = COLUMN_HEADINGS[column]
     pending = False
 
-    for raw_line in text.splitlines():
-        line = raw_line.strip()
-        if not line:
-            continue
+    lines = [
+        part
+        for raw_line in text.splitlines()
+        if raw_line.strip()
+        for part in split_inline_heading(raw_line.strip(), headings)
+    ]
 
+    for line in lines:
         if line.lower() == CONTINUED_ON_NEXT_PAGE:
             pending = True
             continue
