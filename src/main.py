@@ -957,6 +957,12 @@ def main() -> None:
     modes.add_argument("--inspect", action="store_true")
     modes.add_argument("--extract", action="store_true")
 
+    parser.add_argument(
+        "--output-dir",
+        type=Path,
+        default=PROJECT_ROOT / "data" / "processed",
+    )
+
     args = parser.parse_args()
 
     if not PDF_PATH.is_file():
@@ -996,7 +1002,7 @@ def main() -> None:
             raise SystemExit(f"Extraction failed: {error}") from error
 
     # Write only after the entire selected range parses successfully.
-    output_dir = PROJECT_ROOT / "data" / "processed"
+    output_dir = args.output_dir
     output_dir.mkdir(parents=True, exist_ok=True)
 
     for result in results:
