@@ -81,9 +81,39 @@ def continuation_info(text: str) -> tuple[bool, str | None]:
     return standalone is not None, None
 
 
+def field_headed_continuation(columns: dict[str, str]) -> bool:
+    def content_lines(text: str) -> list[str]:
+        return [
+            line.strip()
+            for line in text.splitlines()
+            if line.strip()
+            and line.strip().lower() not in {
+                "(continued)",
+                "(continued on next page)",
+            }
+        ]
+
+    left = content_lines(columns["requirement"])
+    right = content_lines(columns["guidance"])
+
+    return bool(
+        len(left) > 1
+        and left[0] in {
+            "Applicability Notes",
+            "Customized Approach Objective",
+        }
+        and not columns["testing"].strip()
+        and (
+            not right
+            or right[0] in COLUMN_HEADINGS["guidance"]
+        )
+    )
+
+
 def find_segments(
     page: pymupdf.Page,
     expecting_continuation: bool = False,
+    current_requirement_id: str | None = None,
 ) -> list[dict]:
     """Split a page into an initial continuation and new tables."""
     table_tops = sorted(
@@ -103,6 +133,16 @@ def find_segments(
     is_continuation, continued_id = continuation_info(
         initial["requirement"]
     )
+
+    verified_by_layout = None
+
+    if (
+        current_requirement_id is not None
+        and field_headed_continuation(initial)
+    ):
+        is_continuation = True
+        continued_id = continued_id or current_requirement_id
+        verified_by_layout = current_requirement_id
 
     correction_key = (page.number + 1, continued_id)
     corrected_id = CONTINUATION_CORRECTIONS.get(correction_key)
@@ -133,6 +173,22 @@ def find_segments(
             f"{original_id} -> {corrected_id}"
         )
 
+    # A repeated testing ID can identify an unmarked continuation.
+    testing_ids = set(re.findall(
+        rf"^[ \t]*({ID_PATTERN})(?:\.[a-z]+)?(?=\s)",
+        initial["testing"],
+        flags=re.MULTILINE,
+    ))
+
+    verified_by_testing_id = (
+        current_requirement_id
+        if (
+            current_requirement_id is not None
+            and testing_ids == {current_requirement_id}
+        )
+        else None
+    )
+
     segments = []
 
     has_initial_content = any(
@@ -145,13 +201,17 @@ def find_segments(
             "before the next requirement"
         )
 
-    if is_continuation or (
-        expecting_continuation and has_initial_content
+    if (
+        is_continuation
+        or (expecting_continuation and has_initial_content)
+        or verified_by_testing_id is not None
     ):
         segments.append({
             "continuation": True,
             "continued_id": continued_id,
+            "verified_by_testing_id": verified_by_testing_id,
             "columns": initial,
+            "verified_by_layout": verified_by_layout,
         })
 
     for index, top in enumerate(table_tops):
@@ -219,6 +279,9 @@ def consume_column(
                 raise ValueError("Continuation ID mismatch")
             continue
 
+        # Content after a marker means it is not a trailing marker.
+        pending = False
+
         # Also accept a heading such as "Applicability Notes (continued)".
         heading = re.sub(
             r"\s*\(continued\)$",
@@ -271,11 +334,13 @@ def finish_record(record: dict) -> dict:
         )
 
     if not re.match(
-        rf"^{re.escape(requirement_id)}(?:\.[a-z]+)?\s+",
+        rf"^{re.escape(requirement_id)}(?:\.[a-z]+)?\.?\s+",
         testing,
     ):
         raise ValueError(
-            f"{requirement_id}: missing or mismatched testing text"
+            f"{requirement_id}: missing or mismatched testing text; "
+            f"PDF pages: {record['pdf_pages']}; "
+            f"testing: {testing!r}"
         )
 
     if not left.get("customized_approach_objective"):
@@ -296,6 +361,7 @@ def finish_record(record: dict) -> dict:
         ],
         "applicability_notes": left.get("applicability_notes"),
         "guidance": fields["guidance"],
+        "extraction_notes": record.get("extraction_notes", []),
     }
 
 
@@ -414,9 +480,20 @@ def extract_requirements(
             and bool(records[current_id]["pending"])
         )
 
+        previous_page_id = (
+            current_id
+            if (
+                current_id is not None
+                and records[current_id]["pdf_pages"][-1]
+                == page_number - 1
+            )
+            else None
+        )
+
         for segment in find_segments(
             page,
             expecting_continuation=expecting_continuation,
+            current_requirement_id=previous_page_id,
         ):
             columns = segment["columns"]
 
@@ -431,7 +508,20 @@ def extract_requirements(
 
                 record = records[requirement_id]
 
-                if not record["pending"]:
+                verified_unmarked_continuation = (
+                    (
+                        segment.get("verified_by_testing_id")
+                        == requirement_id
+                        or segment.get("verified_by_layout")
+                        == requirement_id
+                    )
+                    and requirement_id == previous_page_id
+                )
+
+                if (
+                    not record["pending"]
+                    and not verified_unmarked_continuation
+                ):
                     raise ValueError(
                         f"Page {page_number}: continuation without "
                         f"a preceding continuation marker. "
@@ -440,12 +530,63 @@ def extract_requirements(
                         f"active ID: {current_id!r}"
                     )
 
-                for column in record["pending"]:
-                    if not columns[column].strip():
-                        raise ValueError(
-                            f"Page {page_number}: {requirement_id} "
-                            f"missing continuation content in {column}"
-                        )
+                if not record["pending"]:
+                    evidence = (
+                        "reviewed layout"
+                        if segment.get("verified_by_layout")
+                        else "testing ID"
+                    )
+                    print(
+                        f"Continuation verified by {evidence}: "
+                        f"{requirement_id}, PDF page {page_number}"
+                    )
+
+                # A continuation may introduce content in another column.
+                # Require actual content beyond layout markers.
+                has_content = False
+
+                for text in columns.values():
+                    for line in text.splitlines():
+                        line = line.strip()
+
+                        if not line or re.fullmatch(
+                            r"\(continued(?: on next page)?\)",
+                            line,
+                            flags=re.IGNORECASE,
+                        ):
+                            continue
+
+                        if re.fullmatch(
+                            rf"{ID_PATTERN}\s+\(continued\)",
+                            line,
+                            flags=re.IGNORECASE,
+                        ):
+                            continue
+
+                        heading = re.sub(
+                            r"\s*\(continued\)$",
+                            "",
+                            line,
+                            flags=re.IGNORECASE,
+                        ).strip()
+
+                        if any(
+                            heading in headings
+                            for headings in COLUMN_HEADINGS.values()
+                        ):
+                            continue
+
+                        has_content = True
+                        break
+
+                    if has_content:
+                        break
+
+                if not has_content:
+                    raise ValueError(
+                        f"Page {page_number}: {requirement_id} "
+                        "continuation has no content"
+                    )
 
             else:
                 match = re.search(
@@ -469,6 +610,86 @@ def extract_requirements(
                 record = new_record(requirement_id)
                 records[requirement_id] = record
 
+                # Provisional assumption: all page 281 guidance belongs to 11.4.2.
+            if (
+                page_number == 281
+                and requirement_id == "11.4.3"
+                and not segment["continuation"]
+            ):
+                previous = records.get("11.4.2")
+                guidance_text = columns["guidance"].strip()
+
+                if previous is None:
+                    raise ValueError(
+                        "Page 281: 11.4.2 is required. "
+                        "Extend the page range backwards."
+                    )
+
+                purpose_text = " ".join(
+                    previous["fields"]["guidance"].get("purpose", [])
+                )
+                guidance_lines = {
+                    line.strip()
+                    for line in guidance_text.splitlines()
+                }
+
+                if (
+                    current_id != "11.4.2"
+                    or previous["pdf_pages"][-1] != 280
+                    or previous["pending"]
+                    or previous["active"]["guidance"] != "purpose"
+                    or not purpose_text.endswith(
+                        "vulnerabilities and misconfigurations that an entity"
+                    )
+                    or not guidance_text.startswith("did not know about,")
+                    or not {"Good Practice", "Further Information"}.issubset(
+                        guidance_lines
+                    )
+                ):
+                    raise ValueError(
+                        "Page 281: content differs from the provisional "
+                        "guidance ownership assumption"
+                    )
+
+                continues = consume_column(
+                    previous, "guidance", guidance_text
+                )
+                if continues:
+                    previous["pending"].add("guidance")
+
+                previous["pdf_pages"].append(page_number)
+
+                # Copy the complete merged guidance to 11.4.3.
+                record["fields"]["guidance"] = {
+                    key: list(lines)
+                    for key, lines
+                    in previous["fields"]["guidance"].items()
+                }
+                record["active"]["guidance"] = (
+                    previous["active"]["guidance"]
+                )
+
+                # Already consumed and copied; avoid processing it twice.
+                columns["guidance"] = ""
+
+                note = {
+                    "pdf_pages": [280, 281],
+                    "status": "provisional",
+                    "message": (
+                        "Complete guidance from 11.4.2 duplicated into "
+                        "11.4.3 for retrieval. Includes internal-testing "
+                        "wording; reassess after evaluation. This is an "
+                        "extraction decision, not confirmed source ownership."
+                    ),
+                }
+                previous.setdefault("extraction_notes", []).append(note)
+                record.setdefault("extraction_notes", []).append(note)
+
+                print(
+                    "Provisional guidance duplication: "
+                    "11.4.2 -> 11.4.3"
+                )
+
             current_id = requirement_id
 
             if page_number not in record["pdf_pages"]:
@@ -476,7 +697,14 @@ def extract_requirements(
 
             pending = set()
             for column, text in columns.items():
-                if consume_column(record, column, text):
+                try:
+                    continues = consume_column(record, column, text)
+                except ValueError as error:
+                    raise ValueError(
+                        f"Page {page_number}: {error}"
+                    ) from error
+
+                if continues:
                     pending.add(column)
 
             record["pending"] = pending
@@ -525,18 +753,20 @@ def read_introduction_text(page: pymupdf.Page) -> str:
 
 
 def introduction_id(text: str) -> str | None:
-    lines = [
-        line.strip() for line in text.splitlines()
-        if line.strip()
-    ]
-    if not lines:
-        return None
+    matches = []
 
-    match = re.match(
-        r"^Requirement\s+([1-9]|1[0-2]):\s*",
-        lines[0],
-    )
-    return match.group(1) if match else None
+    for line in text.splitlines():
+        match = re.match(
+            r"^Requirement\s+(1[0-2]|[1-9])\s*:",
+            line.strip(),
+        )
+        if match:
+            matches.append(match.group(1))
+
+    if len(matches) > 1:
+        raise ValueError("Multiple requirement introduction titles found")
+
+    return matches[0] if matches else None
 
 
 def new_introduction(requirement_id: str) -> dict:
@@ -566,13 +796,30 @@ def consume_introduction(
     ]
 
     if first_page:
-        prefix = rf"^Requirement\s+{record['requirement_id']}:\s*"
-        lines[0], count = re.subn(prefix, "", lines[0], count=1)
+        prefix = (
+            rf"^Requirement\s+{re.escape(record['requirement_id'])}"
+            r"\s*:\s*"
+        )
 
-        if count != 1:
+        title_indexes = [
+            index
+            for index, line in enumerate(lines)
+            if re.match(prefix, line)
+        ]
+
+        if len(title_indexes) != 1:
             raise ValueError(
                 f"Page {page_number}: introduction title mismatch"
             )
+
+        title_index = title_indexes[0]
+
+        record["category_title"] = (
+            " ".join(lines[:title_index]) or None
+        )
+
+        lines = lines[title_index:]
+        lines[0] = re.sub(prefix, "", lines[0], count=1)
 
     for line in lines:
         if not line:
@@ -683,6 +930,7 @@ def finish_introduction(record: dict) -> dict:
         "title": " ".join(record["title_lines"]),
         "sections": sections,
         "overview": "\n".join(record["overview_lines"]),
+        "category_title": record.get("category_title"),
         "notes": [
             {
                 "pdf_pages": note["pdf_pages"],
