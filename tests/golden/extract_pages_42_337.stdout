@@ -1,22 +1,3 @@
-Read introduction: Requirement 1, PDF page 42
-Read introduction continuation: Requirement 1, PDF page 43
-Read introduction: Requirement 2, PDF page 65
-Read introduction: Requirement 3, PDF page 78
-Read introduction: Requirement 4, PDF page 114
-Read introduction: Requirement 5, PDF page 123
-Read introduction: Requirement 6, PDF page 138
-Read introduction: Requirement 7, PDF page 165
-Corrected continuation label: PDF page 169, 7.1.2 -> 7.2.1
-Read introduction: Requirement 8, PDF page 178
-Read introduction continuation: Requirement 8, PDF page 179
-Read introduction: Requirement 9, PDF page 214
-Continuation verified by reviewed layout: 9.5.1, PDF page 233
-Read introduction: Requirement 10, PDF page 240
-Continuation verified by testing ID: 10.2.1.4, PDF page 245
-Read introduction: Requirement 11, PDF page 264
-Provisional guidance duplication: 11.4.2 -> 11.4.3
-Read introduction: Requirement 12, PDF page 294
-Continuation verified by reviewed layout: 12.8.2, PDF page 321
 Saved: <output-dir>/requirement-1.json
 Saved: <output-dir>/requirement-2.json
 Saved: <output-dir>/requirement-3.json

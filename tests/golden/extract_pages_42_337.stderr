@@ -1,0 +1,20 @@
+INFO    Read introduction: Requirement 1, PDF page 42
+INFO    Read introduction continuation: Requirement 1, PDF page 43
+INFO    Read introduction: Requirement 2, PDF page 65
+INFO    Read introduction: Requirement 3, PDF page 78
+INFO    Read introduction: Requirement 4, PDF page 114
+INFO    Read introduction: Requirement 5, PDF page 123
+INFO    Read introduction: Requirement 6, PDF page 138
+INFO    Read introduction: Requirement 7, PDF page 165
+WARNING Corrected continuation label: PDF page 169, 7.1.2 -> 7.2.1
+INFO    Read introduction: Requirement 8, PDF page 178
+INFO    Read introduction continuation: Requirement 8, PDF page 179
+INFO    Read introduction: Requirement 9, PDF page 214
+INFO    Continuation verified by reviewed layout: 9.5.1, PDF page 233
+INFO    Read introduction: Requirement 10, PDF page 240
+INFO    Continuation verified by testing ID: 10.2.1.4, PDF page 245
+INFO    Read introduction: Requirement 11, PDF page 264
+WARNING Provisional guidance duplication: 11.4.2 -> 11.4.3
+INFO    Read introduction: Requirement 12, PDF page 294
+INFO    Continuation verified by reviewed layout: 12.8.2, PDF page 321
+INFO    Extracted 250 requirements and 12 introductions from PDF pages 42-337; 2 records carry extraction notes

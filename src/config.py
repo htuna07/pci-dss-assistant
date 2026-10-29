@@ -21,7 +21,6 @@ CONTINUATION_CORRECTIONS = {
     (169, "7.1.2"): "7.2.1",
 }
 
-# Maps the heading printed at the top of a field to its output key.
 COLUMN_HEADINGS = {
     "requirement": {
         REQUIREMENT_HEADER: "defined_requirement",
