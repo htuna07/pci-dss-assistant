@@ -23,11 +23,6 @@ from pdf_oracle import (
 # extractor gives the complete cell to both requirements on purpose.
 SHARED_GUIDANCE = ("11.4.2", "11.4.3")
 
-# The PDF prints "Good Practice" at the end of the last Purpose line instead
-# of on its own line, and the extractor only recognizes headings that are a
-# whole line. Their good-practice text is currently merged into `purpose`.
-INLINE_HEADING_BUGS = ("12.3.3", "12.3.4")
-
 LAYOUT_RESIDUE = [
     "Defined Approach Requirements",
     "Defined Approach Testing Procedures",
@@ -130,28 +125,11 @@ def test_guidance_fields_match_the_headings_in_the_pdf(facts, requirements):
     wrong = {}
 
     for requirement_id, record in requirements.items():
-        if requirement_id in INLINE_HEADING_BUGS:
-            continue
-
         expected = expected_guidance_keys(facts, requirement_id)
         if list(record["guidance"]) != expected:
             wrong[requirement_id] = (expected, list(record["guidance"]))
 
     assert wrong == {}, "requirement: (PDF headings, extracted fields)"
-
-
-@pytest.mark.xfail(
-    strict=True,
-    reason="heading printed inline after the Purpose text is not recognized",
-)
-@pytest.mark.parametrize("requirement_id", INLINE_HEADING_BUGS)
-def test_inline_good_practice_heading_is_recognized(
-    facts, requirements, requirement_id
-):
-    record = requirements[requirement_id]
-
-    assert list(record["guidance"]) == facts[requirement_id].guidance_keys
-    assert "Good Practice" not in record["guidance"]["purpose"]
 
 
 def test_requirement_fields_match_the_headings_in_the_pdf(facts, requirements):

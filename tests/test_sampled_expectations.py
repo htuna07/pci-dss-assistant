@@ -227,6 +227,45 @@ REQUIREMENT_CASES = {
         guidance_end={"purpose": "guess a password."},
         has_notes=False,
     ),
+    # "Good Practice" is printed inline after the last line of the Purpose
+    # text instead of on its own line.
+    "12.3.3": dict(
+        pages=[303],
+        testing_ids=["12.3.3"],
+        guidance_keys=[
+            "purpose",
+            "good_practice",
+            "definitions",
+            "further_information",
+        ],
+        guidance_end={
+            "purpose": "of their cryptographic implementations.",
+            "good_practice": (
+                "upgrade before the deprecation is impactful to operations."
+            ),
+        },
+        guidance_start={
+            "good_practice": (
+                "Cryptographic agility is important to ensure an alternative"
+            )
+        },
+        has_notes=True,
+    ),
+    "12.3.4": dict(
+        pages=[304],
+        testing_ids=["12.3.4"],
+        guidance_keys=["purpose", "good_practice"],
+        guidance_end={
+            "purpose": "will not be remediated by the vendor or developer.",
+            "good_practice": (
+                "and/or no longer meet the security needs of the organization."
+            ),
+        },
+        guidance_start={
+            "good_practice": "Organizations should review firmware versions"
+        },
+        has_notes=True,
+    ),
     # Applicability notes on the middle page, further information spills onto
     # a page that also starts the next requirement.
     "11.4.1": dict(
