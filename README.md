@@ -49,4 +49,4 @@ The extraction aborts without writing anything if any page in the selected range
 python -m pytest
 ```
 
-The tests run the CLI against the real PDF and compare every record with the reference output in `tests/golden/`. They are skipped when the PDF is missing.
+The tests run the CLI against the real PDF. They check every record against reference output in `tests/golden/` (detects behavior changes), against an independent typography-based reading of the PDF (detects wrong output), and against hand-verified values for tricky pages. They are skipped when the PDF is missing.
