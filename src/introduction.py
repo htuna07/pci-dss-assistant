@@ -12,6 +12,7 @@ from config import (
     DOCUMENT_VERSION,
     INTRODUCTION_BODY_TOP,
 )
+from errors import ExtractionError
 
 INTRODUCTION_BODY = pymupdf.Rect(
     BODY_LEFT, INTRODUCTION_BODY_TOP, BODY_RIGHT, BODY_BOTTOM
@@ -69,7 +70,10 @@ def introduction_id(text: str) -> str | None:
             matches.append(match.group(1))
 
     if len(matches) > 1:
-        raise ValueError("Multiple requirement introduction titles found")
+        raise ExtractionError(
+            "multiple requirement introduction titles found",
+            excerpt=", ".join(f"Requirement {match}" for match in matches),
+        )
 
     return matches[0] if matches else None
 
@@ -92,8 +96,11 @@ def _read_title_block(
     ]
 
     if len(title_indexes) != 1:
-        raise ValueError(
-            f"Page {page_number}: introduction title mismatch"
+        raise ExtractionError(
+            "introduction title mismatch",
+            page=page_number,
+            requirement_id=record.requirement_id,
+            excerpt="\n".join(lines[:5]),
         )
 
     title_index = title_indexes[0]
@@ -115,8 +122,11 @@ def _add_section_line(
         section_id = section.group(1)
 
         if not section_id.startswith(record.requirement_id + "."):
-            raise ValueError(
-                f"Page {page_number}: unexpected section {section_id}"
+            raise ExtractionError(
+                f"unexpected section {section_id}",
+                page=page_number,
+                requirement_id=record.requirement_id,
+                excerpt=line,
             )
 
         record.sections.append(SectionDraft(
@@ -128,8 +138,11 @@ def _add_section_line(
         record.sections[-1].lines.append(line)
 
     else:
-        raise ValueError(
-            f"Page {page_number}: section title without an ID"
+        raise ExtractionError(
+            "section title without an ID",
+            page=page_number,
+            requirement_id=record.requirement_id,
+            excerpt=line,
         )
 
 
@@ -190,9 +203,10 @@ def finish_introduction(record: IntroductionDraft) -> dict:
         or not record.sections
         or not record.overview_lines
     ):
-        raise ValueError(
-            f"Requirement {record.requirement_id}: "
-            "incomplete introduction"
+        raise ExtractionError(
+            "incomplete introduction: title, sections or overview is empty",
+            requirement_id=record.requirement_id,
+            pages=record.pdf_pages,
         )
 
     sections = [
@@ -208,9 +222,11 @@ def finish_introduction(record: IntroductionDraft) -> dict:
         len(section_ids) != len(set(section_ids))
         or any(not section["title"] for section in sections)
     ):
-        raise ValueError(
-            f"Requirement {record.requirement_id}: "
-            "duplicate or empty sections"
+        raise ExtractionError(
+            "duplicate or empty sections",
+            requirement_id=record.requirement_id,
+            pages=record.pdf_pages,
+            excerpt=", ".join(section_ids),
         )
 
     return {

@@ -2,12 +2,16 @@
 
 import argparse
 import json
+import logging
 from pathlib import Path
 
 import pymupdf
 
 from config import DEFAULT_OUTPUT_DIR, PDF_PATH
+from errors import ExtractionError
 from extract import extract_requirements
+
+logger = logging.getLogger("pci_extractor")
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -31,6 +35,12 @@ def build_parser() -> argparse.ArgumentParser:
         type=Path,
         default=DEFAULT_OUTPUT_DIR,
     )
+    parser.add_argument(
+        "-v",
+        "--verbose",
+        action="store_true",
+        help="log per-page decisions and show tracebacks on failure",
+    )
     return parser
 
 
@@ -50,6 +60,29 @@ def inspect_pages(document: pymupdf.Document, start: int, end: int) -> None:
                 print(text.strip())
 
 
+def summarize(results: list[dict], start: int, end: int) -> str:
+    introductions = sum(
+        result["record_type"] == "requirement_introduction"
+        for result in results
+    )
+    with_notes = sum(bool(result.get("extraction_notes")) for result in results)
+    return (
+        f"Extracted {len(results) - introductions} requirements and "
+        f"{introductions} introductions from PDF pages {start}-{end}; "
+        f"{with_notes} records carry extraction notes"
+    )
+
+
+def explain_failure(error: ExtractionError) -> str:
+    message = f"Extraction failed: {error}"
+    if error.page is not None:
+        message += (
+            f"\nInspect the raw page blocks with: "
+            f"python src/main.py --page {error.page} --inspect"
+        )
+    return message
+
+
 def write_results(results: list[dict], output_dir: Path) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -64,6 +97,10 @@ def write_results(results: list[dict], output_dir: Path) -> None:
 
 def main() -> None:
     args = build_parser().parse_args()
+    logging.basicConfig(
+        level=logging.DEBUG if args.verbose else logging.INFO,
+        format="%(levelname)-7s %(message)s",
+    )
 
     if not PDF_PATH.is_file():
         raise SystemExit(f"PDF not found: {PDF_PATH}")
@@ -86,8 +123,11 @@ def main() -> None:
 
         try:
             results = extract_requirements(document, start, end)
-        except ValueError as error:
-            raise SystemExit(f"Extraction failed: {error}") from error
+        except ExtractionError as error:
+            logger.debug("Extraction failed", exc_info=True)
+            raise SystemExit(explain_failure(error)) from error
+
+    logger.info(summarize(results, start, end))
 
     # Write only after the entire selected range parses successfully.
     write_results(results, args.output_dir)

@@ -14,8 +14,14 @@ RAG assistant that retrieves PCI DSS v4.0.1 content so an LLM answers compliance
 
 ## Layout
 
-- `src/main.py` — extraction CLI (PyMuPDF).
-- `data/PCI-DSS-v4_0_1.pdf` — source document.
+- `src/main.py` — CLI (`--inspect`, `--extract`, `--output-dir`, `--verbose`).
+- `src/config.py` — PDF layout constants (column bounds, page geometry, headings, label corrections).
+- `src/extract.py` — page-range walk, continuation handling, the page 281 guidance exception.
+- `src/table.py` — three-column table parsing (segments, columns, record assembly).
+- `src/introduction.py` — per-requirement introduction parsing.
+- `src/errors.py` — `ExtractionError` carrying page / requirement / column context.
+- `tests/` — behavioral tests; `tests/golden/` holds the reference output.
+- `data/PCI-DSS-v4_0_1.pdf` — source document (gitignored).
 - `data/processed/` — extracted JSON, one file per record (gitignored; regenerate from the PDF).
 - `.venv/` — local virtualenv.
 
@@ -23,10 +29,14 @@ RAG assistant that retrieves PCI DSS v4.0.1 content so an LLM answers compliance
 
 ```bash
 source .venv/bin/activate
-pip install -r requirements.txt
+pip install -r requirements-dev.txt
 python src/main.py --page 44 --inspect          # dump text blocks of a page
-python src/main.py --pages 90 120 --extract     # write data/processed/requirement-<id>.json
+python src/main.py --pages 42 337 --extract     # full document -> data/processed/requirement-<id>.json
+python src/main.py --pages 90 120 --extract -v  # per-page DEBUG trace, tracebacks on failure
+python -m pytest                                # behavioral tests (skipped if the PDF is missing)
 ```
+
+The full requirement range is PDF pages 42–337. Decision logs go to stderr; `Saved:` lines go to stdout.
 
 `--page`/`--pages` are 1-based PDF viewer pages, not printed page numbers.
 
@@ -41,8 +51,15 @@ Files are `data/processed/requirement-<id>.json`; 262 total, discriminated by `r
 
 - The PDF is a 3-column table: requirement / testing / guidance. Columns are split by x-coordinate (`COLUMN_BOUNDS`); section headings map to fields via `COLUMN_HEADINGS`.
 - Records spanning pages are merged via "(continued)" labels. Known label errors in the PDF are patched in `CONTINUATION_CORRECTIONS`.
-- Extraction fails loudly (`ValueError` → `SystemExit`) and writes nothing unless the whole range parses. Keep this behavior.
-- After changing extraction logic, re-run on affected pages and diff `data/processed/` before trusting results.
+- Extraction fails loudly (`ExtractionError` → `SystemExit`) and writes nothing unless the whole range parses. Keep this behavior.
+- Raise `ExtractionError` with page, requirement ID, column, and a text excerpt where known; never a bare `ValueError`.
+- Decisions that deviate from the raw PDF (label corrections, the page 281 guidance duplication) are logged at WARNING; page-level tracing is DEBUG.
+
+## Testing
+
+- Tests drive the CLI as a subprocess against the real PDF and compare with `tests/golden/` (every record, `Saved:` report, decision log, inspect output) plus structural invariants. They never import extraction internals, so internals can be refactored freely.
+- A golden diff means behavior changed. Regenerate golden files only after confirming the change is intentional and reviewing the diff.
+- Never point tests at `data/processed/`; they use `--output-dir`.
 
 ## Conventions
 

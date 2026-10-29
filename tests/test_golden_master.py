@@ -17,7 +17,6 @@ GOLDEN_RECORDS = {
 
 def test_full_extraction_succeeds(full_extraction):
     assert full_extraction.returncode == 0, full_extraction.stderr
-    assert full_extraction.stderr == ""
 
 
 def test_same_set_of_files(full_extraction):
@@ -36,12 +35,20 @@ def test_record_matches_golden(full_extraction, filename):
     assert produced == GOLDEN_RECORDS[filename]
 
 
-def test_decision_log_matches_golden(full_extraction):
+def test_saved_files_report_matches_golden(full_extraction):
     expected = (GOLDEN_DIR / "extract_pages_42_337.stdout").read_text(
         encoding="utf-8"
     )
 
     assert full_extraction.normalized_stdout() == expected
+
+
+def test_decision_log_matches_golden(full_extraction):
+    expected = (GOLDEN_DIR / "extract_pages_42_337.stderr").read_text(
+        encoding="utf-8"
+    )
+
+    assert full_extraction.stderr == expected
 
 
 @pytest.mark.parametrize(

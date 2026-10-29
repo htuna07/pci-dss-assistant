@@ -29,6 +29,13 @@ class CliResult:
     def normalized_stdout(self) -> str:
         return self.stdout.replace(str(self.output_dir), "<output-dir>")
 
+    def log_lines(self) -> list[str]:
+        return [
+            line
+            for line in self.stderr.splitlines()
+            if line.split(" ", 1)[0] in {"DEBUG", "INFO", "WARNING"}
+        ]
+
     def output_files(self) -> dict[str, str]:
         if not self.output_dir.is_dir():
             return {}

@@ -1,5 +1,6 @@
 """Walk a page range and assemble requirement and introduction records."""
 
+import logging
 import re
 from dataclasses import dataclass, field
 
@@ -13,6 +14,7 @@ from config import (
     TABLE_HEADER_MARGIN,
     TESTING_HEADER,
 )
+from errors import ExtractionError
 from introduction import (
     INTRODUCTION_BODY,
     IntroductionDraft,
@@ -30,6 +32,8 @@ from table import (
     has_substantive_content,
     read_columns,
 )
+
+logger = logging.getLogger(__name__)
 
 # The guidance printed on page 281 starts in 11.4.2 and is shared by 11.4.3.
 # The PDF gives no label to tell which requirement owns it, so the owner was
@@ -82,6 +86,15 @@ def read_page(
     has_table = bool(page.search_for(REQUIREMENT_HEADER))
     page_text = read_introduction_text(page)
     intro_id = introduction_id(page_text)
+    logger.debug(
+        "PDF page %d: has_table=%s, introduction_id=%s, "
+        "active_introduction=%s, current_requirement=%s",
+        page_number,
+        has_table,
+        intro_id,
+        state.active_introduction,
+        state.current_id,
+    )
 
     if intro_id is not None:
         start_introduction(
@@ -109,19 +122,26 @@ def start_introduction(
     intro_id: str,
 ) -> None:
     if has_table or page.search_for(TESTING_HEADER):
-        raise ValueError(
-            f"Page {page_number}: introduction and table "
-            "on the same page are not supported yet"
+        raise ExtractionError(
+            "introduction and table on the same page are not supported yet",
+            page=page_number,
+            requirement_id=intro_id,
         )
 
     if any(record.pending for record in state.records.values()):
-        raise ValueError(
-            f"Page {page_number}: introduction encountered "
-            "while a requirement continuation is pending"
+        raise ExtractionError(
+            "introduction encountered while a requirement "
+            "continuation is pending",
+            page=page_number,
+            requirement_id=intro_id,
         )
 
     if intro_id in state.introductions:
-        raise ValueError(f"Duplicate introduction: Requirement {intro_id}")
+        raise ExtractionError(
+            "duplicate introduction",
+            page=page_number,
+            requirement_id=intro_id,
+        )
 
     record = IntroductionDraft(requirement_id=intro_id)
     state.introductions[intro_id] = record
@@ -130,9 +150,10 @@ def start_introduction(
 
     state.active_introduction = intro_id
     state.current_id = None
-    print(
-        f"Read introduction: Requirement {intro_id}, "
-        f"PDF page {page_number}"
+    logger.info(
+        "Read introduction: Requirement %s, PDF page %d",
+        intro_id,
+        page_number,
     )
 
 
@@ -147,9 +168,10 @@ def continue_introduction(
         or page.search_for(TESTING_HEADER, clip=INTRODUCTION_BODY)
         or page.search_for(RUNNING_TITLE, clip=INTRODUCTION_BODY)
     ):
-        raise ValueError(
-            f"Page {page_number}: unsupported introduction "
-            "continuation layout"
+        raise ExtractionError(
+            "unsupported introduction continuation layout",
+            page=page_number,
+            requirement_id=state.active_introduction,
         )
 
     consume_introduction(
@@ -159,10 +181,10 @@ def continue_introduction(
         first_page=False,
     )
 
-    print(
-        f"Read introduction continuation: "
-        f"Requirement {state.active_introduction}, "
-        f"PDF page {page_number}"
+    logger.info(
+        "Read introduction continuation: Requirement %s, PDF page %d",
+        state.active_introduction,
+        page_number,
     )
 
 
@@ -188,9 +210,12 @@ def ensure_first_table_matches_introduction(
         first_id is None
         or first_id.group(1).split(".")[0] != state.active_introduction
     ):
-        raise ValueError(
-            f"Page {page_number}: first requirement does not "
-            f"match introduction {state.active_introduction}"
+        raise ExtractionError(
+            "first requirement does not match the introduction",
+            page=page_number,
+            requirement_id=state.active_introduction,
+            column="requirement",
+            excerpt=left,
         )
 
 
@@ -235,6 +260,13 @@ def read_tables(
             record.pdf_pages.append(page_number)
 
         record.pending = consume_segment(record, segment, page_number)
+        logger.debug(
+            "PDF page %d: %s requirement %s, pending columns: %s",
+            page_number,
+            "continued" if segment.is_continuation else "started",
+            record.requirement_id,
+            sorted(record.pending) or "none",
+        )
 
 
 def continue_record(
@@ -246,9 +278,12 @@ def continue_record(
     requirement_id = segment.continued_id or state.current_id
 
     if requirement_id not in state.records:
-        raise ValueError(
-            f"Page {page_number}: continuation without "
-            "its starting requirement"
+        raise ExtractionError(
+            "continuation without its starting requirement "
+            f"(label ID: {segment.continued_id!r}, "
+            f"active ID: {state.current_id!r})",
+            page=page_number,
+            requirement_id=requirement_id,
         )
 
     record = state.records[requirement_id]
@@ -262,12 +297,12 @@ def continue_record(
     )
 
     if not record.pending and not verified_unmarked_continuation:
-        raise ValueError(
-            f"Page {page_number}: continuation without "
-            f"a preceding continuation marker. "
-            f"Label ID: {segment.continued_id!r}; "
-            f"selected ID: {requirement_id!r}; "
-            f"active ID: {state.current_id!r}"
+        raise ExtractionError(
+            "continuation without a preceding continuation marker "
+            f"(label ID: {segment.continued_id!r}, "
+            f"active ID: {state.current_id!r})",
+            page=page_number,
+            requirement_id=requirement_id,
         )
 
     if not record.pending:
@@ -276,17 +311,20 @@ def continue_record(
             if segment.verified_by_layout
             else "testing ID"
         )
-        print(
-            f"Continuation verified by {evidence}: "
-            f"{requirement_id}, PDF page {page_number}"
+        logger.info(
+            "Continuation verified by %s: %s, PDF page %d",
+            evidence,
+            requirement_id,
+            page_number,
         )
 
     # A continuation may introduce content in another column, so require
     # actual content beyond layout markers.
     if not has_substantive_content(segment.columns):
-        raise ValueError(
-            f"Page {page_number}: {requirement_id} "
-            "continuation has no content"
+        raise ExtractionError(
+            "continuation has no content",
+            page=page_number,
+            requirement_id=requirement_id,
         )
 
     return record
@@ -304,15 +342,21 @@ def start_record(
         flags=re.MULTILINE,
     )
     if not match:
-        raise ValueError(
-            f"Page {page_number}: requirement ID not found. "
-            f"Column text: {requirement_column!r}"
+        raise ExtractionError(
+            "requirement ID not found",
+            page=page_number,
+            column="requirement",
+            excerpt=requirement_column,
         )
 
     requirement_id = match.group(1)
 
     if requirement_id in state.records:
-        raise ValueError(f"Duplicate requirement start: {requirement_id}")
+        raise ExtractionError(
+            "duplicate requirement start",
+            page=page_number,
+            requirement_id=requirement_id,
+        )
 
     record = RequirementDraft(requirement_id=requirement_id)
     state.records[requirement_id] = record
@@ -330,8 +374,9 @@ def consume_segment(
     for column, text in segment.columns.items():
         try:
             continues = consume_column(record, column, text)
-        except ValueError as error:
-            raise ValueError(f"Page {page_number}: {error}") from error
+        except ExtractionError as error:
+            error.page = page_number
+            raise
 
         if continues:
             pending.add(column)
@@ -350,9 +395,11 @@ def share_guidance(
     guidance_text = segment.columns["guidance"].strip()
 
     if owner is None:
-        raise ValueError(
-            f"Page {page_number}: {SHARED_GUIDANCE_OWNER} is required. "
-            "Extend the page range backwards."
+        raise ExtractionError(
+            f"{SHARED_GUIDANCE_OWNER} is required. "
+            "Extend the page range backwards.",
+            page=page_number,
+            requirement_id=SHARED_GUIDANCE_BORROWER,
         )
 
     purpose_text = " ".join(owner.fields["guidance"].get("purpose", []))
@@ -371,9 +418,13 @@ def share_guidance(
             guidance_lines
         )
     ):
-        raise ValueError(
-            f"Page {page_number}: content differs from the provisional "
-            "guidance ownership assumption"
+        raise ExtractionError(
+            "content differs from the provisional guidance ownership "
+            f"assumption (owner {SHARED_GUIDANCE_OWNER})",
+            page=page_number,
+            requirement_id=SHARED_GUIDANCE_BORROWER,
+            column="guidance",
+            excerpt=guidance_text,
         )
 
     if consume_column(owner, "guidance", guidance_text):
@@ -402,26 +453,28 @@ def share_guidance(
     owner.extraction_notes.append(note)
     borrower.extraction_notes.append(note)
 
-    print(
-        "Provisional guidance duplication: "
-        f"{SHARED_GUIDANCE_OWNER} -> {SHARED_GUIDANCE_BORROWER}"
+    logger.warning(
+        "Provisional guidance duplication: %s -> %s",
+        SHARED_GUIDANCE_OWNER,
+        SHARED_GUIDANCE_BORROWER,
     )
 
 
 def ensure_range_is_complete(state: ExtractionState) -> None:
     incomplete = [
-        requirement_id
+        f"{requirement_id} (last page read: {record.pdf_pages[-1]})"
         for requirement_id, record in state.records.items()
         if record.pending
     ]
     if incomplete:
-        raise ValueError(
+        raise ExtractionError(
             f"Missing continuation pages for: {', '.join(incomplete)}. "
             "Extend the page range."
         )
 
     if state.active_introduction is not None:
-        raise ValueError(
-            f"Range ends within introduction {state.active_introduction}. "
-            "Extend through its first requirement table."
+        raise ExtractionError(
+            "range ends within the introduction. "
+            "Extend through its first requirement table.",
+            requirement_id=state.active_introduction,
         )

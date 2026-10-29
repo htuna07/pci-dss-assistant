@@ -1,5 +1,6 @@
 """Parse the three-column requirement / testing / guidance tables."""
 
+import logging
 import re
 from dataclasses import dataclass, field
 
@@ -16,6 +17,9 @@ from config import (
     TABLE_BODY_TOP,
     TABLE_HEADER_MARGIN,
 )
+from errors import ExtractionError
+
+logger = logging.getLogger(__name__)
 
 CONTINUED_ON_NEXT_PAGE = "(continued on next page)"
 CONTINUED = "(continued)"
@@ -142,14 +146,17 @@ def _apply_continuation_correction(
     )
 
     if count != 1:
-        raise ValueError(
-            f"Page {page.number + 1}: expected correction label "
-            "was not found"
+        raise ExtractionError(
+            "expected correction label was not found",
+            page=page.number + 1,
+            excerpt=initial["requirement"],
         )
 
-    print(
-        f"Corrected continuation label: PDF page {page.number + 1}, "
-        f"{continued_id} -> {corrected_id}"
+    logger.warning(
+        "Corrected continuation label: PDF page %d, %s -> %s",
+        page.number + 1,
+        continued_id,
+        corrected_id,
     )
 
     return corrected_id
@@ -214,9 +221,9 @@ def find_segments(
     )
 
     if expecting_continuation and not has_initial_content:
-        raise ValueError(
-            f"Page {page.number + 1}: expected continuation content "
-            "before the next requirement"
+        raise ExtractionError(
+            "expected continuation content before the next requirement",
+            page=page.number + 1,
         )
 
     segments = []
@@ -243,8 +250,9 @@ def find_segments(
         segments.append(Segment(columns=read_columns(page, top, bottom)))
 
     if not segments:
-        raise ValueError(
-            f"Page {page.number + 1}: no supported sections found"
+        raise ExtractionError(
+            "no supported sections found",
+            page=page.number + 1,
         )
 
     return segments
@@ -305,7 +313,13 @@ def consume_column(
         )
         if explicit:
             if explicit.group(1) != record.requirement_id:
-                raise ValueError("Continuation ID mismatch")
+                raise ExtractionError(
+                    f"continuation label {explicit.group(1)} does not "
+                    "match the requirement being read",
+                    requirement_id=record.requirement_id,
+                    column=column,
+                    excerpt=line,
+                )
             continue
 
         # Content after a marker means it is not a trailing marker.
@@ -316,15 +330,23 @@ def consume_column(
 
         if heading in headings:
             key = headings[heading]
+            logger.debug(
+                "%s %s column: field %s starts",
+                record.requirement_id,
+                column,
+                key,
+            )
             record.active[column] = key
             record.fields[column].setdefault(key, [])
             continue
 
         key = record.active[column]
         if key is None:
-            raise ValueError(
-                f"{record.requirement_id}: text without a heading "
-                f"in {column}: {line}"
+            raise ExtractionError(
+                "text without a heading",
+                requirement_id=record.requirement_id,
+                column=column,
+                excerpt=line,
             )
 
         record.fields[column][key].append(line)
@@ -352,23 +374,32 @@ def finish_record(record: RequirementDraft) -> dict:
         count=1,
     )
     if count != 1:
-        raise ValueError(
-            f"{requirement_id}: missing or mismatched requirement text"
+        raise ExtractionError(
+            "missing or mismatched requirement text",
+            requirement_id=requirement_id,
+            pages=record.pdf_pages,
+            column="requirement",
+            excerpt=left.get("defined_requirement", ""),
         )
 
     if not re.match(
         rf"^{re.escape(requirement_id)}(?:\.[a-z]+)?\.?\s+",
         testing,
     ):
-        raise ValueError(
-            f"{requirement_id}: missing or mismatched testing text; "
-            f"PDF pages: {record.pdf_pages}; "
-            f"testing: {testing!r}"
+        raise ExtractionError(
+            "missing or mismatched testing text",
+            requirement_id=requirement_id,
+            pages=record.pdf_pages,
+            column="testing",
+            excerpt=testing,
         )
 
     if not left.get("customized_approach_objective"):
-        raise ValueError(
-            f"{requirement_id}: missing customized approach objective"
+        raise ExtractionError(
+            "missing customized approach objective",
+            requirement_id=requirement_id,
+            pages=record.pdf_pages,
+            column="requirement",
         )
 
     return {
