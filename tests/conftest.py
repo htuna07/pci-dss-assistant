@@ -13,6 +13,7 @@ import pytest
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 MAIN_SCRIPT = PROJECT_ROOT / "src" / "main.py"
+CHUNK_SCRIPT = PROJECT_ROOT / "src" / "build_chunks.py"
 PDF_PATH = PROJECT_ROOT / "data" / "PCI-DSS-v4_0_1.pdf"
 GOLDEN_DIR = Path(__file__).resolve().parent / "golden"
 
@@ -61,6 +62,30 @@ def run_cli(args: list[str], output_dir: Path) -> CliResult:
     )
 
 
+def run_chunker(args: list[str], input_dir: Path, output_dir: Path) -> CliResult:
+    completed = subprocess.run(
+        [
+            sys.executable,
+            str(CHUNK_SCRIPT),
+            *args,
+            "--input-dir",
+            str(input_dir),
+            "--output-dir",
+            str(output_dir),
+        ],
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        cwd=PROJECT_ROOT,
+    )
+    return CliResult(
+        returncode=completed.returncode,
+        stdout=completed.stdout,
+        stderr=completed.stderr,
+        output_dir=output_dir,
+    )
+
+
 @pytest.fixture(scope="session", autouse=True)
 def require_pdf() -> None:
     if not PDF_PATH.is_file():
@@ -74,3 +99,17 @@ def full_extraction(tmp_path_factory: pytest.TempPathFactory) -> CliResult:
         ["--pages", str(start), str(end), "--extract"],
         tmp_path_factory.mktemp("full_extraction"),
     )
+
+
+@pytest.fixture(scope="session")
+def chunk_runs(
+    full_extraction: CliResult, tmp_path_factory: pytest.TempPathFactory
+) -> dict[str, CliResult]:
+    return {
+        strategy: run_chunker(
+            ["--strategy", strategy],
+            full_extraction.output_dir,
+            tmp_path_factory.mktemp(f"chunks_{strategy}"),
+        )
+        for strategy in ("per_record", "grouped", "per_field")
+    }

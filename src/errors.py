@@ -59,3 +59,19 @@ class ExtractionError(ValueError):
             text += f"\n  text: {excerpt!r}"
 
         return text
+
+
+class ChunkingError(ValueError):
+    """An extracted record that cannot be turned into chunks without losing text."""
+
+    def __init__(self, message: str, *, requirement_id: str | None = None) -> None:
+        super().__init__(message)
+        self.requirement_id = requirement_id
+
+    def __str__(self) -> str:
+        prefix = (
+            f"requirement {self.requirement_id}: "
+            if self.requirement_id is not None
+            else ""
+        )
+        return prefix + super().__str__()

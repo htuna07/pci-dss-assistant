@@ -5,6 +5,8 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 PDF_PATH = PROJECT_ROOT / "data" / "PCI-DSS-v4_0_1.pdf"
 DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "data" / "processed"
+DEFAULT_CHUNKS_DIR = PROJECT_ROOT / "data" / "chunks"
+DEFAULT_MAX_CHUNK_WORDS = 350
 
 DOCUMENT_VERSION = "4.0.1"
 
