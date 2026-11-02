@@ -5,12 +5,14 @@ RAG assistant that retrieves PCI DSS v4.0.1 content so an LLM answers compliance
 ## Status
 
 - Done: extraction (PDF → structured JSON), chunking (JSON → JSONL chunks).
-- Not started: evaluation question set, embeddings, vector store, retrieval, LLM answer generation.
+- In progress: evaluation question set (`eval/questions.jsonl`, 32 English questions; scoring harness not built).
+- Not started: embeddings, vector store, retrieval, LLM answer generation.
 
 ## Language
 
 - All code, comments, identifiers, docs, prompts, commit messages, and generated output are in English.
 - Conversation with the user may be Turkish or English.
+- The assistant is English-only for now (the source PDF is English); questions and answers are in English.
 
 ## Layout
 
@@ -22,6 +24,7 @@ RAG assistant that retrieves PCI DSS v4.0.1 content so an LLM answers compliance
 - `src/errors.py` — `ExtractionError` carrying page / requirement / column context; `ChunkingError` for records that cannot be chunked without losing text.
 - `src/chunking.py` — records → chunks (strategies `per_record`, `grouped`, `per_field`; splits only between fields).
 - `src/build_chunks.py` — chunk CLI (`--strategy`, `--max-words`, `--input-dir`, `--output-dir`).
+- `eval/questions.jsonl` — retrieval evaluation set: question, language, type, expected requirement IDs.
 - `tests/` — behavioral tests; `tests/golden/` holds the reference output.
 - `data/PCI-DSS-v4_0_1.pdf` — source document (gitignored).
 - `data/processed/` — extracted JSON, one file per record (gitignored; regenerate from the PDF).
