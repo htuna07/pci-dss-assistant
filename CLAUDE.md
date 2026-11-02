@@ -4,8 +4,8 @@ RAG assistant that retrieves PCI DSS v4.0.1 content so an LLM answers compliance
 
 ## Status
 
-- Done: extraction (PDF → structured JSON).
-- Not started: chunking, embeddings, vector store, retrieval, LLM answer generation, evaluation.
+- Done: extraction (PDF → structured JSON), chunking (JSON → JSONL chunks).
+- Not started: evaluation question set, embeddings, vector store, retrieval, LLM answer generation.
 
 ## Language
 
@@ -19,10 +19,13 @@ RAG assistant that retrieves PCI DSS v4.0.1 content so an LLM answers compliance
 - `src/extract.py` — page-range walk, continuation handling, the page 281 guidance exception.
 - `src/table.py` — three-column table parsing (segments, columns, record assembly).
 - `src/introduction.py` — per-requirement introduction parsing.
-- `src/errors.py` — `ExtractionError` carrying page / requirement / column context.
+- `src/errors.py` — `ExtractionError` carrying page / requirement / column context; `ChunkingError` for records that cannot be chunked without losing text.
+- `src/chunking.py` — records → chunks (strategies `per_record`, `grouped`, `per_field`; splits only between fields).
+- `src/build_chunks.py` — chunk CLI (`--strategy`, `--max-words`, `--input-dir`, `--output-dir`).
 - `tests/` — behavioral tests; `tests/golden/` holds the reference output.
 - `data/PCI-DSS-v4_0_1.pdf` — source document (gitignored).
 - `data/processed/` — extracted JSON, one file per record (gitignored; regenerate from the PDF).
+- `data/chunks/` — `chunks-<strategy>.jsonl`, one chunk per line (gitignored; regenerate from `data/processed/`).
 - `.venv/` — local virtualenv.
 
 ## Commands
@@ -33,6 +36,8 @@ pip install -r requirements-dev.txt
 python src/main.py --page 44 --inspect          # dump text blocks of a page
 python src/main.py --pages 42 337 --extract     # full document -> data/processed/requirement-<id>.json
 python src/main.py --pages 90 120 --extract -v  # per-page DEBUG trace, tracebacks on failure
+python src/build_chunks.py                      # data/processed -> data/chunks/chunks-grouped.jsonl
+python src/build_chunks.py --strategy per_field # also: per_record
 python -m pytest                                # behavioral tests (skipped if the PDF is missing)
 ```
 
@@ -46,6 +51,15 @@ Files are `data/processed/requirement-<id>.json`; 262 total, discriminated by `r
 
 - `requirement` (250): `requirement_id` (e.g. `3.7.1`), `section_id`, `defined_requirement`, `testing_procedures`, `customized_approach_objective`, `applicability_notes`, `guidance` (dict: purpose, good_practice, definitions, examples, further_information; keys present only when found), `pdf_pages`, `extraction_notes`, `document_version`.
 - `requirement_introduction` (12): `requirement_id` (e.g. `9`), `title`, `sections` (id + title), `overview`, `notes`, `category_title`, `pdf_pages`, `document_version`.
+
+## Chunk Model
+
+Each JSONL line: `chunk_id` (`<requirement_id>/<group>/<n>`), `record_type`, `requirement_id`, `section_id`, `group`, `pdf_pages`, `document_version`, `header`, `text`.
+
+- `header` (document version, requirement ID, group, principal-requirement and section titles) is context for embedding and BM25; `text` is the passage shown to the LLM.
+- Default strategy `grouped`: `requirement` (defined requirement + customized approach objective + applicability notes), `testing`, `guidance` (all guidance keys). Introductions are one `introduction` group and are never rule sources.
+- `--max-words` (default 350) splits a group only between fields, marks pieces "(part n of m)", and logs WARNING for a single field that cannot be split. The default keeps every requirement/testing group whole.
+- Retrieval should be able to expand a hit to all chunks sharing its `requirement_id` (planned, not built).
 
 ## Extraction Notes
 
