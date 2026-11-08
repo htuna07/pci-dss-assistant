@@ -6,7 +6,7 @@ RAG assistant that retrieves PCI DSS v4.0.1 content so an LLM answers compliance
 
 - Done: extraction (PDF → structured JSON), chunking (JSON → JSONL chunks).
 - Done: evaluation question set (`eval/questions.jsonl`, 32 English questions), keyword / semantic / hybrid search with a comparison command.
-- Not started: requirement-ID shortcut, expanding a hit to its whole requirement, LLM answer generation, larger question set.
+- Not started: LLM-based query routing (only if the regex ID shortcut proves too weak), expanding a hit to its whole requirement, LLM answer generation, larger question set.
 
 ## Language
 
@@ -25,7 +25,7 @@ RAG assistant that retrieves PCI DSS v4.0.1 content so an LLM answers compliance
 - `src/chunking.py` — records → chunks (strategies `per_record`, `grouped`, `per_field`; splits only between fields).
 - `src/bm25.py` — dependency-free Okapi BM25 (keyword search) and the tokenizer (keeps IDs like `8.4.2` whole).
 - `src/embeddings.py` — sentence embeddings (`bge-base-en-v1.5`) for chunks and queries, cached under `data/index/` keyed by a hash of model + chunk text.
-- `src/search.py` — `Retriever`: `keyword`, `semantic` and `hybrid` (reciprocal rank fusion) search; returns requirement IDs.
+- `src/search.py` — `Retriever`: `keyword`, `semantic`, `hybrid` (reciprocal rank fusion) and `hybrid_id` (requirement IDs named in the query, validated against known IDs, go first, then hybrid results); returns requirement IDs.
 - `src/evaluate.py` — runs the methods over `eval/questions.jsonl` and prints how many questions have all / at least one expected requirement in the top k.
 - `src/build_chunks.py` — chunk CLI (`--strategy`, `--max-words`, `--input-dir`, `--output-dir`).
 - `eval/questions.jsonl` — retrieval evaluation set: question, language, type, expected requirement IDs.
@@ -46,7 +46,7 @@ python src/main.py --pages 42 337 --extract     # full document -> data/processe
 python src/main.py --pages 90 120 --extract -v  # per-page DEBUG trace, tracebacks on failure
 python src/build_chunks.py                      # data/processed -> data/chunks/chunks-grouped.jsonl
 python src/build_chunks.py --strategy per_field # also: per_record
-python src/evaluate.py --misses hybrid         # keyword vs semantic vs hybrid on the 32 questions
+python src/evaluate.py --misses hybrid         # keyword vs semantic vs hybrid vs hybrid_id on the 32 questions
 python -m pytest                                # behavioral tests (skipped if the PDF is missing)
 ```
 

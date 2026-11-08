@@ -7,7 +7,7 @@ import pytest
 
 from conftest import GOLDEN_DIR, run_evaluator
 
-METHOD_ROW = re.compile(r"^(keyword|semantic|hybrid)\s+(\d+)/(\d+)\s+(\d+)/(\d+)$")
+METHOD_ROW = re.compile(r"^(keyword|semantic|hybrid_id|hybrid)\s+(\d+)/(\d+)\s+(\d+)/(\d+)$")
 TYPE_ROW = re.compile(r"^(\w+)\s+(\d+)((?:\s+\d+)+)$")
 
 
@@ -200,7 +200,7 @@ def test_real_data_run_succeeds_for_all_methods(real_run):
     methods = parse_methods(real_run.stdout)
 
     assert real_run.returncode == 0, real_run.stderr
-    assert set(methods) == {"keyword", "semantic", "hybrid"}
+    assert set(methods) == {"keyword", "semantic", "hybrid", "hybrid_id"}
     assert {row["n"] for row in methods.values()} == {32}
 
 
@@ -211,8 +211,69 @@ def test_hybrid_is_at_least_as_good_as_each_single_method(real_run):
     assert methods["hybrid"]["complete"] >= methods["semantic"]["complete"]
 
 
+def test_id_lookup_questions_are_all_answered_by_hybrid_id(real_run):
+    types = parse_types(real_run.stdout, ["keyword", "semantic", "hybrid", "hybrid_id"])
+
+    assert types["id_lookup"]["hybrid_id"] == types["id_lookup"]["n"]
+
+
+def test_hybrid_id_is_at_least_as_good_as_hybrid(real_run):
+    methods = parse_methods(real_run.stdout)
+
+    assert methods["hybrid_id"]["complete"] >= methods["hybrid"]["complete"]
+
+
+def run_hybrid_id(tmp_path, chunks_path, question, expected):
+    questions = tmp_path / "questions.jsonl"
+    write_jsonl(
+        questions,
+        [{"id": "q", "type": "t", "question": question, "expected_requirement_ids": expected}],
+    )
+    return run_evaluator(
+        [
+            "--chunks", str(chunks_path),
+            "--questions", str(questions),
+            "--methods", "hybrid_id",
+            "--index-dir", str(tmp_path / "index"),
+            "--k", "1",
+        ]
+    )
+
+
+def test_mentioned_requirement_id_is_placed_first_even_when_text_is_unrelated(tmp_path):
+    chunks_path = tmp_path / "chunks.jsonl"
+    make_chunks(chunks_path, {"8.4.2": "alpha", "8.4.3": "beta", "2.4.8": "gamma"})
+
+    result = run_hybrid_id(tmp_path, chunks_path, "Explain 8.4.3 please", ["8.4.3"])
+
+    assert parse_methods(result.stdout)["hybrid_id"]["complete"] == 1
+
+
+def test_unknown_dotted_numbers_are_not_treated_as_requirement_ids(tmp_path):
+    chunks_path = tmp_path / "chunks.jsonl"
+    make_chunks(
+        chunks_path,
+        {"1": "network security", "5.2.1": "firewall rules for network traffic"},
+    )
+
+    result = run_hybrid_id(
+        tmp_path, chunks_path, "In version 4.0.1 are firewall rules needed?", ["5.2.1"]
+    )
+
+    assert parse_methods(result.stdout)["hybrid_id"]["complete"] == 1
+
+
+def test_principal_requirement_mentions_resolve_to_the_introduction(tmp_path):
+    chunks_path = tmp_path / "chunks.jsonl"
+    make_chunks(chunks_path, {"3": "overview", "3.5.1": "alpha", "4": "beta"})
+
+    result = run_hybrid_id(tmp_path, chunks_path, "What does Requirement 3 cover?", ["3"])
+
+    assert parse_methods(result.stdout)["hybrid_id"]["complete"] == 1
+
+
 def test_keyword_search_finds_every_requirement_id_lookup(real_run):
-    types = parse_types(real_run.stdout, ["keyword", "semantic", "hybrid"])
+    types = parse_types(real_run.stdout, ["keyword", "semantic", "hybrid", "hybrid_id"])
 
     assert types["id_lookup"]["keyword"] == types["id_lookup"]["n"]
 
