@@ -14,6 +14,7 @@ import pytest
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 MAIN_SCRIPT = PROJECT_ROOT / "src" / "main.py"
 CHUNK_SCRIPT = PROJECT_ROOT / "src" / "build_chunks.py"
+EVALUATE_SCRIPT = PROJECT_ROOT / "src" / "evaluate.py"
 PDF_PATH = PROJECT_ROOT / "data" / "PCI-DSS-v4_0_1.pdf"
 GOLDEN_DIR = Path(__file__).resolve().parent / "golden"
 
@@ -83,6 +84,22 @@ def run_chunker(args: list[str], input_dir: Path, output_dir: Path) -> CliResult
         stdout=completed.stdout,
         stderr=completed.stderr,
         output_dir=output_dir,
+    )
+
+
+def run_evaluator(args: list[str]) -> CliResult:
+    completed = subprocess.run(
+        [sys.executable, str(EVALUATE_SCRIPT), *args],
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        cwd=PROJECT_ROOT,
+    )
+    return CliResult(
+        returncode=completed.returncode,
+        stdout=completed.stdout,
+        stderr=completed.stderr,
+        output_dir=PROJECT_ROOT,
     )
 
 

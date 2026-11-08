@@ -5,8 +5,8 @@ RAG assistant that retrieves PCI DSS v4.0.1 content so an LLM answers compliance
 ## Status
 
 - Done: extraction (PDF → structured JSON), chunking (JSON → JSONL chunks).
-- In progress: evaluation question set (`eval/questions.jsonl`, 32 English questions; scoring harness not built).
-- Not started: embeddings, vector store, retrieval, LLM answer generation.
+- Done: evaluation question set (`eval/questions.jsonl`, 32 English questions), keyword / semantic / hybrid search with a comparison command.
+- Not started: requirement-ID shortcut, expanding a hit to its whole requirement, LLM answer generation, larger question set.
 
 ## Language
 
@@ -23,11 +23,16 @@ RAG assistant that retrieves PCI DSS v4.0.1 content so an LLM answers compliance
 - `src/introduction.py` — per-requirement introduction parsing.
 - `src/errors.py` — `ExtractionError` carrying page / requirement / column context; `ChunkingError` for records that cannot be chunked without losing text.
 - `src/chunking.py` — records → chunks (strategies `per_record`, `grouped`, `per_field`; splits only between fields).
+- `src/bm25.py` — dependency-free Okapi BM25 (keyword search) and the tokenizer (keeps IDs like `8.4.2` whole).
+- `src/embeddings.py` — sentence embeddings (`bge-base-en-v1.5`) for chunks and queries, cached under `data/index/` keyed by a hash of model + chunk text.
+- `src/search.py` — `Retriever`: `keyword`, `semantic` and `hybrid` (reciprocal rank fusion) search; returns requirement IDs.
+- `src/evaluate.py` — runs the methods over `eval/questions.jsonl` and prints how many questions have all / at least one expected requirement in the top k.
 - `src/build_chunks.py` — chunk CLI (`--strategy`, `--max-words`, `--input-dir`, `--output-dir`).
 - `eval/questions.jsonl` — retrieval evaluation set: question, language, type, expected requirement IDs.
 - `tests/` — behavioral tests; `tests/golden/` holds the reference output.
 - `data/PCI-DSS-v4_0_1.pdf` — source document (gitignored).
 - `data/processed/` — extracted JSON, one file per record (gitignored; regenerate from the PDF).
+- `data/index/` — cached chunk embeddings (gitignored; rebuilt automatically).
 - `data/chunks/` — `chunks-<strategy>.jsonl`, one chunk per line (gitignored; regenerate from `data/processed/`).
 - `.venv/` — local virtualenv.
 
@@ -41,6 +46,7 @@ python src/main.py --pages 42 337 --extract     # full document -> data/processe
 python src/main.py --pages 90 120 --extract -v  # per-page DEBUG trace, tracebacks on failure
 python src/build_chunks.py                      # data/processed -> data/chunks/chunks-grouped.jsonl
 python src/build_chunks.py --strategy per_field # also: per_record
+python src/evaluate.py --misses hybrid         # keyword vs semantic vs hybrid on the 32 questions
 python -m pytest                                # behavioral tests (skipped if the PDF is missing)
 ```
 

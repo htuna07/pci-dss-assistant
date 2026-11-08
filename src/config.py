@@ -8,6 +8,17 @@ DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "data" / "processed"
 DEFAULT_CHUNKS_DIR = PROJECT_ROOT / "data" / "chunks"
 DEFAULT_MAX_CHUNK_WORDS = 350
 
+DEFAULT_INDEX_DIR = PROJECT_ROOT / "data" / "index"
+DEFAULT_EVAL_QUESTIONS_PATH = PROJECT_ROOT / "eval" / "questions.jsonl"
+DEFAULT_EVAL_K = 5
+
+EMBEDDING_MODEL = "BAAI/bge-base-en-v1.5"
+# bge models are trained to see this prefix on queries but not on passages.
+EMBEDDING_QUERY_PREFIX = "Represent this sentence for searching relevant passages: "
+# 60 is the constant from the original reciprocal rank fusion paper; it keeps
+# a single first-place rank from dominating the fused score.
+RRF_K = 60
+
 DOCUMENT_VERSION = "4.0.1"
 
 REQUIREMENT_HEADER = "Defined Approach Requirements"
