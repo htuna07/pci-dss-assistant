@@ -1,14 +1,27 @@
-chunks: chunks-grouped.jsonl | k=5 | questions: 32
+chunks: chunks-grouped.jsonl | k=5 | questions: 40
 method       all expected in top 5     at least one in top 5
-keyword                     23/32                    25/32
+keyword                     24/40                    29/40
 
 all expected in top 5, by question type:
 type              n   keyword
 applicability     2         2
+broad             8         1
 conceptual        2         1
 id_lookup         3         3
 keyword           7         7
 multi             3         1
+non_technical     5         3
+semantic          8         4
+testing           2         2
+
+at least one expected in top 5, by question type:
+type              n   keyword
+applicability     2         2
+broad             8         4
+conceptual        2         1
+id_lookup         3         3
+keyword           7         7
+multi             3         3
 non_technical     5         3
 semantic          8         4
 testing           2         2
@@ -41,3 +54,24 @@ q28 [non_technical] Can I write customers' card numbers into my application logs
 q29 [non_technical] Is my server allowed to send requests to any address on the internet?
     expected: 1.3.2
     got:      2.2.3, 1.5.1, 11.5.1.1, 1.4.3, 5.3.5
+q33 [broad] How should I set up my store's network and devices to keep payment information safe?
+    expected: 1.4.1, 1.5.1, 2.2.1
+    got:      9.5.1, 12.8.1, 1.2.3, 1.5.1, 8.3.2
+q34 [broad] What do I need to do to safely store customers' card numbers?
+    expected: 3.5.1, 3.3.1, 3.2.1
+    got:      3.7.9, 3.3.3, 11.4.7, 8.3.10, 3.3.1.3
+q35 [broad] What protection do our computers and servers need against malware?
+    expected: 5.2.1, 5.2.2, 5.3.1, 5.3.2
+    got:      5.3.5, 5, 5.2.3, 3.5.1.2, 5.2.2
+q37 [broad] How do we decide which employees should have access to customers' payment information?
+    expected: 7.2.1, 7.2.2, 7.2.3
+    got:      12, 8.3.10, 12.9.2, 11.4.7, 12.9.1
+q38 [broad] What should we require from employees when they sign in to systems that handle payments?
+    expected: 8.3.1, 8.3.6, 8.4.2
+    got:      12.7.1, 12.4.2.1, 8.3.4, 6.2.3, 6.2.4
+q39 [broad] What evidence should I look for to check that physical access to servers is properly controlled?
+    expected: 9.2.1, 9.2.1.1, 9.3.1
+    got:      9.3.1.1, 9.2.1, 6.4.2, 9.5.1, 1.4.5
+q40 [broad] Which activities do we need to log, and how long should we keep those logs?
+    expected: 10.2.1, 10.2.2, 10.5.1
+    got:      10.4.1.1, 10.3.1, 10, 10.2.1.2, 10.4.2

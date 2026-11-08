@@ -5,7 +5,11 @@ import re
 
 import pytest
 
-from conftest import GOLDEN_DIR, run_evaluator
+from conftest import GOLDEN_DIR, PROJECT_ROOT, run_evaluator
+
+QUESTION_COUNT = len(
+    (PROJECT_ROOT / "eval" / "questions.jsonl").read_text(encoding="utf-8").splitlines()
+)
 
 METHOD_ROW = re.compile(r"^(keyword|semantic|hybrid_id|hybrid)\s+(\d+)/(\d+)\s+(\d+)/(\d+)$")
 TYPE_ROW = re.compile(r"^(\w+)\s+(\d+)((?:\s+\d+)+)$")
@@ -21,9 +25,12 @@ def parse_methods(stdout: str) -> dict[str, dict[str, int]]:
     return rows
 
 
-def parse_types(stdout: str, methods: list[str]) -> dict[str, dict[str, int]]:
+def parse_types(
+    stdout: str, methods: list[str], table: str = "all expected"
+) -> dict[str, dict[str, int]]:
+    section = stdout.split(f"{table} in top 5, by question type:")[1]
     rows = {}
-    for line in stdout.split("by question type:")[1].splitlines():
+    for line in section.split("\n\n")[0].splitlines():
         match = TYPE_ROW.match(line)
         if match:
             name, count, scores = match.groups()
@@ -201,7 +208,7 @@ def test_real_data_run_succeeds_for_all_methods(real_run):
 
     assert real_run.returncode == 0, real_run.stderr
     assert set(methods) == {"keyword", "semantic", "hybrid", "hybrid_id"}
-    assert {row["n"] for row in methods.values()} == {32}
+    assert {row["n"] for row in methods.values()} == {QUESTION_COUNT}
 
 
 def test_hybrid_is_at_least_as_good_as_each_single_method(real_run):
@@ -270,6 +277,17 @@ def test_principal_requirement_mentions_resolve_to_the_introduction(tmp_path):
     result = run_hybrid_id(tmp_path, chunks_path, "What does Requirement 3 cover?", ["3"])
 
     assert parse_methods(result.stdout)["hybrid_id"]["complete"] == 1
+
+
+def test_report_has_a_second_table_for_at_least_one_per_type(real_run):
+    methods = ["keyword", "semantic", "hybrid", "hybrid_id"]
+    all_rows = parse_types(real_run.stdout, methods)
+    any_rows = parse_types(real_run.stdout, methods, "at least one expected")
+
+    assert set(all_rows) == set(any_rows)
+    for name, row in all_rows.items():
+        for method in methods:
+            assert any_rows[name][method] >= row[method]
 
 
 def test_keyword_search_finds_every_requirement_id_lookup(real_run):

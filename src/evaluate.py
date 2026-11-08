@@ -62,6 +62,25 @@ def evaluate(
     return results
 
 
+def format_type_rows(
+    results: dict[str, list[dict]], methods: list[str], key: str
+) -> list[str]:
+    by_type: dict[str, dict[str, list[bool]]] = defaultdict(
+        lambda: {method: [] for method in methods}
+    )
+    for method in methods:
+        for row in results[method]:
+            by_type[row["question"]["type"]][method].append(row[key])
+    lines = [f"{'type':<15}{'n':>4}" + "".join(f"{m:>10}" for m in methods)]
+    for question_type in sorted(by_type):
+        count = len(by_type[question_type][methods[0]])
+        lines.append(
+            f"{question_type:<15}{count:>4}"
+            + "".join(f"{sum(by_type[question_type][m]):>10}" for m in methods)
+        )
+    return lines
+
+
 def format_report(results: dict[str, list[dict]], k: int) -> str:
     methods = list(results)
     total = len(next(iter(results.values())))
@@ -76,20 +95,12 @@ def format_report(results: dict[str, list[dict]], k: int) -> str:
             f"{sum(r['any'] for r in rows):>22}/{total}"
         )
 
-    by_type: dict[str, dict[str, list[bool]]] = defaultdict(
-        lambda: {method: [] for method in methods}
-    )
-    for method in methods:
-        for row in results[method]:
-            by_type[row["question"]["type"]][method].append(row["complete"])
-    lines += ["", f"all expected in top {k}, by question type:"]
-    lines.append(f"{'type':<15}{'n':>4}" + "".join(f"{m:>10}" for m in methods))
-    for question_type in sorted(by_type):
-        count = len(by_type[question_type][methods[0]])
-        lines.append(
-            f"{question_type:<15}{count:>4}"
-            + "".join(f"{sum(by_type[question_type][m]):>10}" for m in methods)
-        )
+    for key, title in (
+        ("complete", f"all expected in top {k}"),
+        ("any", f"at least one expected in top {k}"),
+    ):
+        lines += ["", f"{title}, by question type:"]
+        lines += format_type_rows(results, methods, key)
     return "\n".join(lines)
 
 

@@ -5,7 +5,7 @@ RAG assistant that retrieves PCI DSS v4.0.1 content so an LLM answers compliance
 ## Status
 
 - Done: extraction (PDF → structured JSON), chunking (JSON → JSONL chunks).
-- Done: evaluation question set (`eval/questions.jsonl`, 32 English questions), keyword / semantic / hybrid search with a comparison command.
+- Done: evaluation question set (`eval/questions.jsonl`, 40 English questions plus 2 unanswerable), keyword / semantic / hybrid search with a comparison command.
 - Not started: LLM-based query routing (only if the regex ID shortcut proves too weak), expanding a hit to its whole requirement, LLM answer generation, larger question set.
 
 ## Language
@@ -28,7 +28,8 @@ RAG assistant that retrieves PCI DSS v4.0.1 content so an LLM answers compliance
 - `src/search.py` — `Retriever`: `keyword`, `semantic`, `hybrid` (reciprocal rank fusion) and `hybrid_id` (requirement IDs named in the query, validated against known IDs, go first, then hybrid results); returns requirement IDs.
 - `src/evaluate.py` — runs the methods over `eval/questions.jsonl` and prints how many questions have all / at least one expected requirement in the top k.
 - `src/build_chunks.py` — chunk CLI (`--strategy`, `--max-words`, `--input-dir`, `--output-dir`).
-- `eval/questions.jsonl` — retrieval evaluation set: question, language, type, expected requirement IDs.
+- `eval/questions.jsonl` — retrieval evaluation set. Fields: `id`, `question`, `language`, `type`, `expected_requirement_ids` (core requirements that directly answer it); optional `persona` (who asks; not part of the searched text) and `related_requirement_ids` (helpful but unscored).
+- `eval/unanswerable.jsonl` — questions the standard does not answer; kept apart because they have no expected requirement. For the answer-generation stage, which must say the document does not cover them.
 - `tests/` — behavioral tests; `tests/golden/` holds the reference output.
 - `data/PCI-DSS-v4_0_1.pdf` — source document (gitignored).
 - `data/processed/` — extracted JSON, one file per record (gitignored; regenerate from the PDF).
@@ -46,7 +47,7 @@ python src/main.py --pages 42 337 --extract     # full document -> data/processe
 python src/main.py --pages 90 120 --extract -v  # per-page DEBUG trace, tracebacks on failure
 python src/build_chunks.py                      # data/processed -> data/chunks/chunks-grouped.jsonl
 python src/build_chunks.py --strategy per_field # also: per_record
-python src/evaluate.py --misses hybrid         # keyword vs semantic vs hybrid vs hybrid_id on the 32 questions
+python src/evaluate.py --misses hybrid         # keyword vs semantic vs hybrid vs hybrid_id on the questions
 python -m pytest                                # behavioral tests (skipped if the PDF is missing)
 ```
 
@@ -60,6 +61,11 @@ Files are `data/processed/requirement-<id>.json`; 262 total, discriminated by `r
 
 - `requirement` (250): `requirement_id` (e.g. `3.7.1`), `section_id`, `defined_requirement`, `testing_procedures`, `customized_approach_objective`, `applicability_notes`, `guidance` (dict: purpose, good_practice, definitions, examples, further_information; keys present only when found), `pdf_pages`, `extraction_notes`, `document_version`.
 - `requirement_introduction` (12): `requirement_id` (e.g. `9`), `title`, `sections` (id + title), `overview`, `notes`, `category_title`, `pdf_pages`, `document_version`.
+
+## Evaluation Notes
+
+- Judge `broad` questions ("how should I set up…") by "at least one expected requirement in the top k"; judge specific multi-part questions by "all expected". The report prints both, overall and per question type.
+- When writing questions: one intent each, no requirement IDs or PCI jargon, spread across the 12 principal requirements, and some that the standard does not answer.
 
 ## Chunk Model
 

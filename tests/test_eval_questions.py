@@ -7,7 +7,9 @@ import pytest
 from conftest import PROJECT_ROOT
 
 QUESTIONS_PATH = PROJECT_ROOT / "eval" / "questions.jsonl"
-KEYS = {"id", "question", "language", "type", "expected_requirement_ids"}
+REQUIRED_KEYS = {"id", "question", "language", "type", "expected_requirement_ids"}
+OPTIONAL_KEYS = {"persona", "related_requirement_ids"}
+UNANSWERABLE_PATH = PROJECT_ROOT / "eval" / "unanswerable.jsonl"
 TYPES = {
     "id_lookup",
     "keyword",
@@ -17,6 +19,7 @@ TYPES = {
     "multi",
     "conceptual",
     "non_technical",
+    "broad",
 }
 
 
@@ -33,7 +36,7 @@ def questions() -> list[dict]:
 
 def test_questions_have_the_expected_shape(questions):
     for question in questions:
-        assert set(question) == KEYS
+        assert REQUIRED_KEYS <= set(question) <= REQUIRED_KEYS | OPTIONAL_KEYS
         assert question["type"] in TYPES
         assert question["language"] == "en"
         assert question["question"].strip()
@@ -52,7 +55,10 @@ def test_expected_ids_exist_in_the_extracted_records(questions, full_extraction)
     }
 
     for question in questions:
-        missing = set(question["expected_requirement_ids"]) - known
+        referenced = set(question["expected_requirement_ids"]) | set(
+            question.get("related_requirement_ids", [])
+        )
+        missing = referenced - known
         assert not missing, f"{question['id']}: unknown requirement ids {missing}"
 
 
@@ -69,3 +75,30 @@ def test_conceptual_questions_expect_introduction_records(questions, full_extrac
                 full_extraction.output_files()[f"requirement-{requirement_id}.json"]
             )
             assert record["record_type"] == "requirement_introduction"
+
+
+def test_related_ids_never_repeat_expected_ids(questions):
+    for question in questions:
+        overlap = set(question["expected_requirement_ids"]) & set(
+            question.get("related_requirement_ids", [])
+        )
+        assert not overlap, f"{question['id']}: {overlap} listed as expected and related"
+
+
+def test_unanswerable_questions_are_separate_and_expect_no_requirement(questions):
+    unanswerable = load(UNANSWERABLE_PATH)
+
+    assert unanswerable
+    for question in unanswerable:
+        assert question["answerable"] is False
+        assert "expected_requirement_ids" not in question
+        assert question["question"].strip()
+    assert not {q["id"] for q in unanswerable} & {q["id"] for q in questions}
+    assert not {q["question"] for q in unanswerable} & {q["question"] for q in questions}
+
+
+def test_persona_labels_are_not_part_of_the_question_text(questions):
+    for question in questions:
+        if "persona" in question:
+            assert not question["question"].startswith(question["persona"])
+            assert "Not answered by the standard" not in question["question"]
