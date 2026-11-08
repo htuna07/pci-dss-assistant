@@ -12,6 +12,11 @@ DEFAULT_INDEX_DIR = PROJECT_ROOT / "data" / "index"
 DEFAULT_EVAL_QUESTIONS_PATH = PROJECT_ROOT / "eval" / "questions.jsonl"
 DEFAULT_EVAL_K = 5
 
+DEFAULT_ANSWER_MODEL = "claude-sonnet-5-5"
+DEFAULT_ANSWER_TOP_K = 5
+GENERATION_TIMEOUT_SECONDS = 300
+NOT_FOUND_REPLY = "I could not find this in the retrieved PCI DSS requirements."
+
 EMBEDDING_MODEL = "BAAI/bge-base-en-v1.5"
 # bge models are trained to see this prefix on queries but not on passages.
 EMBEDDING_QUERY_PREFIX = "Represent this sentence for searching relevant passages: "

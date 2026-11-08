@@ -75,3 +75,7 @@ class ChunkingError(ValueError):
             else ""
         )
         return prefix + super().__str__()
+
+
+class GenerationError(RuntimeError):
+    """The answer generator could not be run or returned an unusable reply."""
