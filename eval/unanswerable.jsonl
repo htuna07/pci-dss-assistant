@@ -1,2 +1,3 @@
 {"id": "u01", "persona": "Small shop owner", "question": "Roughly how much would it cost to make my store compliant, including the security testing?", "language": "en", "answerable": false}
 {"id": "u02", "persona": "Company director", "question": "Which consultancy should we hire to help us write our security policies?", "language": "en", "answerable": false}
+{"id": "u03", "persona": "Small shop owner", "question": "Will customers be more likely to buy from my store if I mention PCI DSS compliance at checkout?", "language": "en", "answerable": false}

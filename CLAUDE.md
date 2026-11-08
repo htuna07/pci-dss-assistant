@@ -5,7 +5,7 @@ RAG assistant that retrieves PCI DSS v4.0.1 content so an LLM answers compliance
 ## Status
 
 - Done: extraction (PDF → structured JSON), chunking (JSON → JSONL chunks).
-- Done: evaluation question set (`eval/questions.jsonl`, 40 English questions plus 2 unanswerable), keyword / semantic / hybrid search with a comparison command.
+- Done: evaluation question set (`eval/questions.jsonl`, 53 English questions plus 3 unanswerable), keyword / semantic / hybrid search with a comparison command.
 - Not started: LLM-based query routing (only if the regex ID shortcut proves too weak), expanding a hit to its whole requirement, LLM answer generation, larger question set.
 
 ## Language
