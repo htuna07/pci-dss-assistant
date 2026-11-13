@@ -6,7 +6,7 @@ A RAG assistant that retrieves content from PCI DSS v4.0.1 so an LLM can answer 
 
 - Done: extraction of the PDF into structured JSON (one file per requirement).
 - Done: chunking, keyword / semantic / hybrid retrieval, and a retrieval evaluation set (53 questions plus 3 the standard does not answer).
-- Done (proof of concept): `ask.py` answers a question from the top 5 retrieved requirements, with citations.
+- Done (proof of concept): `ask.py` answers a question from the top 8 retrieved requirements, with citations.
 - Planned: answer-quality evaluation, better retrieval for broad questions, larger question set.
 
 ## Setup

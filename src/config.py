@@ -13,7 +13,9 @@ DEFAULT_EVAL_QUESTIONS_PATH = PROJECT_ROOT / "eval" / "questions.jsonl"
 DEFAULT_EVAL_K = 5
 
 DEFAULT_ANSWER_MODEL = "claude-sonnet-5-5"
-DEFAULT_ANSWER_TOP_K = 5
+# 8 rescues questions whose expected requirement ranks 6th-8th (53-question eval: 38 -> 41 fully
+# covered) for about 1.5x the prompt size; 10 added no further fully covered questions.
+DEFAULT_ANSWER_TOP_K = 8
 GENERATION_TIMEOUT_SECONDS = 300
 NOT_FOUND_REPLY = "I could not find this in the retrieved PCI DSS requirements."
 

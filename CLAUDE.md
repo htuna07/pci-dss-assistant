@@ -6,7 +6,7 @@ RAG assistant that retrieves PCI DSS v4.0.1 content so an LLM answers compliance
 
 - Done: extraction (PDF → structured JSON), chunking (JSON → JSONL chunks).
 - Done: evaluation question set (`eval/questions.jsonl`, 53 English questions plus 3 unanswerable), keyword / semantic / hybrid search with a comparison command.
-- Done (proof of concept): `ask.py` answers a question from the top 5 retrieved requirements via `claude -p` (Sonnet 5.5), with citations and a "could not find" reply.
+- Done (proof of concept): `ask.py` answers a question from the top 8 retrieved requirements via `claude -p` (Sonnet 5.5), with citations and a "could not find" reply.
 - Not started: answer-quality evaluation (groundedness judge, human-checked sample), LLM-based query routing (only if the regex ID shortcut proves too weak), expanding a hit to its whole requirement, LLM answer generation, larger question set.
 
 ## Language
