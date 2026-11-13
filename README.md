@@ -6,8 +6,9 @@ A RAG assistant that retrieves content from PCI DSS v4.0.1 so an LLM can answer 
 
 - Done: extraction of the PDF into structured JSON (one file per requirement).
 - Done: chunking, keyword / semantic / hybrid retrieval, and a retrieval evaluation set (53 questions plus 3 the standard does not answer).
+- Done: query rewriting, where a model rephrases the question in the standard's terminology before searching (53-question evaluation at k=8: 47 fully covered, plain hybrid search 41).
 - Done (proof of concept): `ask.py` answers a question from the top 8 retrieved requirements, with citations.
-- Planned: answer-quality evaluation, better retrieval for broad questions, larger question set.
+- Planned: answer-quality evaluation, larger question set. Ideas: stop the rewrite from adding topics the question did not ask about; log live usage (with card numbers masked) to grow the evaluation set.
 
 ## Setup
 
@@ -17,7 +18,7 @@ source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 pip install -r requirements-dev.txt  # use requirements.txt to skip pytest
 ```
 
-Place the official PDF at `data/PCI-DSS-v4_0_1.pdf`. The first semantic search downloads the embedding model (`BAAI/bge-base-en-v1.5`) and caches the chunk embeddings under `data/index/`. Answer generation needs the `claude` CLI installed and logged in.
+Place the official PDF at `data/PCI-DSS-v4_0_1.pdf`. The first semantic search downloads the embedding model (`BAAI/bge-base-en-v1.5`) and caches the chunk embeddings under `data/index/`. Answer generation and query rewriting need the `claude` CLI installed and logged in.
 
 ## Usage
 
@@ -39,7 +40,10 @@ python src/build_chunks.py
 # Compare keyword, semantic and hybrid retrieval on eval/questions.jsonl
 python src/evaluate.py --misses hybrid_id
 
-# Answer a question from the retrieved requirements (--dry-run shows the prompt only)
+# Also try model-rewritten queries (one model call per question, cached in data/index/rewrites.json)
+python src/evaluate.py --methods hybrid_id hybrid_rewrite --k 8
+
+# Answer a question from the retrieved requirements (--dry-run shows the prompt only; --no-rewrite skips query rewriting)
 python src/ask.py "How long must audit logs be kept?"
 ```
 
