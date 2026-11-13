@@ -88,13 +88,14 @@ def run_chunker(args: list[str], input_dir: Path, output_dir: Path) -> CliResult
     )
 
 
-def run_evaluator(args: list[str]) -> CliResult:
+def run_evaluator(args: list[str], env: dict[str, str] | None = None) -> CliResult:
     completed = subprocess.run(
         [sys.executable, str(EVALUATE_SCRIPT), *args],
         capture_output=True,
         text=True,
         encoding="utf-8",
         cwd=PROJECT_ROOT,
+        env=env,
     )
     return CliResult(
         returncode=completed.returncode,

@@ -10,8 +10,10 @@ from config import (
     DEFAULT_CHUNKS_DIR,
     DEFAULT_EVAL_QUESTIONS_PATH,
     DEFAULT_INDEX_DIR,
+    DEFAULT_REWRITE_MODEL,
     EMBEDDING_MODEL,
     PROJECT_ROOT,
+    REWRITE_CACHE_NAME,
 )
 from errors import GenerationError
 from generate import (
@@ -21,7 +23,8 @@ from generate import (
     check_answer,
     run_claude_cli,
 )
-from search import Retriever
+from rewrite import QueryRewriter
+from search import REWRITE_METHOD, Retriever
 
 UNANSWERABLE_PATH = PROJECT_ROOT / "eval" / "unanswerable.jsonl"
 
@@ -43,9 +46,15 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--model", default=DEFAULT_ANSWER_MODEL)
     parser.add_argument("--k", type=int, default=DEFAULT_ANSWER_TOP_K)
     parser.add_argument(
+        "--no-rewrite",
+        action="store_true",
+        help="search with the question as typed instead of model-rewritten queries",
+    )
+    parser.add_argument(
         "--dry-run",
         action="store_true",
-        help="print the prompt that would be sent instead of calling the model",
+        help="print the prompt that would be sent instead of calling the model "
+        "(rewrites are only reused from the cache, never requested)",
     )
     parser.add_argument(
         "--use-answer",
@@ -97,14 +106,24 @@ def main() -> None:
     questions = select_questions(args)
 
     chunks = read_jsonl(args.chunks)
-    retriever = Retriever(chunks, ("hybrid_id",), args.index_dir, args.embedding_model)
+    offline = args.dry_run or args.use_answer is not None
+    rewriter = None
+    method = "hybrid_id"
+    if not args.no_rewrite:
+        rewriter = QueryRewriter(
+            DEFAULT_REWRITE_MODEL, args.index_dir / REWRITE_CACHE_NAME, cache_only=offline
+        )
+        method = REWRITE_METHOD
+    retriever = Retriever(chunks, (method,), args.index_dir, args.embedding_model, rewriter)
 
     for label, question in questions:
-        retrieved = retriever.search("hybrid_id", question)[: args.k]
+        retrieved = retriever.search(method, question)[: args.k]
         sources = build_sources(chunks, retrieved)
         user_prompt = build_user_prompt(question, sources)
 
         print(f"\n=== {label + ' ' if label else ''}{question}")
+        if rewriter:
+            print(f"search queries: {' | '.join(rewriter.rewrite(question))}")
         print(f"retrieved: {', '.join(retrieved)}")
 
         if args.dry_run:

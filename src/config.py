@@ -17,6 +17,11 @@ DEFAULT_ANSWER_MODEL = "claude-sonnet-5-5"
 # covered) for about 1.5x the prompt size; 10 added no further fully covered questions.
 DEFAULT_ANSWER_TOP_K = 8
 GENERATION_TIMEOUT_SECONDS = 300
+
+DEFAULT_REWRITE_MODEL = DEFAULT_ANSWER_MODEL
+MAX_REWRITE_QUERIES = 3
+REWRITE_WORKERS = 6
+REWRITE_CACHE_NAME = "rewrites.json"
 NOT_FOUND_REPLY = "I could not find this in the retrieved PCI DSS requirements."
 
 EMBEDDING_MODEL = "BAAI/bge-base-en-v1.5"

@@ -6,11 +6,22 @@ from pathlib import Path
 from bm25 import BM25Index, tokenize
 from config import EMBEDDING_MODEL, EMBEDDING_QUERY_PREFIX, RRF_K
 from embeddings import embed_chunks, embed_query, load_model, passage_text
+from rewrite import QueryRewriter
 
 METHODS = ("keyword", "semantic", "hybrid", "hybrid_id")
-SEMANTIC_METHODS = ("semantic", "hybrid", "hybrid_id")
+REWRITE_METHOD = "hybrid_rewrite"
+ALL_METHODS = (*METHODS, REWRITE_METHOD)
+SEMANTIC_METHODS = ("semantic", "hybrid", "hybrid_id", REWRITE_METHOD)
 DOTTED_ID = re.compile(r"\d+(?:\.\d+)+")
 PRINCIPAL_ID = re.compile(r"\brequirements?\s+(\d+)\b", re.IGNORECASE)
+
+
+def fuse_id_rankings(rankings: list[list[str]]) -> list[str]:
+    fused: dict[str, float] = {}
+    for ranking in rankings:
+        for rank, requirement_id in enumerate(ranking, start=1):
+            fused[requirement_id] = fused.get(requirement_id, 0.0) + 1 / (RRF_K + rank)
+    return sorted(fused, key=lambda requirement_id: -fused[requirement_id])
 
 
 class Retriever:
@@ -20,7 +31,11 @@ class Retriever:
         methods: tuple[str, ...] = METHODS,
         index_dir: Path | None = None,
         model_name: str = EMBEDDING_MODEL,
+        rewriter: QueryRewriter | None = None,
     ) -> None:
+        if REWRITE_METHOD in methods and rewriter is None:
+            raise ValueError(f"{REWRITE_METHOD} needs a rewriter")
+        self.rewriter = rewriter
         self.chunks = chunks
         self.known_ids = {chunk["requirement_id"] for chunk in chunks}
         self.bm25 = BM25Index([tokenize(passage_text(chunk)) for chunk in chunks])
@@ -56,6 +71,10 @@ class Retriever:
             mentioned = self.mentioned_ids(query)
             rest = self.search("hybrid", query)
             return mentioned + [rid for rid in rest if rid not in mentioned]
+        if method == REWRITE_METHOD:
+            mentioned = self.mentioned_ids(query)
+            rankings = [self.search("hybrid", rewritten) for rewritten in self.rewriter.rewrite(query)]
+            return mentioned + [rid for rid in fuse_id_rankings(rankings) if rid not in mentioned]
         ranking = getattr(self, f"{method}_ranking")(query)
         requirement_ids: list[str] = []
         for position in ranking:

@@ -10,9 +10,12 @@ from config import (
     DEFAULT_EVAL_K,
     DEFAULT_EVAL_QUESTIONS_PATH,
     DEFAULT_INDEX_DIR,
+    DEFAULT_REWRITE_MODEL,
     EMBEDDING_MODEL,
+    REWRITE_CACHE_NAME,
 )
-from search import METHODS, Retriever
+from rewrite import QueryRewriter
+from search import ALL_METHODS, METHODS, REWRITE_METHOD, Retriever
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -25,11 +28,15 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--model", default=EMBEDDING_MODEL)
     parser.add_argument("--k", type=int, default=DEFAULT_EVAL_K)
     parser.add_argument(
-        "--methods", nargs="+", choices=METHODS, default=list(METHODS)
+        "--methods",
+        nargs="+",
+        choices=ALL_METHODS,
+        default=list(METHODS),
+        help=f"{REWRITE_METHOD} calls a model once per question (rewrites are cached)",
     )
     parser.add_argument(
         "--misses",
-        choices=METHODS,
+        choices=ALL_METHODS,
         help="list the questions this method fails to answer completely",
     )
     return parser
@@ -65,6 +72,10 @@ def evaluate(
     return results
 
 
+def column_width(method: str) -> int:
+    return max(10, len(method) + 1)
+
+
 def format_type_rows(
     results: dict[str, list[dict]], methods: list[str], key: str
 ) -> list[str]:
@@ -74,12 +85,12 @@ def format_type_rows(
     for method in methods:
         for row in results[method]:
             by_type[row["question"]["type"]][method].append(row[key])
-    lines = [f"{'type':<15}{'n':>4}" + "".join(f"{m:>10}" for m in methods)]
+    lines = [f"{'type':<15}{'n':>4}" + "".join(f"{m:>{column_width(m)}}" for m in methods)]
     for question_type in sorted(by_type):
         count = len(by_type[question_type][methods[0]])
         lines.append(
             f"{question_type:<15}{count:>4}"
-            + "".join(f"{sum(by_type[question_type][m]):>10}" for m in methods)
+            + "".join(f"{sum(by_type[question_type][m]):>{column_width(m)}}" for m in methods)
         )
     return lines
 
@@ -87,13 +98,14 @@ def format_type_rows(
 def format_report(results: dict[str, list[dict]], k: int) -> str:
     methods = list(results)
     total = len(next(iter(results.values())))
+    name_width = max(10, *(len(method) + 1 for method in methods))
     lines = [
-        f"{'method':<10}{f'all expected in top {k}':>24}{f'at least one in top {k}':>26}"
+        f"{'method':<{name_width}}{f'all expected in top {k}':>24}{f'at least one in top {k}':>26}"
     ]
     for method in methods:
         rows = results[method]
         lines.append(
-            f"{method:<10}"
+            f"{method:<{name_width}}"
             f"{sum(r['complete'] for r in rows):>20}/{total}"
             f"{sum(r['any'] for r in rows):>22}/{total}"
         )
@@ -131,7 +143,11 @@ def main() -> None:
 
     chunks = read_jsonl(args.chunks)
     questions = read_jsonl(args.questions)
-    retriever = Retriever(chunks, tuple(methods), args.index_dir, args.model)
+    rewriter = None
+    if REWRITE_METHOD in methods:
+        rewriter = QueryRewriter(DEFAULT_REWRITE_MODEL, args.index_dir / REWRITE_CACHE_NAME)
+        rewriter.rewrite_many([question["question"] for question in questions])
+    retriever = Retriever(chunks, tuple(methods), args.index_dir, args.model, rewriter)
     results = evaluate(retriever, questions, methods, args.k)
 
     print(f"chunks: {args.chunks.name} | k={args.k} | questions: {len(questions)}")
