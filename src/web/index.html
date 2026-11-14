@@ -39,8 +39,15 @@
   #result { margin-top: 28px; }
   .answer {
     background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
-    padding: 14px 16px; white-space: pre-wrap; overflow-wrap: anywhere;
+    padding: 14px 16px; overflow-wrap: anywhere;
   }
+  .answer p, .answer ul, .answer ol { margin: 0 0 .7em; }
+  .answer > :last-child { margin-bottom: 0; }
+  .answer ul, .answer ol { padding-left: 1.4em; }
+  .answer li { margin-bottom: .25em; }
+  .answer .md-heading { font-weight: 700; margin-top: .9em; }
+  .answer > .md-heading:first-child { margin-top: 0; }
+  .answer code { font: .9em ui-monospace, monospace; background: var(--bg); border-radius: 4px; padding: 0 4px; }
   .cite {
     display: inline-block; padding: 0 6px; margin: 0 1px; border-radius: 6px; font-size: .85em;
     background: var(--cite-bg); color: var(--accent); cursor: pointer; border: 0; font-family: inherit;
@@ -111,7 +118,8 @@ const submit = document.getElementById("submit");
 const statusEl = document.getElementById("status");
 const result = document.getElementById("result");
 const loading = document.getElementById("loading");
-const CITATION = /\[([\d.,;\s]+)\]/g;
+// Order matters: code first so its content is never parsed, then bold before italic.
+const INLINE = /`([^`]+)`|\*\*(.+?)\*\*|\*([^*\s](?:[^*]*[^*\s])?)\*|\[([\d.,;\s]*\d[\d.,;\s]*)\]/g;
 
 function setStatus(text, isError) {
   statusEl.textContent = text;
@@ -127,26 +135,100 @@ function openSource(id) {
   node.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 
+// The answer is model output and can echo the question or the sources, so it is turned into DOM
+// nodes and text only. Raw HTML in it is shown as text and never runs.
+function element(tag, className) {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  return node;
+}
+
+function appendCitations(parent, ids) {
+  parent.append("[");
+  ids.split(/[,;\s]+/).filter(Boolean).forEach((id, index) => {
+    if (index) parent.append(", ");
+    const button = element("button", "cite");
+    button.type = "button";
+    button.textContent = id;
+    button.addEventListener("click", () => openSource(id));
+    parent.append(button);
+  });
+  parent.append("]");
+}
+
+function appendInline(parent, text) {
+  let last = 0;
+  for (const match of text.matchAll(INLINE)) {
+    parent.append(text.slice(last, match.index));
+    if (match[1] !== undefined) {
+      const code = element("code");
+      code.textContent = match[1];
+      parent.append(code);
+    } else if (match[2] !== undefined) {
+      const strong = element("strong");
+      appendInline(strong, match[2]);
+      parent.append(strong);
+    } else if (match[3] !== undefined) {
+      const emphasis = element("em");
+      appendInline(emphasis, match[3]);
+      parent.append(emphasis);
+    } else {
+      appendCitations(parent, match[4]);
+    }
+    last = match.index + match[0].length;
+  }
+  parent.append(text.slice(last));
+}
+
+// Supports what the model actually writes: paragraphs, headings, bullet and numbered lists,
+// bold, italic and code. Tables, images and links are deliberately left as plain text.
 function renderAnswer(text) {
   const target = document.getElementById("answer");
   target.replaceChildren();
-  let last = 0;
-  for (const match of text.matchAll(CITATION)) {
-    target.append(text.slice(last, match.index));
-    target.append("[");
-    match[1].split(/[,;\s]+/).filter(Boolean).forEach((id, index) => {
-      if (index) target.append(", ");
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "cite";
-      button.textContent = id;
-      button.addEventListener("click", () => openSource(id));
-      target.append(button);
+  let paragraph = [];
+  let list = null;
+
+  const flushParagraph = () => {
+    if (!paragraph.length) return;
+    const node = element("p");
+    paragraph.forEach((line, index) => {
+      if (index) node.append(element("br"));
+      appendInline(node, line);
     });
-    target.append("]");
-    last = match.index + match[0].length;
+    target.append(node);
+    paragraph = [];
+  };
+
+  for (const raw of text.replace(/\r\n/g, "\n").split("\n")) {
+    const line = raw.trimEnd();
+    const heading = line.match(/^\s{0,3}#{1,6}\s+(.*)$/);
+    const bullet = line.match(/^\s*[-*\u2022]\s+(.*)$/);
+    const numbered = line.match(/^\s*\d+[.)]\s+(.*)$/);
+
+    if (!line.trim() || /^\s*([-*_])\1{2,}\s*$/.test(line)) {
+      flushParagraph();  // a blank line keeps the list open so "1." items separated by blank lines stay numbered
+    } else if (heading) {
+      flushParagraph();
+      list = null;
+      const node = element("p", "md-heading");
+      appendInline(node, heading[1]);
+      target.append(node);
+    } else if (bullet || numbered) {
+      flushParagraph();
+      const tag = bullet ? "ul" : "ol";
+      if (!list || list.tagName.toLowerCase() !== tag) {
+        list = element(tag);
+        target.append(list);
+      }
+      const item = element("li");
+      appendInline(item, (bullet || numbered)[1]);
+      list.append(item);
+    } else {
+      list = null;
+      paragraph.push(line.trim());
+    }
   }
-  target.append(text.slice(last));
+  flushParagraph();
 }
 
 function renderNotices(check) {
