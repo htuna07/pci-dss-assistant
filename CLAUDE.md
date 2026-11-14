@@ -102,7 +102,7 @@ Each JSONL line: `chunk_id` (`<requirement_id>/<group>/<n>`), `record_type`, `re
 ## Testing
 
 - Tests drive the CLI as a subprocess against the real PDF and compare with `tests/golden/` (every record, `Saved:` report, decision log, inspect output) plus structural invariants. They never import extraction internals, so internals can be refactored freely.
-- A golden diff means behavior changed, not that it is wrong. Correctness is checked separately: `tests/test_independent_oracle.py` compares every record with `tests/pdf_oracle.py` (reads the PDF by typography only, shares no code with `src/`), and `tests/test_sampled_expectations.py` holds values read by hand from specific PDF pages.
+- A golden diff means behavior changed, not that it is wrong. Correctness is checked separately: `tests/test_independent_oracle.py` compares every record with `tests/pdf_oracle.py` (reads the PDF by typography only, shares no code with `src/`), and `tests/test_sampled_expectations.py` holds values read by hand from specific PDF pages (structure in the file; quoted text in the gitignored `tests/golden/sampled_expectations.json`, text checks skip when it is absent).
 - Regenerate golden files only after confirming the change is intentional and reviewing the diff.
 - Never commit text from the PDF (golden records, chunks, extracted JSON): PCI SSC holds the copyright and the repository is public.
 - The PDF prints the "Good Practice" heading inline after the Purpose text for 12.3.3 and 12.3.4; `split_inline_heading` in `src/table.py` handles it.
