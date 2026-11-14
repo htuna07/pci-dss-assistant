@@ -5,7 +5,7 @@ import re
 
 import pytest
 
-from conftest import GOLDEN_DIR, PROJECT_ROOT, run_evaluator
+from conftest import PROJECT_ROOT, golden_text, run_evaluator
 
 QUESTION_COUNT = len(
     (PROJECT_ROOT / "eval" / "questions.jsonl").read_text(encoding="utf-8").splitlines()
@@ -301,6 +301,6 @@ def test_keyword_report_matches_golden(chunk_runs):
     result = run_evaluator(
         ["--chunks", str(chunks_path), "--methods", "keyword", "--misses", "keyword"]
     )
-    expected = (GOLDEN_DIR / "evaluate_keyword.stdout").read_text(encoding="utf-8")
+    expected = golden_text("evaluate_keyword.stdout")
 
     assert result.stdout == expected

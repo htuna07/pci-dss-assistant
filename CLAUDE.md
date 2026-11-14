@@ -39,7 +39,7 @@ RAG assistant that retrieves PCI DSS v4.0.1 content so an LLM answers compliance
 - `src/build_chunks.py` — chunk CLI (`--strategy`, `--max-words`, `--input-dir`, `--output-dir`).
 - `eval/questions.jsonl` — retrieval evaluation set. Fields: `id`, `question`, `language`, `type`, `expected_requirement_ids` (core requirements that directly answer it); optional `persona` (who asks; not part of the searched text) and `related_requirement_ids` (helpful but unscored).
 - `eval/unanswerable.jsonl` — questions the standard does not answer; kept apart because they have no expected requirement. For the answer-generation stage, which must say the document does not cover them.
-- `tests/` — behavioral tests; `tests/golden/` holds the reference output.
+- `tests/` — behavioral tests; `tests/golden/` holds the reference output (gitignored except `evaluate_keyword.stdout`, because it contains the licensed PDF's text; golden tests skip when absent).
 - `data/PCI-DSS-v4_0_1.pdf` — source document (gitignored).
 - `data/processed/` — extracted JSON, one file per record (gitignored; regenerate from the PDF).
 - `data/index/` — cached chunk embeddings (gitignored; rebuilt automatically).
@@ -104,6 +104,7 @@ Each JSONL line: `chunk_id` (`<requirement_id>/<group>/<n>`), `record_type`, `re
 - Tests drive the CLI as a subprocess against the real PDF and compare with `tests/golden/` (every record, `Saved:` report, decision log, inspect output) plus structural invariants. They never import extraction internals, so internals can be refactored freely.
 - A golden diff means behavior changed, not that it is wrong. Correctness is checked separately: `tests/test_independent_oracle.py` compares every record with `tests/pdf_oracle.py` (reads the PDF by typography only, shares no code with `src/`), and `tests/test_sampled_expectations.py` holds values read by hand from specific PDF pages.
 - Regenerate golden files only after confirming the change is intentional and reviewing the diff.
+- Never commit text from the PDF (golden records, chunks, extracted JSON): PCI SSC holds the copyright and the repository is public.
 - The PDF prints the "Good Practice" heading inline after the Purpose text for 12.3.3 and 12.3.4; `split_inline_heading` in `src/table.py` handles it.
 - The 7.1.2 label on PDF page 169 is a genuine PDF error (it belongs to 7.2.1) and is handled by `CONTINUATION_CORRECTIONS`; the oracle ignores continuation labels so it does not depend on it.
 - Never point tests at `data/processed/`; they use `--output-dir`.

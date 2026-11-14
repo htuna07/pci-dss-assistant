@@ -4,3 +4,5 @@ __pycache__/
 data/*
 .DS_Store
 .pytest_cache/
+tests/golden/*
+!tests/golden/evaluate_keyword.stdout

@@ -22,6 +22,14 @@ GOLDEN_DIR = Path(__file__).resolve().parent / "golden"
 FULL_RANGE = (42, 337)
 
 
+def golden_text(relative_path: str) -> str:
+    """Golden files hold text of the licensed PDF, so they are generated locally, never committed."""
+    path = GOLDEN_DIR / relative_path
+    if not path.is_file():
+        pytest.skip(f"golden file {relative_path} is not present (it is gitignored)")
+    return path.read_text(encoding="utf-8")
+
+
 @dataclass
 class CliResult:
     returncode: int

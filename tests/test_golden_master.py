@@ -7,7 +7,7 @@ Update them only after confirming that an output change is intentional.
 
 import pytest
 
-from conftest import GOLDEN_DIR, run_cli
+from conftest import GOLDEN_DIR, golden_text, run_cli
 
 GOLDEN_RECORDS = {
     path.name: path.read_text(encoding="utf-8")
@@ -20,6 +20,8 @@ def test_full_extraction_succeeds(full_extraction):
 
 
 def test_same_set_of_files(full_extraction):
+    if not GOLDEN_RECORDS:
+        pytest.skip("golden records are not present (they are gitignored)")
     produced = set(full_extraction.output_files())
     expected = set(GOLDEN_RECORDS)
 
@@ -36,17 +38,13 @@ def test_record_matches_golden(full_extraction, filename):
 
 
 def test_saved_files_report_matches_golden(full_extraction):
-    expected = (GOLDEN_DIR / "extract_pages_42_337.stdout").read_text(
-        encoding="utf-8"
-    )
+    expected = golden_text("extract_pages_42_337.stdout")
 
     assert full_extraction.normalized_stdout() == expected
 
 
 def test_decision_log_matches_golden(full_extraction):
-    expected = (GOLDEN_DIR / "extract_pages_42_337.stderr").read_text(
-        encoding="utf-8"
-    )
+    expected = golden_text("extract_pages_42_337.stderr")
 
     assert full_extraction.stderr == expected
 
@@ -62,7 +60,5 @@ def test_inspect_output_matches_golden(tmp_path, args, golden_name):
     result = run_cli(args, tmp_path / "out")
 
     assert result.returncode == 0, result.stderr
-    assert result.stdout == (GOLDEN_DIR / golden_name).read_text(
-        encoding="utf-8"
-    )
+    assert result.stdout == golden_text(golden_name)
     assert result.output_files() == {}

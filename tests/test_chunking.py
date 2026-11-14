@@ -9,7 +9,7 @@ import re
 
 import pytest
 
-from conftest import GOLDEN_DIR, run_chunker
+from conftest import golden_text, run_chunker
 
 STRATEGIES = ("per_record", "grouped", "per_field")
 MAX_WORDS = 350
@@ -211,7 +211,7 @@ def test_hand_checked_requirement_8_4_2(chunks_by_strategy):
 def test_grouped_output_matches_golden(chunk_runs):
     result = chunk_runs["grouped"]
     produced = (result.output_dir / "chunks-grouped.jsonl").read_text(encoding="utf-8")
-    expected = (GOLDEN_DIR / "chunks-grouped.jsonl").read_text(encoding="utf-8")
+    expected = golden_text("chunks-grouped.jsonl")
 
     assert produced == expected
 
@@ -226,7 +226,7 @@ def test_max_words_changes_splitting(full_extraction, tmp_path):
         (tmp_path / "chunks-grouped.jsonl").read_text(encoding="utf-8").splitlines()
     )
     default_count = len(
-        (GOLDEN_DIR / "chunks-grouped.jsonl").read_text(encoding="utf-8").splitlines()
+        golden_text("chunks-grouped.jsonl").splitlines()
     )
 
     assert result.returncode == 0

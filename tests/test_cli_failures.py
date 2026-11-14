@@ -2,7 +2,7 @@
 
 import pytest
 
-from conftest import GOLDEN_DIR, run_cli
+from conftest import golden_text, run_cli
 
 FAILURE_CASES = [
     pytest.param(
@@ -124,7 +124,7 @@ def test_partial_range_matches_full_extraction(tmp_path):
         "requirement-7.2.2.json",
     }
     for filename, content in produced.items():
-        golden = (GOLDEN_DIR / "records" / filename).read_text(encoding="utf-8")
+        golden = golden_text(f"records/{filename}")
         assert content == golden
 
 
