@@ -60,10 +60,19 @@ Extracted records are written to `data/processed/requirement-<id>.json` (chunks 
 
 The extraction aborts without writing anything if any page in the selected range fails to parse. Errors name the PDF page, requirement, and column, and suggest the matching `--inspect` command.
 
-## Tests
+## Tests and evaluation
 
 ```bash
-python -m pytest
+python -m pytest                          # behavioral tests
+python src/evaluate.py --misses hybrid    # retrieval evaluation
 ```
 
-The tests run the CLI against the real PDF. They check every record against reference output in `tests/golden/` (detects behavior changes; these files contain the standard's text, so they are gitignored and those tests skip when the folder is absent), against an independent typography-based reading of the PDF (detects wrong output), and against hand-verified values for tricky pages. Chunking, retrieval evaluation and `ask.py` have their own tests; the model call itself is not tested (`--dry-run` and `--use-answer` cover the rest). They are skipped when the PDF is missing.
+**Tests** run the CLI as a subprocess against the real PDF, so internals can be refactored freely. They cover four things:
+- Extraction correctness: an independent reader (`tests/pdf_oracle.py`, no shared code with `src/`) compares every record, and `test_sampled_expectations.py` holds hand-verified values for tricky pages.
+- Structural invariants and clear failures for unsupported page ranges (`test_invariants.py`, `test_cli_failures.py`).
+- Chunking, search scoring and the answer pipeline (`test_chunking.py`, `test_evaluate.py`, `test_ask.py`, `test_rewrite.py`). The model call is replaced by a fake `claude` command, so no test calls a model.
+- Consistency of the question set with the extracted data (`test_eval_questions.py`).
+
+**Evaluation** (`eval/questions.jsonl`, 53 questions) measures retrieval: for each question, are the expected requirement IDs in the top k results? The report counts questions with all and with at least one expected requirement, overall and per question type. `eval/unanswerable.jsonl` holds questions the standard does not answer, for testing the "could not find" reply.
+
+**What is not in this repository.** The PDF, the extracted JSON, the chunks and the reference ("golden") outputs contain the standard's text, which PCI SSC copyrights, so they are gitignored. Download the PDF yourself (see Setup). Tests that compare against golden files or quoted text skip when those files are absent; everything else, including the independent PDF check, runs. Without the PDF all tests skip.
