@@ -58,6 +58,15 @@ def build_user_prompt(question: str, sources: str) -> str:
     return f"Sources:\n\n{sources}\n\nQuestion: {question}"
 
 
+def failure_detail(completed: subprocess.CompletedProcess) -> str:
+    """`claude --output-format json` reports errors such as "Not logged in" on stdout, not stderr."""
+    try:
+        message = json.loads(completed.stdout).get("result")
+    except (json.JSONDecodeError, AttributeError):
+        message = None
+    return (message if isinstance(message, str) and message else completed.stderr).strip()[:300]
+
+
 def run_claude_cli(system_prompt: str, user_prompt: str, model: str) -> str:
     """Runs from an empty directory with no tools so the model sees only the prompt."""
     command = [
@@ -89,7 +98,7 @@ def run_claude_cli(system_prompt: str, user_prompt: str, model: str) -> str:
             ) from error
 
     if completed.returncode != 0:
-        raise GenerationError(f"claude exited with {completed.returncode}: {completed.stderr.strip()[:300]}")
+        raise GenerationError(f"claude exited with {completed.returncode}: {failure_detail(completed)}")
     try:
         reply = json.loads(completed.stdout)
     except json.JSONDecodeError as error:

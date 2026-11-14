@@ -23,6 +23,7 @@ prompt = sys.stdin.read()
 if prompt.startswith("Question: "):
     result = json.dumps({{"queries": ["multi-factor authentication for remote access"]}})
 elif "BREAK" in prompt:
+    print(json.dumps({{"is_error": True, "result": "Not logged in"}}))
     sys.exit(1)
 else:
     result = "MFA is required [8.4.2]. Logs are kept 12 months [10.5.1]."
@@ -144,7 +145,10 @@ def test_generation_failure_is_a_bad_gateway_with_a_message(server):
     status, body = request(server["port"], "/api/ask", {"question": "BREAK please"})
 
     assert status == 502
-    assert "Generation failed" in json.loads(body)["detail"]
+    detail = json.loads(body)["detail"]
+    assert "Generation failed" in detail
+    # The CLI reports its reason on stdout as JSON; the user needs to see it, not an empty stderr.
+    assert "Not logged in" in detail
 
 
 def test_questions_are_not_stored_on_disk(server):

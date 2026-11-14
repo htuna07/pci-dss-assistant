@@ -1,6 +1,5 @@
 """One question in, one cited answer out; shared by the command line and the web server."""
 
-import json
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -17,17 +16,9 @@ from generate import (
     group_sources,
     run_claude_cli,
 )
+from jsonl_io import read_jsonl
 from rewrite import QueryRewriter
 from search import REWRITE_METHOD, Retriever
-
-
-def read_jsonl(path: Path) -> list[dict]:
-    if not path.is_file():
-        message = f"File not found: {path}"
-        if path.parent.name == "chunks":
-            message += "\nBuild the chunks first with: python src/build_chunks.py"
-        raise SystemExit(message)
-    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()]
 
 
 @dataclass(frozen=True)

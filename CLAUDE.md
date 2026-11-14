@@ -38,6 +38,8 @@ RAG assistant that retrieves PCI DSS v4.0.1 content so an LLM answers compliance
 - `src/generate.py` — answer prompt (sources + rules), `claude -p` call (no tools, run from an empty directory, `--restricted`), citation check.
 - `src/pipeline.py` — `Assistant`: rewrite, retrieve, build the prompt, generate, check citations; used by `ask.py` and `server.py`.
 - `src/server.py` — FastAPI app serving `src/web/index.html` and `POST /api/ask` (one question at a time, binds 127.0.0.1 by default, rewrites kept in memory only so questions are never written to disk).
+- `src/build_index.py`, `src/jsonl_io.py` — embed all chunks ahead of time (used by the Docker build); JSONL reader.
+- `Dockerfile` — two stages: prepare (PDF → JSON → chunks → embeddings, PDF discarded) and runtime (`claude` native binary, no Node.js, non-root user, server on 0.0.0.0; publish with `-p 127.0.0.1:8000:8000`). The image holds the standard's text: never push it to a registry.
 - `src/ask.py` — end-to-end CLI: rewrite the question, retrieve (`hybrid_rewrite`, or `hybrid_id` with `--no-rewrite`), build the prompt from the whole records of the top-k requirements, generate, check citations (`--dry-run`, `--use-answer`, `--from-eval`; the last two never call a model and only reuse cached rewrites).
 - `src/build_chunks.py` — chunk CLI (`--strategy`, `--max-words`, `--input-dir`, `--output-dir`).
 - `eval/questions.jsonl` — retrieval evaluation set. Fields: `id`, `question`, `language`, `type`, `expected_requirement_ids` (core requirements that directly answer it); optional `persona` (who asks; not part of the searched text) and `related_requirement_ids` (helpful but unscored).
@@ -65,6 +67,7 @@ python src/ask.py "How long must audit logs be kept?"   # needs the `claude` CLI
 python src/ask.py --from-eval q11 u01 --dry-run          # show the prompt only, no model call
 python src/ask.py "..." --no-rewrite                     # search with the question as typed
 python src/server.py                                     # web interface on http://127.0.0.1:8000
+docker build -t pci-assistant . && docker run -p 127.0.0.1:8000:8000 -e CLAUDE_CODE_OAUTH_TOKEN=... pci-assistant
 python -m pytest                                # behavioral tests (skipped if the PDF is missing)
 ```
 

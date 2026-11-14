@@ -1,0 +1,10 @@
+# Keep the build context small and keep anything containing the standard's text out of it.
+.git
+.venv
+__pycache__
+.pytest_cache
+.DS_Store
+data/*
+!data/PCI-DSS-v4_0_1.pdf
+!data/README.md
+tests

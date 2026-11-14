@@ -2,6 +2,7 @@
 __pycache__/
 *.pyc
 data/*
+!data/README.md
 .DS_Store
 .pytest_cache/
 tests/golden/*

@@ -14,7 +14,8 @@ from config import (
 )
 from errors import GenerationError
 from generate import SYSTEM_PROMPT, check_answer, run_claude_cli
-from pipeline import Assistant, read_jsonl
+from jsonl_io import read_jsonl
+from pipeline import Assistant
 
 UNANSWERABLE_PATH = PROJECT_ROOT / "eval" / "unanswerable.jsonl"
 

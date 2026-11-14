@@ -55,6 +55,23 @@ Log messages go to stderr and `Saved:` lines go to stdout. Use `--output-dir` to
 
 `--page` and `--pages` use the PDF viewer's 1-based page numbers, not the printed page numbers, which differ because of the front matter.
 
+## Docker
+
+Everything is prepared while the image is built, so the container starts immediately:
+
+```bash
+# 1. Save the PDF you downloaded from the PCI SSC document library as data/PCI-DSS-v4_0_1.pdf
+# 2. Build once (extracts, chunks and embeds; a few minutes, about 3 GB)
+docker build -t pci-assistant .
+
+# 3. Run. The token comes from `claude setup-token` (or use -e ANTHROPIC_API_KEY=...)
+docker run -p 127.0.0.1:8000:8000 -e CLAUDE_CODE_OAUTH_TOKEN=... pci-assistant
+```
+
+Then open http://127.0.0.1:8000. Keep `127.0.0.1:` in `-p`: without it anyone on your network can spend your token.
+
+The image contains the standard's text (the chunks), which PCI SSC copyrights, so use it on your own machine and never push it to a registry; the PDF itself is not kept in the image. The build fails with a message if the PDF is missing. Editing the server or the web page rebuilds in seconds because the preparation layers are cached.
+
 ## Output
 
 Extracted records are written to `data/processed/requirement-<id>.json` (chunks go to `data/chunks/`, embeddings to `data/index/`; all gitignored):

@@ -80,7 +80,7 @@ def main() -> None:
     args = build_parser().parse_args()
     if args.k < 1:
         raise SystemExit("--k must be at least 1")
-    print("Loading the search index (the first start downloads and embeds, which takes a while)...", flush=True)
+    print("Loading the search index...", flush=True)
     assistant = Assistant.from_files(
         args.chunks,
         args.index_dir,
@@ -89,7 +89,7 @@ def main() -> None:
         k=args.k,
         persist_rewrites=False,
     )
-    print(f"Open http://{args.host}:{args.port}", flush=True)
+    print(f"Listening on http://{args.host}:{args.port}", flush=True)
     uvicorn.run(create_app(assistant), host=args.host, port=args.port, log_level="warning")
 
 
