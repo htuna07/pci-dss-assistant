@@ -37,9 +37,11 @@ class QueryRewriter:
     """Falls back to the original question whenever a rewrite is unavailable, so search never breaks.
 
     `cache_only` lets dry runs and offline checks reuse earlier rewrites without calling a model.
+    `cache_path=None` keeps rewrites in memory only: a rewritten query can echo whatever the user
+    typed, so a web server that must not store questions on disk passes None.
     """
 
-    def __init__(self, model: str, cache_path: Path, cache_only: bool = False) -> None:
+    def __init__(self, model: str, cache_path: Path | None, cache_only: bool = False) -> None:
         self.model = model
         self.cache_path = cache_path
         self.cache_only = cache_only
@@ -48,7 +50,7 @@ class QueryRewriter:
         self._fallbacks: dict[str, list[str]] = {}
 
     def _load(self) -> dict[str, list[str]]:
-        if not self.cache_path.is_file():
+        if self.cache_path is None or not self.cache_path.is_file():
             return {}
         try:
             return json.loads(self.cache_path.read_text(encoding="utf-8"))
@@ -63,6 +65,8 @@ class QueryRewriter:
     def _store(self, key: str, queries: list[str]) -> None:
         with self._lock:
             self._cache[key] = queries
+            if self.cache_path is None:
+                return
             self.cache_path.parent.mkdir(parents=True, exist_ok=True)
             temporary = self.cache_path.with_suffix(".tmp")
             temporary.write_text(json.dumps(self._cache, indent=1), encoding="utf-8")

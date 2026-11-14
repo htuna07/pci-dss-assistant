@@ -23,12 +23,12 @@ CITATION_GROUP = re.compile(r"\[([\d.,;\s]+)\]")
 CITED_ID = re.compile(r"\d+(?:\.\d+)*")
 
 
-def build_sources(chunks: list[dict], requirement_ids: list[str]) -> str:
+def group_sources(chunks: list[dict], requirement_ids: list[str]) -> list[dict]:
     by_requirement: dict[str, list[dict]] = {}
     for chunk in chunks:
         by_requirement.setdefault(chunk["requirement_id"], []).append(chunk)
 
-    blocks = []
+    sources = []
     for requirement_id in requirement_ids:
         members = by_requirement[requirement_id]
         kind = (
@@ -36,11 +36,22 @@ def build_sources(chunks: list[dict], requirement_ids: list[str]) -> str:
             if members[0]["record_type"] == "requirement_introduction"
             else "requirement"
         )
-        body = "\n\n".join(
+        text = "\n\n".join(
             f"{chunk['header'].splitlines()[0]}\n{chunk['text']}" for chunk in members
         )
-        blocks.append(f'<source id="{requirement_id}" kind="{kind}">\n{body}\n</source>')
-    return "\n\n".join(blocks)
+        sources.append({"id": requirement_id, "kind": kind, "text": text})
+    return sources
+
+
+def format_sources(sources: list[dict]) -> str:
+    return "\n\n".join(
+        f'<source id="{source["id"]}" kind="{source["kind"]}">\n{source["text"]}\n</source>'
+        for source in sources
+    )
+
+
+def build_sources(chunks: list[dict], requirement_ids: list[str]) -> str:
+    return format_sources(group_sources(chunks, requirement_ids))
 
 
 def build_user_prompt(question: str, sources: str) -> str:

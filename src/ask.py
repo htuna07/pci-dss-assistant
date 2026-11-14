@@ -1,7 +1,6 @@
 """Answer a question from the most relevant PCI DSS requirements, with citations."""
 
 import argparse
-import json
 from pathlib import Path
 
 from config import (
@@ -10,21 +9,12 @@ from config import (
     DEFAULT_CHUNKS_DIR,
     DEFAULT_EVAL_QUESTIONS_PATH,
     DEFAULT_INDEX_DIR,
-    DEFAULT_REWRITE_MODEL,
     EMBEDDING_MODEL,
     PROJECT_ROOT,
-    REWRITE_CACHE_NAME,
 )
 from errors import GenerationError
-from generate import (
-    SYSTEM_PROMPT,
-    build_sources,
-    build_user_prompt,
-    check_answer,
-    run_claude_cli,
-)
-from rewrite import QueryRewriter
-from search import REWRITE_METHOD, Retriever
+from generate import SYSTEM_PROMPT, check_answer, run_claude_cli
+from pipeline import Assistant, read_jsonl
 
 UNANSWERABLE_PATH = PROJECT_ROOT / "eval" / "unanswerable.jsonl"
 
@@ -64,15 +54,6 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
-def read_jsonl(path: Path) -> list[dict]:
-    if not path.is_file():
-        message = f"File not found: {path}"
-        if path.parent.name == "chunks":
-            message += "\nBuild the chunks first with: python src/build_chunks.py"
-        raise SystemExit(message)
-    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()]
-
-
 def select_questions(args: argparse.Namespace) -> list[tuple[str, str]]:
     if args.from_eval:
         known = {
@@ -105,36 +86,37 @@ def main() -> None:
         raise SystemExit("--k must be at least 1")
     questions = select_questions(args)
 
-    chunks = read_jsonl(args.chunks)
-    offline = args.dry_run or args.use_answer is not None
-    rewriter = None
-    method = "hybrid_id"
-    if not args.no_rewrite:
-        rewriter = QueryRewriter(
-            DEFAULT_REWRITE_MODEL, args.index_dir / REWRITE_CACHE_NAME, cache_only=offline
-        )
-        method = REWRITE_METHOD
-    retriever = Retriever(chunks, (method,), args.index_dir, args.embedding_model, rewriter)
+    assistant = Assistant.from_files(
+        args.chunks,
+        args.index_dir,
+        args.embedding_model,
+        model=args.model,
+        k=args.k,
+        rewrite=not args.no_rewrite,
+        offline=args.dry_run or args.use_answer is not None,
+    )
 
     for label, question in questions:
-        retrieved = retriever.search(method, question)[: args.k]
-        sources = build_sources(chunks, retrieved)
-        user_prompt = build_user_prompt(question, sources)
+        prepared = assistant.prepare(question)
+        retrieved = prepared.retrieved
 
         print(f"\n=== {label + ' ' if label else ''}{question}")
-        if rewriter:
-            print(f"search queries: {' | '.join(rewriter.rewrite(question))}")
+        if assistant.rewriter:
+            print(f"search queries: {' | '.join(prepared.queries)}")
         print(f"retrieved: {', '.join(retrieved)}")
 
         if args.dry_run:
-            print(f"\n--- system prompt ---\n{SYSTEM_PROMPT}\n\n--- user prompt ---\n{user_prompt}")
+            print(
+                f"\n--- system prompt ---\n{SYSTEM_PROMPT}"
+                f"\n\n--- user prompt ---\n{prepared.user_prompt}"
+            )
             continue
 
         if args.use_answer is not None:
             answer = args.use_answer
         else:
             try:
-                answer = run_claude_cli(SYSTEM_PROMPT, user_prompt, args.model)
+                answer = run_claude_cli(SYSTEM_PROMPT, prepared.user_prompt, args.model)
             except GenerationError as error:
                 raise SystemExit(f"Generation failed: {error}") from error
 
