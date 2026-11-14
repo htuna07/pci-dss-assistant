@@ -58,6 +58,16 @@
   details.others details { margin-left: 0; }
   summary .tag { font-weight: 400; color: var(--muted); font-size: .85em; margin-left: 6px; }
   pre { white-space: pre-wrap; overflow-wrap: anywhere; font: .88rem/1.5 ui-monospace, monospace; margin: 10px 0 2px; }
+  textarea:disabled { opacity: .6; cursor: progress; }
+  .loading { display: flex; align-items: center; gap: 12px; margin-top: 28px; color: var(--muted); }
+  .loading[hidden] { display: none; }
+  .spinner {
+    width: 22px; height: 22px; flex: none; border-radius: 50%;
+    border: 3px solid var(--border); border-top-color: var(--accent);
+    animation: spin .8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .spinner { animation-duration: 3s; } }
   .error { color: #b3261e; }
   @media (prefers-color-scheme: dark) { .error { color: #f2a29b; } }
 </style>
@@ -87,6 +97,11 @@
       <div id="others-list"></div>
     </details>
   </section>
+
+  <div class="loading" id="loading" role="status" hidden>
+    <span class="spinner" aria-hidden="true"></span>
+    <span>Searching the requirements and writing an answer (this can take up to a minute)...</span>
+  </div>
 </main>
 
 <script>
@@ -95,6 +110,7 @@ const box = document.getElementById("question");
 const submit = document.getElementById("submit");
 const statusEl = document.getElementById("status");
 const result = document.getElementById("result");
+const loading = document.getElementById("loading");
 const CITATION = /\[([\d.,;\s]+)\]/g;
 
 function setStatus(text, isError) {
@@ -187,9 +203,13 @@ function renderSources(sources, cited) {
 
 async function ask() {
   const question = box.value.trim();
-  if (!question) return;
+  if (!question || submit.disabled) return;
+  // The previous answer goes away at once so it cannot be mistaken for the answer to this question.
+  result.hidden = true;
+  setStatus("");
+  box.disabled = true;
   submit.disabled = true;
-  setStatus("Searching the requirements and writing an answer (this can take up to a minute)...");
+  loading.hidden = false;
   try {
     const response = await fetch("/api/ask", {
       method: "POST",
@@ -206,11 +226,13 @@ async function ask() {
     document.getElementById("queries").textContent = "Search queries: " + data.queries.join(" | ");
     renderSources(data.sources, data.check.cited);
     result.hidden = false;
-    setStatus("");
   } catch (error) {
     setStatus(error.message || "Something went wrong.", true);
   } finally {
+    loading.hidden = true;
+    box.disabled = false;
     submit.disabled = false;
+    box.focus();
   }
 }
 
