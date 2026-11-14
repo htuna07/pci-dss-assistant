@@ -2,6 +2,12 @@
 
 A RAG assistant that retrieves content from PCI DSS v4.0.1 so an LLM can answer compliance questions accurately and consistently.
 
+## Demo
+
+![Asking two questions in the web interface](docs/demo.gif)
+
+First, an everyday question gets a cited answer. Then a question the standard does not answer gets "could not find" instead of a guess.
+
 ## Status
 
 - Done: extraction of the PDF into structured JSON (one file per requirement).
