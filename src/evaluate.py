@@ -18,6 +18,16 @@ from rewrite import QueryRewriter
 from search import ALL_METHODS, METHODS, REWRITE_METHOD, Retriever
 
 
+# Broad questions have several valid answers, so one expected requirement in the top k is
+# enough; every other type must retrieve all of its expected requirements.
+ANY_TYPES = ("broad",)
+HEADLINE_NOTE = "broad questions: at least one expected in top {k}; all others: all expected"
+
+
+def headline_hit(question_type: str, complete: bool, any_hit: bool) -> bool:
+    return any_hit if question_type in ANY_TYPES else complete
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -118,6 +128,16 @@ def format_report(results: dict[str, list[dict]], k: int) -> str:
             f"{sum(r['any'] for r in rows):>22}/{total}"
         )
 
+    lines += [
+        "",
+        f"headline score ({HEADLINE_NOTE.format(k=k)}):",
+    ]
+    for method in methods:
+        hits = sum(
+            headline_hit(r["question"]["type"], r["complete"], r["any"]) for r in results[method]
+        )
+        lines.append(f"{method:<{name_width}}{hits:>20}/{total}")
+
     for key, title in (
         ("complete", f"all expected in top {k}"),
         ("any", f"at least one expected in top {k}"),
@@ -148,6 +168,7 @@ def snapshot(results: dict[str, list[dict]], k: int, chunks_name: str) -> dict:
         "k": k,
         "chunks": chunks_name,
         "question_ids": [row["question"]["id"] for row in first],
+        "types": {row["question"]["id"]: row["question"]["type"] for row in first},
         "methods": {
             method: {
                 row["question"]["id"]: {
@@ -196,12 +217,21 @@ def format_comparison(baseline: dict, current: dict) -> str:
         any_after = sum(after[q]["any"] for q in current["question_ids"])
         complete_before = sum(before[q]["complete"] for q in current["question_ids"])
         complete_after = sum(after[q]["complete"] for q in current["question_ids"])
+        headline_before = sum(
+            headline_hit(current["types"][q], before[q]["complete"], before[q]["any"])
+            for q in current["question_ids"]
+        )
+        headline_after = sum(
+            headline_hit(current["types"][q], after[q]["complete"], after[q]["any"])
+            for q in current["question_ids"]
+        )
         reordered = sum(
             before[q]["top"] != after[q]["top"] for q in current["question_ids"]
         )
         lines += [
             f"{method}: all expected {complete_before}/{total} -> {complete_after}/{total}, "
             f"at least one {any_before}/{total} -> {any_after}/{total}",
+            f"  headline score {headline_before}/{total} -> {headline_after}/{total}",
             f"  fixed:  {', '.join(fixed) or '-'}",
             f"  broken: {', '.join(broken) or '-'}",
             f"  questions whose top list changed at all: {reordered}",

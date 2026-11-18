@@ -308,7 +308,6 @@ def test_keyword_report_matches_golden(chunk_runs):
 
 def test_saved_run_lists_fixed_and_broken_questions(tmp_path):
     before_chunks = tmp_path / "before.jsonl"
-    after_chunks = tmp_path / "after.jsonl"
     make_chunks(before_chunks, {"A": "firewall rules", "B": "password length"})
     # Same chunk file name is required for a fair comparison, so swap the content in place.
     questions = [
@@ -352,3 +351,21 @@ def test_saved_run_contains_ids_only(tmp_path, tiny_chunks):
 
     assert "firewall rules are defined" not in content
     assert json.loads(content)["methods"]["keyword"]["q0"]["complete"] is True
+
+
+def test_headline_counts_broad_questions_by_at_least_one(tmp_path, tiny_chunks):
+    questions_path = tmp_path / "questions.jsonl"
+    write_jsonl(
+        questions_path,
+        [
+            {"id": "q0", "type": "broad", "question": "password", "expected_requirement_ids": ["B", "C"]},
+            {"id": "q1", "type": "keyword", "question": "password", "expected_requirement_ids": ["B", "C"]},
+        ],
+    )
+
+    result = run_evaluator(
+        ["--chunks", str(tiny_chunks), "--questions", str(questions_path), "--methods", "keyword"]
+    )
+
+    # The broad question counts (C is found), the keyword one does not (B is missing).
+    assert re.search(r"headline score .*\n\s*keyword\s+1/2", result.stdout)
