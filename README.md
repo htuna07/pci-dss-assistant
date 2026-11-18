@@ -12,8 +12,9 @@ First, an everyday question gets a cited answer. Then a question the standard do
 
 - Done: extraction of the PDF into structured JSON (one file per requirement).
 - Done: chunking, keyword / semantic / hybrid retrieval, and a retrieval evaluation set (53 questions plus 3 the standard does not answer).
-- Done: query rewriting, where a model rephrases the question in the standard's terminology before searching (53-question evaluation at k=8: 47 fully covered, plain hybrid search 41).
-- Done: a local web interface (`python src/server.py`) with the same pipeline.
+- Done: query rewriting, where a model rephrases the question in the standard's terminology before searching (53-question evaluation at k=8: 48 fully covered, plain hybrid search 42).
+- Done: the evaluation can save a run and compare it with a saved one question by question, and prints a headline score.
+- Done: a local web interface (`python src/server.py`) with the same pipeline: each question is its own card, the last 10 stay on the page until it is reloaded, and the sources open in a side panel when you click a citation.
 - Done (proof of concept): `ask.py` answers a question from the top 8 retrieved requirements, with citations.
 - Planned: answer-quality evaluation, larger question set. Ideas: stop the rewrite from adding topics the question did not ask about; log live usage (with card numbers masked) to grow the evaluation set.
 
@@ -49,6 +50,10 @@ python src/evaluate.py --misses hybrid_id
 
 # Also try model-rewritten queries (one model call per question, cached in data/index/rewrites.json)
 python src/evaluate.py --methods hybrid_id hybrid_rewrite --k 8
+
+# Keep a run, then after a change list which questions got fixed or broke
+python src/evaluate.py --methods hybrid_rewrite --k 8 --save data/index/baseline.json
+python src/evaluate.py --methods hybrid_rewrite --k 8 --compare data/index/baseline.json
 
 # Answer a question from the retrieved requirements (--dry-run shows the prompt only; --no-rewrite skips query rewriting)
 python src/ask.py "How long must audit logs be kept?"

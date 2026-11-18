@@ -6,8 +6,9 @@ RAG assistant that retrieves PCI DSS v4.0.1 content so an LLM answers compliance
 
 - Done: extraction (PDF → structured JSON), chunking (JSON → JSONL chunks).
 - Done: evaluation question set (`eval/questions.jsonl`, 53 English questions plus 3 unanswerable), keyword / semantic / hybrid search with a comparison command.
-- Done: query rewriting (`hybrid_rewrite`): a model turns the question into 1–3 queries in the standard's terminology; on the 53 questions at k=8 it fully covers 47 (plain `hybrid_id`: 41).
-- Done: local web interface (`src/server.py`, one page + `POST /api/ask`), same pipeline as `ask.py`.
+- Done: query rewriting (`hybrid_rewrite`): a model turns the question into 1–3 queries in the standard's terminology; on the 53 questions at k=8 it fully covers 48 (plain `hybrid_id`: 42).
+- Done: local web interface (`src/server.py`, one page + `POST /api/ask`), same pipeline as `ask.py`. The page keeps the last 10 questions as separate cards in page memory only; sources open in a side panel on a citation click.
+- Done: the evaluation can save a run (`--save`) and compare it with a saved one question by question (`--compare`), and prints a headline score (see Evaluation Notes).
 - Done (proof of concept): `ask.py` answers a question from the top 8 retrieved requirements via `claude -p` (Sonnet 5.5), with citations and a "could not find" reply.
 - Not started: answer-quality evaluation (groundedness judge, human-checked sample), larger question set, indexing the PCI DSS scope section (outside pages 42–337).
 - Ideas, not decided:
@@ -34,9 +35,10 @@ RAG assistant that retrieves PCI DSS v4.0.1 content so an LLM answers compliance
 - `src/embeddings.py` — sentence embeddings (`bge-base-en-v1.5`) for chunks and queries, cached under `data/index/` keyed by a hash of model + chunk text.
 - `src/search.py` — `Retriever`: `keyword`, `semantic`, `hybrid` (reciprocal rank fusion), `hybrid_id` (requirement IDs named in the query, validated against known IDs, go first, then hybrid results) and `hybrid_rewrite` (IDs from the original question first, then the hybrid results of each rewritten query fused); returns requirement IDs.
 - `src/rewrite.py` — `QueryRewriter`: asks the model for 1–3 queries in PCI DSS terminology, caches them in `data/index/rewrites.json`, and falls back to the original question when the model call or its reply fails (`cache_only` never calls the model).
-- `src/evaluate.py` — runs the methods over `eval/questions.jsonl` and prints how many questions have all / at least one expected requirement in the top k. `hybrid_rewrite` is opt-in because it calls a model once per uncached question.
+- `src/evaluate.py` — runs the methods over `eval/questions.jsonl` and prints how many questions have all / at least one expected requirement in the top k. `hybrid_rewrite` is opt-in because it calls a model once per uncached question. `--save <file>` writes per-question results (IDs and flags only); `--compare <file>` lists the questions that got fixed or broke and refuses a run with a different k, chunk file or question set.
 - `src/generate.py` — answer prompt (sources + rules), `claude -p` call (no tools, run from an empty directory, `--restricted`), citation check.
 - `src/pipeline.py` — `Assistant`: rewrite, retrieve, build the prompt, generate, check citations; used by `ask.py` and `server.py`.
+- `src/web/index.html` — the whole page (HTML, CSS, JS in one file): question cards, composer, side panel with sources. History is a JS array only, never `localStorage`, because questions can contain pasted card numbers.
 - `src/server.py` — FastAPI app serving `src/web/index.html` and `POST /api/ask` (one question at a time, binds 127.0.0.1 by default, rewrites kept in memory only so questions are never written to disk).
 - `src/build_index.py`, `src/jsonl_io.py` — embed all chunks ahead of time (used by the Docker build); JSONL reader.
 - `Dockerfile` — two stages: prepare (PDF → JSON → chunks → embeddings, PDF discarded) and runtime (`claude` native binary, no Node.js, non-root user, server on 0.0.0.0; publish with `-p 127.0.0.1:8000:8000`). The image holds the standard's text: never push it to a registry.
@@ -63,6 +65,8 @@ python src/build_chunks.py                      # data/processed -> data/chunks/
 python src/build_chunks.py --strategy per_field # also: per_record
 python src/evaluate.py --misses hybrid         # keyword vs semantic vs hybrid vs hybrid_id on the questions
 python src/evaluate.py --methods hybrid_id hybrid_rewrite --k 8   # adds model-rewritten queries (cached after the first run)
+python src/evaluate.py --methods keyword semantic hybrid hybrid_id hybrid_rewrite --k 8 --save data/index/baseline.json   # keep a run
+python src/evaluate.py --methods hybrid_rewrite --k 8 --compare data/index/baseline.json   # after a change: fixed / broken questions
 python src/ask.py "How long must audit logs be kept?"   # needs the `claude` CLI logged in
 python src/ask.py --from-eval q11 u01 --dry-run          # show the prompt only, no model call
 python src/ask.py "..." --no-rewrite                     # search with the question as typed
@@ -85,7 +89,10 @@ Files are `data/processed/requirement-<id>.json`; 262 total, discriminated by `r
 ## Evaluation Notes
 
 - Judge `broad` questions ("how should I set up…") by "at least one expected requirement in the top k"; judge specific multi-part questions by "all expected". The report prints both, overall and per question type.
-- Measured on the 53 questions at k=8 (all expected / at least one): `hybrid_id` 41/46, `hybrid_rewrite` 47/53; three rewrite runs gave 45–47 fully covered. Re-weighting keyword vs semantic in the fusion barely moved the totals, so the weights stay equal.
+- Measured on the 53 questions at k=8 (all expected / at least one): `hybrid_id` 42/46, `hybrid_rewrite` 48/52. The first computer's runs gave 45–47 fully covered for `hybrid_rewrite`; a fresh rewrite cache on a second computer gave 46, so ±1 question is noise. Re-weighting keyword vs semantic in the fusion barely moved the totals, so the weights stay equal.
+- Headline score = broad questions count by "at least one expected in the top k", all other types by "all expected" (the rule above, now printed by `evaluate.py`): `hybrid_rewrite` 52/53, `hybrid_id` 46, `hybrid` 44, `semantic` 43, `keyword` 38. Only q53 is a real miss (12.10.7 ranks 12th). Compare runs with the same rewrite cache, otherwise rewrite noise hides small differences.
+- The q24 and q28 expected lists were wrong (they listed display masking and sensitive-authentication-data requirements for questions about stored PAN and PAN in logs). They were corrected after blind reviews by separate model runs that read the standard without seeing the lists or the retrieval results; this raised the scores without changing any ranking, so numbers from before that commit are not comparable. Do such reviews from the standard's text, never from what retrieval returned, and note each change.
+- Tried without gain at k=8: `bge-large-en-v1.5` instead of `bge-base` (semantic +2, hybrid_rewrite +1, within noise, about 3x the size) and cross-encoder rerankers on the top 30 (`ms-marco-MiniLM-L-6-v2`, `bge-reranker-base`: 42/53 when scoring the raw question, 46/53 with the rewritten queries, no net change). A reranker must see the rewritten queries, not the lay wording.
 - Rewriting works partly because the model already knows PCI DSS terminology. For an internal document, give the rewrite prompt example passages or a glossary and re-measure.
 - When writing questions: one intent each, no requirement IDs or PCI jargon, spread across the 12 principal requirements, and some that the standard does not answer.
 
@@ -96,7 +103,7 @@ Each JSONL line: `chunk_id` (`<requirement_id>/<group>/<n>`), `record_type`, `re
 - `header` (document version, requirement ID, group, principal-requirement and section titles) is context for embedding and BM25; `text` is the passage shown to the LLM.
 - Default strategy `grouped`: `requirement` (defined requirement + customized approach objective + applicability notes), `testing`, `guidance` (all guidance keys). Introductions are one `introduction` group and are never rule sources.
 - `--max-words` (default 350) splits a group only between fields, marks pieces "(part n of m)", and logs WARNING for a single field that cannot be split. The default keeps every requirement/testing group whole.
-- Retrieval should be able to expand a hit to all chunks sharing its `requirement_id` (planned, not built).
+- Search returns requirement IDs, and the answer prompt expands each one to all chunks sharing its `requirement_id` (`group_sources` in `src/generate.py`).
 
 ## Extraction Notes
 
