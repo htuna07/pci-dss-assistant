@@ -8,39 +8,57 @@
   :root {
     --bg: #f7f7f5; --surface: #ffffff; --text: #1d1d1b; --muted: #6a6a64;
     --border: #dcdcd4; --accent: #1f5fbf; --accent-text: #ffffff;
-    --warn-bg: #fff4d6; --warn-text: #6b4a00; --cite-bg: #e6eefb;
+    --warn-bg: #fff4d6; --warn-text: #6b4a00; --cite-bg: #e6eefb; --sel: #e6eefb;
   }
   @media (prefers-color-scheme: dark) {
     :root {
       --bg: #161614; --surface: #1f1f1c; --text: #ecece6; --muted: #9a9a92;
       --border: #3a3a35; --accent: #6ea0ec; --accent-text: #0e1b30;
-      --warn-bg: #3a2f10; --warn-text: #f0d48a; --cite-bg: #1d2b45;
+      --warn-bg: #3a2f10; --warn-text: #f0d48a; --cite-bg: #1d2b45; --sel: #1d2b45;
     }
   }
   * { box-sizing: border-box; }
+  html, body { height: 100%; }
   body {
-    margin: 0; padding: 24px 16px 64px; background: var(--bg); color: var(--text);
+    margin: 0; background: var(--bg); color: var(--text);
     font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif;
   }
-  main { max-width: 760px; margin: 0 auto; }
-  h1 { font-size: 1.4rem; margin: 0 0 4px; }
-  .sub { color: var(--muted); margin: 0 0 20px; font-size: .92rem; }
-  textarea {
-    width: 100%; min-height: 96px; padding: 12px; font: inherit; color: inherit;
-    background: var(--surface); border: 1px solid var(--border); border-radius: 8px; resize: vertical;
+
+  /* Layout: header on top, the questions feed with the composer below it, sources on the right. */
+  .app {
+    display: grid; height: 100vh; height: 100dvh;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+    grid-template-areas: "top" "chat";
   }
-  .row { display: flex; align-items: center; gap: 12px; margin-top: 10px; flex-wrap: wrap; }
-  button {
-    font: inherit; padding: 9px 18px; border: 0; border-radius: 8px; cursor: pointer;
-    background: var(--accent); color: var(--accent-text); font-weight: 600;
+  .app.panel-open {
+    grid-template-columns: minmax(0, 1fr) 400px;
+    grid-template-areas: "top top" "chat panel";
   }
-  button:disabled { opacity: .55; cursor: progress; }
-  .hint, .status { color: var(--muted); font-size: .88rem; }
-  #result { margin-top: 28px; }
-  .answer {
-    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
-    padding: 14px 16px; overflow-wrap: anywhere;
+  .top {
+    grid-area: top; display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    padding: 12px 20px; border-bottom: 1px solid var(--border); background: var(--surface);
   }
+  .top .titles { flex: 1 1 260px; min-width: 0; }
+  h1 { font-size: 1.25rem; margin: 0; }
+  .sub { color: var(--muted); margin: 2px 0 0; font-size: .88rem; }
+  .chat { grid-area: chat; display: flex; flex-direction: column; min-height: 0; min-width: 0; }
+  .feed { flex: 1 1 auto; overflow-y: auto; padding: 20px; }
+  .feed-inner { max-width: 760px; margin: 0 auto; }
+  .empty { color: var(--muted); text-align: center; padding: 48px 12px; }
+
+  /* Each question is a self-contained card: the question, its answer and its own sources belong
+     together, which is how the page shows that questions are answered independently. */
+  .turn {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    margin-bottom: 18px; overflow: hidden;
+  }
+  .turn.selected { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+  .turn-head { padding: 10px 16px; background: var(--bg); border-bottom: 1px solid var(--border); }
+  .turn-label { font-size: .75rem; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+  .turn-question { font-weight: 600; overflow-wrap: anywhere; white-space: pre-wrap; }
+  .turn-body { padding: 14px 16px; }
+  .answer { overflow-wrap: anywhere; }
   .answer p, .answer ul, .answer ol { margin: 0 0 .7em; }
   .answer > :last-child { margin-bottom: 0; }
   .answer ul, .answer ol { padding-left: 1.4em; }
@@ -53,21 +71,8 @@
     background: var(--cite-bg); color: var(--accent); cursor: pointer; border: 0; font-family: inherit;
   }
   .notice { margin-top: 10px; padding: 8px 12px; border-radius: 8px; background: var(--warn-bg); color: var(--warn-text); font-size: .9rem; }
-  .meta { margin-top: 12px; color: var(--muted); font-size: .88rem; overflow-wrap: anywhere; }
-  h2 { font-size: 1rem; margin: 24px 0 8px; }
-  details {
-    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
-    margin-bottom: 8px; padding: 8px 12px;
-  }
-  summary { cursor: pointer; font-weight: 600; }
-  details.others { background: none; border: 0; padding: 0; margin-top: 16px; }
-  details.others > summary { color: var(--muted); font-weight: 500; font-size: .92rem; margin-bottom: 8px; }
-  details.others details { margin-left: 0; }
-  summary .tag { font-weight: 400; color: var(--muted); font-size: .85em; margin-left: 6px; }
-  pre { white-space: pre-wrap; overflow-wrap: anywhere; font: .88rem/1.5 ui-monospace, monospace; margin: 10px 0 2px; }
-  textarea:disabled { opacity: .6; cursor: progress; }
-  .loading { display: flex; align-items: center; gap: 12px; margin-top: 28px; color: var(--muted); }
-  .loading[hidden] { display: none; }
+  .meta { margin-top: 12px; color: var(--muted); font-size: .85rem; overflow-wrap: anywhere; }
+  .loading { display: flex; align-items: center; gap: 12px; color: var(--muted); }
   .spinner {
     width: 22px; height: 22px; flex: none; border-radius: 50%;
     border: 3px solid var(--border); border-top-color: var(--accent);
@@ -77,103 +82,150 @@
   @media (prefers-reduced-motion: reduce) { .spinner { animation-duration: 3s; } }
   .error { color: #b3261e; }
   @media (prefers-color-scheme: dark) { .error { color: #f2a29b; } }
+
+  .composer { flex: none; padding: 12px 20px calc(12px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--border); background: var(--surface); }
+  .composer-inner { max-width: 760px; margin: 0 auto; }
+  .composer label { display: block; font-size: .75rem; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+  textarea {
+    width: 100%; min-height: 72px; max-height: 40vh; padding: 10px 12px; font: inherit; color: inherit;
+    background: var(--bg); border: 1px solid var(--border); border-radius: 8px; resize: vertical;
+  }
+  textarea:disabled { opacity: .6; cursor: progress; }
+  .row { display: flex; align-items: center; gap: 12px; margin-top: 8px; flex-wrap: wrap; }
+  .hint { color: var(--muted); font-size: .82rem; flex: 1 1 200px; }
+  button.primary, button.ghost { font: inherit; padding: 8px 18px; border-radius: 8px; cursor: pointer; font-weight: 600; }
+  button.primary { border: 0; background: var(--accent); color: var(--accent-text); }
+  button.ghost { border: 1px solid var(--border); background: none; color: var(--muted); font-weight: 500; padding: 6px 12px; }
+  button:disabled { opacity: .55; cursor: not-allowed; }
+  button.primary:disabled { cursor: progress; }
+
+  .panel {
+    display: none; grid-area: panel; overflow-y: auto; padding: 16px; background: var(--surface);
+    border-left: 1px solid var(--border); min-width: 0;
+  }
+  .app.panel-open .panel { display: block; }
+  .panel-head { display: flex; align-items: flex-start; gap: 8px; justify-content: space-between; }
+  .panel h2 { font-size: 1rem; margin: 0 0 2px; }
+  .panel .for { color: var(--muted); font-size: .85rem; margin: 0 0 12px; overflow-wrap: anywhere; }
+  .panel h3 { font-size: .85rem; margin: 16px 0 8px; color: var(--muted); font-weight: 600; }
+  .panel .close {
+    flex: none; width: 32px; height: 32px; padding: 0; line-height: 1; font-size: 1.1rem;
+    border: 1px solid var(--border); border-radius: 8px; background: none; color: var(--muted); cursor: pointer;
+  }
+  .panel .close:hover { color: var(--text); }
+  details {
+    background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
+    margin-bottom: 8px; padding: 8px 12px;
+  }
+  details.focus { border-color: var(--accent); }
+  summary { cursor: pointer; font-weight: 600; }
+  details.others { background: none; border: 0; padding: 0; margin-top: 12px; }
+  details.others > summary { color: var(--muted); font-weight: 500; font-size: .9rem; margin-bottom: 8px; }
+  summary .tag { font-weight: 400; color: var(--muted); font-size: .85em; margin-left: 6px; }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; font: .86rem/1.5 ui-monospace, monospace; margin: 10px 0 2px; }
+
+  /* Narrow screens: the sources become a sheet at the bottom instead of a column. */
+  @media (max-width: 900px) {
+    .app.panel-open { grid-template-columns: minmax(0, 1fr); grid-template-areas: "top" "chat"; }
+    .top, .feed, .composer { padding-left: 16px; padding-right: 16px; }
+    .panel {
+      position: fixed; left: 0; right: 0; bottom: 0; max-height: 65vh; z-index: 10;
+      border-left: 0; border-top: 1px solid var(--border); box-shadow: 0 -8px 24px rgba(0, 0, 0, .18);
+      padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    }
+  }
 </style>
 </head>
 <body>
-<main>
-  <h1>PCI DSS Assistant</h1>
-  <p class="sub">Answers come only from the retrieved PCI DSS v4.0.1 requirements, with requirement IDs as citations.</p>
-
-  <form id="form">
-    <textarea id="question" maxlength="1000" placeholder="Ask a question, for example: How long must audit logs be kept?" autofocus></textarea>
-    <div class="row">
-      <button id="submit" type="submit">Ask</button>
-      <span class="status" id="status"></span>
-      <span class="hint">Enter to send, Shift + Enter for a new line. Do not paste real card numbers.</span>
+<div class="app">
+  <header class="top">
+    <div class="titles">
+      <h1>PCI DSS Assistant</h1>
+      <p class="sub">Answers come only from the retrieved PCI DSS v4.0.1 requirements, with requirement IDs as citations.</p>
     </div>
-  </form>
+    <button class="ghost" id="clear" type="button" disabled>Clear all</button>
+  </header>
 
-  <section id="result" hidden>
-    <div class="answer" id="answer"></div>
-    <div id="notices"></div>
-    <div class="meta" id="queries"></div>
-    <h2 id="used-title">Sources used in the answer</h2>
-    <div id="sources"></div>
-    <details class="others" id="others">
-      <summary id="others-summary"></summary>
-      <div id="others-list"></div>
-    </details>
+  <section class="chat">
+    <div class="feed" id="feed">
+      <div class="feed-inner" id="turns">
+        <div class="empty" id="empty">Each question you ask appears here as its own card, with its answer and sources.</div>
+      </div>
+    </div>
+    <form class="composer" id="form">
+      <div class="composer-inner">
+        <label for="question">New question</label>
+        <textarea id="question" maxlength="1000" placeholder="For example: How long must audit logs be kept?" autofocus></textarea>
+        <div class="row">
+          <span class="hint">Enter to send, Shift + Enter for a new line. Do not paste real card numbers. The last 10 questions stay on this page until you reload it.</span>
+          <button class="primary" id="submit" type="submit">Ask</button>
+        </div>
+      </div>
+    </form>
   </section>
 
-  <div class="loading" id="loading" role="status" hidden>
-    <span class="spinner" aria-hidden="true"></span>
-    <span>Searching the requirements and writing an answer (this can take up to a minute)...</span>
-  </div>
-</main>
+  <aside class="panel" id="panel" aria-label="Sources"></aside>
+</div>
 
 <script>
+const MAX_TURNS = 10;
 const form = document.getElementById("form");
 const box = document.getElementById("question");
 const submit = document.getElementById("submit");
-const statusEl = document.getElementById("status");
-const result = document.getElementById("result");
-const loading = document.getElementById("loading");
+const clearButton = document.getElementById("clear");
+const feed = document.getElementById("feed");
+const turnsHolder = document.getElementById("turns");
+const empty = document.getElementById("empty");
+const panel = document.getElementById("panel");
+const app = document.querySelector(".app");
 // Order matters: code first so its content is never parsed, then bold before italic.
 const INLINE = /`([^`]+)`|\*\*(.+?)\*\*|\*([^*\s](?:[^*]*[^*\s])?)\*|\[([\d.,;\s]*\d[\d.,;\s]*)\]/g;
 
-function setStatus(text, isError) {
-  statusEl.textContent = text;
-  statusEl.classList.toggle("error", Boolean(isError));
-}
-
-function openSource(id) {
-  const node = document.getElementById("source-" + id);
-  if (!node) return;
-  node.open = true;
-  const wrapper = node.parentElement.closest("details");
-  if (wrapper) wrapper.open = true;
-  node.scrollIntoView({ behavior: "smooth", block: "nearest" });
-}
+// History lives in this array only: nothing is written to the disk or to browser storage, because
+// questions can contain card numbers a user pasted by mistake. Reloading the page clears it.
+const turns = [];
+let nextId = 1;
+let selected = null;
+let panelTurn = null;
+let busy = false;
 
 // The answer is model output and can echo the question or the sources, so it is turned into DOM
 // nodes and text only. Raw HTML in it is shown as text and never runs.
-function element(tag, className) {
+function element(tag, className, text) {
   const node = document.createElement(tag);
   if (className) node.className = className;
+  if (text !== undefined) node.textContent = text;
   return node;
 }
 
-function appendCitations(parent, ids) {
+function appendCitations(parent, ids, onCite) {
   parent.append("[");
   ids.split(/[,;\s]+/).filter(Boolean).forEach((id, index) => {
     if (index) parent.append(", ");
-    const button = element("button", "cite");
+    const button = element("button", "cite", id);
     button.type = "button";
-    button.textContent = id;
-    button.addEventListener("click", () => openSource(id));
+    button.addEventListener("click", () => onCite(id));
     parent.append(button);
   });
   parent.append("]");
 }
 
-function appendInline(parent, text) {
+function appendInline(parent, text, onCite) {
   let last = 0;
   for (const match of text.matchAll(INLINE)) {
     parent.append(text.slice(last, match.index));
     if (match[1] !== undefined) {
-      const code = element("code");
-      code.textContent = match[1];
-      parent.append(code);
+      parent.append(element("code", "", match[1]));
     } else if (match[2] !== undefined) {
       const strong = element("strong");
-      appendInline(strong, match[2]);
+      appendInline(strong, match[2], onCite);
       parent.append(strong);
     } else if (match[3] !== undefined) {
       const emphasis = element("em");
-      appendInline(emphasis, match[3]);
+      appendInline(emphasis, match[3], onCite);
       parent.append(emphasis);
     } else {
-      appendCitations(parent, match[4]);
+      appendCitations(parent, match[4], onCite);
     }
     last = match.index + match[0].length;
   }
@@ -182,9 +234,7 @@ function appendInline(parent, text) {
 
 // Supports what the model actually writes: paragraphs, headings, bullet and numbered lists,
 // bold, italic and code. Tables, images and links are deliberately left as plain text.
-function renderAnswer(text) {
-  const target = document.getElementById("answer");
-  target.replaceChildren();
+function renderAnswer(text, target, onCite) {
   let paragraph = [];
   let list = null;
 
@@ -193,7 +243,7 @@ function renderAnswer(text) {
     const node = element("p");
     paragraph.forEach((line, index) => {
       if (index) node.append(element("br"));
-      appendInline(node, line);
+      appendInline(node, line, onCite);
     });
     target.append(node);
     paragraph = [];
@@ -202,7 +252,7 @@ function renderAnswer(text) {
   for (const raw of text.replace(/\r\n/g, "\n").split("\n")) {
     const line = raw.trimEnd();
     const heading = line.match(/^\s{0,3}#{1,6}\s+(.*)$/);
-    const bullet = line.match(/^\s*[-*\u2022]\s+(.*)$/);
+    const bullet = line.match(/^\s*[-*•]\s+(.*)$/);
     const numbered = line.match(/^\s*\d+[.)]\s+(.*)$/);
 
     if (!line.trim() || /^\s*([-*_])\1{2,}\s*$/.test(line)) {
@@ -211,7 +261,7 @@ function renderAnswer(text) {
       flushParagraph();
       list = null;
       const node = element("p", "md-heading");
-      appendInline(node, heading[1]);
+      appendInline(node, heading[1], onCite);
       target.append(node);
     } else if (bullet || numbered) {
       flushParagraph();
@@ -221,7 +271,7 @@ function renderAnswer(text) {
         target.append(list);
       }
       const item = element("li");
-      appendInline(item, (bullet || numbered)[1]);
+      appendInline(item, (bullet || numbered)[1], onCite);
       list.append(item);
     } else {
       list = null;
@@ -231,67 +281,167 @@ function renderAnswer(text) {
   flushParagraph();
 }
 
-function renderNotices(check) {
-  const holder = document.getElementById("notices");
-  holder.replaceChildren();
+function noticeMessages(check) {
   const messages = [];
   if (check.not_found) messages.push("The retrieved requirements do not answer this question.");
   else if (!check.cited.length) messages.push("This answer has no citations; do not rely on it.");
   if (check.outside_sources.length) {
     messages.push("Cited but not among the retrieved requirements: " + check.outside_sources.join(", "));
   }
-  for (const message of messages) {
-    const div = document.createElement("div");
-    div.className = "notice";
-    div.textContent = message;
-    holder.append(div);
+  return messages;
+}
+
+function fillBody(turn) {
+  const body = turn.body;
+  body.replaceChildren();
+  if (turn.status === "pending") {
+    const loading = element("div", "loading");
+    loading.setAttribute("role", "status");
+    const spinner = element("span", "spinner");
+    spinner.setAttribute("aria-hidden", "true");
+    loading.append(spinner, element("span", "", "Searching the requirements and writing an answer (this can take up to a minute)..."));
+    body.append(loading);
+  } else if (turn.status === "error") {
+    body.append(element("div", "error", turn.error));
+  } else {
+    const answer = element("div", "answer");
+    renderAnswer(turn.data.answer, answer, (id) => openSources(turn, id));
+    body.append(answer);
+    for (const message of noticeMessages(turn.data.check)) body.append(element("div", "notice", message));
+    body.append(element("div", "meta", "Search queries: " + turn.data.queries.join(" | ")));
   }
 }
 
+function createTurn(question) {
+  const turn = { id: nextId++, question, status: "pending", data: null, error: "" };
+  const node = element("article", "turn");
+  const head = element("div", "turn-head");
+  head.append(element("div", "turn-label", "Question"), element("div", "turn-question", question));
+  turn.body = element("div", "turn-body");
+  node.append(head, turn.body);
+  node.addEventListener("click", (event) => {
+    // A click on a citation or a link inside the card has its own meaning.
+    if (event.target.closest("button, a")) return;
+    // With the sources already open, clicking another card switches them to that card.
+    if (turn.status === "done" && panelIsOpen() && panelTurn !== turn) {
+      markSelected(turn);
+      renderPanel(turn);
+    }
+  });
+  turn.node = node;
+  fillBody(turn);
+  return turn;
+}
+
 function sourceNode(source, isCited) {
-  const details = document.createElement("details");
+  const details = element("details");
   details.id = "source-" + source.id;
-  const summary = document.createElement("summary");
-  summary.textContent = source.id;
-  const tag = document.createElement("span");
-  tag.className = "tag";
-  tag.textContent = (source.kind === "introduction" ? "introduction" : "requirement") +
-    (isCited ? " · cited" : "");
-  summary.append(tag);
-  const pre = document.createElement("pre");
-  pre.textContent = source.text;
-  details.append(summary, pre);
+  const summary = element("summary", "", source.id);
+  summary.append(element("span", "tag", (source.kind === "introduction" ? "introduction" : "requirement") + (isCited ? " · cited" : "")));
+  details.append(summary, element("pre", "", source.text));
   return details;
 }
 
-// Cited requirements are what the answer rests on; the rest stay one click away so a
-// "could not find" reply or a missing citation can still be checked against what was retrieved.
-function renderSources(sources, cited) {
+function panelIsOpen() { return app.classList.contains("panel-open"); }
+
+function closePanel() {
+  app.classList.remove("panel-open");
+  panelTurn = null;
+  markSelected(null);
+}
+
+// The panel always belongs to one card. Cited requirements are what the answer rests on; the rest
+// stay one click away so a "could not find" reply or a missing citation can still be checked
+// against what was retrieved.
+function renderPanel(turn) {
+  panelTurn = turn;
+  panel.replaceChildren();
+  const head = element("div", "panel-head");
+  head.append(element("h2", "", "Sources"));
+  const close = element("button", "close", "\u2715");
+  close.type = "button";
+  close.setAttribute("aria-label", "Close sources");
+  close.addEventListener("click", closePanel);
+  head.append(close);
+  panel.append(head);
+
+  panel.append(element("p", "for", "For: " + turn.question));
+
+  const sources = turn.data.sources;
+  const cited = turn.data.check.cited;
   const used = cited.map((id) => sources.find((source) => source.id === id)).filter(Boolean);
   const others = sources.filter((source) => !cited.includes(source.id));
 
-  document.getElementById("used-title").hidden = used.length === 0;
-  const usedHolder = document.getElementById("sources");
-  usedHolder.replaceChildren(...used.map((source) => sourceNode(source, true)));
+  if (used.length) {
+    panel.append(element("h3", "", "Used in the answer"));
+    used.forEach((source) => panel.append(sourceNode(source, true)));
+  }
+  if (others.length) {
+    const wrapper = element("details", "others");
+    wrapper.id = "others";
+    wrapper.open = used.length === 0;
+    wrapper.append(element("summary", "", (used.length ? "Other retrieved requirements" : "Retrieved requirements") + " (" + others.length + ")"));
+    others.forEach((source) => wrapper.append(sourceNode(source, false)));
+    panel.append(wrapper);
+  }
 
-  const wrapper = document.getElementById("others");
-  const list = document.getElementById("others-list");
-  list.replaceChildren(...others.map((source) => sourceNode(source, false)));
-  wrapper.hidden = others.length === 0;
-  wrapper.open = used.length === 0;
-  document.getElementById("others-summary").textContent =
-    (used.length ? "Other retrieved requirements" : "Retrieved requirements") + " (" + others.length + ")";
 }
+
+// A citation click toggles that requirement: a second click closes it again.
+function focusSource(id) {
+  const details = document.getElementById("source-" + id);
+  if (!details) return;
+  panel.querySelectorAll("details.focus").forEach((node) => node.classList.remove("focus"));
+  const wrapper = details.closest("details.others");
+  if (wrapper) wrapper.open = true;
+  details.open = !details.open;
+  if (details.open) {
+    details.classList.add("focus");
+    details.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+}
+
+function markSelected(turn) {
+  selected = turn;
+  turns.forEach((item) => item.node.classList.toggle("selected", item === turn));
+}
+
+// Only a citation opens the sources; they are closed until the reader asks for them.
+function openSources(turn, focusId) {
+  markSelected(turn);
+  if (panelTurn !== turn) renderPanel(turn);
+  app.classList.add("panel-open");
+  focusSource(focusId);
+}
+
+function updateControls() {
+  empty.hidden = turns.length > 0;
+  clearButton.disabled = busy || turns.length === 0;
+  submit.disabled = busy;
+  box.disabled = busy;
+}
+
+function trimHistory() {
+  while (turns.length > MAX_TURNS) {
+    const oldest = turns.shift();
+    oldest.node.remove();
+    if (panelTurn === oldest) closePanel();
+  }
+}
+
+function scrollToEnd() { feed.scrollTo({ top: feed.scrollHeight, behavior: "smooth" }); }
 
 async function ask() {
   const question = box.value.trim();
-  if (!question || submit.disabled) return;
-  // The previous answer goes away at once so it cannot be mistaken for the answer to this question.
-  result.hidden = true;
-  setStatus("");
-  box.disabled = true;
-  submit.disabled = true;
-  loading.hidden = false;
+  if (!question || busy) return;
+  busy = true;
+  const turn = createTurn(question);
+  turns.push(turn);
+  turnsHolder.append(turn.node);
+  trimHistory();
+  box.value = "";
+  updateControls();
+  scrollToEnd();
   try {
     const response = await fetch("/api/ask", {
       method: "POST",
@@ -300,29 +450,41 @@ async function ask() {
     });
     const data = await response.json().catch(() => ({}));
     if (!response.ok) {
-      const detail = typeof data.detail === "string" ? data.detail : "The request was rejected.";
-      throw new Error(detail);
+      throw new Error(typeof data.detail === "string" ? data.detail : "The request was rejected.");
     }
-    renderAnswer(data.answer);
-    renderNotices(data.check);
-    document.getElementById("queries").textContent = "Search queries: " + data.queries.join(" | ");
-    renderSources(data.sources, data.check.cited);
-    result.hidden = false;
+    turn.data = data;
+    turn.status = "done";
   } catch (error) {
-    setStatus(error.message || "Something went wrong.", true);
-  } finally {
-    loading.hidden = true;
-    box.disabled = false;
-    submit.disabled = false;
-    box.focus();
+    turn.status = "error";
+    turn.error = error.message || "Something went wrong.";
   }
+  fillBody(turn);
+  busy = false;
+  updateControls();
+  if (turn.status === "done" && turns.includes(turn) && panelIsOpen()) {
+    markSelected(turn);  // open sources follow the newest answer; closed ones stay closed
+    renderPanel(turn);
+  }
+  // Long answers are read from the top, so the card's first line is brought into view.
+  if (turns.includes(turn)) turn.node.scrollIntoView({ behavior: "smooth", block: "start" });
+  box.focus();
 }
+
+clearButton.addEventListener("click", () => {
+  if (busy) return;
+  turns.splice(0).forEach((turn) => turn.node.remove());
+  closePanel();
+  updateControls();
+  box.focus();
+});
 
 form.addEventListener("submit", (event) => { event.preventDefault(); ask(); });
 box.addEventListener("keydown", (event) => {
   // isComposing: Enter confirms a character in an input method (Turkish, Japanese, ...) and must not send.
   if (event.key === "Enter" && !event.shiftKey && !event.isComposing) { event.preventDefault(); ask(); }
 });
+
+updateControls();
 </script>
 </body>
 </html>
