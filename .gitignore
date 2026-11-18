@@ -7,3 +7,4 @@ data/*
 .pytest_cache/
 tests/golden/*
 !tests/golden/evaluate_keyword.stdout
+.env

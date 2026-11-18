@@ -8,3 +8,4 @@ data/*
 !data/PCI-DSS-v4_0_1.pdf
 !data/README.md
 tests
+.env

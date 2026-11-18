@@ -67,7 +67,7 @@ python src/ask.py "How long must audit logs be kept?"   # needs the `claude` CLI
 python src/ask.py --from-eval q11 u01 --dry-run          # show the prompt only, no model call
 python src/ask.py "..." --no-rewrite                     # search with the question as typed
 python src/server.py                                     # web interface on http://127.0.0.1:8000
-docker build -t pci-assistant . && docker run -p 127.0.0.1:8000:8000 -e CLAUDE_CODE_OAUTH_TOKEN=... pci-assistant
+docker build -t pci-assistant . && docker run --rm -p 127.0.0.1:8000:8000 --env-file .env pci-assistant   # .env holds CLAUDE_CODE_OAUTH_TOKEN (gitignored)
 python -m pytest                                # behavioral tests (skipped if the PDF is missing)
 ```
 
