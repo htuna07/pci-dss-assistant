@@ -17,7 +17,7 @@ First, an everyday question gets a cited answer. Then a question the standard do
 - Done: an answer-level check without a judge (`python src/evaluate_answers.py`): does the assistant refuse exactly when the standard has no answer, and does it cite what it should.
 - Done: a local web interface (`python src/server.py`) with the same pipeline: each question is its own card, the last 10 stay on the page until it is reloaded, and the sources open in a side panel when you click a citation.
 - Done (proof of concept): `ask.py` answers a question from the top 8 retrieved requirements, with citations.
-- Planned: a groundedness judge for answers, a measure for partly answerable questions, larger question set. Ideas: stop the rewrite from adding topics the question did not ask about; log live usage (with card numbers masked) to grow the evaluation set.
+- Planned: a groundedness judge for answers, larger question set. Ideas: stop the rewrite from adding topics the question did not ask about; log live usage (with card numbers masked) to grow the evaluation set.
 
 ## Setup
 

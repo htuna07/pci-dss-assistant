@@ -12,3 +12,4 @@
 {"id": "u12", "persona": "Company director", "question": "Does our cyber insurance pay for a card data breach?", "language": "en", "answerable": false}
 {"id": "u13", "persona": "System administrator", "question": "Is Windows 11 approved for use in a cardholder data environment?", "language": "en", "answerable": false}
 {"id": "u14", "persona": "Software developer", "question": "Does a token from a mobile wallet count as cardholder data?", "language": "en", "answerable": false}
+{"id": "u15", "persona": "Compliance officer", "question": "Does following PCI DSS make me compliant with GDPR, and what must I do about personal data protection?", "language": "en", "answerable": false}

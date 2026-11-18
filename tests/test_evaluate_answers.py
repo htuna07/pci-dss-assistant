@@ -86,6 +86,18 @@ def world(tmp_path):
             {"id": "u3", "question": "refusemore about audit log history"},
         ],
     )
+    partial = tmp_path / "partial.jsonl"
+    write_jsonl(
+        partial,
+        [
+            {"id": "p1", "question": "refuse audit log history and a product",
+             "expected_requirement_ids": ["10.5.1"]},
+            {"id": "p2", "question": "refusemore audit log history and a product",
+             "expected_requirement_ids": ["10.5.1"]},
+            {"id": "p3", "question": "audit log history and a product",
+             "expected_requirement_ids": ["10.5.1"]},
+        ],
+    )
     bin_dir = tmp_path / "bin"
     bin_dir.mkdir()
     fake = bin_dir / "claude"
@@ -93,7 +105,8 @@ def world(tmp_path):
     fake.chmod(fake.stat().st_mode | stat.S_IEXEC)
     return {"dir": tmp_path, "args": [
         "--chunks", str(chunks), "--questions", str(questions),
-        "--unanswerable", str(unanswerable), "--index-dir", str(tmp_path / "index"),
+        "--unanswerable", str(unanswerable), "--partial", str(partial),
+        "--index-dir", str(tmp_path / "index"),
     ]}
 
 
@@ -147,7 +160,7 @@ def test_cached_answers_are_reused_and_no_model_is_called_again(world):
     calls_after_first = answer_calls(world)
     second = run(world)
 
-    assert calls_after_first == 8
+    assert calls_after_first == 11
     assert answer_calls(world) == calls_after_first
     assert second.stdout == first.stdout
 
@@ -157,7 +170,7 @@ def test_cached_only_runs_nothing_and_reports_what_is_missing(world):
 
     assert result.returncode == 0, result.stderr
     assert answer_calls(world) == 0
-    assert "8 questions have no answer in this report" in result.stdout
+    assert "11 questions have no answer in this report" in result.stdout
     assert "q1: not run" in result.stdout
 
 
@@ -166,3 +179,14 @@ def test_unknown_id_is_rejected(world):
 
     assert result.returncode != 0
     assert "Unknown question ids: q99" in result.stderr
+
+
+def test_partly_answerable_questions_are_judged_apart_from_the_matrix(world):
+    result = run(world)
+
+    assert result.returncode == 0, result.stderr
+    assert "p1: refused everything (useful part withheld)" in result.stdout
+    assert "p2: refusal sentence, then kept writing (mixed signal)" in result.stdout
+    assert "p3: answered, expected cited" in result.stdout
+    # They must not distort the answerable / unanswerable counts.
+    assert "answerable (5)" in result.stdout

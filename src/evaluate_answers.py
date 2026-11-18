@@ -24,6 +24,7 @@ from jsonl_io import read_jsonl
 from pipeline import Assistant
 
 UNANSWERABLE_PATH = PROJECT_ROOT / "eval" / "unanswerable.jsonl"
+PARTIAL_PATH = PROJECT_ROOT / "eval" / "partial.jsonl"
 ANSWER_CACHE_NAME = "answers.json"
 
 
@@ -34,6 +35,7 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument("--questions", type=Path, default=DEFAULT_EVAL_QUESTIONS_PATH)
     parser.add_argument("--unanswerable", type=Path, default=UNANSWERABLE_PATH)
+    parser.add_argument("--partial", type=Path, default=PARTIAL_PATH)
     parser.add_argument("--index-dir", type=Path, default=DEFAULT_INDEX_DIR)
     parser.add_argument("--embedding-model", default=EMBEDDING_MODEL)
     parser.add_argument("--model", default=DEFAULT_ANSWER_MODEL)
@@ -82,6 +84,13 @@ def load_cases(args: argparse.Namespace) -> list[dict]:
     cases = [
         {**row, "answerable": True, "expected": row["expected_requirement_ids"]}
         for row in read_jsonl(args.questions)
+    ]
+    # Partly answerable: the standard answers one half, so the right reply cites that half and
+    # says plainly that the other half is not covered; refusing everything is the failure.
+    cases += [
+        {**row, "answerable": True, "partial": True, "type": "partial",
+         "expected": row["expected_requirement_ids"]}
+        for row in read_jsonl(args.partial)
     ]
     cases += [
         {**row, "answerable": False, "expected": [], "type": "unanswerable"}
@@ -136,7 +145,9 @@ def expected_cited(row: dict) -> tuple[bool, bool]:
 
 def format_refusals(rows: list[dict]) -> list[str]:
     done = [row for row in rows if row["check"] is not None]
-    answerable = [row for row in done if row["case"]["answerable"]]
+    answerable = [
+        row for row in done if row["case"]["answerable"] and not row["case"].get("partial")
+    ]
     unanswerable = [row for row in done if not row["case"]["answerable"]]
     refused = lambda group: sum(row["check"]["not_found"] for row in group)  # noqa: E731
 
@@ -146,7 +157,7 @@ def format_refusals(rows: list[dict]) -> list[str]:
         f"{f'unanswerable ({len(unanswerable)})':<24}{len(unanswerable) - refused(unanswerable):>10}{refused(unanswerable):>10}   <- answered = invented answer risk",
     ]
     for row in done:
-        if row["check"]["not_found"] and not row["refusal_only"]:
+        if row["check"]["not_found"] and not row["refusal_only"] and not row["case"].get("partial"):
             lines.append(f"  refused, then kept writing: {row['case']['id']}")
     for row in answerable:
         if row["check"]["not_found"]:
@@ -163,10 +174,28 @@ def format_refusals(rows: list[dict]) -> list[str]:
     return lines
 
 
+def format_partial(rows: list[dict]) -> list[str]:
+    partial = [row for row in rows if row["check"] is not None and row["case"].get("partial")]
+    lines = [f"partly answerable questions: {len(partial)}"]
+    for row in partial:
+        check = row["check"]
+        if check["not_found"] and row["refusal_only"]:
+            verdict = "refused everything (useful part withheld)"
+        elif check["not_found"]:
+            verdict = "refusal sentence, then kept writing (mixed signal)"
+        elif expected_cited(row)[0]:
+            verdict = "answered, expected cited"
+        else:
+            verdict = "answered, expected NOT all cited"
+        lines.append(f"  {row['case']['id']}: {verdict}")
+    return lines
+
+
 def format_citations(rows: list[dict]) -> list[str]:
     answered = [
         row for row in rows
-        if row["check"] is not None and row["case"]["answerable"] and not row["check"]["not_found"]
+        if row["check"] is not None and row["case"]["answerable"]
+        and not row["case"].get("partial") and not row["check"]["not_found"]
     ]
     unscorable = [row for row in answered if row["intro_only"]]
     answered = [row for row in answered if not row["intro_only"]]
@@ -207,6 +236,8 @@ def format_report(rows: list[dict]) -> str:
     skipped = [row for row in rows if row["check"] is None]
     lines = ["Refusals (the fixed \"could not find\" reply):", *format_refusals(rows)]
     lines += ["", "Citations:", *format_citations(rows)]
+    if any(row["case"].get("partial") for row in rows):
+        lines += ["", "Partly answerable (the unanswered half needs reading by hand):", *format_partial(rows)]
     if skipped:
         lines += ["", f"{len(skipped)} questions have no answer in this report:"]
         lines += [f"  {row['case']['id']}: {row['status']}" for row in skipped]
