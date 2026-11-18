@@ -304,3 +304,51 @@ def test_keyword_report_matches_golden(chunk_runs):
     expected = golden_text("evaluate_keyword.stdout")
 
     assert result.stdout == expected
+
+
+def test_saved_run_lists_fixed_and_broken_questions(tmp_path):
+    before_chunks = tmp_path / "before.jsonl"
+    after_chunks = tmp_path / "after.jsonl"
+    make_chunks(before_chunks, {"A": "firewall rules", "B": "password length"})
+    # Same chunk file name is required for a fair comparison, so swap the content in place.
+    questions = [
+        {"question": "firewall", "expected_requirement_ids": ["A"]},
+        {"question": "password", "expected_requirement_ids": ["B"]},
+    ]
+    saved = tmp_path / "run.json"
+    first = run_keyword(tmp_path, before_chunks, questions, ["--k", "1", "--save", str(saved)])
+    assert first.returncode == 0, first.stderr
+
+    make_chunks(before_chunks, {"A": "unrelated text", "B": "password length"})
+    second = run_keyword(tmp_path, before_chunks, questions, ["--k", "1", "--compare", str(saved)])
+
+    assert second.returncode == 0, second.stderr
+    assert "all expected 2/2 -> 1/2" in second.stdout
+    assert "broken: q0" in second.stdout
+    assert "fixed:  -" in second.stdout
+
+
+def test_compare_refuses_a_run_with_a_different_k(tmp_path, tiny_chunks):
+    questions = [{"question": "firewall", "expected_requirement_ids": ["A"]}]
+    saved = tmp_path / "run.json"
+    run_keyword(tmp_path, tiny_chunks, questions, ["--k", "1", "--save", str(saved)])
+
+    result = run_keyword(tmp_path, tiny_chunks, questions, ["--k", "2", "--compare", str(saved)])
+
+    assert result.returncode != 0
+    assert "differs in 'k'" in result.stderr
+
+
+def test_saved_run_contains_ids_only(tmp_path, tiny_chunks):
+    saved = tmp_path / "run.json"
+    run_keyword(
+        tmp_path,
+        tiny_chunks,
+        [{"question": "firewall", "expected_requirement_ids": ["A"]}],
+        ["--save", str(saved)],
+    )
+
+    content = saved.read_text(encoding="utf-8")
+
+    assert "firewall rules are defined" not in content
+    assert json.loads(content)["methods"]["keyword"]["q0"]["complete"] is True

@@ -39,6 +39,14 @@ def build_parser() -> argparse.ArgumentParser:
         choices=ALL_METHODS,
         help="list the questions this method fails to answer completely",
     )
+    parser.add_argument(
+        "--save", type=Path, help="write the per-question results to this JSON file"
+    )
+    parser.add_argument(
+        "--compare",
+        type=Path,
+        help="compare with results saved earlier: which questions got fixed or broke",
+    )
     return parser
 
 
@@ -133,6 +141,74 @@ def format_misses(results: dict[str, list[dict]], method: str) -> str:
     return "\n".join(lines)
 
 
+def snapshot(results: dict[str, list[dict]], k: int, chunks_name: str) -> dict:
+    # Only IDs and flags, never chunk text, so a snapshot holds nothing from the standard.
+    first = next(iter(results.values()))
+    return {
+        "k": k,
+        "chunks": chunks_name,
+        "question_ids": [row["question"]["id"] for row in first],
+        "methods": {
+            method: {
+                row["question"]["id"]: {
+                    "top": row["top"],
+                    "complete": row["complete"],
+                    "any": row["any"],
+                }
+                for row in rows
+            }
+            for method, rows in results.items()
+        },
+    }
+
+
+def load_snapshot(path: Path) -> dict:
+    if not path.is_file():
+        raise SystemExit(f"File not found: {path}")
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as error:
+        raise SystemExit(f"{path} is not a saved evaluation: {error}") from error
+
+
+def format_comparison(baseline: dict, current: dict) -> str:
+    # Different k or questions would make every difference meaningless, so refuse.
+    for key in ("k", "chunks", "question_ids"):
+        if baseline.get(key) != current[key]:
+            raise SystemExit(
+                f"Cannot compare: the saved run differs in '{key}' "
+                f"(saved: {baseline.get(key)!r}, now: {current[key]!r})"
+            )
+    shared = [method for method in current["methods"] if method in baseline["methods"]]
+    if not shared:
+        raise SystemExit(
+            "Cannot compare: no method in common "
+            f"(saved: {', '.join(baseline['methods'])}; now: {', '.join(current['methods'])})"
+        )
+
+    total = len(current["question_ids"])
+    lines = []
+    for method in shared:
+        before, after = baseline["methods"][method], current["methods"][method]
+        fixed = [q for q in current["question_ids"] if after[q]["complete"] and not before[q]["complete"]]
+        broken = [q for q in current["question_ids"] if before[q]["complete"] and not after[q]["complete"]]
+        any_before = sum(before[q]["any"] for q in current["question_ids"])
+        any_after = sum(after[q]["any"] for q in current["question_ids"])
+        complete_before = sum(before[q]["complete"] for q in current["question_ids"])
+        complete_after = sum(after[q]["complete"] for q in current["question_ids"])
+        reordered = sum(
+            before[q]["top"] != after[q]["top"] for q in current["question_ids"]
+        )
+        lines += [
+            f"{method}: all expected {complete_before}/{total} -> {complete_after}/{total}, "
+            f"at least one {any_before}/{total} -> {any_after}/{total}",
+            f"  fixed:  {', '.join(fixed) or '-'}",
+            f"  broken: {', '.join(broken) or '-'}",
+            f"  questions whose top list changed at all: {reordered}",
+        ]
+    return "\n".join(lines)
+
+
 def main() -> None:
     args = build_parser().parse_args()
     if args.k < 1:
@@ -154,6 +230,15 @@ def main() -> None:
     print(format_report(results, args.k))
     if args.misses:
         print(format_misses(results, args.misses))
+
+    current = snapshot(results, args.k, args.chunks.name)
+    if args.compare:
+        print("\nCompared with " + str(args.compare) + ":")
+        print(format_comparison(load_snapshot(args.compare), current))
+    if args.save:
+        args.save.parent.mkdir(parents=True, exist_ok=True)
+        args.save.write_text(json.dumps(current, indent=1) + "\n", encoding="utf-8")
+        print(f"\nSaved: {args.save}")
 
 
 if __name__ == "__main__":
