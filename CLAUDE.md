@@ -5,12 +5,13 @@ RAG assistant that retrieves PCI DSS v4.0.1 content so an LLM answers compliance
 ## Status
 
 - Done: extraction (PDF → structured JSON), chunking (JSON → JSONL chunks).
-- Done: evaluation question set (`eval/questions.jsonl`, 53 English questions plus 3 unanswerable), keyword / semantic / hybrid search with a comparison command.
+- Done: evaluation question set (`eval/questions.jsonl`, 53 English questions plus 14 unanswerable), keyword / semantic / hybrid search with a comparison command.
 - Done: query rewriting (`hybrid_rewrite`): a model turns the question into 1–3 queries in the standard's terminology; on the 53 questions at k=8 it fully covers 48 (plain `hybrid_id`: 42).
 - Done: local web interface (`src/server.py`, one page + `POST /api/ask`), same pipeline as `ask.py`. The page keeps the last 10 questions as separate cards in page memory only; sources open in a side panel on a citation click.
 - Done: the evaluation can save a run (`--save`) and compare it with a saved one question by question (`--compare`), and prints a headline score (see Evaluation Notes).
 - Done (proof of concept): `ask.py` answers a question from the top 8 retrieved requirements via `claude -p` (Sonnet 5.5), with citations and a "could not find" reply.
-- Not started: answer-quality evaluation (groundedness judge, human-checked sample), larger question set, indexing the PCI DSS scope section (outside pages 42–337).
+- Done: judge-free answer evaluation (`src/evaluate_answers.py`): refusal matrix and citation checks. Not done: a groundedness judge, and a measure for partly answerable questions.
+- Not started: groundedness judge and a human-checked sample, a measure for partly answerable questions, larger answerable question set, indexing the PCI DSS scope section (outside pages 42–337).
 - Ideas, not decided:
   - Rewrite prompt: the model sometimes adds a topic the question did not ask about (q19); add a "do not add topics" rule and re-measure.
   - Live usage: log question, rewritten queries, retrieved requirements, answer, "could not find" flag and a thumbs up/down, with card-number-like digit runs masked before saving (users may paste real PANs). Use it to grow the evaluation set and to find retrieval misses. Fine-tuning is unlikely to be needed.
@@ -36,6 +37,7 @@ RAG assistant that retrieves PCI DSS v4.0.1 content so an LLM answers compliance
 - `src/search.py` — `Retriever`: `keyword`, `semantic`, `hybrid` (reciprocal rank fusion), `hybrid_id` (requirement IDs named in the query, validated against known IDs, go first, then hybrid results) and `hybrid_rewrite` (IDs from the original question first, then the hybrid results of each rewritten query fused); returns requirement IDs.
 - `src/rewrite.py` — `QueryRewriter`: asks the model for 1–3 queries in PCI DSS terminology, caches them in `data/index/rewrites.json`, and falls back to the original question when the model call or its reply fails (`cache_only` never calls the model).
 - `src/evaluate.py` — runs the methods over `eval/questions.jsonl` and prints how many questions have all / at least one expected requirement in the top k. `hybrid_rewrite` is opt-in because it calls a model once per uncached question. `--save <file>` writes per-question results (IDs and flags only); `--compare <file>` lists the questions that got fixed or broke and refuses a run with a different k, chunk file or question set.
+- `src/evaluate_answers.py` — answers every question in `eval/questions.jsonl` and `eval/unanswerable.jsonl` with the real pipeline (one model call each, cached in `data/index/answers.json` under a hash of model, rules and full prompt, so a prompt change re-asks only what changed; `--cached-only` never calls a model) and prints a refusal matrix (answerable vs unanswerable, refused vs answered, false refusals located as retrieval or model problems, refusals that keep writing) and citation checks (no citation, citing a requirement that was not retrieved, expected requirements cited; questions whose expected list holds only introductions are not scored). The cache may quote the standard: it stays under gitignored `data/`.
 - `src/generate.py` — answer prompt (sources + rules), `claude -p` call (no tools, run from an empty directory, `--restricted`), citation check.
 - `src/pipeline.py` — `Assistant`: rewrite, retrieve, build the prompt, generate, check citations; used by `ask.py` and `server.py`.
 - `src/web/index.html` — the whole page (HTML, CSS, JS in one file): question cards, composer, side panel with sources. History is a JS array only, never `localStorage`, because questions can contain pasted card numbers.
@@ -45,7 +47,7 @@ RAG assistant that retrieves PCI DSS v4.0.1 content so an LLM answers compliance
 - `src/ask.py` — end-to-end CLI: rewrite the question, retrieve (`hybrid_rewrite`, or `hybrid_id` with `--no-rewrite`), build the prompt from the whole records of the top-k requirements, generate, check citations (`--dry-run`, `--use-answer`, `--from-eval`; the last two never call a model and only reuse cached rewrites).
 - `src/build_chunks.py` — chunk CLI (`--strategy`, `--max-words`, `--input-dir`, `--output-dir`).
 - `eval/questions.jsonl` — retrieval evaluation set. Fields: `id`, `question`, `language`, `type`, `expected_requirement_ids` (core requirements that directly answer it); optional `persona` (who asks; not part of the searched text) and `related_requirement_ids` (helpful but unscored).
-- `eval/unanswerable.jsonl` — questions the standard does not answer; kept apart because they have no expected requirement. For the answer-generation stage, which must say the document does not cover them.
+- `eval/unanswerable.jsonl` — 14 questions the standard does not answer (cost, firewall brand, fines, SAQ, law, cryptocurrency, ...); kept apart because they have no expected requirement. For the answer-generation stage, which must say the document does not cover them.
 - `tests/` — behavioral tests; `tests/golden/` holds the reference output (gitignored except `evaluate_keyword.stdout`, because it contains the licensed PDF's text; golden tests skip when absent).
 - `data/PCI-DSS-v4_0_1.pdf` — source document (gitignored).
 - `data/processed/` — extracted JSON, one file per record (gitignored; regenerate from the PDF).
@@ -67,6 +69,7 @@ python src/evaluate.py --misses hybrid         # keyword vs semantic vs hybrid v
 python src/evaluate.py --methods hybrid_id hybrid_rewrite --k 8   # adds model-rewritten queries (cached after the first run)
 python src/evaluate.py --methods keyword semantic hybrid hybrid_id hybrid_rewrite --k 8 --save data/index/baseline.json   # keep a run
 python src/evaluate.py --methods hybrid_rewrite --k 8 --compare data/index/baseline.json   # after a change: fixed / broken questions
+python src/evaluate_answers.py                  # refusal matrix + citation checks over all questions (one model call per new prompt)
 python src/ask.py "How long must audit logs be kept?"   # needs the `claude` CLI logged in
 python src/ask.py --from-eval q11 u01 --dry-run          # show the prompt only, no model call
 python src/ask.py "..." --no-rewrite                     # search with the question as typed
@@ -94,6 +97,8 @@ Files are `data/processed/requirement-<id>.json`; 262 total, discriminated by `r
 - The q24 and q28 expected lists were wrong (they listed display masking and sensitive-authentication-data requirements for questions about stored PAN and PAN in logs). They were corrected after blind reviews by separate model runs that read the standard without seeing the lists or the retrieval results; this raised the scores without changing any ranking, so numbers from before that commit are not comparable. Do such reviews from the standard's text, never from what retrieval returned, and note each change.
 - Tried without gain at k=8: `bge-large-en-v1.5` instead of `bge-base` (semantic +2, hybrid_rewrite +1, within noise, about 3x the size) and cross-encoder rerankers on the top 30 (`ms-marco-MiniLM-L-6-v2`, `bge-reranker-base`: 42/53 when scoring the raw question, 46/53 with the rewritten queries, no net change). A reranker must see the rewritten queries, not the lay wording.
 - Rewriting works partly because the model already knows PCI DSS terminology. For an internal document, give the rewrite prompt example passages or a glossary and re-measure.
+- Answer-level results (Sonnet 5.5, k=8, `hybrid_rewrite`): 0 false refusals on 53 answerable questions; all 14 unanswerable questions refused (13 with exactly the fixed sentence, 1 kept explaining that the standard names no approved product); no answer without citations or citing a requirement that was not retrieved; expected requirements cited in 50/51 scored questions (q26, q27 expect only an introduction and are not scored). The one miss, q53, comes from retrieval: its key requirements were not retrieved, so the model answered honestly but incompletely and said which part was not covered.
+- The unanswerable questions were chosen near the standard's topics and confirmed unanswered by two independent blind readings of the standard's text. Questions it answers only in part (GDPR mentioned as an example in 12.10.1, how to configure TLS, a notification deadline, changes from the previous version) were left out: a partly answered question needs its own measure, and the model sometimes refuses it entirely (GDPR) or writes the refusal and then the relevant part (TLS, changes).
 - When writing questions: one intent each, no requirement IDs or PCI jargon, spread across the 12 principal requirements, and some that the standard does not answer.
 
 ## Chunk Model

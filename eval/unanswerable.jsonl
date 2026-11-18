@@ -1,3 +1,14 @@
 {"id": "u01", "persona": "Small shop owner", "question": "Roughly how much would it cost to make my store compliant, including the security testing?", "language": "en", "answerable": false}
 {"id": "u02", "persona": "Company director", "question": "Which consultancy should we hire to help us write our security policies?", "language": "en", "answerable": false}
 {"id": "u03", "persona": "Small shop owner", "question": "Will customers be more likely to buy from my store if I mention PCI DSS compliance at checkout?", "language": "en", "answerable": false}
+{"id": "u04", "persona": "Small shop owner", "question": "What financial penalty can the card brands impose if we fail a PCI DSS assessment?", "language": "en", "answerable": false}
+{"id": "u05", "persona": "IT manager", "question": "Which brand of firewall should we buy to meet the standard?", "language": "en", "answerable": false}
+{"id": "u06", "persona": "Small shop owner", "question": "Which self-assessment questionnaire should a small online shop fill in?", "language": "en", "answerable": false}
+{"id": "u07", "persona": "Project manager", "question": "How long does a full PCI DSS assessment normally take from start to certificate?", "language": "en", "answerable": false}
+{"id": "u08", "persona": "System administrator", "question": "Which antivirus product do you recommend for our servers?", "language": "en", "answerable": false}
+{"id": "u09", "persona": "Company director", "question": "Is it required by law to comply with PCI DSS?", "language": "en", "answerable": false}
+{"id": "u10", "persona": "Software developer", "question": "Does PCI DSS apply to payments made with cryptocurrency?", "language": "en", "answerable": false}
+{"id": "u11", "persona": "Small shop owner", "question": "What annual transaction volume puts a merchant into the highest compliance level?", "language": "en", "answerable": false}
+{"id": "u12", "persona": "Company director", "question": "Does our cyber insurance pay for a card data breach?", "language": "en", "answerable": false}
+{"id": "u13", "persona": "System administrator", "question": "Is Windows 11 approved for use in a cardholder data environment?", "language": "en", "answerable": false}
+{"id": "u14", "persona": "Software developer", "question": "Does a token from a mobile wallet count as cardholder data?", "language": "en", "answerable": false}
