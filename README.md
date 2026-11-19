@@ -12,7 +12,7 @@ First, an everyday question gets a cited answer. Then a question the standard do
 
 - Done: extraction of the PDF into structured JSON (one file per requirement).
 - Done: chunking, keyword / semantic / hybrid retrieval, and a retrieval evaluation set (53 questions plus 14 the standard does not answer).
-- Done: query rewriting, where a model rephrases the question in the standard's terminology before searching (53-question evaluation at k=8: 48 fully covered, plain hybrid search 42).
+- Done: query rewriting, where a model rephrases the question in the standard's terminology before searching (53-question evaluation at k=8: 48 fully covered, plain hybrid search 42; a separate 63-question set written by other model runs: 57). Questions with two parts keep the best result of each part.
 - Done: the evaluation can save a run and compare it with a saved one question by question, and prints a headline score.
 - Done: an answer-level check without a judge (`python src/evaluate_answers.py`): does the assistant refuse exactly when the standard has no answer, and does it cite what it should.
 - Done: a local web interface (`python src/server.py`) with the same pipeline: each question is its own card, the last 10 stay on the page until it is reloaded, and the sources open in a side panel when you click a citation.

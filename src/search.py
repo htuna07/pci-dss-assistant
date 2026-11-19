@@ -16,12 +16,22 @@ DOTTED_ID = re.compile(r"\d+(?:\.\d+)+")
 PRINCIPAL_ID = re.compile(r"\brequirements?\s+(\d+)\b", re.IGNORECASE)
 
 
-def fuse_id_rankings(rankings: list[list[str]]) -> list[str]:
+def fuse_id_rankings(rankings: list[list[str]], reserve: int = 0) -> list[str]:
+    """Reciprocal rank fusion, after the first `reserve` results of every ranking.
+
+    Plain fusion favors requirements that rank moderately in every list over one that is first in
+    a single list, which drops the answer to one half of a two-part question."""
+    guaranteed: list[str] = []
+    for position in range(reserve):
+        for ranking in rankings:
+            if position < len(ranking) and ranking[position] not in guaranteed:
+                guaranteed.append(ranking[position])
     fused: dict[str, float] = {}
     for ranking in rankings:
         for rank, requirement_id in enumerate(ranking, start=1):
             fused[requirement_id] = fused.get(requirement_id, 0.0) + 1 / (RRF_K + rank)
-    return sorted(fused, key=lambda requirement_id: -fused[requirement_id])
+    rest = sorted(fused, key=lambda requirement_id: -fused[requirement_id])
+    return guaranteed + [requirement_id for requirement_id in rest if requirement_id not in guaranteed]
 
 
 class Retriever:
@@ -65,8 +75,9 @@ class Retriever:
         found = DOTTED_ID.findall(query) + PRINCIPAL_ID.findall(query)
         return list(dict.fromkeys(rid for rid in found if rid in self.known_ids))
 
-    def search(self, method: str, query: str) -> list[str]:
-        """Requirement IDs ordered by their best-ranked chunk."""
+    def search(self, method: str, query: str, k: int | None = None) -> list[str]:
+        """Requirement IDs ordered by their best-ranked chunk. `k` is how many the caller will
+        keep; the rewrite method splits those places evenly between the rewritten queries."""
         if method == "hybrid_id":
             mentioned = self.mentioned_ids(query)
             rest = self.search("hybrid", query)
@@ -74,7 +85,9 @@ class Retriever:
         if method == REWRITE_METHOD:
             mentioned = self.mentioned_ids(query)
             rankings = [self.search("hybrid", rewritten) for rewritten in self.rewriter.rewrite(query)]
-            return mentioned + [rid for rid in fuse_id_rankings(rankings) if rid not in mentioned]
+            reserve = max(1, k // len(rankings)) if k else 0
+            fused = fuse_id_rankings(rankings, reserve)
+            return mentioned + [rid for rid in fused if rid not in mentioned]
         ranking = getattr(self, f"{method}_ranking")(query)
         requirement_ids: list[str] = []
         for position in ranking:

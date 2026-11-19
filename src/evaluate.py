@@ -78,7 +78,7 @@ def evaluate(
     for question in questions:
         expected = question["expected_requirement_ids"]
         for method in methods:
-            top = retriever.search(method, question["question"])[:k]
+            top = retriever.search(method, question["question"], k)[:k]
             results[method].append(
                 {
                     "question": question,

@@ -76,7 +76,7 @@ class Assistant:
         return cls(chunks, retriever, method, rewriter, model, k)
 
     def prepare(self, question: str) -> Prepared:
-        retrieved = self.retriever.search(self.method, question)[: self.k]
+        retrieved = self.retriever.search(self.method, question, self.k)[: self.k]
         queries = self.rewriter.rewrite(question) if self.rewriter else []
         sources = group_sources(self.chunks, retrieved)
         return Prepared(queries, retrieved, sources, build_user_prompt(question, format_sources(sources)))
