@@ -6,7 +6,7 @@ A RAG assistant that retrieves content from PCI DSS v4.0.1 so an LLM can answer 
 
 ![Asking two questions in the web interface](docs/demo.gif)
 
-First, an everyday question gets a cited answer. Then a question the standard does not answer gets "could not find" instead of a guess.
+First, an everyday question gets a cited answer. Then a question the standard does not answer gets "could not find" instead of figures from outside the standard.
 
 ## Status
 

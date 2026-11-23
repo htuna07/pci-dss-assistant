@@ -1,6 +1,8 @@
 """Local web interface: one page and one JSON endpoint on top of the same pipeline as ask.py."""
 
 import argparse
+import os
+import sys
 import threading
 from pathlib import Path
 
@@ -76,10 +78,22 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
+def warn_if_no_credentials() -> None:
+    """A container without a token only fails at the first question, with a generic error."""
+    has_env = any(os.environ.get(name) for name in ("CLAUDE_CODE_OAUTH_TOKEN", "ANTHROPIC_API_KEY"))
+    if not has_env and not (Path.home() / ".claude" / ".credentials.json").is_file():
+        print(
+            "Warning: no CLAUDE_CODE_OAUTH_TOKEN or ANTHROPIC_API_KEY is set and no `claude` login "
+            "was found; questions will fail until one is provided.",
+            file=sys.stderr, flush=True,
+        )
+
+
 def main() -> None:
     args = build_parser().parse_args()
     if args.k < 1:
         raise SystemExit("--k must be at least 1")
+    warn_if_no_credentials()
     print("Loading the search index...", flush=True)
     assistant = Assistant.from_files(
         args.chunks,
