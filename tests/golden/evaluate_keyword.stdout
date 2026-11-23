@@ -1,9 +1,9 @@
-chunks: chunks-grouped.jsonl | k=5 | questions: 53
+chunks: chunks-grouped.jsonl | k=5 | questions: 115
 method       all expected in top 5     at least one in top 5
-keyword                     34/53                    39/53
+keyword                     60/115                    80/115
 
 headline score (broad questions: at least one expected in top 5; all others: all expected):
-keyword                     37/53
+keyword                     63/115
 
 all expected in top 5, by question type:
 type              n   keyword
@@ -13,7 +13,7 @@ conceptual        2         1
 id_lookup         3         3
 keyword           7         7
 multi             6         1
-non_technical    15        13
+non_technical    77        39
 semantic          8         4
 testing           2         2
 
@@ -25,7 +25,7 @@ conceptual        2         1
 id_lookup         3         3
 keyword           7         7
 multi             6         3
-non_technical    15        13
+non_technical    77        54
 semantic          8         4
 testing           2         2
 
@@ -87,3 +87,111 @@ q51 [multi] What should happen when our audit logging system stops working?
 q53 [multi] A customer emailed us their full card details by mistake. What should we do with that email?
     expected: 12.10.7, 4.2.2
     got:      3.3.1.1, 12.9.1, 3.6.1.1, 8.3.10, 3.4.1
+g03 [non_technical] Do the laptops our staff use from home need antivirus software too?
+    expected: 5.2.1, 1.5.1
+    got:      6.2.2, 12.2.1, 1.5.1, 12.3.4, 6.2.4
+g06 [non_technical] What steps should we take if we find out someone stole customer card data from us?
+    expected: 12.10.1
+    got:      9.4.1, 8.3.10, 9.5.1, 8.2.3, 3.3.1.2
+g07 [non_technical] Do I really need a firewall between my shop's card machine network and the guest wifi?
+    expected: 1.3.3
+    got:      1.2.4, 8.2.8, 1.2.3, 1.4.1, 1.4.4
+g10 [non_technical] What should I do about the old firewall rules nobody remembers adding? Do they need to be reviewed regularly?
+    expected: 1.2.7, 1.2.5
+    got:      10.7.1, 10.7.2, 7, 1.2.7, 11.4.7
+g11 [non_technical] do we have to do code review before releasing payment page changes, and who can do it
+    expected: 6.2.3, 6.2.3.1
+    got:      6.4.3, 11.6.1, 6.2.3.1, 6.5.5, 3.3.1.2
+g12 [non_technical] do linux servers need antivirus too or only windows boxes
+    expected: 5.2.1, 5.2.3
+    got:      10.6.2, 2.2.3, 3.4.1, 10.3.1, 10.4.1
+g14 [non_technical] One of our website plugins is out of date. How quickly do we have to install the fix?
+    expected: 6.3.3
+    got:      1.4.1, 4.2.1.1, 1.2.4, 2.2.1, 1.2.3
+g16 [non_technical] What should I do before pushing new code that touches the checkout page to production?
+    expected: 6.2.3, 6.2.3.1, 6.5.1, 6.4.3
+    got:      6.2.3.1, 6.4.3, 2.2.1, 6.5.6, 6.2.3
+g17 [non_technical] How often should I review who has access to systems that handle card data?
+    expected: 7.2.4
+    got:      9.5.1, 3.3.1.2, 3.3.1.3, 10.4.2, 10.4.2.1
+g18 [non_technical] how often should malware scans run and how long keep the results
+    expected: 5.3.2, 5.3.2.1, 5.3.4, 10.5.1
+    got:      5.3.2, 5.3.2.1, 11.3.1, 5.3.3, 5.3.4
+g19 [non_technical] A vendor wants remote access to our systems to fix something. How should we handle their login?
+    expected: 8.2.7, 8.4.3
+    got:      2.2.7, 8.4.3, 8.3.1, 3.4.2, 8.2.3
+g20 [non_technical] How often should someone check that our firewall rules are still needed and correct?
+    expected: 1.2.7
+    got:      10.7.1, 10.7.2, 6.4.2, 6.5.3, 7
+g21 [non_technical] A customer called and read out their card number. Can my agent write it down on paper?
+    expected: 9.4.1, 9.4.6
+    got:      3.3.1.2, 3.5.1.3, 8.3.4, 8.3.9, 1.2.4
+g22 [non_technical] How long does a password need to be, and can several people share one admin account?
+    expected: 8.3.6, 8.2.2
+    got:      8.3.10.1, 8.3.10, 8.3.9, 8.2.2, 3.6.1.3
+g24 [non_technical] How do I stop someone from swapping out or tampering with my card payment terminals?
+    expected: 9.5.1, 9.5.1.2, 9.5.1.3
+    got:      9.5.1, 8.3.4, 3.3.1.2, 6.4.3, 9.4.1
+g25 [non_technical] Is it okay to email card details to a colleague if the message is only going to one person?
+    expected: 4.2.2
+    got:      8.2.2, 8.3.1, 12.7.1, 8, 8.2.1
+g26 [non_technical] We're adding a new payment page to our website. What do we need to do so card data is safe while traveling over the internet?
+    expected: 4.2.1
+    got:      9.5.1, 6.4.3, 11.6.1, 5.3.5, 8.2.8
+g28 [non_technical] How often do we have to scan our systems for security weaknesses?
+    expected: 11.3.1, 11.3.1.3, 11.3.2, 11.3.2.1
+    got:      11.4.1, 11.4.4, 11.3.2, 11.3.1, 11.2.2
+g29 [non_technical] We need a database backup that includes customer card numbers. How should those numbers be protected inside the backup?
+    expected: 3.5.1
+    got:      10.3.1, 10.3.3, 7.2.2, 12.10.1, 8.3.10
+g31 [non_technical] what evidence shows our service providers acknowledge responsibility for card data security
+    expected: 12.8.2
+    got:      12.9.1, 11.4.7, 12.9.2, 8.3.10, 8.3.10.1
+g37 [non_technical] How long do I have to keep audit logs from our payment systems?
+    expected: 10.5.1
+    got:      10.4.1.1, 10.3.2, 10.2.1, 10.3.1, 10.4.1
+g38 [non_technical] Do all our office computers need antivirus software, even the ones that only do email?
+    expected: 5.2.1
+    got:      5.3.5, 6.5.3, 3.4.1, 5, 3.3.1
+g40 [non_technical] how long min password length now? and do we need MFA for admins logging in remotely
+    expected: 8.3.6, 8.4.1, 8.4.3
+    got:      8.5.1, 8.3.10, 8.4.3, 8.4.2, 8.4.1
+g43 [non_technical] Our office wifi is shared with guests. Is that a problem for the computers that handle card payments?
+    expected: 1.3.3
+    got:      8.2.2, 5.3.5, 9.5.1, 1.5.1, 3.3.1.2
+g47 [non_technical] With only two of us, is it really necessary to limit who can see card data?
+    expected: 3.4.1, 7.2.2
+    got:      3.4.1, 5.4.1, 1.4.4, 9.5.1, 8
+g50 [non_technical] Can my waiters share one login on the ordering tablet to save time?
+    expected: 8.2.2
+    got:      10.6.2, 8.2.8, 10.6.1, 8.6.2, 8.6.1
+g53 [non_technical] can we keep the card number in our db if its encrypted
+    expected: 3.5.1
+    got:      3.3.1.2, 3.3.1.3, 8.3.1, 8.2.1, 8.3.7
+g55 [non_technical] should devs have access to production card data? asking for our access policy
+    expected: 6.5.4, 7.2.2
+    got:      6.5.3, 8.3.8, 9.5.1, 6.5.4, 3.3.1.2
+g56 [non_technical] Can developers test new code using real customer card numbers?
+    expected: 6.5.5
+    got:      6.2.3.1, 3.3.1.2, 6.2.4, 6.2.2, 8.3.9
+g59 [non_technical] Can I keep customers' full card numbers in my reservation notes for repeat bookings?
+    expected: 3.2.1, 3.5.1
+    got:      8.3.10, 3.3.1.1, 1.2.4, 3.3.1.2, 12.9.2
+g65 [non_technical] Is it ok for staff to email card numbers to each other if the message is short?
+    expected: 4.2.2
+    got:      12.7.1, 1.2.4, 5.4.1, 1.4.2, 8
+g66 [non_technical] Do we need a written security policy even though there are only two of us?
+    expected: 12.1.1
+    got:      12.9.1, 12.8.2, 3.5.1.2, 10.4.1.1, 10.3.3
+g67 [non_technical] Should every employee be able to see customer card information, or only some of them?
+    expected: 3.4.1, 7.2.2
+    got:      9.5.1, 8.3.10, 8.3.10.1, 3.4.1, 8.3.9
+g68 [non_technical] How often does antivirus have to scan and update on the till computer?
+    expected: 5.3.1, 5.3.2, 5.3.2.1
+    got:      5.3.3, 11.4.1, 11.3.2, 11.3.1, 11.2.2
+g70 [non_technical] vendor default passwords on a new switch, do we have to change them before it goes live?
+    expected: 2.2.2, 2.2.1
+    got:      2.3.1, 2.2.2, 8.3.8, 2, 6.5.6
+g71 [non_technical] Which events must be recorded in the logs of systems that handle card data?
+    expected: 10.2.1.1, 10.2.1.2, 10.2.1.3, 10.2.1.4, 10.2.1.5, 10.2.1.6, 10.2.1.7
+    got:      10.2.1, 10.4.1, 10.2.1.3, 10.2.2, 10.2.1.6

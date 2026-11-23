@@ -11,8 +11,8 @@ First, an everyday question gets a cited answer. Then a question the standard do
 ## Status
 
 - Done: extraction of the PDF into structured JSON (one file per requirement).
-- Done: chunking, keyword / semantic / hybrid retrieval, and a retrieval evaluation set (53 questions plus 14 the standard does not answer).
-- Done: query rewriting, where a model rephrases the question in the standard's terminology before searching (53-question evaluation at k=8: 48 fully covered, plain hybrid search 42; a separate 63-question set written by other model runs: 57). Questions with two parts keep the best result of each part.
+- Done: chunking, keyword / semantic / hybrid retrieval, and a retrieval evaluation set (115 questions plus 18 the standard does not answer).
+- Done: query rewriting, where a model rephrases the question in the standard's terminology before searching (115-question evaluation at k=8: 105 fully covered, plain hybrid search 83; just over half of the questions were written and labelled by separate model runs). Questions with two parts keep the best result of each part.
 - Done: the evaluation can save a run and compare it with a saved one question by question, and prints a headline score.
 - Done: an answer-level check without a judge (`python src/evaluate_answers.py`): does the assistant refuse exactly when the standard has no answer, and does it cite what it should.
 - Done: a local web interface (`python src/server.py`) with the same pipeline: each question is its own card, the last 10 stay on the page until it is reloaded, and the sources open in a side panel when you click a citation.
@@ -117,6 +117,6 @@ python src/evaluate.py --misses hybrid    # retrieval evaluation
 - Chunking, search scoring and the answer pipeline (`test_chunking.py`, `test_evaluate.py`, `test_ask.py`, `test_rewrite.py`). The model call is replaced by a fake `claude` command, so no test calls a model.
 - Consistency of the question set with the extracted data (`test_eval_questions.py`).
 
-**Evaluation** (`eval/questions.jsonl`, 53 questions) measures retrieval: for each question, are the expected requirement IDs in the top k results? The report counts questions with all and with at least one expected requirement, overall and per question type. `eval/unanswerable.jsonl` holds questions the standard does not answer, for testing the "could not find" reply.
+**Evaluation** (`eval/questions.jsonl`, 115 questions) measures retrieval: for each question, are the expected requirement IDs in the top k results? The report counts questions with all and with at least one expected requirement, overall and per question type. `eval/unanswerable.jsonl` holds questions the standard does not answer, for testing the "could not find" reply.
 
 **What is not in this repository.** The PDF, the extracted JSON, the chunks and the reference ("golden") outputs contain the standard's text, which PCI SSC copyrights, so they are gitignored. Download the PDF yourself (see Setup). Tests that compare against golden files or quoted text skip when those files are absent; everything else, including the independent PDF check, runs. Without the PDF all tests skip.
